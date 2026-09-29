@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>方法与口径 · AI 替代进程</title>
+<meta name="description" content="每日观察 AI 取代人类各方面生活进程的进展记录">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" type="application/json" href="data/index.json" title="index.json">
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <div class="brand"><a href="index.html">AI 降临观测站</a></div>
+  <nav class="nav">
+    <a href="index.html">互联网</a>
+    <a href="academia.html">学术界</a>
+    <a href="archive.html">归档</a>
+    <a href="method.html" class="active">方法</a>
+  </nav>
+</div></header>
+<main class="wrap">
+<section class="head">
+  <h1>方法与口径</h1>
+  <p class="sub">这个站点如何产生每日记录、分数意味着什么、以及它在哪里不可靠。</p>
+</section>
+<div class="prose">
+<h2>1. 每日流水线</h2>
+<ol>
+  <li><strong>原始资讯采集</strong>：读取 <code>config/sources.json</code> 中注册的全部源（RSS/Atom 与 JSON API），带超时、重试与同源节流，原文缓存到 <code>data/raw/&lt;日期&gt;/</code>。单个源失败不影响整体。</li>
+  <li><strong>规则初筛</strong>：按日期窗口剔除旧闻、按 <code>data/seen.json</code> 剔除已收录条目、按正/负词典剔除离题与征稿通知，再用优先级评分把候选收敛到可承受规模。</li>
+  <li><strong>AI 初筛</strong>：批量送入 qwen-flash，判断相关性、领域、初版价值/替代度/方向与证据类型；灰区相似对交由 AI 复核是否同一事件。</li>
+  <li><strong>相似合并</strong>：标题 2-gram Jaccard + 摘要 SimHash 聚类，同一事件只保留一条主记录，其余记为「另有来源」——多来源独立报道本身是可信度信号。</li>
+  <li><strong>内容填充</strong>：批量送入 qwen-plus，生成中文摘要、关键词、原文证据片段与最终评分。</li>
+  <li><strong>落盘与展示</strong>：写入 <code>data/events/&lt;日期&gt;.json</code>，重算指数，再渲染成静态 HTML 到 <code>site/</code>。</li>
+</ol>
+
+<h2>2. 两个频道：学术界与互联网</h2>
+<p>每条记录归入一个频道，<strong>按来源划分</strong>（不是按内容临时判断）：</p>
+<ul>
+  <li><strong>学术界（科研成果）</strong>：arXiv、期刊、独立基准机构 —— 产出是论文与理论结果。</li>
+  <li><strong>互联网（实时热点）</strong>：热榜、社区（Hacker News / Reddit / V2EX / Lobsters）、科技媒体、大公司动态、产品榜 —— 反映当下互联网在关注什么。</li>
+</ul>
+<p>归属只在 AI 初筛阶段判定一次，后续环节不再改写——两个阶段各判一次会互相覆盖（实测填充阶段把互联网条目几乎全改回 academia）。</p>
+
+<h3>互联网频道的相关性口径更宽</h3>
+<p>学术界要求能指出「哪类人类工作会变少」。互联网频道<strong>允许间接关系</strong>：一个好用的产品、一种新的交互方式、一次成本大幅下降，都可能具备<strong>替代潜力</strong>，即使当下还没人因此失业。</p>
+<p>但仍然<strong>必须与 AI 或自动化有关</strong>：热榜里排名第一的娱乐、体育、时政新闻照样排除（实测抓取的今日头条热榜前三是「日媒惊呼中国队出了怪物级天才」这类内容）。</p>
+
+<h3>「直接」与「潜力」分开算</h3>
+<p>每条记录带 <code>relation</code> 字段：</p>
+<ul>
+  <li><code>direct</code>：能指出已被替代的具体岗位或流程 —— <strong>计入指数</strong>。</li>
+  <li><code>indirect</code>：只是具备替代潜力，关系是间接的 —— 页面照常显示，但<strong>贡献恒为 0，不计入指数</strong>。</li>
+</ul>
+<p>这么做是因为「这个产品有替代潜力」是<strong>推断</strong>而不是<strong>观测</strong>。把推断计入进程指数，会让「AI 取代人类」看起来比实际快——正是这个项目一开始花大力气修掉的评分膨胀。判断不了时一律按 <code>indirect</code> 处理，宁可低估。</p>
+<p>频道页头部会同时给出两个数字：直接替代 N 条（计入指数）、具备潜力 M 条（不计入指数）。</p>
+
+<h3>为什么用滚动窗口</h3>
+<p>频道页取<strong>近 7 天</strong>，而不是单日。原因是发布日 ≠ 采集日：公司博客和媒体常在发布几天后才被采到，而事件日期取发布日是对的。只看单日会让互联网频道几乎空掉。带灰色日期标签的条目不是今天发布的。</p>
+
+<h2>3. 事件 schema</h2>
+<pre>{
+  &quot;date&quot;: &quot;2026-09-27&quot;,
+  &quot;sector&quot;: &quot;internet&quot;,
+  &quot;domain&quot;: &quot;healthcare&quot;,
+  &quot;value&quot;: 0.62,
+  &quot;delta&quot;: 0.03,
+  &quot;model&quot;: &quot;xxx&quot;,
+  &quot;source_url&quot;: &quot;https://...&quot;,
+  &quot;evidence_quote&quot;: &quot;原文片段&quot;,
+  &quot;evidence_type&quot;: &quot;third_party_reproduced&quot;,
+  &quot;confidence&quot;: 0.9
+}</pre>
+<p>前九个字段是约定 schema。此外每条记录还带有用于展示与审计的字段：<code>id</code>、<code>title</code>、<code>summary_zh</code>、<code>keywords</code>、<code>why_zh</code>、<code>displacement</code>、<code>direction</code>、<code>ai_systems</code>、<code>evidence_verified</code>、<code>source_name</code>、<code>also_reported_by</code>、<code>screened_by</code>、<code>scored_by</code>、<code>index_contribution</code>。</p>
+<p>其中 <code>model</code> 指<strong>事件涉及的 AI 系统</strong>（如某个模型或产品），给这条内容打分的模型记录在 <code>scored_by</code>。</p>
+
+<h2>4. 三个分数</h2>
+<table>
+<tr><th>字段</th><th>含义</th><th>口径</th></tr>
+<tr><td><code>value</code></td><td>推进强度 0-1</td><td>该事件在「AI 承担原本由人类完成的任务」这条轴上推进了多少</td></tr>
+<tr><td><code>displacement</code></td><td>替代程度 0-1</td><td>该环节的人类角色可以被移除到什么程度（1 = 整环替代）</td></tr>
+<tr><td><code>confidence</code></td><td>可信度 0-1</td><td>由证据类型基准出发，按独立性与可复现性调整；引文无法在原文中核对时会显著下调</td></tr>
+</table>
+
+<h3>value 档位</h3>
+<table><tr><th>区间</th><th>档位</th><th>说明</th></tr>
+<tr><td class="score">0.90-1.00</td><td>里程碑</td><td>可验证地完成/超越人类专业级任务：证明长期开放问题、通过执业考试、独立交付完整专业成果、整类岗位被实际替代并被外部证实。</td></tr>
+<tr><td class="score">0.70-0.90</td><td>显著跃升</td><td>在公认基准上有大幅提升且有独立验证，或已进入真实生产环境替代人类环节。</td></tr>
+<tr><td class="score">0.50-0.70</td><td>扎实进展</td><td>明确的能力提升，方法可信，但尚未独立验证或规模有限。</td></tr>
+<tr><td class="score">0.30-0.50</td><td>增量改进</td><td>常规改进、小数据集实验、单纯方法组合。</td></tr>
+<tr><td class="score">0.00-0.30</td><td>弱相关</td><td>理论探索、与替代人类任务关系间接。</td></tr>
+</table>
+
+<h2>5. 证据类型</h2>
+<table><tr><th>key</th><th>名称</th><th>基准可信度</th><th>说明</th></tr>
+<tr><td><code>peer_reviewed</code></td><td>同行评审</td><td class="score">0.88</td><td>正式发表的同行评审论文或期刊结果</td></tr>
+<tr><td><code>third_party_reproduced</code></td><td>第三方复现</td><td class="score">0.92</td><td>独立第三方复现或独立评测机构报告</td></tr>
+<tr><td><code>benchmark_leaderboard</code></td><td>公开榜单</td><td class="score">0.8</td><td>可公开核验的榜单或评测结果</td></tr>
+<tr><td><code>government_filing</code></td><td>监管/政府文件</td><td class="score">0.9</td><td>监管审批、政府报告、法院文书</td></tr>
+<tr><td><code>press_release</code></td><td>官方新闻稿</td><td class="score">0.7</td><td>机构官方通稿，事实性较高但选择性披露</td></tr>
+<tr><td><code>vendor_claim</code></td><td>厂商自述</td><td class="score">0.48</td><td>厂商自己的博客/发布，无独立验证</td></tr>
+<tr><td><code>preprint</code></td><td>预印本</td><td class="score">0.55</td><td>arXiv 等未经同行评审的预印本</td></tr>
+<tr><td><code>news_report</code></td><td>媒体报道</td><td class="score">0.6</td><td>媒体二手报道</td></tr>
+<tr><td><code>community_report</code></td><td>社区/从业者</td><td class="score">0.42</td><td>社区讨论、从业者个人观察</td></tr>
+<tr><td><code>unknown</code></td><td>来源不明</td><td class="score">0.3</td><td>无法判定证据类型</td></tr>
+</table>
+<p><strong>证据核对闸门</strong>：模型给出的 <code>evidence_quote</code> 会被程序逐字回查原文，核对不上的引文不会写入，同时该条 <code>confidence</code> 乘 0.6。这是防止模型编造引文的主要手段。</p>
+
+<h2>6. 指数与 delta</h2>
+<p>每个领域有一个 0-100 的进程指数，用饱和曲线把累计贡献映射成指数：</p>
+<pre>贡献 c = direction × value × confidence        （advance = +1，setback = −1，neutral = 0）
+指数 I = 100 × (1 − e^(−累计贡献 / K))
+      K = dailyBaseline × horizonDays           （horizonDays = 90）
+
+单条事件的 delta = I(累计值 + c) − I(累计值)
+</pre>
+<p><code>dailyBaseline</code> 是该领域的日均贡献基线，<code>K</code> 由它推导。这样定义的好处是：在正常节奏下，<strong>每个领域的指数都约在 90 天后达到 63%</strong>，日环比变化量级统一（正常一天合计约 +1 到 +3），单日热点不会把不同领域拉出量级差异。</p>
+<p>因此<strong>同一领域同一天所有事件的 delta 之和，恒等于该领域当日指数变化量</strong>——可加、可核验。流水线每次运行都会独立复算一遍并断言这个恒等式。</p>
+<p>指数刻意用饱和曲线：单日热点不会把指数顶满，长期累积才会。它衡量的是「自基准日起的累计进程」，不是绝对真值，也不能跨领域直接比较。</p>
+<table><tr><th>key</th><th>领域</th><th>范围</th><th>日均基线</th><th>尺度 K</th></tr>
+<tr><td><code>math</code></td><td>∑ 数学</td><td>形式化证明、定理发现、符号推理、数学竞赛与开放问题。</td><td class="score">1.2</td><td class="score">108</td></tr>
+<tr><td><code>physics</code></td><td>⚛ 物理</td><td>理论推导、实验设计、仿真替代、材料与量子计算。</td><td class="score">2</td><td class="score">180</td></tr>
+<tr><td><code>science</code></td><td>🔬 科学发现</td><td>跨学科科研流程自动化：假设生成、文献综合、实验闭环。</td><td class="score">2.5</td><td class="score">225</td></tr>
+<tr><td><code>software</code></td><td>⌨ 互联网 / 软件</td><td>编程智能体、代码生成与审查、搜索与内容生产结构变化。</td><td class="score">8.5</td><td class="score">765</td></tr>
+<tr><td><code>healthcare</code></td><td>⚕ 医疗 / 生物</td><td>诊断、影像、临床文书、药物发现与监管审批。</td><td class="score">3</td><td class="score">270</td></tr>
+<tr><td><code>knowledge_work</code></td><td>📊 金融 / 法律 / 白领</td><td>分析师、律师、客服、审计、行政等知识岗位的任务替代。</td><td class="score">3</td><td class="score">270</td></tr>
+<tr><td><code>creative</code></td><td>🎨 艺术 / 内容创作</td><td>图像、音乐、视频、写作、游戏资产的生成与生产流程重构。</td><td class="score">2</td><td class="score">180</td></tr>
+<tr><td><code>robotics</code></td><td>🤖 机器人与物理世界</td><td>具身智能、自动驾驶、制造、物流与家务劳动。</td><td class="score">3</td><td class="score">270</td></tr>
+</table>
+
+<h2>7. 硬闸门：证据不足就不许给高分</h2>
+<p>光靠提示词约束不了模型。因此有两道<strong>代码强制</strong>的闸门，在 AI 打分之后套用：</p>
+<ol>
+  <li><strong>依据闸门</strong>：<code>value ≥ 0.65</code> 时必须填写 <code>evidence_basis</code>（具体基准名与数字，或真实部署规模）。写不出具体依据的，直接压到 ≤ 0.6。</li>
+  <li><strong>证据类型闸门</strong>：证据类型决定 value 的上限——没有对应等级的证据，就不允许给出对应等级的推进强度。</li>
+</ol>
+<table><tr><th>证据类型</th><th>名称</th><th>value 上限</th></tr>
+<tr><td><code>third_party_reproduced</code></td><td>第三方复现</td><td class="score">≤ 1.00</td></tr>
+<tr><td><code>government_filing</code></td><td>监管/政府文件</td><td class="score">≤ 1.00</td></tr>
+<tr><td><code>peer_reviewed</code></td><td>同行评审</td><td class="score">≤ 0.90</td></tr>
+<tr><td><code>benchmark_leaderboard</code></td><td>公开榜单</td><td class="score">≤ 0.85</td></tr>
+<tr><td><code>press_release</code></td><td>官方新闻稿</td><td class="score">≤ 0.75</td></tr>
+<tr><td><code>news_report</code></td><td>媒体报道</td><td class="score">≤ 0.70</td></tr>
+<tr><td><code>preprint</code></td><td>预印本</td><td class="score">≤ 0.65</td></tr>
+<tr><td><code>vendor_claim</code></td><td>厂商自述</td><td class="score">≤ 0.60</td></tr>
+<tr><td><code>community_report</code></td><td>社区/从业者</td><td class="score">≤ 0.45</td></tr>
+<tr><td><code>unknown</code></td><td>来源不明</td><td class="score">≤ 0.40</td></tr>
+</table>
+<p>被闸门截断的记录在列表里带 <sup>*</sup> 标记，字段里带 <code>value_capped</code>。</p>
+
+<h2>8. 评分分布自检</h2>
+<table>
+<tr><th>指标</th><th>最新一天</th><th>预期</th></tr>
+<tr><td>value 中位数</td><td class="score">0.55</td><td>0.4 – 0.55</td></tr>
+<tr><td>value 四分位（p25 / p75）</td><td class="score">0.5 / 0.55</td><td>—</td></tr>
+<tr><td>高价值(≥0.7)占比</td><td class="score">2%</td><td>≤ 15%</td></tr>
+<tr><td>confidence 中位数</td><td class="score">0.55</td><td>0.4 – 0.75</td></tr>
+<tr><td>因「无具体依据」被截断</td><td class="score">0</td><td>越少越好</td></tr>
+<tr><td>因「证据类型不足」被截断</td><td class="score">6</td><td>—</td></tr>
+<tr><td>引文未通过核对</td><td class="score">8</td><td>0 最佳</td></tr>
+</table>
+<p>流水线每天自动比对这张表。中位数或高价值占比越界时，运行日志会给出「评分分布告警」，说明当天 AI 打分整体偏宽或偏严——这类漂移是这类系统的头号故障模式。</p>
+
+<h2>8b. <span id="audit"></span>跨模型独立复核</h2>
+<p>评分通胀是这类系统最主要的失效模式，而<strong>同一个模型无法发现自己的偏差</strong>——让它自查，结果会和打分时高度相关。所以另设一个复核脚本，用<strong>不同族的模型</strong>重新给当天事件打分，专门找被高估的条目：</p>
+<pre>npm run audit -- --date 2026-09-28              # 用 .env 配置的模型复核（默认 deepseek 系）
+npm run audit -- --date 2026-09-28 --sample 30  # 只抽查价值最高的 30 条
+npm run audit -- --date 2026-09-28 --engine codex  # 交给 codex agent 深度复核</pre>
+<p>复核结果落在 <code>data/audits/&lt;日期&gt;.json</code>，与原评分不一致的条目会在列表里带「复核」标记。<strong>复核不会自动改写分数</strong>——单个复核模型的判断同样可能错，它的作用是产生一个可人工抽查的候选清单，而不是自动裁决。</p>
+<p>还没有复核记录。首次运行的发现通常是「安全/评测类基准被误判为劳动替代」与「预印本自述被高估」这两类。</p>
+
+<h2>9. 数据源健康</h2>
+<p>流水线每次运行都会记录每个源的可用性；连续失败 3 次的源会被临时跳过（7 天冷却），可用 <code>--force-sources</code> 强制重试。</p>
+<table><tr><th>源</th><th>id</th><th>状态</th><th>成功</th><th>失败</th><th>最近错误</th></tr>
+<tr>
+  <td>arXiv cs.AI</td>
+  <td><code>arxiv-cs-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.LG</td>
+  <td><code>arxiv-cs-lg</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.CL</td>
+  <td><code>arxiv-cs-cl</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.CV</td>
+  <td><code>arxiv-cs-cv</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.NE</td>
+  <td><code>arxiv-cs-ne</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.IR</td>
+  <td><code>arxiv-cs-ir</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.SE</td>
+  <td><code>arxiv-cs-se</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.HC</td>
+  <td><code>arxiv-cs-hc</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.MA</td>
+  <td><code>arxiv-cs-ma</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.GR</td>
+  <td><code>arxiv-cs-gr</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.SD</td>
+  <td><code>arxiv-cs-sd</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.CE</td>
+  <td><code>arxiv-cs-ce</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.CY</td>
+  <td><code>arxiv-cs-cy</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.RO</td>
+  <td><code>arxiv-cs-ro</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv stat.ML</td>
+  <td><code>arxiv-stat-ml</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv stat.AP</td>
+  <td><code>arxiv-stat-ap</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv math.AG</td>
+  <td><code>arxiv-math-ag</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv math.NT</td>
+  <td><code>arxiv-math-nt</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv math.CO</td>
+  <td><code>arxiv-math-co</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv math.LO</td>
+  <td><code>arxiv-math-lo</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv math.OC</td>
+  <td><code>arxiv-math-oc</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv physics</td>
+  <td><code>arxiv-physics</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv hep-th</td>
+  <td><code>arxiv-hep-th</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cond-mat</td>
+  <td><code>arxiv-cond-mat</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv quant-ph</td>
+  <td><code>arxiv-quant-ph</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv physics.med-ph</td>
+  <td><code>arxiv-physics-med-ph</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv q-bio.QM</td>
+  <td><code>arxiv-q-bio-qm</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv q-bio.NC</td>
+  <td><code>arxiv-q-bio-nc</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv eess.IV</td>
+  <td><code>arxiv-eess-iv</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv eess.AS</td>
+  <td><code>arxiv-eess-as</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv econ.GN</td>
+  <td><code>arxiv-econ-gn</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv q-fin.GN</td>
+  <td><code>arxiv-q-fin-gn</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>OpenAI News</td>
+  <td><code>openai-news</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Hacker News 首页</td>
+  <td><code>hn-frontpage</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Hacker News 100+ 分</td>
+  <td><code>hnrss-100</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Lobsters</td>
+  <td><code>lobsters</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Google DeepMind Blog</td>
+  <td><code>deepmind-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Google AI Blog</td>
+  <td><code>google-ai-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Anthropic News</td>
+  <td><code>anthropic-news</code></td>
+  <td><span class="neg">HTTP 404</span></td>
+  <td class="score">0</td>
+  <td class="score">30</td>
+  <td>HTTP 404</td>
+</tr>
+<tr>
+  <td>Meta AI Blog</td>
+  <td><code>meta-ai</code></td>
+  <td><span class="zero">未探测</span></td>
+  <td class="score">0</td>
+  <td class="score">30</td>
+  <td>fetch failed</td>
+</tr>
+<tr>
+  <td>Microsoft Research</td>
+  <td><code>msr-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Hugging Face Blog</td>
+  <td><code>hf-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>NVIDIA Blog</td>
+  <td><code>nvidia-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Mistral News</td>
+  <td><code>mistral-news</code></td>
+  <td><span class="zero">未探测</span></td>
+  <td class="score">0</td>
+  <td class="score">30</td>
+  <td>fetch failed</td>
+</tr>
+<tr>
+  <td>BAIR Blog</td>
+  <td><code>bair-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>TechCrunch</td>
+  <td><code>techcrunch</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Ars Technica</td>
+  <td><code>ars-technica</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>The Verge</td>
+  <td><code>the-verge</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>WIRED</td>
+  <td><code>wired</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>MIT Technology Review</td>
+  <td><code>mit-tech-review</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>IEEE Spectrum</td>
+  <td><code>ieee-spectrum</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Nature</td>
+  <td><code>nature</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Science</td>
+  <td><code>science-mag</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Quanta Magazine</td>
+  <td><code>quanta</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>medRxiv</td>
+  <td><code>medrxiv</code></td>
+  <td><span class="neg">HTTP 404</span></td>
+  <td class="score">0</td>
+  <td class="score">30</td>
+  <td>HTTP 404</td>
+</tr>
+<tr>
+  <td>STAT News</td>
+  <td><code>statnews</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Medical Xpress</td>
+  <td><code>medicalxpress</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Phys.org</td>
+  <td><code>phys-org</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Simon Willison</td>
+  <td><code>simon-willison</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Import AI</td>
+  <td><code>import-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>The Gradient</td>
+  <td><code>the-gradient</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Latent Space</td>
+  <td><code>latent-space</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>AI Snake Oil</td>
+  <td><code>ai-snake-oil</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Interconnects</td>
+  <td><code>interconnects</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Epoch AI</td>
+  <td><code>epoch-ai</code></td>
+  <td><span class="neg">HTTP 404</span></td>
+  <td class="score">0</td>
+  <td class="score">30</td>
+  <td>HTTP 404</td>
+</tr>
+<tr>
+  <td>METR</td>
+  <td><code>metr</code></td>
+  <td><span class="neg">HTTP 404</span></td>
+  <td class="score">0</td>
+  <td class="score">30</td>
+  <td>HTTP 404</td>
+</tr>
+<tr>
+  <td>ARC Prize</td>
+  <td><code>arc-prize</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>LMArena Blog</td>
+  <td><code>lmarena</code></td>
+  <td><span class="zero">未探测</span></td>
+  <td class="score">0</td>
+  <td class="score">31</td>
+  <td>解析失败: 响应不是 feed</td>
+</tr>
+<tr>
+  <td>AI News (smol.ai)</td>
+  <td><code>smol-ai-news</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>GitHub Blog</td>
+  <td><code>github-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Google Research Blog</td>
+  <td><code>google-research</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">38</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>AWS Machine Learning Blog</td>
+  <td><code>aws-ml-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Cloudflare Blog</td>
+  <td><code>cloudflare-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Stack Overflow Blog</td>
+  <td><code>stackoverflow-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>r/MachineLearning</td>
+  <td><code>reddit-ml</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>r/LocalLLaMA</td>
+  <td><code>reddit-localllama</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">36</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>r/singularity</td>
+  <td><code>reddit-singularity</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">33</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>EU AI Act</td>
+  <td><code>eu-ai-act</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>US FDA Press Releases</td>
+  <td><code>fda-press</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">37</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Brookings TechTank</td>
+  <td><code>brookings-tech</code></td>
+  <td><span class="zero">未探测</span></td>
+  <td class="score">0</td>
+  <td class="score">31</td>
+  <td>解析失败: 响应不是 feed</td>
+</tr>
+<tr>
+  <td>arXiv cs.LO</td>
+  <td><code>arxiv-cs-lo</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.SC</td>
+  <td><code>arxiv-cs-sc</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.MS</td>
+  <td><code>arxiv-cs-ms</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv math.NA</td>
+  <td><code>arxiv-math-na</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.SY</td>
+  <td><code>arxiv-cs-sy</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv eess.SY</td>
+  <td><code>arxiv-eess-sy</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv cs.CR</td>
+  <td><code>arxiv-cs-cr</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>arXiv q-fin.RM</td>
+  <td><code>arxiv-q-fin-rm</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">32</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Apple Machine Learning</td>
+  <td><code>apple-ml</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Microsoft Official Blog</td>
+  <td><code>microsoft-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Salesforce Blog</td>
+  <td><code>salesforce-blog</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Samsung Newsroom</td>
+  <td><code>samsung-news</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>AWS News Blog</td>
+  <td><code>aws-news</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>量子位</td>
+  <td><code>qbitai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>InfoQ 中文</td>
+  <td><code>infoq-cn</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>TechCrunch AI</td>
+  <td><code>techcrunch-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>ZDNet AI</td>
+  <td><code>zdnet-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>WIRED AI</td>
+  <td><code>wired-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Financial Times Tech</td>
+  <td><code>ft-tech</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Bloomberg Technology</td>
+  <td><code>bloomberg-tech</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>CNBC Technology</td>
+  <td><code>cnbc-tech</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>The Register</td>
+  <td><code>theregister</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Layoffs.fyi</td>
+  <td><code>layoffs-fyi</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Indeed Hiring Lab</td>
+  <td><code>hiringlab</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">19</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Hacker News 首页榜</td>
+  <td><code>hn-algolia</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Slashdot</td>
+  <td><code>slashdot</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Product Hunt</td>
+  <td><code>producthunt</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>GitHub Trending</td>
+  <td><code>gh-trending</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Techmeme</td>
+  <td><code>techmeme</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Google Trends US</td>
+  <td><code>gtrends-us</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Google News · AI</td>
+  <td><code>googlenews-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>The Verge AI</td>
+  <td><code>verge-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Ars Technica AI</td>
+  <td><code>ars-ai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Engadget</td>
+  <td><code>engadget</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Bing News · AI</td>
+  <td><code>bingnews-tech</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>The Information</td>
+  <td><code>theinformation</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>cnBeta</td>
+  <td><code>cnbeta</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Solidot 奇客</td>
+  <td><code>solidot</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>开源中国</td>
+  <td><code>oschina</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>V2EX</td>
+  <td><code>v2ex</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>少数派</td>
+  <td><code>sspai</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>爱范儿</td>
+  <td><code>ifanr</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>钛媒体</td>
+  <td><code>tmtpost</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>界面新闻</td>
+  <td><code>jiemian</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>新浪科技</td>
+  <td><code>sina-tech</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>今日头条热榜</td>
+  <td><code>toutiao-hot</code></td>
+  <td><span class="pos">可用</span></td>
+  <td class="score">7</td>
+  <td class="score">0</td>
+  <td>—</td>
+</tr>
+</table>
+
+<h2>10. 已知局限</h2>
+<ul>
+  <li><strong>来源覆盖取决于网络可达性</strong>。当前环境下大量媒体与期刊站点不可达，因此记录偏向预印本与官方博客，这对「真实岗位替代」类事件不敏感。</li>
+  <li><strong>评分是模型判断，不是测量</strong>。同一事件换一个模型可能差 0.1-0.2。档位表与证据类型权重是为了压低这种漂移，但不能消除。</li>
+  <li><strong>预印本不等于事实</strong>。大量记录的 <code>evidence_type</code> 是 <code>preprint</code>，其可信度基准仅 0.55。</li>
+  <li><strong>指数不可跨领域比较</strong>。各领域的 K 与事件密度不同，只适合看单领域随时间的走向。</li>
+  <li><strong>分数通胀是主要风险</strong>。模型倾向于把普通论文打成「显著跃升」。上述两道硬闸门与分布自检就是为了压制它，但仍需人工抽查。</li>
+  <li><strong>候选上限</strong>：初筛候选上限 320 条、填充上限 120 条，超出部分留待提高配置后处理。</li>
+</ul>
+
+<h2>11. 复现</h2>
+<pre>npm run pipeline            # 完整跑一次当日流水线
+npm run pipeline -- --date 2026-09-27 --refresh   # 指定日期并强制刷新源
+npm run pipeline -- --offline                     # 只用本地缓存，不联网
+npm run render              # 只重算指数并重新渲染 HTML
+npm run probe               # 探测数据源可达性</pre>
+<p>所有 AI 调用按 prompt 哈希缓存在 <code>data/cache/ai/</code>，同一天重跑不会重复计费，结果可复现。</p>
+</div>
+<footer class="foot">
+  <span>数据每日由流水线自动生成</span>
+  <span>·</span>
+  <a href="method.html">评分口径与局限</a>
+  <span>·</span>
+  <a href="data/index.json">原始数据</a>
+</footer>
+</main>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

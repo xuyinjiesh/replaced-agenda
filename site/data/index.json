@@ -1,0 +1,350 @@
+{
+  "epoch": "2026-09-28",
+  "computedAt": "2026-09-29T08:27:45.875Z",
+  "dates": [
+    "2026-09-25",
+    "2026-09-26",
+    "2026-09-27",
+    "2026-09-28"
+  ],
+  "domains": [
+    {
+      "domain": "math",
+      "label": "数学",
+      "index": 2.09,
+      "delta": 2.0912,
+      "events": 9,
+      "cumulative": 2.283,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 2.0912,
+          "index": 2.09,
+          "events": 9,
+          "value_sum": 2.493
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0
+    },
+    {
+      "domain": "physics",
+      "label": "物理",
+      "index": 1.18,
+      "delta": 1.1846,
+      "events": 7,
+      "cumulative": 2.145,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0,
+          "index": 0,
+          "events": 1,
+          "value_sum": 0.36
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 1.1846,
+          "index": 1.18,
+          "events": 7,
+          "value_sum": 2.145
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0
+    },
+    {
+      "domain": "science",
+      "label": "科学发现",
+      "index": 2.09,
+      "delta": 1.9925,
+      "events": 18,
+      "cumulative": 4.763,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 2,
+          "value_sum": 1.584
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0.1023,
+          "index": 0.1,
+          "events": 1,
+          "value_sum": 0.23
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 1.9925,
+          "index": 2.09,
+          "events": 18,
+          "value_sum": 4.533
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0.1
+    },
+    {
+      "domain": "software",
+      "label": "互联网 / 软件",
+      "index": 0.66,
+      "delta": 0.6178,
+      "events": 29,
+      "cumulative": 5.091,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 7,
+          "value_sum": 2.485
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0.0455,
+          "index": 0.05,
+          "events": 1,
+          "value_sum": 0.348
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0,
+          "index": 0.05,
+          "events": 5,
+          "value_sum": 0.967
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 0.6178,
+          "index": 0.66,
+          "events": 29,
+          "value_sum": 7.883
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0.05
+    },
+    {
+      "domain": "healthcare",
+      "label": "医疗 / 生物",
+      "index": 1.61,
+      "delta": 1.611,
+      "events": 18,
+      "cumulative": 4.385,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 1.611,
+          "index": 1.61,
+          "events": 18,
+          "value_sum": 5.075
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0
+    },
+    {
+      "domain": "knowledge_work",
+      "label": "金融 / 法律 / 白领",
+      "index": 1.57,
+      "delta": 1.2199,
+      "events": 14,
+      "cumulative": 4.261,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0.1,
+          "index": 0.1,
+          "events": 3,
+          "value_sum": 1.04
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0.1,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0.2457,
+          "index": 0.35,
+          "events": 6,
+          "value_sum": 2.029
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 1.2199,
+          "index": 1.57,
+          "events": 14,
+          "value_sum": 4.462
+        }
+      ],
+      "index_7d_ago": 0.1,
+      "prev_index": 0.35
+    },
+    {
+      "domain": "creative",
+      "label": "艺术 / 内容创作",
+      "index": 1.67,
+      "delta": 1.6654,
+      "events": 12,
+      "cumulative": 3.023,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0,
+          "index": 0,
+          "events": 1,
+          "value_sum": 0.42
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 1.6654,
+          "index": 1.67,
+          "events": 12,
+          "value_sum": 3.326
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0
+    },
+    {
+      "domain": "robotics",
+      "label": "机器人与物理世界",
+      "index": 2.94,
+      "delta": 2.7878,
+      "events": 25,
+      "cumulative": 8.066,
+      "series": [
+        {
+          "date": "2026-09-25",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-26",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-09-27",
+          "delta": 0.1554,
+          "index": 0.16,
+          "events": 1,
+          "value_sum": 0.42
+        },
+        {
+          "date": "2026-09-28",
+          "delta": 2.7878,
+          "index": 2.94,
+          "events": 25,
+          "value_sum": 7.646
+        }
+      ],
+      "index_7d_ago": 0,
+      "prev_index": 0.16
+    }
+  ],
+  "totalDelta": 13.1702,
+  "eventCount": 160,
+  "cumulativeByDomain": {
+    "science": 4.763,
+    "software": 5.091,
+    "knowledge_work": 4.261,
+    "creative": 3.023,
+    "robotics": 8.066,
+    "physics": 2.145,
+    "healthcare": 4.385,
+    "math": 2.283
+  },
+  "source_stats": [],
+  "verification": {
+    "ok": true,
+    "failures": [],
+    "checkedEvents": 160
+  }
+}

@@ -1,0 +1,428 @@
+/* ==========================================================================
+   替代进程观测站 — 样式
+   设计要点：卡片式列表、单一热色轴表达推进强度、无外部依赖、亮暗双色。
+   ========================================================================== */
+
+:root {
+  /* 页面宽度。表格列布局需要横向空间：列宽合计 ~416px + 间距 60px + 内边距 44px，
+     再给标题列留约 720px，最长的中文标题（46.9 字宽 ≈ 680px）才能一行放下。 */
+  --page-w: 1260px;
+  /* 公司/机构名 与 关键概念 的标记色 */
+  --ent: #1f6feb; --ent-d: #79b0ff;
+  --con: #8250df; --con-d: #c0a6ff;
+  --bg: #f6f6f8;
+  --panel: #ffffff;
+  --panel-2: #fafafb;
+  --fg: #17171b;
+  --fg-muted: #62626d;
+  --fg-faint: #9797a2;
+  --line: #e9e9ee;
+  --line-strong: #d8d8e0;
+  --accent: #2563eb;
+  --advance: #15803d;
+  --setback: #c0392b;
+  --neutral: #7a7a85;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgb(16 16 20 / 4%), 0 6px 20px -8px rgb(16 16 20 / 10%);
+  --shadow-hover: 0 2px 4px rgb(16 16 20 / 6%), 0 14px 34px -12px rgb(16 16 20 / 18%);
+
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0d;
+    --panel: #141419;
+    --panel-2: #191920;
+    --fg: #f0f0f3;
+    --fg-muted: #a0a0ab;
+    --fg-faint: #70707c;
+    --line: #232329;
+    --line-strong: #35353f;
+    --accent: #6ea8ff;
+    --advance: #4ade80;
+    --setback: #f87171;
+    --neutral: #9a9aa5;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 6px 20px -8px rgb(0 0 0 / 50%);
+    --shadow-hover: 0 2px 4px rgb(0 0 0 / 45%), 0 14px 34px -12px rgb(0 0 0 / 65%);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--accent); }
+
+.wrap { max-width: var(--page-w); margin: 0 auto; padding: 0 22px 90px; }
+
+/* ---------- 顶栏 ---------- */
+.top {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(1.6) blur(14px);
+  position: sticky; top: 0; z-index: 20;
+}
+.top-in {
+  max-width: var(--page-w); margin: 0 auto; padding: 13px 22px;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.brand { font-weight: 650; letter-spacing: -0.015em; font-size: 15px; white-space: nowrap; }
+.brand span { color: var(--fg-faint); font-weight: 400; }
+.brand-ctx { color: var(--fg-muted); }
+.brand-ctx::first-letter { margin-right: 2px; }
+.nav { margin-left: auto; display: flex; gap: 4px; font-size: 13.5px; color: var(--fg-muted); }
+.nav a { padding: 5px 11px; border-radius: 999px; transition: background 0.15s, color 0.15s; }
+.nav a:hover { background: var(--panel); color: var(--fg); }
+.nav a.active { color: var(--fg); font-weight: 600; background: var(--panel); }
+
+/* ---------- 头部 ---------- */
+.head { padding: 40px 0 4px; }
+.head h1 { margin: 0 0 8px; font-size: 27px; letter-spacing: -0.028em; font-weight: 680; line-height: 1.25; }
+.head .sub { color: var(--fg-muted); font-size: 14.5px; margin: 0; max-width: 66ch; }
+
+/* ---------- 领域筛选条 ---------- */
+.strip { display: flex; gap: 7px; flex-wrap: wrap; margin: 22px 0 18px; }
+.chip {
+  border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px;
+  font-size: 12.5px; color: var(--fg-muted); background: var(--panel);
+  display: inline-flex; gap: 7px; align-items: baseline; cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.12s;
+  user-select: none;
+}
+.chip:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+/* 条数。等宽 + 制表数字，让 1 和 32 在同一位置上对齐 */
+.chip b {
+  font-family: var(--mono); font-variant-numeric: tabular-nums;
+  color: var(--fg-faint); font-weight: 600; font-size: 11.5px;
+}
+.chip.on b { color: var(--fg); }
+.chip.on { border-color: var(--fg); color: var(--fg); background: var(--panel-2); box-shadow: var(--shadow); }
+
+/* ---------- 领域概览 ---------- */
+/* 注：旧领域网格的进度条 .bar（height:4px; overflow:hidden）已随领域网格一起删除。
+   它曾和上一版的页面标题栏 class="bar" 重名，把标题栏压成 4px 高的一条细缝。 */
+
+.pos { color: var(--advance); }
+.neg { color: var(--setback); }
+.zero { color: var(--neutral); }
+
+/* ---------- 列表 ---------- */
+.sechead { display: flex; align-items: baseline; gap: 12px; margin: 36px 0 14px; }
+.sechead h2 { font-size: 15.5px; margin: 0; font-weight: 660; letter-spacing: -0.012em; }
+.sechead .count { margin-left: auto; color: var(--fg-faint); font-size: 12.5px; font-family: var(--mono); }
+
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+
+.item {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 15px 18px 16px 21px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+  overflow: hidden;
+}
+/* 左侧热色条：把推进强度做成一眼可见的纵向色带 */
+.item::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--heat, var(--line-strong));
+}
+.item:hover { border-color: var(--line-strong); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.item[hidden] { display: none; }
+
+/* 顶行：领域 · 火焰 · 分数 */
+.dom {
+  font-size: 11.5px; font-weight: 550; color: var(--fg-muted);
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 999px; padding: 3px 10px; white-space: nowrap;
+}
+/* 非当日条目的日期标签：比领域标签更弱，只是提示「这条不是今天的」 */
+.dom.date {
+  background: transparent; border-color: var(--line); border-style: dashed;
+  color: var(--fg-faint); font-weight: 500; font-size: 11px;
+  font-family: var(--mono); padding: 1px 6px;
+}
+
+/* 暗色下热色偏暗（尤其深红），朝白提亮以保住对比度，同时不改变色相 */
+@media (prefers-color-scheme: dark) {
+  .item::before { background: color-mix(in srgb, var(--heat) 80%, white); }
+      .val { color: color-mix(in srgb, var(--heat) 76%, white); }
+}
+
+.val {
+  font-family: var(--mono); font-variant-numeric: tabular-nums;
+  font-size: 17px; font-weight: 680; color: var(--heat, var(--fg));
+  letter-spacing: -0.02em; line-height: 1;
+}
+.val sup { font-size: 10px; font-weight: 700; opacity: 0.75; margin-left: 1px; }
+/* 只强调两端：中间档保持安静，否则满屏都是标记等于没有标记 */
+@media (prefers-color-scheme: dark) {
+  .row .conf-high { color: #5fd08a; background: color-mix(in srgb, #5fd08a 13%, transparent); border-color: color-mix(in srgb, #5fd08a 32%, transparent); }
+  .row .conf-low { color: #e0a94a; background: color-mix(in srgb, #e0a94a 13%, transparent); border-color: color-mix(in srgb, #e0a94a 30%, transparent); }
+}
+
+.title { font-size: 16px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.012em; line-height: 1.42; }
+.title a { transition: color 0.15s; }
+.summary {
+  color: var(--fg-muted); font-size: 14px; margin: 0; line-height: 1.72;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* 复核分歧标记：只在两个模型不一致时出现 */
+@media (prefers-color-scheme: dark) {
+  .flag { color: #e5a94e; }
+}
+
+/* ---------- 表格 / 方法页 ---------- */
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin: 14px 0 22px; }
+th, td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--fg-muted); font-weight: 600; font-size: 12.5px; }
+code, pre { font-family: var(--mono); font-size: 12.5px; }
+pre { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; overflow: auto; }
+:not(pre) > code { background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+
+.prose h2 { font-size: 16.5px; margin: 38px 0 10px; letter-spacing: -0.015em; }
+.prose h3 { font-size: 14px; margin: 24px 0 8px; color: var(--fg-muted); }
+/* 页面加宽到 1240px 后，正文一行会有 100+ 字符，太难读。
+   只限制段落和列表的行宽，表格仍占满整宽（它的列本来就多）。 */
+.prose p, .prose li { color: var(--fg-muted); font-size: 14px; max-width: 78ch; }
+.prose strong { color: var(--fg); font-weight: 600; }
+.prose ul { padding-left: 20px; }
+
+.foot {
+  margin-top: 60px; padding-top: 18px; border-top: 1px solid var(--line);
+  color: var(--fg-faint); font-size: 12.5px; display: flex; gap: 14px; flex-wrap: wrap;
+}
+
+
+.empty {
+  padding: 48px 0; color: var(--fg-faint); text-align: center;
+  background: var(--panel); border: 1px dashed var(--line-strong); border-radius: var(--radius);
+}
+
+/* 「潜力」标记：提示这条是推断而非观测，不参与指数 */
+/* 复核分歧标记：只在两个模型不一致时出现（当前语料里没有） */
+.flag {
+  font-size: 10.5px; font-weight: 600; color: #a15c00;
+  background: color-mix(in srgb, #a15c00 11%, transparent);
+  border-radius: 999px; padding: 2px 8px; white-space: nowrap;
+}
+
+/* 备注标签。只标例外不标常态：命中率超过 80% 的标签没有区分度，所以不设。
+   三种颜色对应三种「为什么要留意」：绿=证据硬，琥珀=要打折扣，蓝=只是推断。 */
+.tag {
+  font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 999px;
+  border: 1px solid transparent; white-space: nowrap; flex: 0 0 auto;
+}
+.tag-ok { color: #0f7b3f; background: color-mix(in srgb, #0f7b3f 11%, transparent); border-color: color-mix(in srgb, #0f7b3f 32%, transparent); }
+.tag-warn { color: #a15c00; background: color-mix(in srgb, #a15c00 11%, transparent); border-color: color-mix(in srgb, #a15c00 30%, transparent); }
+.tag-first { color: #6d38c9; background: color-mix(in srgb, #6d38c9 11%, transparent); border-color: color-mix(in srgb, #6d38c9 30%, transparent); }
+.tag-pot { color: var(--fg-muted); background: var(--panel-2); border-color: var(--line-strong); }
+@media (prefers-color-scheme: dark) {
+  /* 复核分歧标记：只在两个模型不一致时出现（当前语料里没有） */
+.flag {
+  font-size: 10.5px; font-weight: 600; color: #a15c00;
+  background: color-mix(in srgb, #a15c00 11%, transparent);
+  border-radius: 999px; padding: 2px 8px; white-space: nowrap;
+}
+
+}
+
+
+@media (max-width: 620px) {
+  .wrap { padding: 0 15px 64px; }
+  .head h1 { font-size: 22px; }
+  .nav { gap: 2px; }
+  .nav a { padding: 5px 8px; }
+  .item { padding: 14px 15px 15px 18px; }
+}
+
+/* ============ 筛选行 ============ */
+/* 整页只剩这一行工具。原来的小标题栏已撤掉：
+   频道名进顶栏（不占行）、跳转在顶栏导航里本来就有、统计数字删掉。 */
+.strip-search { margin-left: auto; }
+.strip-search input {
+  font: inherit; font-size: 11.5px; padding: 3px 10px; width: 120px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--panel); color: var(--fg);
+}
+.strip-search input:focus { outline: none; border-color: var(--fg-faint); width: 170px; }
+/* 没有领域 chip 的页面（归档、领域页）：这一行只有搜索框，不要上边距撑出一块空白 */
+.strip-solo { margin: 0 0 14px; justify-content: flex-end; }
+@media (max-width: 620px) {
+  .strip-search { margin-left: 0; }
+  .strip-search input { width: 96px; }
+}
+
+/* ============ 归档时间轴 ============ */
+.tl-day { margin: 0 0 26px; }
+.tl-date {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  font-size: 13px; font-weight: 700; color: var(--fg);
+  padding: 0 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 12px;
+}
+.tl-date a { color: var(--fg); text-decoration: none; font-family: var(--mono); }
+.tl-date a:hover { text-decoration: underline; }
+.tl-delta { font-family: var(--mono); font-size: 12px; font-weight: 600; }
+.tl-count { font-size: 11.5px; color: var(--fg-faint); font-weight: 500; margin-left: auto; }
+.tl-list { list-style: none; margin: 0; padding: 0 0 0 18px; position: relative; }
+.tl-list::before {
+  content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px;
+  width: 2px; background: var(--line); border-radius: 2px;
+}
+.tl-item {
+  position: relative; padding: 9px 0 9px 15px; border-bottom: 1px solid var(--line);
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-item::before {
+  content: ""; position: absolute; left: -18px; top: 15px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--heat, var(--line-strong)); box-shadow: 0 0 0 3px var(--bg);
+}
+/* 推进强度数字用中性色，不再跟着热色走。
+   热色刻度在 0.42-0.55 那一段正好是琥珀黄（rgb(251 191 36) → rgb(250 140 27)），
+   加粗放在时间轴上就是一片扎眼的黄数字。强度信息由左侧圆点承担，数字只负责精确值。 */
+@media (max-width: 620px) {
+  .tl-list { padding-left: 14px; }
+  .tl-item::before { left: -14px; }
+  .tl-count { margin-left: 0; flex: 1 1 100%; }
+}
+
+/* 领域页底部的口径注释。曾经复用 .foot，把全站页脚的 60px 上边距覆盖掉了 */
+.pagenote { margin: 22px 0 0; font-size: 12px; color: var(--fg-faint); line-height: 1.6; }
+.pagenote a { color: var(--fg-muted); }
+/* 方法页表格里的数值单元格 */
+.score { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+
+/* ============ 公司与概念标记 ============ */
+/* 这些类只由 highlightTerms() 产出，本身已经足够具体，**不要再加祖先限定**。
+   上一版写成 .title .hl-ent / .summary .hl-ent，结果归档时间轴的高亮落在
+   <div class="tl-head"> 里，完全没命中，<mark> 退回了浏览器默认的黄色底。 */
+mark { background: none; color: inherit; }
+.hl-ent {
+  color: var(--ent); font-weight: 650;
+  background: color-mix(in srgb, var(--ent) 12%, transparent);
+  border-radius: 3px; padding: 0 3px; margin: 0 -1px;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.hl-con {
+  color: var(--con); font-weight: 650;
+  background: color-mix(in srgb, var(--con) 12%, transparent);
+  border-radius: 3px; padding: 0 3px; margin: 0 -1px;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+@media (prefers-color-scheme: dark) {
+  .hl-ent { color: var(--ent-d); background: color-mix(in srgb, var(--ent-d) 15%, transparent); }
+  .hl-con { color: var(--con-d); background: color-mix(in srgb, var(--con-d) 15%, transparent); }
+}
+
+
+/* ============ 展开摘要 ============ */
+/* 用原生 <details>：默认就是收起的，不依赖 JS，也不依赖给 <html> 加类。
+   默认收起不依赖任何开关：<details> 不带 open 就是收起的，即使 JS 完全没跑也一样。
+   （上一版挂在 <html class="has-js"> 上，那个类由 <head> 内联脚本添加——脚本一旦没跑，
+   摘要就会直接铺出来，而 HTML 看起来完全正常。） */
+.disc > summary { list-style: none; cursor: pointer; }
+.disc > summary::-webkit-details-marker { display: none; }
+.disc > summary::marker { content: ""; }
+.disc .chev {
+  display: inline-block; width: 7px; height: 7px; flex: 0 0 auto;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg); transition: transform 0.18s ease; color: var(--fg-faint);
+}
+.disc[open] .chev { transform: rotate(45deg); }
+.disc .panel { padding: 9px 0 2px; border-top: 1px dashed var(--line); margin-top: 9px; }
+.srclink {
+  display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 600;
+  color: var(--fg-muted); text-decoration: none;
+}
+.srclink:hover { color: var(--fg); text-decoration: underline; }
+
+/* ============ 表格列布局 ============ */
+/* 标题放第一列并占据剩余宽度，其余列定宽，行与行之间纵向对齐。
+   用 grid 而不是 <table>：每行还要能展开摘要，details/summary 塞不进表格语义里。 */
+.item .row, .tl-item .row {
+  display: grid;
+  /* 领域 134（容得下「📊 金融 / 法律 / 白领」）· 强度 48 · 可信度 100 · 备注 156（最宽的标签组合 146px）· 箭头 14 */
+  grid-template-columns: minmax(0, 1fr) 134px 48px 100px 156px 14px;
+  align-items: baseline; column-gap: 12px; row-gap: 4px;
+}
+/* 单行。页面加宽到 1240px 后标题列有 ~720px，最长的中文标题也能放下；
+   省略号只是窄屏下的兜底。 */
+.row .title {
+  grid-column: 1; min-width: 0; margin: 0;
+  font-size: 14.5px; font-weight: 620; line-height: 1.5;
+  color: var(--fg); text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.row .title:hover { color: var(--accent); text-decoration: underline; }
+.row .dom {
+  grid-column: 2; font-size: 12px; color: var(--fg-muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.row .val {
+  grid-column: 3; font-family: var(--mono); font-size: 14.5px; font-weight: 700;
+  color: var(--heat, var(--fg)); font-variant-numeric: tabular-nums; text-align: right;
+}
+.row .val sup { font-size: 9.5px; font-weight: 700; opacity: 0.75; }
+/* 可信度徽标。基础样式曾被误删，只剩暗色模式的两条覆写——
+   结果是「高可信/低可信」退化成一串没有底色的普通文字，静默失去了强调效果。 */
+.row .conf {
+  grid-column: 4; justify-self: start;
+  font-size: 11px; font-weight: 600; padding: 2px 8px;
+  border-radius: 999px; border: 1px solid transparent; white-space: nowrap;
+}
+/* 只强调两端：中间档保持安静，否则满屏都是标记等于没有标记 */
+.row .conf-high {
+  color: #0f7b3f; background: color-mix(in srgb, #0f7b3f 11%, transparent);
+  border-color: color-mix(in srgb, #0f7b3f 34%, transparent);
+}
+.row .conf-high::before { content: "▲ "; font-size: 9px; }
+.row .conf-low {
+  color: #a15c00; background: color-mix(in srgb, #a15c00 11%, transparent);
+  border-color: color-mix(in srgb, #a15c00 32%, transparent);
+}
+.row .conf-low::before { content: "▼ "; font-size: 9px; }
+.row .conf-mid { color: var(--fg-faint); font-weight: 500; }
+.row .note {
+  grid-column: 5; display: flex; align-items: center; gap: 7px; flex-wrap: nowrap;
+  overflow: hidden;
+}
+.row .chev { grid-column: 6; justify-self: end; }
+.row .date {
+  font-size: 11px; color: var(--fg-faint); font-family: var(--mono); white-space: nowrap;
+}
+
+/* 窄屏：标题换到独立一行，其余列继续对齐 */
+@media (max-width: 860px) {
+  .item .row, .tl-item .row {
+    grid-template-columns: 134px 48px 100px minmax(0, 1fr) 14px;
+    row-gap: 6px;
+  }
+  .row .title { grid-column: 1 / -1; grid-row: 1; white-space: normal; }
+  .row .dom { grid-column: 1; grid-row: 2; }
+  .row .val { grid-column: 2; grid-row: 2; }
+  .row .conf { grid-column: 3; grid-row: 2; }
+  .row .note { grid-column: 4; grid-row: 2; }
+  .row .chev { grid-column: 5; grid-row: 2; }
+  .row .conf { font-size: 10.5px; padding: 2px 6px; }
+}
+

@@ -1,0 +1,706 @@
+{
+  "date": "2026-09-25",
+  "generated_at": "2026-09-28T12:24:31.924Z",
+  "schema_version": 1,
+  "recomputed_at": "2026-09-29T08:27:45.876Z",
+  "previous_event_count": 12,
+  "domains": [
+    {
+      "domain": "science",
+      "date": "2026-09-25",
+      "delta": 0,
+      "index": 0,
+      "events": 2,
+      "value_sum": 1.584
+    },
+    {
+      "domain": "software",
+      "date": "2026-09-25",
+      "delta": 0,
+      "index": 0,
+      "events": 7,
+      "value_sum": 2.485
+    },
+    {
+      "domain": "knowledge_work",
+      "date": "2026-09-25",
+      "delta": 0.1,
+      "index": 0.1,
+      "events": 3,
+      "value_sum": 1.04
+    }
+  ],
+  "stats": null,
+  "event_count": 12,
+  "events": [
+    {
+      "date": "2026-09-25",
+      "domain": "science",
+      "value": 0.9,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.technologyreview.com/2026/09/25/1145144/pentagon-ai-lie-detector/",
+      "evidence_quote": "The US government wants to spend $30.3 million over the next five years on an improved form of lie detector, according to a Department of Defense budget request. The program, called Polygraph+ or Polygraph Next, will focus on scoring algorithms that use artificial intelligence and machine learning and on a technique called “standoff sensing,” which…",
+      "evidence_type": "government_filing",
+      "confidence": 0.9,
+      "id": "6e1f533f98ccb6fd",
+      "title": "The Pentagon wants $30 million to build an AI-powered lie detector",
+      "title_zh": "美国国防部申请3030万美元研发AI测谎系统",
+      "title_zh_missing": false,
+      "companies": [
+        "美国国防部"
+      ],
+      "concepts": [
+        "Polygraph+",
+        "standoff sensing"
+      ],
+      "summary_zh": "美国国防部在预算申请中提出未来五年投入3030万美元，用于开发名为Polygraph+或Polygraph Next的AI驱动测谎系统，聚焦评分算法与非接触式传感技术。",
+      "keywords": [
+        "AI测谎",
+        "政府预算",
+        "非接触传感",
+        "polygraph"
+      ],
+      "why_zh": "拟用AI替代传统测谎环节，但尚处立项阶段",
+      "displacement": 0.25,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "government_filing",
+      "ai_systems": [
+        "Polygraph+ AI"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "MIT Technology Review",
+      "source_group": "media",
+      "source_id": "mit-tech-review",
+      "published_at": "2026-09-25T09:16:25.000Z",
+      "authors": [
+        "Amit Katwala"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "science",
+      "value": 0.88,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.nature.com/articles/d41586-026-03039-6",
+      "evidence_quote": "The detection effort enlisted roughly 950 AI agents that spent more than 21 hours combing through DNA sequence databases.",
+      "evidence_type": "peer_reviewed",
+      "confidence": 0.88,
+      "id": "8e59a87d2dde686b",
+      "title": "Anthropic’s AI biolab finds ‘CRISPR-like’ DNA in viruses. What’s next?",
+      "title_zh": "《自然》报道Anthropic AI生物实验室发现病毒中‘类CRISPR’DNA",
+      "title_zh_missing": false,
+      "companies": [
+        "Anthropic"
+      ],
+      "concepts": [
+        "AI biolab",
+        "CRISPR-like DNA"
+      ],
+      "summary_zh": "《自然》杂志报道Anthropic使用约950个AI代理耗时21小时扫描DNA数据库，发现病毒中具有类CRISPR结构的DNA序列，属AI辅助科学发现案例。",
+      "keywords": [
+        "Anthropic",
+        "AI biolab",
+        "CRISPR-like DNA",
+        "DNA sequence",
+        "Nature"
+      ],
+      "why_zh": "AI代理大规模参与生物序列挖掘并产出新发现",
+      "displacement": 0.65,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "Nature, Published online: 25 September 2026; doi:10.1038/d41586-026-03039-6",
+      "ai_systems": [
+        "Anthropic AI Biolab Agents"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Nature",
+      "source_group": "journal",
+      "source_id": "nature",
+      "published_at": "2026-09-25T00:00:00.000Z",
+      "authors": [
+        "Heidi Ledford"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.6,
+      "delta": 0,
+      "model": "Copilot",
+      "source_url": "https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot",
+      "evidence_quote": "The redesigned Copilot app bundles three AI capabilities into a single interface of chat, coding, and agents. As part of the launch, Microsoft is also rebranding Scout, the AI personal assistant it unveiled at Build earlier this year, as Autopilot.",
+      "evidence_type": "press_release",
+      "confidence": 0.7,
+      "id": "27a0d548aef1c7cb",
+      "title": "Microsoft thinks its new Copilot ‘super app’ will be as influential as Office",
+      "title_zh": "微软发布Copilot‘超级应用’，整合聊天、编程与智能体功能",
+      "title_zh_missing": false,
+      "companies": [
+        "Microsoft"
+      ],
+      "concepts": [
+        "Copilot",
+        "Autopilot"
+      ],
+      "summary_zh": "微软正式发布新版Copilot应用，将聊天、编码和智能体（agents）三大AI能力集成至单一界面，并将此前发布的Scout个人助手更名为Autopilot。",
+      "keywords": [
+        "AI super app",
+        "chat interface",
+        "coding assistant",
+        "agent system"
+      ],
+      "why_zh": "统一界面整合多类AI任务能力，降低用户跨工具切换成本",
+      "displacement": 0.65,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "no_basis",
+      "value_basis": "",
+      "ai_systems": [
+        "Copilot",
+        "Autopilot"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "The Verge AI",
+      "source_group": "media",
+      "source_id": "verge-ai",
+      "published_at": "2026-09-25T12:00:00.000Z",
+      "authors": [
+        "Tom Warren"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.6,
+      "delta": 0,
+      "model": "Qwen3-TTS-12Hz-1.7B-Base",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/deploying-real-time-personalized-speech-with-qwen3-tts-on-amazon-sagemaker-ai/",
+      "evidence_quote": "Deploy the publicly available Qwen3-TTS-12Hz-1.7B-Base text-to-speech model from Amazon SageMaker JumpStart to a fully managed, real-time endpoint, and clone a voice from a short reference clip.",
+      "evidence_type": "press_release",
+      "confidence": 0.7,
+      "id": "2a26e0bf4bcecd15",
+      "title": "Deploying real-time personalized speech with Qwen3-TTS on Amazon SageMaker AI",
+      "title_zh": "AWS 在 SageMaker 上部署 Qwen3-TTS 实现实时跨语言语音克隆",
+      "title_zh_missing": false,
+      "companies": [
+        "AWS",
+        "Qwen"
+      ],
+      "concepts": [
+        "Qwen3-TTS",
+        "SageMaker"
+      ],
+      "summary_zh": "AWS 博客介绍如何在 SageMaker 上部署 Qwen3-TTS-12Hz-1.7B-Base 模型，支持从短音频样本克隆说话人声音，并保持身份一致性跨语言合成。",
+      "keywords": [
+        "文本转语音",
+        "语音克隆",
+        "Qwen3-TTS",
+        "SageMaker"
+      ],
+      "why_zh": "替代人工配音与语音定制环节，支持实时、个性化、跨语言语音生成",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "no_basis",
+      "value_basis": "",
+      "ai_systems": [
+        "Qwen3-TTS"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "AWS Machine Learning Blog",
+      "source_group": "engineering",
+      "source_id": "aws-ml-blog",
+      "published_at": "2026-09-25T16:09:46.000Z",
+      "authors": [
+        "Suneesh T"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.6,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.theregister.com/ai-and-ml/2026/09/25/partner-content-huawei-cloud-rolls-out-enterprise-ai-products-across-the-board-building-an-open-agentic-cloud/5298765",
+      "evidence_quote": "Huawei Cloud strengthens the silicon bedrock on the cloud",
+      "evidence_type": "press_release",
+      "confidence": 0.7,
+      "id": "ba9709af720543f6",
+      "title": "Huawei Cloud Rolls Out Enterprise AI Products Across the Board, Building an Open Agentic Cloud",
+      "title_zh": "华为云推出企业级AI产品矩阵，构建开放智能体云平台",
+      "title_zh_missing": false,
+      "companies": [
+        "Huawei Cloud"
+      ],
+      "concepts": [
+        "agentic cloud",
+        "silicon bedrock"
+      ],
+      "summary_zh": "华为云宣布全面上线企业级AI产品，强调以自研芯片为底座构建支持智能体（agentic）架构的开放云平台。",
+      "keywords": [
+        "Huawei Cloud",
+        "enterprise AI",
+        "agentic architecture",
+        "cloud infrastructure"
+      ],
+      "why_zh": "面向企业部署智能体系统，提供底层算力与平台支持",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Huawei Cloud Agentic Platform"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "The Register",
+      "source_group": "media",
+      "source_id": "theregister",
+      "published_at": "2026-09-25T08:00:00.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "knowledge_work",
+      "value": 0.55,
+      "delta": 0,
+      "model": "Copilot Autopilot",
+      "source_url": "https://www.theinformation.com/briefings/microsoft-launches-revamped-copilot-super-app-muse-competitor",
+      "evidence_quote": "an always-on “Autopilot” agent similar to Meta’s Muse",
+      "evidence_type": "press_release",
+      "confidence": 0.7,
+      "id": "171b8f80f51fa3ae",
+      "title": "Microsoft Launches Revamped Copilot ‘Super App’ with Muse Competitor",
+      "title_zh": "微软发布Copilot‘超级应用’，整合编码、Office自动化与类Muse的常驻Autopilot代理",
+      "title_zh_missing": false,
+      "companies": [
+        "Microsoft",
+        "Meta"
+      ],
+      "concepts": [
+        "Copilot",
+        "Autopilot",
+        "Muse"
+      ],
+      "summary_zh": "微软发布整合版Copilot应用，包含AI编程工具、Office 365自动化功能及名为Autopilot的常驻AI代理，定位为Meta Muse竞品，但未披露性能指标或人类岗位替代证据。",
+      "keywords": [
+        "Copilot Super App",
+        "Autopilot agent",
+        "Office automation",
+        "AI coding"
+      ],
+      "why_zh": "推动AI代理从单点工具向跨应用、常驻式工作流中枢演进",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Copilot Super App"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "The Information",
+      "source_group": "media",
+      "source_id": "theinformation",
+      "published_at": "2026-09-25T12:50:48.000Z",
+      "authors": [
+        "Aaron Holmes"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.55,
+      "delta": 0,
+      "model": "Muse",
+      "source_url": "https://techcrunch.com/podcast/metas-muse-just-stole-the-ai-spotlight-from-openai-and-anthropic/",
+      "evidence_quote": "whose personal AI agent Muse is reportedly outpacing ChatGPT’s early numbers and is headed for smart glasses",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "7987845e1d4db7cc",
+      "title": "Meta’s Muse just stole the AI spotlight from OpenAI and Anthropic",
+      "title_zh": "Meta发布个人AI代理Muse，称其早期用户增长超ChatGPT，将集成至智能眼镜",
+      "title_zh_missing": false,
+      "companies": [
+        "Meta",
+        "OpenAI",
+        "Anthropic"
+      ],
+      "concepts": [
+        "Muse",
+        "personal AI agent"
+      ],
+      "summary_zh": "Meta推出个人AI代理Muse，报道称其早期用户增长数据超过ChatGPT早期表现，计划部署至智能眼镜，但未提供具体指标、基准或第三方验证。",
+      "keywords": [
+        "personal AI",
+        "smart glasses",
+        "AI agent",
+        "user growth"
+      ],
+      "why_zh": "推动AI从工具向具身化、持续交互的个人代理演进",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Muse"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "TechCrunch AI",
+      "source_group": "media",
+      "source_id": "techcrunch-ai",
+      "published_at": "2026-09-25T18:22:47.000Z",
+      "authors": [
+        "Anthony Ha",
+        "Kirsten Korosec",
+        "Sean O'Kane",
+        "Theresa Loconsolo"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.55,
+      "delta": 0,
+      "model": "Copilot",
+      "source_url": "https://www.zdnet.com/innovation/microsoft-new-copilot-unified-ai-app/",
+      "evidence_quote": "Microsoft says Copilot has gotten ‘actually really good.’ The new app has AI agents and can write code.",
+      "evidence_type": "press_release",
+      "confidence": 0.7,
+      "id": "b92a88a39001a941",
+      "title": "Microsoft’s new Copilot app puts everything in one place – but the price is ‘evolving’",
+      "title_zh": "微软新版Copilot应用整合AI代理与代码生成功能",
+      "title_zh_missing": false,
+      "companies": [
+        "Microsoft"
+      ],
+      "concepts": [
+        "Copilot",
+        "AI agent",
+        "code generation"
+      ],
+      "summary_zh": "ZDNet报道，微软推出统一Copilot应用，支持AI代理协作与代码生成，官方称其“真正变得非常优秀”，但定价策略尚未明确。",
+      "keywords": [
+        "Copilot",
+        "AI agent",
+        "code generation",
+        "Microsoft"
+      ],
+      "why_zh": "AI代理功能正式集成进主流办公入口，推动人机协同从单点工具向工作流中枢演进",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Copilot"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "ZDNet AI",
+      "source_group": "media",
+      "source_id": "zdnet-ai",
+      "published_at": "2026-09-25T12:00:14.000Z",
+      "authors": [
+        "Ed Bott https://edbott.com",
+        "Ed Bott"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "knowledge_work",
+      "value": 0.55,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.salesforce.com/blog/3-must-haves-for-scaling-agentic-ai-in-health/",
+      "evidence_quote": "Learn how to build an Agentic Health Enterprise through trust, context, and action with insights from the Health Keynote at Dreamforce 2026. Healthcare professionals are doing more than ever. Simultaneously, fragmented systems and…",
+      "evidence_type": "press_release",
+      "confidence": 0.7,
+      "id": "e74366abace19646",
+      "title": "3 Must-Haves for Scaling Agentic AI in Health",
+      "title_zh": "Salesforce发布健康领域AI代理规模化三大支柱",
+      "title_zh_missing": false,
+      "companies": [
+        "Salesforce"
+      ],
+      "concepts": [
+        "Agentic Health Enterprise"
+      ],
+      "summary_zh": "Salesforce在Dreamforce 2026健康主题演讲中提出构建‘Agentic Health Enterprise’需具备信任、上下文与行动能力，强调碎片化系统下AI代理协同临床工作流的必要性，但未披露具体部署或验证数据。",
+      "keywords": [
+        "医疗AI",
+        "代理系统",
+        "健康信息化",
+        "Dreamforce 2026",
+        "press_release"
+      ],
+      "why_zh": "提出面向医疗场景的AI代理规模化框架，但仅限方法论阐述，无实证性能或替代人类岗位数据。",
+      "displacement": 0.65,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Agentic Health Enterprise"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Salesforce Blog",
+      "source_group": "company",
+      "source_id": "salesforce-blog",
+      "published_at": "2026-09-25T17:45:03.000Z",
+      "authors": [
+        "Lizanne Kiel"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.5,
+      "delta": 0,
+      "model": "Muse",
+      "source_url": "https://techcrunch.com/video/will-metas-ai-tamagotchi-bet-isworking/",
+      "evidence_quote": "whose personal AI agent Muse is reportedly outpacing ChatGPT’s early numbers and is headed for smart glasses and […]",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "8ec9e02aaceca11d",
+      "title": "Meta’s AI Tamagotchi bet is…working?",
+      "title_zh": "Meta推出AI宠物式代理Muse，媒体质疑其长期留存能力但承认初期数据积极",
+      "title_zh_missing": false,
+      "companies": [
+        "Meta"
+      ],
+      "concepts": [
+        "Muse",
+        "AI Tamagotchi"
+      ],
+      "summary_zh": "Meta的AI代理Muse被描述为“AI电子宠物”，媒体报道称其早期用户数据积极，但未披露具体指标、验证方式或实际替代人类任务的证据。",
+      "keywords": [
+        "AI pet",
+        "engagement",
+        "user retention",
+        "AI agent"
+      ],
+      "why_zh": "探索情感化人机交互范式，尚未证明对专业劳动的替代性",
+      "displacement": 0.25,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Muse"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "TechCrunch AI",
+      "source_group": "media",
+      "source_id": "techcrunch-ai",
+      "published_at": "2026-09-25T16:00:00.000Z",
+      "authors": [
+        "Theresa Loconsolo"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "knowledge_work",
+      "value": 0.45,
+      "delta": 0.1,
+      "model": "Muse",
+      "source_url": "https://www.theinformation.com/articles/metas-moment-ai-sun-last",
+      "evidence_quote": "Meta shares have gone on an incredible run lately, jumping 27% since Sept. 8, when the company released its Muse personal AI agent.",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "f127be4609de536d",
+      "title": "Why Meta’s Moment in the AI Sun Won’t Last",
+      "title_zh": "《The Information》评Meta Muse AI代理引发市场热潮",
+      "title_zh_missing": false,
+      "companies": [
+        "Meta"
+      ],
+      "concepts": [
+        "Muse",
+        "Charm"
+      ],
+      "summary_zh": "媒体分析指出Meta发布Muse个人AI代理后股价大涨，引发大量正面报道与硬件联动（如Charm设备），但未提供Muse实际任务表现、用户替代率或生产环境部署证据。",
+      "keywords": [
+        "Meta",
+        "Muse",
+        "AI agent",
+        "Charm",
+        "Connect conference"
+      ],
+      "why_zh": "反映AI代理产品化营销成功，但无劳动替代实证",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Muse"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "The Information",
+      "source_group": "media",
+      "source_id": "theinformation",
+      "published_at": "2026-09-25T00:00:45.000Z",
+      "authors": [
+        "Martin Peers"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0.27,
+      "domain_cumulative_after": 0.27,
+      "domain_index": 0.1
+    },
+    {
+      "date": "2026-09-25",
+      "domain": "software",
+      "value": 0.35,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.infoq.cn/article/QQk3wiolU1VScH3u0P7T?utm_source=rss&utm_medium=article",
+      "evidence_quote": "点击查看原文>",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "49cc1d37831b5967",
+      "title": "当 Vibe Coding 撞上企业级现实：真实工程中的 AI 效能之路｜QCon上海",
+      "title_zh": "InfoQ报道QCon上海：Vibe Coding在企业工程中遭遇现实瓶颈",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "Vibe Coding",
+        "QCon Shanghai"
+      ],
+      "summary_zh": "InfoQ中文报道QCon上海会议内容，指出‘氛围编程’（Vibe Coding）在真实企业工程场景中面临代码可维护性、测试覆盖率与跨团队协作等现实约束，尚未形成端到端替代能力。",
+      "keywords": [
+        "Vibe Coding",
+        "enterprise engineering",
+        "code quality",
+        "news_report"
+      ],
+      "why_zh": "揭示生成式编程在工业级软件交付中仍需人类深度干预",
+      "displacement": 0.25,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Vibe Coding"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "InfoQ 中文",
+      "source_group": "company",
+      "source_id": "infoq-cn",
+      "published_at": "2026-09-25T10:00:00.000Z",
+      "authors": [
+        "QCon全球软件开发大会"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    }
+  ]
+}

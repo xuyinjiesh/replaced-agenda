@@ -1,0 +1,41 @@
+name: 发布站点到 GitHub Pages
+
+# 只在 site/ 变化时触发。日常流程是本地跑流水线 → push → 这里自动上线，
+# CI 本身不抓源、不调 AI、不需要任何密钥。
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 连续 push 时取消上一次未完成的部署，避免旧产物覆盖新产物
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # 关键一步：把 Pages 的 base_path 注入环境。
+      # 站点内所有链接都是相对路径，所以无论仓库叫什么都无需改代码。
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

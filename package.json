@@ -1,0 +1,20 @@
+{
+  "name": "replaced-agenda",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "每日观察 AI 取代人类各方面生活进程的静态站点流水线",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "pipeline": "node scripts/pipeline.mjs",
+    "render": "node scripts/pipeline.mjs --skip-collect --skip-enrich",
+    "audit": "node scripts/audit.mjs",
+    "probe": "node scripts/probe-sources.mjs",
+    "selftest": "node scripts/selftest.mjs",
+    "serve": "node scripts/serve.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "today": "node scripts/pipeline.mjs --date $(date +%F)"
+  }
+}

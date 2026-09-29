@@ -1,0 +1,23 @@
+# 运行时产物：可随时由流水线重建
+data/raw/
+data/cache/
+data/events/
+data/runs/
+data/audits/
+data/seen.json
+data/index.json
+data/source-health.json
+data/*.log
+
+# site/ 需要提交：GitHub Pages 直接发布这份产物。
+# 它是流水线的输出，但也是唯一被托管的副本——删掉这行是为了让线上内容可追溯。
+# 体积约 1.5 MB/次，每天一次提交，一年约 550 MB（可接受；真要瘦身可改用 --no-site 只推 gh-pages 分支）。
+
+# 密钥等本地配置：绝不提交
+.env
+.env.*
+
+# 但 config/ 与代码必须提交
+
+node_modules/
+.DS_Store

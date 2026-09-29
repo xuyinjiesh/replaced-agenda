@@ -1,0 +1,366 @@
+{
+  "$comment": "评分口径与筛选词典。所有分数都由这里的显式规则 + AI 判定共同决定，避免每日标准漂移。",
+  "relevance": {
+    "$comment": "规则初筛：标题/摘要必须命中 positive 之一，且未被 negative 否决。这一步只用于把候选量收敛到 AI 可承受的规模。 关键词表同时覆盖科研用语与工业落地用语——原来只有前者，导致公司/媒体源在规则初筛就被判为「离题」。",
+    "positive": [
+      "artificial intelligence",
+      " ai ",
+      "ai-",
+      "machine learning",
+      "deep learning",
+      "neural network",
+      "large language model",
+      "llm",
+      "foundation model",
+      "language model",
+      "transformer",
+      "agentic",
+      " ai agent",
+      "autonomous agent",
+      "multi-agent",
+      "copilot",
+      "chatbot",
+      "automat",
+      "gpt",
+      "claude",
+      "gemini",
+      "llama",
+      "qwen",
+      "deepseek",
+      "mistral",
+      "reinforcement learning",
+      "diffusion model",
+      "generative",
+      "text-to-",
+      "speech recognition",
+      "computer vision",
+      "robotic",
+      "self-driving",
+      "autonomous vehicle",
+      "embodied",
+      "benchmark",
+      "state-of-the-art",
+      "sota",
+      "outperform",
+      "surpass",
+      "human-level",
+      "human expert",
+      "board-certified",
+      "diagnos",
+      "drug discovery",
+      "protein",
+      "theorem prov",
+      "formal verification",
+      "automated reasoning",
+      "symbolic regression",
+      "code generation",
+      "program synthesis",
+      "software engineer",
+      "vibe coding",
+      "job displacement",
+      "labor market",
+      "workforce",
+      "productivity gain",
+      "deploy",
+      "deployment",
+      "rollout",
+      "general availability",
+      "in production",
+      "production use",
+      "enterprise adoption",
+      "adopt",
+      "customer",
+      "client",
+      "pilot program",
+      "scaled to",
+      "million users",
+      "launch",
+      "releases",
+      "unveil",
+      "announces",
+      "partnership",
+      "acquisition",
+      "funding round",
+      "valuation",
+      "revenue",
+      "commercial",
+      "pricing",
+      "subscription",
+      "market share",
+      "layoff",
+      "job cuts",
+      "headcount",
+      "hiring freeze",
+      "restructuring",
+      "replaced by ai",
+      "replaces workers",
+      "job losses",
+      "staff reduction",
+      "reskilling",
+      "workforce reduction",
+      "productivity",
+      "efficiency gain",
+      "cost saving",
+      "outsourc",
+      "offshor",
+      "regulation",
+      "regulatory",
+      "compliance",
+      "lawsuit",
+      "copyright",
+      "liability",
+      "ban",
+      "automated workflow",
+      "straight-through",
+      "human in the loop",
+      "human review"
+    ],
+    "negative": [
+      "call for papers",
+      "workshop on",
+      "conference proceedings",
+      "registration is open",
+      "keynote speaker",
+      "tutorial",
+      "cfp:",
+      "special issue",
+      "editorial board"
+    ],
+    "minAbstractChars": 60
+  },
+  "evidenceTypes": {
+    "$comment": "evidence_type 枚举与可信度基准权重。confidence 从基准值出发，按独立性/可复现性上下调整。",
+    "peer_reviewed": {
+      "label": "同行评审",
+      "prior": 0.88,
+      "desc": "正式发表的同行评审论文或期刊结果"
+    },
+    "third_party_reproduced": {
+      "label": "第三方复现",
+      "prior": 0.92,
+      "desc": "独立第三方复现或独立评测机构报告"
+    },
+    "benchmark_leaderboard": {
+      "label": "公开榜单",
+      "prior": 0.8,
+      "desc": "可公开核验的榜单或评测结果"
+    },
+    "government_filing": {
+      "label": "监管/政府文件",
+      "prior": 0.9,
+      "desc": "监管审批、政府报告、法院文书"
+    },
+    "press_release": {
+      "label": "官方新闻稿",
+      "prior": 0.7,
+      "desc": "机构官方通稿，事实性较高但选择性披露"
+    },
+    "vendor_claim": {
+      "label": "厂商自述",
+      "prior": 0.48,
+      "desc": "厂商自己的博客/发布，无独立验证"
+    },
+    "preprint": {
+      "label": "预印本",
+      "prior": 0.55,
+      "desc": "arXiv 等未经同行评审的预印本"
+    },
+    "news_report": {
+      "label": "媒体报道",
+      "prior": 0.6,
+      "desc": "媒体二手报道"
+    },
+    "community_report": {
+      "label": "社区/从业者",
+      "prior": 0.42,
+      "desc": "社区讨论、从业者个人观察"
+    },
+    "unknown": {
+      "label": "来源不明",
+      "prior": 0.3,
+      "desc": "无法判定证据类型"
+    }
+  },
+  "valueRubric": {
+    "$comment": "value = 该事件在“AI 承担原本由人类完成的任务”这条轴上的推进强度。给 AI 的评分必须严格对齐这五档。",
+    "bands": [
+      {
+        "min": 0.9,
+        "max": 1.0,
+        "label": "里程碑",
+        "desc": "可验证地完成/超越人类专业级任务：证明长期开放问题、通过执业考试、独立交付完整专业成果、整类岗位被实际替代并被外部证实。"
+      },
+      {
+        "min": 0.7,
+        "max": 0.9,
+        "label": "显著跃升",
+        "desc": "在公认基准上有大幅提升且有独立验证，或已进入真实生产环境替代人类环节。"
+      },
+      {
+        "min": 0.5,
+        "max": 0.7,
+        "label": "扎实进展",
+        "desc": "明确的能力提升，方法可信，但尚未独立验证或规模有限。"
+      },
+      {
+        "min": 0.3,
+        "max": 0.5,
+        "label": "增量改进",
+        "desc": "常规改进、小数据集实验、单纯方法组合。"
+      },
+      {
+        "min": 0.0,
+        "max": 0.3,
+        "label": "弱相关",
+        "desc": "理论探索、与替代人类任务关系间接。"
+      }
+    ]
+  },
+  "displacementRubric": {
+    "$comment": "displacement = 对人类劳动的替代程度（0=完全辅助，1=人类环节可整体移除）。用于前端展示与领域解读。",
+    "bands": [
+      {
+        "min": 0.85,
+        "label": "整环替代",
+        "desc": "该环节的人类角色可被整体移除"
+      },
+      {
+        "min": 0.65,
+        "label": "主责转移",
+        "desc": "AI 承担主要工作，人类仅做验收"
+      },
+      {
+        "min": 0.45,
+        "label": "并行分工",
+        "desc": "AI 与人类分担，人类仍不可缺"
+      },
+      {
+        "min": 0.25,
+        "label": "显著提效",
+        "desc": "人类主导，AI 大幅加速"
+      },
+      {
+        "min": 0.0,
+        "label": "辅助工具",
+        "desc": "AI 只做辅助或与劳动替代无关"
+      }
+    ]
+  },
+  "indexModel": {
+    "$comment": [
+      "领域进程指数：Index_d = 100 * (1 - exp(-Cum_d / K_d))。",
+      "Cum_d 为该领域历史累计贡献（正贡献推进、负贡献回退），K_d = dailyBaseline_d × horizonDays。",
+      "horizonDays 的含义：在保持日均基线贡献的节奏下，该领域指数约在 horizonDays 天后达到 63%（1 - 1/e）。",
+      "单条事件的 delta = Index(Cum_before + c_i) - Index(Cum_before)，因此同一领域同一天所有事件的 delta 之和 == 该领域当日指数变化，可加、可核验。",
+      "c_i = direction_i * value_i * confidence_i，direction: advance=+1 / setback=-1 / neutral=0。",
+      "指数衡量的是“自基准日起的累计进程”，不是绝对真值；饱和曲线避免单日热点把指数顶满。"
+    ],
+    "epoch": "2026-09-28",
+    "horizonDays": 90,
+    "formula": "100 * (1 - Math.exp(-cumulative / (dailyBaseline * horizonDays)))",
+    "saturationNote": "在日均基线节奏下约 horizonDays 天到 63%、2×horizonDays 天到 86%。"
+  },
+  "screening": {
+    "$comment": "初筛阶段的保留阈值与配额。 sectorFloorShare：工业界在候选池中的最低占比。arXiv 类科研源条目量级远大于公司/媒体源，没有保底时工业界会被完全挤掉（实测 83:3）。",
+    "minRelevance": 0.45,
+    "minValue": 0.3,
+    "maxItemsPerBatch": 12,
+    "candidatesCap": 320,
+    "capPerDomain": 40,
+    "enrichCap": 120,
+    "requireBasisAbove": 0.65,
+    "basislessValueCap": 0.6,
+    "sectorFloorShare": 0.33
+  },
+  "dedupe": {
+    "$comment": "相似内容合并参数。",
+    "titleJaccard": 0.72,
+    "simhashHamming": 3,
+    "minSharedTokens": 3
+  },
+  "models": {
+    "$comment": "流水线各阶段使用的模型。scored_by 字段会记录实际使用的模型名。",
+    "screening": "qwen-flash",
+    "enrichment": "qwen-plus",
+    "merger": "qwen-flash"
+  },
+  "valueCaps": {
+    "$comment": [
+      "证据类型决定的 value 上限：没有对应等级的证据，就不允许给出对应等级的推进强度。",
+      "这是代码强制的硬上限（在 AI 评分之后套用），避免“预印本声称里程碑”这类分数虚高。",
+      "被上限截断的记录会带 value_capped: true，方法页会解释。"
+    ],
+    "caps": {
+      "third_party_reproduced": 1.0,
+      "government_filing": 1.0,
+      "peer_reviewed": 0.9,
+      "benchmark_leaderboard": 0.85,
+      "press_release": 0.75,
+      "news_report": 0.7,
+      "preprint": 0.65,
+      "vendor_claim": 0.6,
+      "community_report": 0.45,
+      "unknown": 0.4
+    }
+  },
+  "calibration": {
+    "$comment": [
+      "分布健康度自检：如果某天 AI 打分整体过宽/过严，运行报告会给出告警。",
+      "expectedMedianValue 必须与提示词里给模型的基率要求保持一致，否则闸门形同虚设。",
+      "区间按语料实际设定：本流水线以「方法可信但尚未独立验证」的预印本为主，",
+      "它们的正确落点就在 0.50 附近，所以区间是 0.40-0.55 而不是更低的 0.30-0.50。",
+      "真正压制通胀的是 anchors（少样本锚点）与硬闸门，中位数区间只是漂移告警。"
+    ],
+    "expectedMedianValue": [
+      0.4,
+      0.55
+    ],
+    "expectedHighValueShare": 0.15,
+    "expectedMedianConfidence": [
+      0.4,
+      0.75
+    ]
+  },
+  "ai": {
+    "$comment": [
+      "AI 传输层配置。provider: auto = 有可用 key 就直连 OpenAI 兼容端点，否则回退 bl CLI。",
+      "端点凭据按优先级从环境变量或仓库根的 .env 读取（支持 AI_API_KEY/OPENAI_API_KEY/DASHSCOPE_API_KEY 与 AI_BASE_URL/OPENAI_BASE_URL）。",
+      "本机 .env 指向 DashScope compatible-mode，同时也能服务 qwen-flash / qwen-plus。"
+    ],
+    "provider": "auto",
+    "timeoutMs": 180000,
+    "envFile": ".env"
+  },
+  "anchors": {
+    "$comment": [
+      "少样本锚点：实测中「告诉模型基率」几乎不起作用（模型照样把中位数打到 0.55），",
+      "而给出具体例子的目标分数能显著收敛打分尺度。这些锚点会拼进内容填充的提示词。"
+    ],
+    "items": [
+      {
+        "desc": "自己报的指标比上一版高几个点，单一数据集，无第三方复现",
+        "value": 0.4
+      },
+      {
+        "desc": "自研框架在模拟任务上提升，评测用的是作者自己的评测脚本",
+        "value": 0.42
+      },
+      {
+        "desc": "测量「模型做任务 X 有多好」的基准/数据集论文，本身不执行任务",
+        "value": 0.35
+      },
+      {
+        "desc": "在真实生产环境里连续运行数周、端到端承担了某个专业环节，并有可核验的业务指标",
+        "value": 0.7
+      },
+      {
+        "desc": "前瞻性多中心临床研究，与执业专家对照，参考标准独立可核验",
+        "value": 0.9
+      },
+      {
+        "desc": "形式化验证工具，只在小规模案例集上跑通，尚无规模化使用",
+        "value": 0.35
+      }
+    ]
+  }
+}

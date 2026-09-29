@@ -1,0 +1,73 @@
+{
+  "$comment": [
+    "领域定义。key 为 schema 中的 domain 字段（英文），label 用于中文界面。",
+    "dailyBaseline = 该领域「日均贡献基线」（贡献 = value × confidence 的量级）。",
+    "指数尺度 K = dailyBaseline × indexModel.horizonDays，因此各领域在正常节奏下约 horizonDays 天达到指数 63%。"
+  ],
+  "domains": [
+    {
+      "key": "math",
+      "label": "数学",
+      "emoji": "∑",
+      "dailyBaseline": 1.2,
+      "blurb": "形式化证明、定理发现、符号推理、数学竞赛与开放问题。",
+      "watch": ["形式化验证", "新定理", "奥赛级解题", "猜想反例", "自动证明器"]
+    },
+    {
+      "key": "physics",
+      "label": "物理",
+      "emoji": "⚛",
+      "dailyBaseline": 2.0,
+      "blurb": "理论推导、实验设计、仿真替代、材料与量子计算。",
+      "watch": ["符号回归定律", "实验自动化", "等离子体控制", "材料发现", "量子线路优化"]
+    },
+    {
+      "key": "science",
+      "label": "科学发现",
+      "emoji": "🔬",
+      "dailyBaseline": 2.5,
+      "blurb": "跨学科科研流程自动化：假设生成、文献综合、实验闭环。",
+      "watch": ["自主实验室", "假设生成", "文献元分析", "科研智能体"]
+    },
+    {
+      "key": "software",
+      "label": "互联网 / 软件",
+      "emoji": "⌨",
+      "dailyBaseline": 8.5,
+      "blurb": "编程智能体、代码生成与审查、搜索与内容生产结构变化。",
+      "watch": ["SWE-bench", "端到端交付", "仓库级重构", "人类审查率下降", "流量结构"]
+    },
+    {
+      "key": "healthcare",
+      "label": "医疗 / 生物",
+      "emoji": "⚕",
+      "dailyBaseline": 3.0,
+      "blurb": "诊断、影像、临床文书、药物发现与监管审批。",
+      "watch": ["医师级诊断", "影像读片", "临床试验设计", "病历书写", "药物分子设计"]
+    },
+    {
+      "key": "knowledge_work",
+      "label": "金融 / 法律 / 白领",
+      "emoji": "📊",
+      "dailyBaseline": 3.0,
+      "blurb": "分析师、律师、客服、审计、行政等知识岗位的任务替代。",
+      "watch": ["岗位替代证据", "执业考试", "合同审查", "投研报告", "客服自动化"]
+    },
+    {
+      "key": "creative",
+      "label": "艺术 / 内容创作",
+      "emoji": "🎨",
+      "dailyBaseline": 2.0,
+      "blurb": "图像、音乐、视频、写作、游戏资产的生成与生产流程重构。",
+      "watch": ["人类盲测胜出", "整片生成", "版权判例", "从业者收入结构"]
+    },
+    {
+      "key": "robotics",
+      "label": "机器人与物理世界",
+      "emoji": "🤖",
+      "dailyBaseline": 3.0,
+      "blurb": "具身智能、自动驾驶、制造、物流与家务劳动。",
+      "watch": ["灵巧操作", "长程任务", "自动驾驶里程", "产线部署", "遥操作替代"]
+    }
+  ]
+}

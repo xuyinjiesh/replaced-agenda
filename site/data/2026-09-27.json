@@ -2,7 +2,7 @@
   "date": "2026-09-27",
   "generated_at": "2026-09-28T12:24:31.925Z",
   "schema_version": 1,
-  "recomputed_at": "2026-09-29T08:27:45.877Z",
+  "recomputed_at": "2026-09-29T09:00:15.391Z",
   "previous_event_count": 15,
   "domains": [
     {
@@ -26,16 +26,16 @@
       "date": "2026-09-27",
       "delta": 0,
       "index": 0.05,
-      "events": 5,
-      "value_sum": 0.967
+      "events": 7,
+      "value_sum": 1.32
     },
     {
       "domain": "knowledge_work",
       "date": "2026-09-27",
       "delta": 0.2457,
       "index": 0.35,
-      "events": 6,
-      "value_sum": 2.029
+      "events": 7,
+      "value_sum": 2.221
     },
     {
       "domain": "creative",
@@ -55,7 +55,7 @@
     }
   ],
   "stats": null,
-  "event_count": 15,
+  "event_count": 18,
   "events": [
     {
       "date": "2026-09-27",
@@ -712,6 +712,62 @@
       "domain": "software",
       "value": 0.42,
       "delta": 0,
+      "model": "Claude Opus 4.5、GPT-5.1",
+      "source_url": "https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/",
+      "evidence_quote": "These two new models, when paired with their respective coding agent harnesses, improved from \"often make mistakes\" to \"reliable enough to use on a day-to-day basis\".",
+      "evidence_type": "community_report",
+      "confidence": 0.42,
+      "id": "a068c50324a9ff73",
+      "title": "2026 in LLMs (so far)",
+      "title_zh": "Simon Willison指出Claude与GPT-5.1编码代理达日常可用水平",
+      "title_zh_missing": false,
+      "companies": [
+        "Anthropic",
+        "OpenAI"
+      ],
+      "concepts": [
+        "Claude Code",
+        "Codex"
+      ],
+      "summary_zh": "从业者Simon Willison观察到2025年11月发布的Claude Opus 4.5和GPT-5.1搭配对应编码代理后，从‘常出错’提升至‘可日常使用’，但未提供量化指标或独立验证。",
+      "keywords": [
+        "编码代理",
+        "日常可用",
+        "社区观察",
+        "LLM进展",
+        "2026"
+      ],
+      "why_zh": "标志AI编码代理进入实用门槛，人类开发者可将其纳入常规工作流",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Claude Opus 4.5",
+        "GPT-5.1"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Simon Willison",
+      "source_group": "practitioner",
+      "source_id": "simon-willison",
+      "published_at": "2026-09-27T23:54:15.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.348,
+      "domain_index": 0.05
+    },
+    {
+      "date": "2026-09-27",
+      "domain": "software",
+      "value": 0.42,
+      "delta": 0,
       "model": "Qwen",
       "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wry136/qwen_plays_world_of_warcraft/",
       "evidence_quote": "The agent harness can plug into your local or cloud LLMs and be used to drive the game. For best results have a model that can output >50token/sec. No visual input is used in the making (might be beneficial in the future but incur more latency). The mcp and agent are only running on my dev server but if folks are interested in trying the game go to https://jankcraft.xyz/",
@@ -755,6 +811,57 @@
         "/u/professormunchies https://www.reddit.com/user/professormunchies",
         "/u/professormunchies"
       ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.348,
+      "domain_index": 0.05
+    },
+    {
+      "date": "2026-09-27",
+      "domain": "software",
+      "value": 0.42,
+      "delta": 0,
+      "model": "Opus 5.5",
+      "source_url": "https://simonwillison.net/2026/Sep/27/bluesky-bot-check/",
+      "evidence_quote": "It looks for signals like replies posted within seconds of other posts from the same account, or accounts that never post their own content (or images or links) but instead consistently reply to messages from other, higher-follower users. It also looks for question marks, because I'm extra infuriated by reply bots that I no tie me to waste my time answering a question that no human ever posed.",
+      "evidence_type": "community_report",
+      "confidence": 0.42,
+      "id": "f60e0a4876d67987",
+      "title": "Bluesky reply bot checker",
+      "title_zh": "Simon Willison开发Bluesky自动回复机器人检测工具",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "vibe-coding",
+        "Bluesky"
+      ],
+      "summary_zh": "开发者Simon Willison利用Opus 5.5‘vibe coding’构建工具，通过分析回复时效性、内容空洞性（无原创帖/图/链接）、高频问号等信号识别Bluesky平台上的自动回复机器人。",
+      "keywords": [
+        "社交平台机器人",
+        "自动化检测",
+        "社区报告",
+        "AI滥用"
+      ],
+      "why_zh": "自动化识别并标记干扰性AI行为，辅助人类内容治理决策",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Opus 5.5"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Simon Willison",
+      "source_group": "practitioner",
+      "source_id": "simon-willison",
+      "published_at": "2026-09-27T18:41:44.000Z",
+      "authors": [],
       "also_reported_by": [],
       "cluster_size": 1,
       "screened_by": "qwen-flash",
@@ -818,6 +925,57 @@
       "index_contribution": 0,
       "domain_cumulative_after": 0.348,
       "domain_index": 0.05
+    },
+    {
+      "date": "2026-09-27",
+      "domain": "knowledge_work",
+      "value": 0.4,
+      "delta": 0,
+      "model": "Claude、ChatGPT、Gemini",
+      "source_url": "https://www.producthunt.com/products/arsaze-ai-native-video-editor",
+      "evidence_quote": "Let Claude, ChatGPT or Gemini edit your real timeline Discussion | Link",
+      "evidence_type": "unknown",
+      "confidence": 0.48,
+      "id": "a5da7c6b1ff1386f",
+      "title": "Arsaze",
+      "title_zh": "Arsaze 推出 AI 原生视频编辑器，支持 Claude/ChatGPT/Gemini 直接编辑时间线",
+      "title_zh_missing": false,
+      "companies": [
+        "Arsaze"
+      ],
+      "concepts": [],
+      "summary_zh": "Arsaze 是一款 AI 原生视频编辑工具，允许用户调用 Claude、ChatGPT 或 Gemini 等大模型直接编辑真实视频时间线，目前处于 Product Hunt 上线阶段，无性能指标或独立验证。",
+      "keywords": [
+        "AI 视频编辑",
+        "大模型集成",
+        "Product Hunt"
+      ],
+      "why_zh": "将 LLM 接入视频编辑流程，实现自然语言驱动的时间线修改",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "evidence_type",
+      "value_basis": "",
+      "ai_systems": [
+        "Claude, ChatGPT, Gemini"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Product Hunt",
+      "source_group": "realtime",
+      "source_id": "producthunt",
+      "published_at": "2026-09-27T16:56:45.000Z",
+      "authors": [
+        "Arshad Azeez M"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.69,
+      "domain_index": 0.26
     },
     {
       "date": "2026-09-27",

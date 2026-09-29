@@ -2,7 +2,7 @@
   "date": "2026-09-26",
   "generated_at": "2026-09-28T13:48:03.205Z",
   "schema_version": 1,
-  "recomputed_at": "2026-09-29T08:27:45.877Z",
+  "recomputed_at": "2026-09-29T09:00:15.390Z",
   "previous_event_count": 1,
   "domains": [
     {
@@ -12,10 +12,18 @@
       "index": 0.05,
       "events": 1,
       "value_sum": 0.348
+    },
+    {
+      "domain": "knowledge_work",
+      "date": "2026-09-26",
+      "delta": 0,
+      "index": 0.1,
+      "events": 1,
+      "value_sum": 0.27
     }
   ],
   "stats": null,
-  "event_count": 1,
+  "event_count": 2,
   "events": [
     {
       "date": "2026-09-26",
@@ -70,6 +78,54 @@
       "index_contribution": 0.348,
       "domain_cumulative_after": 0.348,
       "domain_index": 0.05
+    },
+    {
+      "date": "2026-09-26",
+      "domain": "knowledge_work",
+      "value": 0.45,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.cnbc.com/2026/09/26/china-ai-global-adoption.html",
+      "evidence_quote": "Usage of Chinese AI models by businesses across the globe has increased substantially in 2026.",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "9ec906180423af36",
+      "title": "Chinese AI models surge in global popularity — and Washington is worried",
+      "title_zh": "全球企业对中国AI模型采用率显著上升",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [],
+      "summary_zh": "CNBC报道指出，2026年全球企业对中国AI模型的使用量大幅增加，引发华盛顿方面关注。",
+      "keywords": [
+        "Chinese AI models",
+        "global adoption",
+        "geopolitical concern",
+        "news_report"
+      ],
+      "why_zh": "反映中国AI模型在国际商业场景中实际渗透，但未说明具体替代任务",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "中国AI模型"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-09-26T05:00:01.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "qwen-flash",
+      "scored_by": "qwen-plus",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.27,
+      "domain_index": 0.1
     }
   ]
 }

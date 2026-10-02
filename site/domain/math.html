@@ -4,226 +4,289 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>数学 · AI 替代进程</title>
-<meta name="description" content="每日观察 AI 取代人类各方面生活进程的进展记录">
+<meta name="description" content="按领域整理互联网与学术界的 AI 人类任务进展记录">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="alternate" type="application/json" href="../data/index.json" title="index.json">
 </head>
-<body>
-<header class="top"><div class="top-in">
-  <div class="brand"><a href="../index.html">AI 降临观测站</a> <span class="brand-ctx">/ ∑ 数学</span></div>
-  <nav class="nav">
-    <a href="../index.html">互联网</a>
-    <a href="../academia.html">学术界</a>
-    <a href="../archive.html">归档</a>
-    <a href="../method.html">方法</a>
+<body class="editorial-theme editorial-v2">
+<a class="skip-link" href="#main-content">跳到内容</a>
+<div class="edition-wrap">
+  <header class="edition-header">
+    <div class="edition-top"><span>独立观察 · 审慎判断</span><a href="../index.html">REPLACED AGENDA</a><button class="edition-saved" data-action="saved-list" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg>我的稍后读 <b data-saved-count>0</b></button></div>
+    <div class="masthead"><span class="issue-date">SEPTEMBER<strong>29</strong><span>2026-09-29 · 09-25 — 09-29</span></span><div><h1><a href="../index.html">AI 降临观测站<span class="masthead-dot">.</span></a></h1><p>观察智能，如何改变人的工作。</p></div><span class="edition-seal">DAILY<br>OBSERVATION<span>每日一读</span></span></div>
+  </header>
+  <nav class="edition-nav" aria-label="频道与工具">
+    <div class="channel-tabs"><a href="../index.html">互联网</a><a href="../academia.html">学术界</a><a href="../archive.html">归档</a></div>
+    <div class="edition-nav-right"><label class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 4.2 4.2"/></svg><input id="search" type="search" placeholder="寻找一条线索" aria-label="搜索标题、来源或关键词"><kbd>/</kbd></label><button id="filter-trigger" class="action-button" data-action="filter" popovertarget="filter-popover" aria-controls="filter-popover"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M7 12h10m-7 7h4"/><circle cx="8" cy="5" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="10" cy="19" r="1.3"/></svg>筛选</button></div>
   </nav>
-</div></header>
-<main class="wrap">
-<div class="strip strip-solo"><label class="strip-search"><input id="q" type="search" placeholder="筛选 /" aria-label="按关键词筛选"></label></div>
+  <div class="edition-content"><main class="editorial-main" id="main-content">
+  <div class="edition-context"><div class="context-copy"><span id="view-title">数学</span><span id="result-count" aria-live="polite">12 条记录</span><span id="applied-filters"></span></div><div class="v2-sort"><span id="sort-caption">排序</span><button id="sort-trigger" class="v2-sort-trigger" type="button" popovertarget="sort-menu" aria-haspopup="menu" aria-expanded="false" aria-labelledby="sort-caption sort-label"><span id="sort-label">推进强度</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div></div>
 
-<ul class="list" id="events">
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="math" data-text="externalized cpdag summaries improve llm causal deduction 预印本提出结构化推理提升大模型因果推断准确率 一篇 arxiv 预印本提出 structured thinking 方法，通过外化 cpdag 图谱摘要，在 corr2cause 基准上将 qwen3.5-27b 的 f1（yes）从 73.0 提升至 86.4，提升显著且统计稳健。 causal reasoning llm reasoning preprint arxiv qwen3.5-27b、qwen3.6-27b、gpt-5.4-mini">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31071" target="_blank" rel="noopener noreferrer" title="预印本提出结构化推理提升大模型因果推断准确率 ｜ 原标题：Externalized CPDAG Summaries Improve LLM Causal Deduction">预印本提出结构化推理提升大模型因果推断准确率</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-29">09-29</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">一篇 arXiv 预印本提出 <mark class="hl-con">Structured Thinking</mark> 方法，通过外化 <mark class="hl-con">CPDAG</mark> 图谱摘要，在 <mark class="hl-con">Corr2Cause</mark> 基准上将 Qwen3.5-27B 的 F1（Yes）从 73.0 提升至 86.4，提升显著且统计稳健。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31071" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+  <div class="story-list" id="story-list"><article class="story is-featured" data-v2-record data-id="2494c70ba72129d8" data-domain="math" data-date="2026-09-29" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="externalized cpdag summaries improve llm causal deduction 预印本提出结构化推理提升大模型因果推断准确率 一篇 arxiv 预印本提出 structured thinking 方法，通过外化 cpdag 图谱摘要，在 corr2cause 基准上将 qwen3.5-27b 的 f1（yes）从 73.0 提升至 86.4，提升显著且统计稳健。 在因果推理任务中实现可复现、有统计显著性的性能跃升 on the corr2cause full test, structured thinking raises qwen3.5-27b from $73.0$ to $86.4$ $f_1$(yes) over a strong pc-instruction baseline in the primary paired run ($+13.4$ pp; mcnemar $p=2.4\times 10^{-6}$; bootstrap $95\%$ ci [$+8.4$, $+18.6$]); across three full-id seeds, the mean gain is $+8.1 \pm 5.3$ pp. arxiv cs.ai causal reasoning llm reasoning preprint arxiv qwen3.5-27b、qwen3.6-27b、gpt-5.4-mini" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">01</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-29">2026-09-29</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="2494c70ba72129d8" aria-expanded="false" aria-controls="v2-details-2494c70ba72129d8">
+      <h2 id="v2-title-2494c70ba72129d8" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31071" target="_blank" rel="noopener noreferrer" title="原标题：Externalized CPDAG Summaries Improve LLM Causal Deduction">预印本提出结构化推理提升大模型因果推断准确率</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="math" data-text="neuralcert: certified computational discovery of extremal mathematical constructions neuralcert：神经网络驱动的可验证数学构造发现框架 neuralcert将神经优化与形式化认证结合，在个人电脑上完成极值数学问题的发现与严格证明，输出可独立验证的数值证明。 神经符号计算 形式化验证 数学构造 极值问题 可复现证明 neuralcert">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30296" target="_blank" rel="noopener noreferrer" title="NeuralCert：神经网络驱动的可验证数学构造发现框架 ｜ 原标题：NeuralCert: certified computational discovery of extremal mathematical constructions"><mark class="hl-con">NeuralCert</mark>：神经网络驱动的可验证数学构造发现框架</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-29">09-29</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">NeuralCert</mark>将神经优化与形式化认证结合，在个人电脑上完成极值数学问题的发现与严格证明，输出可独立验证的数值证明。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30296" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.AI</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="2494c70ba72129d8" aria-expanded="false" aria-controls="v2-details-2494c70ba72129d8"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-2494c70ba72129d8" class="v2-details" aria-labelledby="v2-title-2494c70ba72129d8" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">一篇 arXiv 预印本提出 <mark class="hl-con">Structured Thinking</mark> 方法，通过外化 <mark class="hl-con">CPDAG</mark> 图谱摘要，在 <mark class="hl-con">Corr2Cause</mark> 基准上将 Qwen3.5-27B 的 F1（Yes）从 73.0 提升至 86.4，提升显著且统计稳健。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>在因果推理任务中实现可复现、有统计显著性的性能跃升</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>On the <mark class="hl-con">Corr2Cause</mark> full test, <mark class="hl-con">Structured Thinking</mark> raises Qwen3.5-27B from $73.0$ to $86.4$ $F_1$(Yes) over a strong PC-instruction baseline in the primary paired run ($+13.4$ pp; McNemar $p=2.4\times 10^{-6}$; bootstrap $95\%$ CI [$+8.4$, $+18.6$]); across three full-ID seeds, the mean gain is $+8.1 \pm 5.3$ pp.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31071" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="2494c70ba72129d8" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="eac9551174f6ce1f" data-domain="math" data-date="2026-09-29" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="neuralcert: certified computational discovery of extremal mathematical constructions neuralcert：神经网络驱动的可验证数学构造发现框架 neuralcert将神经优化与形式化认证结合，在个人电脑上完成极值数学问题的发现与严格证明，输出可独立验证的数值证明。 首次在标准设备上实现从神经发现到显式可验证证明的闭环 exact certification makes the numerical proofs fully explicit and independently verifiable. this framework can be run on a standard personal computer. arxiv cs.lg 神经符号计算 形式化验证 数学构造 极值问题 可复现证明 neuralcert" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">02</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-29">2026-09-29</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="eac9551174f6ce1f" aria-expanded="false" aria-controls="v2-details-eac9551174f6ce1f">
+      <h2 id="v2-title-eac9551174f6ce1f" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30296" target="_blank" rel="noopener noreferrer" title="原标题：NeuralCert: certified computational discovery of extremal mathematical constructions"><mark class="hl-con">NeuralCert</mark>：神经网络驱动的可验证数学构造发现框架</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 166 31)" data-domain="math" data-text="to solve bilevel optimization with nonconvex lower levels, we need second-order stationarity probe算法首次实现非凸下层双层优化的有限时间二阶平稳收敛 研究者针对下层非凸双层优化问题，提出以二阶平稳性为代理目标的probe算法，首次建立有限时间收敛率o(t^{-2/5})，并能主动探测与逃逸下层鞍点。 双层优化 非凸优化 二阶平稳性 有限时间收敛 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30501" target="_blank" rel="noopener noreferrer" title="PROBE算法首次实现非凸下层双层优化的有限时间二阶平稳收敛 ｜ 原标题：To Solve Bilevel Optimization with Nonconvex Lower Levels, We Need Second-Order Stationarity"><mark class="hl-con">PROBE</mark>算法首次实现非凸下层<mark class="hl-con">双层优化</mark>的有限时间二阶平稳收敛</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.50 · 扎实进展">0.50</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-29">09-29</span><span class="tag tag-first" title="标题或摘要明确称首次/首个">首次</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">研究者针对下层非凸<mark class="hl-con">双层优化</mark>问题，提出以<mark class="hl-con">二阶平稳性</mark>为代理目标的<mark class="hl-con">PROBE</mark>算法，首次建立有限时间收敛率O(T^{-2/5})，并能主动探测与逃逸下层鞍点。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30501" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.LG</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="eac9551174f6ce1f" aria-expanded="false" aria-controls="v2-details-eac9551174f6ce1f"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-eac9551174f6ce1f" class="v2-details" aria-labelledby="v2-title-eac9551174f6ce1f" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">NeuralCert</mark>将神经优化与形式化认证结合，在个人电脑上完成极值数学问题的发现与严格证明，输出可独立验证的数值证明。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>首次在标准设备上实现从神经发现到显式<mark class="hl-con">可验证证明</mark>的闭环</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Exact certification makes the numerical proofs fully explicit and independently verifiable. This framework can be run on a standard personal computer.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30296" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="eac9551174f6ce1f" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="bf9d0f2bad44ee58" data-domain="math" data-date="2026-09-29" data-value="0.5" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="to solve bilevel optimization with nonconvex lower levels, we need second-order stationarity probe算法首次实现非凸下层双层优化的有限时间二阶平稳收敛 研究者针对下层非凸双层优化问题，提出以二阶平稳性为代理目标的probe算法，首次建立有限时间收敛率o(t^{-2/5})，并能主动探测与逃逸下层鞍点。 突破传统双层优化对下层凸性的强假设，拓展其在实际机器学习任务中的适用边界 we prove that probe achieves a finite-time convergence rate of $o(t^{-2/5})$, where t denotes iterations. to our knowledge, this work is the first to establish the finite-time convergence for achieving lower-level second-order stationary solutions in gener arxiv cs.lg 双层优化 非凸优化 二阶平稳性 有限时间收敛 未指明" style="--heat:rgb(250 166 31);--domain-dot:rgb(250 166 31)">
+  <span class="story-number" aria-hidden="true">03</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-29">2026-09-29</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="bf9d0f2bad44ee58" aria-expanded="false" aria-controls="v2-details-bf9d0f2bad44ee58">
+      <h2 id="v2-title-bf9d0f2bad44ee58" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30501" target="_blank" rel="noopener noreferrer" title="原标题：To Solve Bilevel Optimization with Nonconvex Lower Levels, We Need Second-Order Stationarity"><mark class="hl-con">PROBE</mark>算法首次实现非凸下层<mark class="hl-con">双层优化</mark>的有限时间二阶平稳收敛</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="math" data-text="optimization with region-reduced relu neural networks 区域约简relu神经网络提升混合整数优化效率 提出region-reduced模型压缩法，通过稳定不稳定神经元与合并冗余神经元减少线性区域数量，在化学工程超结构优化中降低40%-50%计算时间，解精度误差&lt;1%。 neural network compression mixed-integer optimization chemical engineering linear regions surrogate model region-reduced relu ann">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31380" target="_blank" rel="noopener noreferrer" title="区域约简ReLU神经网络提升混合整数优化效率 ｜ 原标题：Optimization with Region-Reduced ReLU Neural Networks">区域约简ReLU神经网络提升混合整数优化效率</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">提出Region-Reduced模型压缩法，通过稳定不稳定神经元与合并冗余神经元减少线性区域数量，在化学工程超结构优化中降低40%-50%计算时间，解精度误差&lt;1%。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31380" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.LG</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="bf9d0f2bad44ee58" aria-expanded="false" aria-controls="v2-details-bf9d0f2bad44ee58"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-bf9d0f2bad44ee58" class="v2-details" aria-labelledby="v2-title-bf9d0f2bad44ee58" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">研究者针对下层非凸<mark class="hl-con">双层优化</mark>问题，提出以<mark class="hl-con">二阶平稳性</mark>为代理目标的<mark class="hl-con">PROBE</mark>算法，首次建立有限时间收敛率O(T^{-2/5})，并能主动探测与逃逸下层鞍点。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>突破传统<mark class="hl-con">双层优化</mark>对下层凸性的强假设，拓展其在实际机器学习任务中的适用边界</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>we prove that <mark class="hl-con">probe</mark> achieves a finite-time convergence rate of $o(t^{-2/5})$, where t denotes iterations. to our knowledge, this work is the first to establish the finite-time convergence for achieving lower-level second-order stationary solutions in gener</blockquote></div>
+      <div class="v2-detail-tags"><span class="tag tag-first" title="标题或摘要明确称首次/首个">首次</span></div>
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.50</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30501" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="bf9d0f2bad44ee58" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="59a9b862f81d1ceb" data-domain="math" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="optimization with region-reduced relu neural networks 区域约简relu神经网络提升混合整数优化效率 提出region-reduced模型压缩法，通过稳定不稳定神经元与合并冗余神经元减少线性区域数量，在化学工程超结构优化中降低40%-50%计算时间，解精度误差&lt;1%。 加速含神经网络的工业优化求解，减少工程师手动调参与等待时间 the results for the superstructure problem demonstrate the large potential of region reduction with a decrease of 40\% to 50\% in computational time, yielding solutions closer than 1\% to the reference at negligible effort of obtaining t arxiv math.oc neural network compression mixed-integer optimization chemical engineering linear regions surrogate model region-reduced relu ann" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">04</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="59a9b862f81d1ceb" aria-expanded="false" aria-controls="v2-details-59a9b862f81d1ceb">
+      <h2 id="v2-title-59a9b862f81d1ceb" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31380" target="_blank" rel="noopener noreferrer" title="原标题：Optimization with Region-Reduced ReLU Neural Networks">区域约简ReLU神经网络提升混合整数优化效率</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="math" data-text="next: physics-informed neuro-spectral exponential time differencing architectures next架构解决神经谱方法在刚性pde求解中的数值不稳定性 next将神经谱架构与指数时间差分法结合，对pde线性刚性部分进行精确矩阵指数积分，使模型在基准刚性pde上保持稳定且准确，而neusa发散。 物理信息神经网络 刚性微分方程 指数积分 数值稳定性 预印本 next">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31539" target="_blank" rel="noopener noreferrer" title="NEXT架构解决神经谱方法在刚性PDE求解中的数值不稳定性 ｜ 原标题：NEXT: Physics-Informed Neuro-Spectral Exponential Time Differencing Architectures"><mark class="hl-con">NEXT</mark>架构解决神经谱方法在刚性PDE求解中的数值不稳定性</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">NEXT</mark>将神经谱架构与指数时间差分法结合，对PDE线性刚性部分进行精确矩阵指数积分，使模型在基准刚性PDE上保持稳定且准确，而<mark class="hl-con">NeuSA</mark>发散。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31539" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv math.OC</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="59a9b862f81d1ceb" aria-expanded="false" aria-controls="v2-details-59a9b862f81d1ceb"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-59a9b862f81d1ceb" class="v2-details" aria-labelledby="v2-title-59a9b862f81d1ceb" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">提出Region-Reduced模型压缩法，通过稳定不稳定神经元与合并冗余神经元减少线性区域数量，在化学工程超结构优化中降低40%-50%计算时间，解精度误差&lt;1%。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>加速含神经网络的工业优化求解，减少工程师手动调参与等待时间</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>the results for the superstructure problem demonstrate the large potential of region reduction with a decrease of 40\% to 50\% in computational time, yielding solutions closer than 1\% to the reference at negligible effort of obtaining t</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31380" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="59a9b862f81d1ceb" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="b28930ab52aa749c" data-domain="math" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="next: physics-informed neuro-spectral exponential time differencing architectures next架构解决神经谱方法在刚性pde求解中的数值不稳定性 next将神经谱架构与指数时间差分法结合，对pde线性刚性部分进行精确矩阵指数积分，使模型在基准刚性pde上保持稳定且准确，而neusa发散。 提升科学计算中pde求解器的鲁棒性与适用范围 the effectiveness of next is verified through benchmark experiments on a set of stiff pdes, in which next is stable and accurate while neusa diverges numerically. arxiv math.na 物理信息神经网络 刚性微分方程 指数积分 数值稳定性 预印本 next" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">05</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="b28930ab52aa749c" aria-expanded="false" aria-controls="v2-details-b28930ab52aa749c">
+      <h2 id="v2-title-b28930ab52aa749c" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31539" target="_blank" rel="noopener noreferrer" title="原标题：NEXT: Physics-Informed Neuro-Spectral Exponential Time Differencing Architectures"><mark class="hl-con">NEXT</mark>架构解决神经谱方法在刚性PDE求解中的数值不稳定性</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="math" data-text="self-play search distillation for large language model reasoning spsd框架用自博弈生成超人类推理数据提升llm数学能力 spsd框架通过muzero类网络在棋类环境中自博弈生成结构化推理数据，训练qwen3-4b-base后使其在六个数学基准上的平均分从24.1升至36.6，并将预留棋类胜率从15%提至45%。 大语言模型 推理能力 自博弈 合成数据 数学基准 qwen3-4b-base">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30936" target="_blank" rel="noopener noreferrer" title="SPSD框架用自博弈生成超人类推理数据提升LLM数学能力 ｜ 原标题：Self-Play Search Distillation for Large Language Model Reasoning"><mark class="hl-con">SPSD</mark>框架用自博弈生成超人类推理数据提升LLM数学能力</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">SPSD</mark>框架通过<mark class="hl-con">MuZero</mark>类网络在棋类环境中自博弈生成结构化推理数据，训练Qwen3-4B-Base后使其在六个数学基准上的平均分从24.1升至36.6，并将预留棋类胜率从15%提至45%。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30936" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv math.NA</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="b28930ab52aa749c" aria-expanded="false" aria-controls="v2-details-b28930ab52aa749c"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-b28930ab52aa749c" class="v2-details" aria-labelledby="v2-title-b28930ab52aa749c" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">NEXT</mark>将神经谱架构与指数时间差分法结合，对PDE线性刚性部分进行精确矩阵指数积分，使模型在基准刚性PDE上保持稳定且准确，而<mark class="hl-con">NeuSA</mark>发散。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>提升科学计算中PDE求解器的鲁棒性与适用范围</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>The effectiveness of <mark class="hl-con">NEXT</mark> is verified through benchmark experiments on a set of stiff PDEs, in which <mark class="hl-con">NEXT</mark> is stable and accurate while <mark class="hl-con">NeuSA</mark> diverges numerically.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31539" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="b28930ab52aa749c" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="b96329858c80b8d3" data-domain="math" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="self-play search distillation for large language model reasoning spsd框架用自博弈生成超人类推理数据提升llm数学能力 spsd框架通过muzero类网络在棋类环境中自博弈生成结构化推理数据，训练qwen3-4b-base后使其在六个数学基准上的平均分从24.1升至36.6，并将预留棋类胜率从15%提至45%。 为llm提供高质量推理训练数据，缓解人工标注成本高与合成数据质量低问题 on qwen3-4b-base, it raises the mean over six mathematics benchmarks from 24.1 to 36.6 while increasing the held-out-game win rate from 15% to 45%. arxiv cs.ai 大语言模型 推理能力 自博弈 合成数据 数学基准 qwen3-4b-base" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">06</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="b96329858c80b8d3" aria-expanded="false" aria-controls="v2-details-b96329858c80b8d3">
+      <h2 id="v2-title-b96329858c80b8d3" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30936" target="_blank" rel="noopener noreferrer" title="原标题：Self-Play Search Distillation for Large Language Model Reasoning"><mark class="hl-con">SPSD</mark>框架用自博弈生成超人类推理数据提升LLM数学能力</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="math" data-text="knottedgraph: scalable knotted-graph topology for scientific and mathematical discovery knottedgraph实现可扩展的打结图拓扑建模与ai辅助数学发现 knottedgraph框架将科学数据转化为保留图连通性与空间嵌入的打结图，支持yamada多项式精确计算，并用于llm辅助发现通用图结构的闭式解析公式。 拓扑数据分析 打结图 数学发现 llm辅助 预印本 knottedgraph">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31152" target="_blank" rel="noopener noreferrer" title="KnottedGraph实现可扩展的打结图拓扑建模与AI辅助数学发现 ｜ 原标题：KnottedGraph: Scalable knotted-graph topology for scientific and mathematical discovery"><mark class="hl-con">KnottedGraph</mark>实现可扩展的打结图拓扑建模与AI辅助数学发现</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">KnottedGraph</mark>框架将科学数据转化为保留图连通性与空间嵌入的打结图，支持<mark class="hl-con">Yamada多项式</mark>精确计算，并用于LLM辅助发现通用图结构的闭式解析公式。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31152" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.AI</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="b96329858c80b8d3" aria-expanded="false" aria-controls="v2-details-b96329858c80b8d3"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-b96329858c80b8d3" class="v2-details" aria-labelledby="v2-title-b96329858c80b8d3" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">SPSD</mark>框架通过<mark class="hl-con">MuZero</mark>类网络在棋类环境中自博弈生成结构化推理数据，训练Qwen3-4B-Base后使其在六个数学基准上的平均分从24.1升至36.6，并将预留棋类胜率从15%提至45%。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>为LLM提供高质量推理训练数据，缓解人工标注成本高与合成数据质量低问题</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>On Qwen3-4B-Base, it raises the mean over six mathematics benchmarks from 24.1 to 36.6 while increasing the held-out-game win rate from 15% to 45%.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30936" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="b96329858c80b8d3" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="f3bbddf30068c7e0" data-domain="math" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="knottedgraph: scalable knotted-graph topology for scientific and mathematical discovery knottedgraph实现可扩展的打结图拓扑建模与ai辅助数学发现 knottedgraph框架将科学数据转化为保留图连通性与空间嵌入的打结图，支持yamada多项式精确计算，并用于llm辅助发现通用图结构的闭式解析公式。 为数学研究提供可扩展拓扑计算工具，支撑ai驱动的公式发现流程 this scalability enables us to introduce an llm-assisted mathematical-discovery methodology, in which computational topological data generated across knotted-graph families are used to identify candidate closed-form formulas. arxiv cs.sc 拓扑数据分析 打结图 数学发现 llm辅助 预印本 knottedgraph" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">07</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="f3bbddf30068c7e0" aria-expanded="false" aria-controls="v2-details-f3bbddf30068c7e0">
+      <h2 id="v2-title-f3bbddf30068c7e0" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31152" target="_blank" rel="noopener noreferrer" title="原标题：KnottedGraph: Scalable knotted-graph topology for scientific and mathematical discovery"><mark class="hl-con">KnottedGraph</mark>实现可扩展的打结图拓扑建模与AI辅助数学发现</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 166 31)" data-domain="math" data-text="benchmark cases for gradient-based optimization in linear elastic solid mechanics using lattice boltzmann methods 首个基于格子玻尔兹曼法的固体力学优化基准集发布 研究提出首个面向线弹性固体力学的格子玻尔兹曼法（lbm）梯度优化基准，包含三个带解析解的逆问题；albm梯度与有限差分验证一致，误差低于11位有效数字，代码开源于openlb。 梯度优化 格子玻尔兹曼法 逆问题 收敛性验证 预印本 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31347" target="_blank" rel="noopener noreferrer" title="首个基于格子玻尔兹曼法的固体力学优化基准集发布 ｜ 原标题：Benchmark cases for gradient-based optimization in linear elastic solid mechanics using lattice Boltzmann methods">首个基于格子玻尔兹曼法的固体力学优化基准集发布</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.50 · 扎实进展">0.50</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span><span class="tag tag-first" title="标题或摘要明确称首次/首个">首次</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">研究提出首个面向线弹性固体力学的格子玻尔兹曼法（<mark class="hl-con">LBM</mark>）梯度优化基准，包含三个带解析解的逆问题；<mark class="hl-con">ALBM</mark>梯度与有限差分验证一致，误差低于11位有效数字，代码开源于<mark class="hl-con">OpenLB</mark>。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31347" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SC</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="f3bbddf30068c7e0" aria-expanded="false" aria-controls="v2-details-f3bbddf30068c7e0"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-f3bbddf30068c7e0" class="v2-details" aria-labelledby="v2-title-f3bbddf30068c7e0" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">KnottedGraph</mark>框架将科学数据转化为保留图连通性与空间嵌入的打结图，支持<mark class="hl-con">Yamada多项式</mark>精确计算，并用于LLM辅助发现通用图结构的闭式解析公式。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>为数学研究提供可扩展拓扑计算工具，支撑AI驱动的公式发现流程</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>This scalability enables us to introduce an LLM-assisted mathematical-discovery methodology, in which computational topological data generated across knotted-graph families are used to identify candidate closed-form formulas.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31152" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="f3bbddf30068c7e0" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="6bb2511354ba8578" data-domain="math" data-date="2026-09-28" data-value="0.5" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="benchmark cases for gradient-based optimization in linear elastic solid mechanics using lattice boltzmann methods 首个基于格子玻尔兹曼法的固体力学优化基准集发布 研究提出首个面向线弹性固体力学的格子玻尔兹曼法（lbm）梯度优化基准，包含三个带解析解的逆问题；albm梯度与有限差分验证一致，误差低于11位有效数字，代码开源于openlb。 为固体力学pde约束优化提供可验证基准，支撑lbm向流固耦合等实际场景扩展 we propose, to our knowledge, the first optimization benchmarks for solid lbm: three inverse problems, each with a manufactured solution of the forward problem and a known reference control. arxiv math.oc 梯度优化 格子玻尔兹曼法 逆问题 收敛性验证 预印本 未指明" style="--heat:rgb(250 166 31);--domain-dot:rgb(250 166 31)">
+  <span class="story-number" aria-hidden="true">08</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="6bb2511354ba8578" aria-expanded="false" aria-controls="v2-details-6bb2511354ba8578">
+      <h2 id="v2-title-6bb2511354ba8578" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31347" target="_blank" rel="noopener noreferrer" title="原标题：Benchmark cases for gradient-based optimization in linear elastic solid mechanics using lattice Boltzmann methods">首个基于格子玻尔兹曼法的固体力学优化基准集发布</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 166 31)" data-domain="math" data-text="the scaling properties of implicit deductive reasoning in transformers transformer隐式演绎推理逼近链式思维性能 研究发现，在深度足够且采用双向前缀掩码的transformer中，经反事实增强训练的隐式演绎推理可在多种图结构和问题宽度上接近显式链式思维（cot）性能，但深度外推仍需cot。 transformer 演绎推理 隐式推理 预印本 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2605.04330" target="_blank" rel="noopener noreferrer" title="Transformer隐式演绎推理逼近链式思维性能 ｜ 原标题：The Scaling Properties of Implicit Deductive Reasoning in Transformers">Transformer隐式演绎推理逼近链式思维性能</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.50 · 扎实进展">0.50</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">研究发现，在深度足够且采用双向前缀掩码的Transformer中，经反事实增强训练的隐式演绎推理可在多种图结构和问题宽度上接近显式链式思维（<mark class="hl-con">CoT</mark>）性能，但深度外推仍需<mark class="hl-con">CoT</mark>。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2605.04330" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv math.OC</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="6bb2511354ba8578" aria-expanded="false" aria-controls="v2-details-6bb2511354ba8578"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-6bb2511354ba8578" class="v2-details" aria-labelledby="v2-title-6bb2511354ba8578" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">研究提出首个面向线弹性固体力学的格子玻尔兹曼法（<mark class="hl-con">LBM</mark>）梯度优化基准，包含三个带解析解的逆问题；<mark class="hl-con">ALBM</mark>梯度与有限差分验证一致，误差低于11位有效数字，代码开源于<mark class="hl-con">OpenLB</mark>。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>为固体力学PDE约束优化提供可验证基准，支撑<mark class="hl-con">LBM</mark>向流固耦合等实际场景扩展</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We propose, to our knowledge, the first optimization benchmarks for solid <mark class="hl-con">LBM</mark>: three inverse problems, each with a manufactured solution of the forward problem and a known reference control.</blockquote></div>
+      <div class="v2-detail-tags"><span class="tag tag-first" title="标题或摘要明确称首次/首个">首次</span></div>
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.50</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31347" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="6bb2511354ba8578" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="b6708f5245164d4f" data-domain="math" data-date="2026-09-28" data-value="0.5" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="the scaling properties of implicit deductive reasoning in transformers transformer隐式演绎推理逼近链式思维性能 研究发现，在深度足够且采用双向前缀掩码的transformer中，经反事实增强训练的隐式演绎推理可在多种图结构和问题宽度上接近显式链式思维（cot）性能，但深度外推仍需cot。 降低对显式推理提示的依赖，推动模型内生逻辑能力提升 we find that in sufficiently deep models with a bidirectional prefix mask, implicit reasoning approaches explicit cot performance across graph topologies and problem widths, though cot remains necessary for depth extrapolation. arxiv cs.lo transformer 演绎推理 隐式推理 预印本 未指明" style="--heat:rgb(250 166 31);--domain-dot:rgb(250 166 31)">
+  <span class="story-number" aria-hidden="true">09</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="b6708f5245164d4f" aria-expanded="false" aria-controls="v2-details-b6708f5245164d4f">
+      <h2 id="v2-title-b6708f5245164d4f" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2605.04330" target="_blank" rel="noopener noreferrer" title="原标题：The Scaling Properties of Implicit Deductive Reasoning in Transformers">Transformer隐式演绎推理逼近链式思维性能</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 166 31)" data-domain="math" data-text="sparsely connected rank-inspired neural network scrinn以稀疏结构与正交损失提升pde求解效率 scrinn是一种稀疏连接、秩启发式神经网络，通过结构化稀疏性和正交归一化损失函数，在函数逼近与多类pde数值求解中实现高精度与低训练成本，代码已开源。 稀疏神经网络 正交基 pde数值解 函数逼近 预印本 scrinn">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30750" target="_blank" rel="noopener noreferrer" title="SCRINN以稀疏结构与正交损失提升PDE求解效率 ｜ 原标题：Sparsely connected rank-inspired neural network"><mark class="hl-con">SCRINN</mark>以稀疏结构与正交损失提升<mark class="hl-con">PDE求解</mark>效率</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.50 · 扎实进展">0.50</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">SCRINN</mark>是一种稀疏连接、秩启发式神经网络，通过结构化稀疏性和正交归一化损失函数，在函数逼近与多类PDE数值求解中实现高精度与低训练成本，代码已开源。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30750" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.LO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="b6708f5245164d4f" aria-expanded="false" aria-controls="v2-details-b6708f5245164d4f"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-b6708f5245164d4f" class="v2-details" aria-labelledby="v2-title-b6708f5245164d4f" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">研究发现，在深度足够且采用双向前缀掩码的Transformer中，经反事实增强训练的隐式演绎推理可在多种图结构和问题宽度上接近显式链式思维（<mark class="hl-con">CoT</mark>）性能，但深度外推仍需<mark class="hl-con">CoT</mark>。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>降低对显式推理提示的依赖，推动模型内生逻辑能力提升</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>we find that in sufficiently deep models with a bidirectional prefix mask, implicit reasoning approaches explicit <mark class="hl-con">CoT</mark> performance across graph topologies and problem widths, though <mark class="hl-con">CoT</mark> remains necessary for depth extrapolation.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.50</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2605.04330" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="b6708f5245164d4f" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="c970be5f5539eccf" data-domain="math" data-date="2026-09-28" data-value="0.5" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="sparsely connected rank-inspired neural network scrinn以稀疏结构与正交损失提升pde求解效率 scrinn是一种稀疏连接、秩启发式神经网络，通过结构化稀疏性和正交归一化损失函数，在函数逼近与多类pde数值求解中实现高精度与低训练成本，代码已开源。 降低科学计算中神经pde求解器的参数量与训练开销，不牺牲精度 numerical experiments on function approximation and a variety of steady-state, time-dependent, and nonlinear pdes demonstrate that scrinn consistently achieves high approximation accuracy with substantially lower training costs. arxiv math.na 稀疏神经网络 正交基 pde数值解 函数逼近 预印本 scrinn" style="--heat:rgb(250 166 31);--domain-dot:rgb(250 166 31)">
+  <span class="story-number" aria-hidden="true">10</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="c970be5f5539eccf" aria-expanded="false" aria-controls="v2-details-c970be5f5539eccf">
+      <h2 id="v2-title-c970be5f5539eccf" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30750" target="_blank" rel="noopener noreferrer" title="原标题：Sparsely connected rank-inspired neural network"><mark class="hl-con">SCRINN</mark>以稀疏结构与正交损失提升<mark class="hl-con">PDE求解</mark>效率</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(251 191 36)" data-domain="math" data-text="bellman&#39;s forest problem and computability 贝尔曼森林问题的可计算性分析取得理论进展 论文证明贝尔曼路径优化问题的每个实例均存在任意小的一致可计算扰动，使得最短路径长度可计算，且最优路径类为π₁⁰类，存在一致可计算的近优逃逸路径。 computability optimization π₁⁰ class bellman&#39;s forest problem 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31352" target="_blank" rel="noopener noreferrer" title="贝尔曼森林问题的可计算性分析取得理论进展 ｜ 原标题：Bellman&#39;s Forest Problem and Computability">贝尔曼森林问题的可计算性分析取得理论进展</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.45 · 增量改进">0.45</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">论文证明贝尔曼路径优化问题的每个实例均存在任意小的一致可计算扰动，使得最短路径长度可计算，且最优路径类为Π₁⁰类，存在一致可计算的近优逃逸路径。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31352" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv math.NA</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="c970be5f5539eccf" aria-expanded="false" aria-controls="v2-details-c970be5f5539eccf"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-c970be5f5539eccf" class="v2-details" aria-labelledby="v2-title-c970be5f5539eccf" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">SCRINN</mark>是一种稀疏连接、秩启发式神经网络，通过结构化稀疏性和正交归一化损失函数，在函数逼近与多类PDE数值求解中实现高精度与低训练成本，代码已开源。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>降低科学计算中神经<mark class="hl-con">PDE求解</mark>器的参数量与训练开销，不牺牲精度</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Numerical experiments on function approximation and a variety of steady-state, time-dependent, and nonlinear PDEs demonstrate that <mark class="hl-con">SCRINN</mark> consistently achieves high approximation accuracy with substantially lower training costs.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.50</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30750" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="c970be5f5539eccf" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="61f9940f0743b65d" data-domain="math" data-date="2026-09-28" data-value="0.45" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="bellman&#39;s forest problem and computability 贝尔曼森林问题的可计算性分析取得理论进展 论文证明贝尔曼路径优化问题的每个实例均存在任意小的一致可计算扰动，使得最短路径长度可计算，且最优路径类为π₁⁰类，存在一致可计算的近优逃逸路径。 为经典优化问题提供可计算性刻画，但未涉及人类劳动替代 we show that each instance of bellman&#39;s problem has an arbitrarily small uniformly computable perturbation for which the minimal length of path is computable, and thus the class of optimal paths is a $\pi_1^0$ class, and there are uniformly computable paths which escape with arbitrarily small length greater than the minimum possible. arxiv math.lo computability optimization π₁⁰ class bellman&#39;s forest problem 未指明" style="--heat:rgb(251 191 36);--domain-dot:rgb(251 191 36)">
+  <span class="story-number" aria-hidden="true">11</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="61f9940f0743b65d" aria-expanded="false" aria-controls="v2-details-61f9940f0743b65d">
+      <h2 id="v2-title-61f9940f0743b65d" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31352" target="_blank" rel="noopener noreferrer" title="原标题：Bellman&#39;s Forest Problem and Computability">贝尔曼森林问题的可计算性分析取得理论进展</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(182 172 135)" data-domain="math" data-text="solving math’s greatest problems was an art form. then came ai - wired wired 报道 ai 正在改变数学难题求解方式 wired 媒体报道称 ai 正在参与解决重大数学问题，强调其方法论转变，但未提供具体模型性能、验证数据或替代人类数学家的实证。 数学证明 ai推理 新闻报道 基础研究 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQMFFabTBzcEZabHVpV1hLR1FweVZodG5RWW5fck05QnlKRUxGNUxRaVp3bVBCWFVtVTVETktvdTJJWjJOMENZdUFVNDI0dzEyTEhTT3Zkb2otYTZ5cFowM0o1bVVNckJzVGdvbVN2WVdpQlFCVnRUdnRBVFF6aEYyaFVWZDl1a1pMQTlTNjdR?oc=5" target="_blank" rel="noopener noreferrer" title="WIRED 报道 AI 正在改变数学难题求解方式 ｜ 原标题：Solving Math’s Greatest Problems Was an Art Form. Then Came AI - WIRED">WIRED 报道 AI 正在改变数学难题求解方式</a>
-      <span class="dom" title="形式化证明、定理发现、符号推理、数学竞赛与开放问题。">∑ 数学</span>
-      <span class="val" title="推进强度 0.35 · 增量改进">0.35</span>
-      <span class="conf conf-mid" title="证据可信度 0.60（中：预印本 / 新闻报道）">可信 0.60</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span><span class="tag tag-pot" title="只是具备替代潜力，属推断而非观测；不参与指数计算">潜力</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">WIRED 媒体报道称 AI 正在参与解决重大数学问题，强调其方法论转变，但未提供具体模型性能、验证数据或替代人类数学家的实证。</p>
-      <a class="srclink" href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQMFFabTBzcEZabHVpV1hLR1FweVZodG5RWW5fck05QnlKRUxGNUxRaVp3bVBCWFVtVTVETktvdTJJWjJOMENZdUFVNDI0dzEyTEhTT3Zkb2otYTZ5cFowM0o1bVVNckJzVGdvbVN2WVdpQlFCVnRUdnRBVFF6aEYyaFVWZDl1a1pMQTlTNjdR?oc=5" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv math.LO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="61f9940f0743b65d" aria-expanded="false" aria-controls="v2-details-61f9940f0743b65d"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-61f9940f0743b65d" class="v2-details" aria-labelledby="v2-title-61f9940f0743b65d" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">论文证明贝尔曼路径优化问题的每个实例均存在任意小的一致可计算扰动，使得最短路径长度可计算，且最优路径类为Π₁⁰类，存在一致可计算的近优逃逸路径。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>为经典优化问题提供可计算性刻画，但未涉及人类劳动替代</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We show that each instance of <mark class="hl-con">Bellman&#39;s problem</mark> has an arbitrarily small uniformly computable perturbation for which the minimal length of path is computable, and thus the class of optimal paths is a $\Pi_1^0$ class, and there are uniformly computable paths which escape with arbitrarily small length greater than the minimum possible.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.45</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31352" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="61f9940f0743b65d" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="e58d743c96cf2aae" data-domain="math" data-date="2026-09-28" data-value="0.35" data-confidence="0.6" data-relation="indirect" data-verified="true" data-text="solving math’s greatest problems was an art form. then came ai - wired wired 报道 ai 正在改变数学难题求解方式 wired 媒体报道称 ai 正在参与解决重大数学问题，强调其方法论转变，但未提供具体模型性能、验证数据或替代人类数学家的实证。 指向 ai 在高度抽象、创造性知识生产环节的潜在介入 solving math’s greatest problems was an art form. then came ai wired google news · ai 数学证明 ai推理 新闻报道 基础研究 未指明" style="--heat:rgb(182 172 135);--domain-dot:rgb(182 172 135)">
+  <span class="story-number" aria-hidden="true">12</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>数学</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="e58d743c96cf2aae" aria-expanded="false" aria-controls="v2-details-e58d743c96cf2aae">
+      <h2 id="v2-title-e58d743c96cf2aae" class="story-title"><a class="v2-title-link" href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQMFFabTBzcEZabHVpV1hLR1FweVZodG5RWW5fck05QnlKRUxGNUxRaVp3bVBCWFVtVTVETktvdTJJWjJOMENZdUFVNDI0dzEyTEhTT3Zkb2otYTZ5cFowM0o1bVVNckJzVGdvbVN2WVdpQlFCVnRUdnRBVFF6aEYyaFVWZDl1a1pMQTlTNjdR?oc=5" target="_blank" rel="noopener noreferrer" title="原标题：Solving Math’s Greatest Problems Was an Art Form. Then Came AI - WIRED">WIRED 报道 AI 正在改变数学难题求解方式</a></h2>
     </div>
-  </details>
-</li>
-</ul>
-<p class="pagenote">指数 = 100 × (1 − e^(−累计贡献 / 108))，衡量自基准日起的累计进程，非绝对真值。口径见<a href="../method.html">方法页</a>。</p>
-<footer class="foot">
-  <span>数据每日由流水线自动生成</span>
-  <span>·</span>
-  <a href="../method.html">评分口径与局限</a>
-  <span>·</span>
-  <a href="../data/index.json">原始数据</a>
-</footer>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>Google News · AI</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>潜力观察</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="e58d743c96cf2aae" aria-expanded="false" aria-controls="v2-details-e58d743c96cf2aae"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-e58d743c96cf2aae" class="v2-details" aria-labelledby="v2-title-e58d743c96cf2aae" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">WIRED 媒体报道称 AI 正在参与解决重大数学问题，强调其方法论转变，但未提供具体模型性能、验证数据或替代人类数学家的实证。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>指向 AI 在高度抽象、创造性知识生产环节的潜在介入</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Solving Math’s Greatest Problems Was an Art Form. Then Came AI WIRED</blockquote></div>
+      <div class="v2-detail-tags"><span class="tag tag-pot" title="只是具备替代潜力，属推断而非观测；不参与指数计算">潜力</span></div>
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.35</dd></div><div><dt>证据可信度</dt><dd>0.60</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">媒体报道</dd></div></dl><a class="v2-original" href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQMFFabTBzcEZabHVpV1hLR1FweVZodG5RWW5fck05QnlKRUxGNUxRaVp3bVBCWFVtVTVETktvdTJJWjJOMENZdUFVNDI0dzEyTEhTT3Zkb2otYTZ5cFowM0o1bVVNckJzVGdvbVN2WVdpQlFCVnRUdnRBVFF6aEYyaFVWZDl1a1pMQTlTNjdR?oc=5" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。本条属于潜力观察，不计入进程指数。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="e58d743c96cf2aae" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article></div>
+  <p id="empty-results" class="empty-state" hidden>这个筛选范围内没有记录。请调整搜索或筛选条件。</p>
 </main>
+<p class="pagenote">指数 = 100 × (1 − e^(−累计贡献 / 108))，衡量自基准日起的累计进程，非绝对真值。口径见<a href="../method.html">方法页</a>。</p><aside class="edition-aside"><section class="edition-note"><div class="eyebrow">本期观察</div><h2>AI 承担人类任务的进展</h2><p>按领域整理互联网与学术界的相关事件。展开记录可查看摘要、原文证据、推进强度和证据可信度。</p><div class="issue-stat"><strong>12</strong><span>条记录<br>09-25 — 09-29</span></div></section>
+  <div class="section-heading small"><h2>沿着领域阅读</h2><span>INDEX</span></div><nav class="domain-list" aria-label="领域筛选"><div class="domain-row"><button class="domain-button" type="button" data-domain-filter="math" title="筛选当前列表中的数学记录"><span><i class="domain-dot" aria-hidden="true"></i>数学</span><span class="domain-count">12</span></button><a class="domain-page-link" href="../domain/math.html" aria-label="打开数学领域页">↗</a></div></nav>
+  <section class="coverage"><div class="section-label">当前内容分布</div><div class="coverage-row"><span>数学</span><span>12</span><i><b style="width:100%"></b></i></div></section>
+  <section class="date-index"><div class="section-label">按日期浏览</div><a href="../day/2026-09-29.html"><time datetime="2026-09-29">2026-09-29</time></a><a href="../day/2026-09-28.html"><time datetime="2026-09-28">2026-09-28</time></a><a href="../day/2026-09-27.html"><time datetime="2026-09-27">2026-09-27</time></a><a href="../day/2026-09-26.html"><time datetime="2026-09-26">2026-09-26</time></a><a href="../day/2026-09-25.html"><time datetime="2026-09-25">2026-09-25</time></a></section>
+  <section class="edition-method"><span class="method-mark" aria-hidden="true">i</span><p>高分不等于事实已被证实。<br>每条内容都值得回到来源核对。</p><a href="../method.html">我们如何评估进展 ↗</a></section></aside></div>
+  <footer class="edition-footer"><a href="../index.html">AI 降临观测站</a><span>看见进展，也看见它的边界。</span><a class="mobile-method-link" href="../method.html">评分口径 ↗</a><a href="../archive.html">浏览历史归档 ↗</a><a href="../data/index.json">原始数据</a></footer>
+</div>
+
+<div id="sort-menu" class="v2-sort-menu" popover role="menu" aria-labelledby="sort-caption">
+  <div class="v2-sort-menu-label" aria-hidden="true">排序方式</div>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="true" tabindex="0" data-action="sort" data-sort="value"><span><strong>推进强度</strong><small>优先查看推进强度更高的记录</small></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="false" tabindex="-1" data-action="sort" data-sort="date"><span><strong>最新发布</strong><small>优先查看最近发布的内容</small></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="false" tabindex="-1" data-action="sort" data-sort="confidence"><span><strong>证据可信度</strong><small>优先查看证据可信度更高的记录</small></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+</div>
+<div id="filter-popover" class="filter-popover" popover aria-labelledby="filter-heading">
+  <div class="popover-heading"><strong id="filter-heading">筛选记录</strong><button class="icon-button" type="button" data-action="close-filter" aria-label="关闭筛选">×</button></div>
+  <label class="check-row"><input type="checkbox" data-filter="direct"><span>仅看直接任务进展<small>能够指出已发生的具体任务或流程变化</small></span></label>
+  <label class="check-row"><input type="checkbox" data-filter="verified"><span>仅看已核对引文<small>引文文字能在采集到的来源文本中找到</small></span></label>
+  <label class="range-label" for="min-filter"><span>最低推进强度</span><output id="min-output">0.00</output></label>
+  <input id="min-filter" type="range" min="0" max="0.9" step="0.05" value="0">
+  <div class="popover-footer"><button class="text-link" type="button" data-action="clear-filters">清除条件</button><button class="action-button primary" type="button" data-action="close-filter">完成</button></div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="../assets/app.js" defer></script>
 </body>
 </html>

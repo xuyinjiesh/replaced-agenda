@@ -1,5 +1,6 @@
 import path from "node:path";
 import fs from "node:fs";
+import { fileURLToPath } from "node:url";
 import { AIClient } from "./lib/ai.mjs";
 import { collect } from "./lib/collect.mjs";
 import { dedupe, applyMergeDecisions, sourceStats } from "./lib/dedupe.mjs";
@@ -24,7 +25,7 @@ import {
 } from "./lib/store.mjs";
 import { isDateISO, log, parseArgs, readJSON, setLogLevel, todayISO } from "./lib/util.mjs";
 
-const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
+const ROOT = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 
 async function main() {
   const args = parseArgs();
@@ -37,14 +38,15 @@ async function main() {
   const domains = resolveDomains(domainsConfig.domains, scoring);
   const p = paths(ROOT);
 
-  const date = String(args.date ?? todayISO());
+  const skipCollect = Boolean(args["skip-collect"]);
+  const skipEnrich = Boolean(args["skip-enrich"]);
+  const skipAI = Boolean(args["skip-ai"]);
+  const renderDate = skipCollect && (skipEnrich || skipAI) ? listEventDates(ROOT).at(-1) : null;
+  const date = String(args.date ?? renderDate ?? todayISO());
   if (!isDateISO(date)) throw new Error(`--date 需要 YYYY-MM-DD 格式，收到 ${date}`);
   const offline = Boolean(args.offline);
   const reprocess = Boolean(args.reprocess);
   const refresh = Boolean(args.refresh);
-  const skipCollect = Boolean(args["skip-collect"]);
-  const skipEnrich = Boolean(args["skip-enrich"]);
-  const skipAI = Boolean(args["skip-ai"]);
   const dryRun = Boolean(args["dry-run"]);
   const windowDays = Number(args["window-days"] ?? 3);
 

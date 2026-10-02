@@ -4,498 +4,629 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>机器人与物理世界 · AI 替代进程</title>
-<meta name="description" content="每日观察 AI 取代人类各方面生活进程的进展记录">
+<meta name="description" content="按领域整理互联网与学术界的 AI 人类任务进展记录">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="alternate" type="application/json" href="../data/index.json" title="index.json">
 </head>
-<body>
-<header class="top"><div class="top-in">
-  <div class="brand"><a href="../index.html">AI 降临观测站</a> <span class="brand-ctx">/ 🤖 机器人与物理世界</span></div>
-  <nav class="nav">
-    <a href="../index.html">互联网</a>
-    <a href="../academia.html">学术界</a>
-    <a href="../archive.html">归档</a>
-    <a href="../method.html">方法</a>
+<body class="editorial-theme editorial-v2">
+<a class="skip-link" href="#main-content">跳到内容</a>
+<div class="edition-wrap">
+  <header class="edition-header">
+    <div class="edition-top"><span>独立观察 · 审慎判断</span><a href="../index.html">REPLACED AGENDA</a><button class="edition-saved" data-action="saved-list" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg>我的稍后读 <b data-saved-count>0</b></button></div>
+    <div class="masthead"><span class="issue-date">SEPTEMBER<strong>29</strong><span>2026-09-29 · 09-25 — 09-29</span></span><div><h1><a href="../index.html">AI 降临观测站<span class="masthead-dot">.</span></a></h1><p>观察智能，如何改变人的工作。</p></div><span class="edition-seal">DAILY<br>OBSERVATION<span>每日一读</span></span></div>
+  </header>
+  <nav class="edition-nav" aria-label="频道与工具">
+    <div class="channel-tabs"><a href="../index.html">互联网</a><a href="../academia.html">学术界</a><a href="../archive.html">归档</a></div>
+    <div class="edition-nav-right"><label class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 4.2 4.2"/></svg><input id="search" type="search" placeholder="寻找一条线索" aria-label="搜索标题、来源或关键词"><kbd>/</kbd></label><button id="filter-trigger" class="action-button" data-action="filter" popovertarget="filter-popover" aria-controls="filter-popover"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M7 12h10m-7 7h4"/><circle cx="8" cy="5" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="10" cy="19" r="1.3"/></svg>筛选</button></div>
   </nav>
-</div></header>
-<main class="wrap">
-<div class="strip strip-solo"><label class="strip-search"><input id="q" type="search" placeholder="筛选 /" aria-label="按关键词筛选"></label></div>
+  <div class="edition-content"><main class="editorial-main" id="main-content">
+  <div class="edition-context"><div class="context-copy"><span id="view-title">机器人与物理世界</span><span id="result-count" aria-live="polite">29 条记录</span><span id="applied-filters"></span></div><div class="v2-sort"><span id="sort-caption">排序</span><button id="sort-trigger" class="v2-sort-trigger" type="button" popovertarget="sort-menu" aria-haspopup="menu" aria-expanded="false" aria-labelledby="sort-caption sort-label"><span id="sort-label">推进强度</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div></div>
 
-<ul class="list" id="events">
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="openhail: an event-driven gymnasium environment for electric ride-hailing fleet control openhail开源电动网约车车队控制仿真环境 openhail是一个开源gymnasium环境，支持对电动网约车车队的请求分配、车辆调度与充电协同控制，提供事件驱动模拟、可配置决策周期及评估工具。 reinforcement learning ride-hailing electric fleet simulation environment event-driven openhail">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30628" target="_blank" rel="noopener noreferrer" title="OpenHail开源电动网约车车队控制仿真环境 ｜ 原标题：OpenHail: An Event-Driven Gymnasium Environment for Electric Ride-Hailing Fleet Control"><mark class="hl-con">OpenHail</mark>开源电动网约车车队控制仿真环境</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-29">09-29</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">OpenHail</mark>是一个开源<mark class="hl-con">Gymnasium</mark>环境，支持对电动网约车车队的请求分配、车辆调度与充电协同控制，提供事件驱动模拟、可配置决策周期及评估工具。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30628" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+  <div class="story-list" id="story-list"><article class="story is-featured" data-v2-record data-id="9e5fc8ccb1832435" data-domain="robotics" data-date="2026-09-29" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="openhail: an event-driven gymnasium environment for electric ride-hailing fleet control openhail开源电动网约车车队控制仿真环境 openhail是一个开源gymnasium环境，支持对电动网约车车队的请求分配、车辆调度与充电协同控制，提供事件驱动模拟、可配置决策周期及评估工具。 为ai控制电动网约车车队提供标准化、可复现的训练与评测平台 we present openhail, an open-source gymnasium environment for joint control of electric ride-hailing fleets. arxiv cs.lg reinforcement learning ride-hailing electric fleet simulation environment event-driven openhail" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">01</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-29">2026-09-29</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="9e5fc8ccb1832435" aria-expanded="false" aria-controls="v2-details-9e5fc8ccb1832435">
+      <h2 id="v2-title-9e5fc8ccb1832435" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30628" target="_blank" rel="noopener noreferrer" title="原标题：OpenHail: An Event-Driven Gymnasium Environment for Electric Ride-Hailing Fleet Control"><mark class="hl-con">OpenHail</mark>开源电动网约车车队控制仿真环境</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(239 89 27)" data-domain="robotics" data-text="evaluation is all you need for multi-modal autonomous driving idrivevla在navsim榜单以94.95 pdms刷新自动驾驶多模态规划sota idrivevla框架引入安全感知评分器与vlm引导调制器，在navsim v1公开榜单取得94.95 pdms成绩，超越人类专家参考水平。 自动驾驶 多模态规划 轨迹评估 pdms vlm idrivevla">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30818" target="_blank" rel="noopener noreferrer" title="iDriveVLA在NAVSIM榜单以94.95 PDMS刷新自动驾驶多模态规划SOTA ｜ 原标题：Evaluation Is All You Need for Multi-Modal Autonomous Driving"><mark class="hl-con">iDriveVLA</mark>在<mark class="hl-con">NAVSIM</mark>榜单以94.95 PDMS刷新自动驾驶多模态规划SOTA</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.65 · 扎实进展">0.65</span>
-      <span class="conf conf-high" title="证据可信度 0.80（高：同行评议 / 第三方复现 / 政府文件）">高可信 0.80</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">iDriveVLA</mark>框架引入安全感知评分器与VLM引导调制器，在<mark class="hl-con">NAVSIM</mark> v1公开榜单取得94.95 PDMS成绩，超越人类专家参考水平。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30818" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.LG</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="9e5fc8ccb1832435" aria-expanded="false" aria-controls="v2-details-9e5fc8ccb1832435"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-9e5fc8ccb1832435" class="v2-details" aria-labelledby="v2-title-9e5fc8ccb1832435" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">OpenHail</mark>是一个开源<mark class="hl-con">Gymnasium</mark>环境，支持对电动网约车车队的请求分配、车辆调度与充电协同控制，提供事件驱动模拟、可配置决策周期及评估工具。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>为AI控制电动网约车车队提供标准化、可复现的训练与评测平台</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We present <mark class="hl-con">OpenHail</mark>, an open-source <mark class="hl-con">Gymnasium</mark> environment for joint control of electric ride-hailing fleets.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30628" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="9e5fc8ccb1832435" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="7e0c6e619b7ee842" data-domain="robotics" data-date="2026-09-28" data-value="0.65" data-confidence="0.8" data-relation="direct" data-verified="true" data-text="evaluation is all you need for multi-modal autonomous driving idrivevla在navsim榜单以94.95 pdms刷新自动驾驶多模态规划sota idrivevla框架引入安全感知评分器与vlm引导调制器，在navsim v1公开榜单取得94.95 pdms成绩，超越人类专家参考水平。 解决多模态规划中候选轨迹选择不可靠问题，推动端到端驾驶决策更接近人类专家水平 on the public navsim v1 leaderboard, idrivevla achieves a new state-of-the-art performance of 94.95 pdms, surpassing the human-expert reference. arxiv cs.ro 自动驾驶 多模态规划 轨迹评估 pdms vlm idrivevla" style="--heat:rgb(239 89 27);--domain-dot:rgb(239 89 27)">
+  <span class="story-number" aria-hidden="true">02</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="7e0c6e619b7ee842" aria-expanded="false" aria-controls="v2-details-7e0c6e619b7ee842">
+      <h2 id="v2-title-7e0c6e619b7ee842" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30818" target="_blank" rel="noopener noreferrer" title="原标题：Evaluation Is All You Need for Multi-Modal Autonomous Driving"><mark class="hl-con">iDriveVLA</mark>在<mark class="hl-con">NAVSIM</mark>榜单以94.95 PDMS刷新自动驾驶多模态规划SOTA</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(239 89 27)" data-domain="robotics" data-text="aerial manipulation in the wild with onboard perception, policy learning, and whole-body control 端到端户外空中机械臂系统实现机载感知与全身体控制 该框架集成机载lidar-惯性状态估计、扩散策略模仿学习与全身体模型预测控制，在真实物理空中机械臂上成功完成户外操作任务，摆脱外部动捕依赖。 空中机械臂 户外机器人 机载感知 模型预测控制 预印本 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30521" target="_blank" rel="noopener noreferrer" title="端到端户外空中机械臂系统实现机载感知与全身体控制 ｜ 原标题：Aerial Manipulation in the Wild with Onboard Perception, Policy Learning, and Whole-Body Control">端到端户外空中机械臂系统实现机载感知与全身体控制</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.65 · 扎实进展">0.65</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该框架集成机载LiDAR-惯性状态估计、扩散策略模仿学习与全身体模型预测控制，在真实物理空中机械臂上成功完成户外操作任务，摆脱外部动捕依赖。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30521" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="7e0c6e619b7ee842" aria-expanded="false" aria-controls="v2-details-7e0c6e619b7ee842"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-7e0c6e619b7ee842" class="v2-details" aria-labelledby="v2-title-7e0c6e619b7ee842" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">iDriveVLA</mark>框架引入安全感知评分器与VLM引导调制器，在<mark class="hl-con">NAVSIM</mark> v1公开榜单取得94.95 PDMS成绩，超越人类专家参考水平。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>解决多模态规划中候选轨迹选择不可靠问题，推动端到端驾驶决策更接近人类专家水平</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>On the public <mark class="hl-con">NAVSIM</mark> v1 leaderboard, <mark class="hl-con">iDriveVLA</mark> achieves a new state-of-the-art performance of 94.95 PDMS, surpassing the human-expert reference.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.65</dd></div><div><dt>证据可信度</dt><dd>0.80</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30818" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="7e0c6e619b7ee842" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="8d1a9426b144d249" data-domain="robotics" data-date="2026-09-28" data-value="0.65" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="aerial manipulation in the wild with onboard perception, policy learning, and whole-body control 端到端户外空中机械臂系统实现机载感知与全身体控制 该框架集成机载lidar-惯性状态估计、扩散策略模仿学习与全身体模型预测控制，在真实物理空中机械臂上成功完成户外操作任务，摆脱外部动捕依赖。 首次在真实户外场景中闭环运行完整空中操纵系统，人类无需现场干预 we validate the complete framework on a physical aerial manipulator and demonstrate successful execution of outdoor manipulation tasks. arxiv cs.ro 空中机械臂 户外机器人 机载感知 模型预测控制 预印本 未指明" style="--heat:rgb(239 89 27);--domain-dot:rgb(239 89 27)">
+  <span class="story-number" aria-hidden="true">03</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="8d1a9426b144d249" aria-expanded="false" aria-controls="v2-details-8d1a9426b144d249">
+      <h2 id="v2-title-8d1a9426b144d249" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30521" target="_blank" rel="noopener noreferrer" title="原标题：Aerial Manipulation in the Wild with Onboard Perception, Policy Learning, and Whole-Body Control">端到端户外空中机械臂系统实现机载感知与全身体控制</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(239 89 27)" data-domain="robotics" data-text="navgen: visual generative models as a scalable data engine for embodied 3d navigation navgen用文生视频生成40万导航片段，训练模型在真实飞行中达75%任务成功率 navgen提出文本到视频生成管道，产出约40万视觉语言导航（vln）片段；所训模型在真实无人机飞行实验中达成75%任务成功率。 具身导航 生成式数据引擎 sim-to-real 无人机 3d导航 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30770" target="_blank" rel="noopener noreferrer" title="NavGen用文生视频生成40万导航片段，训练模型在真实飞行中达75%任务成功率 ｜ 原标题：NavGen: Visual Generative Models as a Scalable Data Engine for Embodied 3D Navigation"><mark class="hl-con">NavGen</mark>用文生视频生成40万导航片段，训练模型在真实飞行中达75%任务成功率</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.65 · 扎实进展 · 证据类型不足以支撑更高分值">0.65<sup>*</sup></span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">NavGen</mark>提出文本到视频生成管道，产出约40万视觉语言导航（<mark class="hl-con">VLN</mark>）片段；所训模型在真实无人机飞行实验中达成75%任务成功率。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30770" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="8d1a9426b144d249" aria-expanded="false" aria-controls="v2-details-8d1a9426b144d249"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-8d1a9426b144d249" class="v2-details" aria-labelledby="v2-title-8d1a9426b144d249" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该框架集成机载LiDAR-惯性状态估计、扩散策略模仿学习与全身体模型预测控制，在真实物理空中机械臂上成功完成户外操作任务，摆脱外部动捕依赖。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>首次在真实户外场景中闭环运行完整空中操纵系统，人类无需现场干预</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We validate the complete framework on a physical aerial manipulator and demonstrate successful execution of outdoor manipulation tasks.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.65</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30521" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="8d1a9426b144d249" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="c4b5264c58586e2f" data-domain="robotics" data-date="2026-09-28" data-value="0.65" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="navgen: visual generative models as a scalable data engine for embodied 3d navigation navgen用文生视频生成40万导航片段，训练模型在真实飞行中达75%任务成功率 navgen提出文本到视频生成管道，产出约40万视觉语言导航（vln）片段；所训模型在真实无人机飞行实验中达成75%任务成功率。 通过高质量生成数据弥合仿真与现实差距，实现具身导航模型在真实场景中的有效部署 s. to validate real-world transferability, we deploy the trained model in world-action-model paradigm to real-world flying experiments. the final model achieves a 75\% success rate across different navigation tasks and environments. arxiv cs.ro 具身导航 生成式数据引擎 sim-to-real 无人机 3d导航 未指明" style="--heat:rgb(239 89 27);--domain-dot:rgb(239 89 27)">
+  <span class="story-number" aria-hidden="true">04</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="c4b5264c58586e2f" aria-expanded="false" aria-controls="v2-details-c4b5264c58586e2f">
+      <h2 id="v2-title-c4b5264c58586e2f" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30770" target="_blank" rel="noopener noreferrer" title="原标题：NavGen: Visual Generative Models as a Scalable Data Engine for Embodied 3D Navigation"><mark class="hl-con">NavGen</mark>用文生视频生成40万导航片段，训练模型在真实飞行中达75%任务成功率</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(249 115 22)" data-domain="robotics" data-text="precision at speed: sample-efficient online model-based reinforcement learning for hydraulic excavator control 液压挖掘机在线模型预测控制：20分钟实机学习达亚厘米级轨迹精度 提出一种在线模型基强化学习框架，在11.5吨menzi muck m445液压挖掘机上仅用20分钟真实交互即达到亚厘米级路径跟踪精度，无需仿真预训练或专家示范，显著优于同类方法所需100–150分钟训练时长。 液压机器人控制 在线强化学习 样本效率 实机学习 路径跟踪误差 probabilistic dynamics ensemble">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31025" target="_blank" rel="noopener noreferrer" title="液压挖掘机在线模型预测控制：20分钟实机学习达亚厘米级轨迹精度 ｜ 原标题：Precision at Speed: Sample-Efficient Online Model-Based Reinforcement Learning for Hydraulic Excavator Control">液压挖掘机在线模型预测控制：20分钟实机学习达亚厘米级轨迹精度</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.60 · 扎实进展">0.60</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">提出一种在线模型基强化学习框架，在11.5吨Menzi Muck M445液压挖掘机上仅用20分钟真实交互即达到亚厘米级路径跟踪精度，无需仿真预训练或专家示范，显著优于同类方法所需100–150分钟训练时长。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31025" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="c4b5264c58586e2f" aria-expanded="false" aria-controls="v2-details-c4b5264c58586e2f"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-c4b5264c58586e2f" class="v2-details" aria-labelledby="v2-title-c4b5264c58586e2f" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">NavGen</mark>提出文本到视频生成管道，产出约40万视觉语言导航（<mark class="hl-con">VLN</mark>）片段；所训模型在真实无人机飞行实验中达成75%任务成功率。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>通过高质量生成数据弥合仿真与现实差距，实现具身导航模型在真实场景中的有效部署</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>s. to validate real-world transferability, we deploy the trained model in world-action-model paradigm to real-world flying experiments. the final model achieves a 75\% success rate across different navigation tasks and environments.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.65*</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30770" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。 推进强度已受证据上限约束：当前证据类型不足以支撑更高分值。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="c4b5264c58586e2f" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="780d78458cd59c09" data-domain="robotics" data-date="2026-09-28" data-value="0.6" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="precision at speed: sample-efficient online model-based reinforcement learning for hydraulic excavator control 液压挖掘机在线模型预测控制：20分钟实机学习达亚厘米级轨迹精度 提出一种在线模型基强化学习框架，在11.5吨menzi muck m445液压挖掘机上仅用20分钟真实交互即达到亚厘米级路径跟踪精度，无需仿真预训练或专家示范，显著优于同类方法所需100–150分钟训练时长。 大幅压缩重型工程机械ai控制器部署周期，降低实机试错成本 after 20 minutes of interaction, the controller reaches tracking accuracy comparable to prior learned controllers trained on 100-150 minutes of data. after 40 minutes, it sustains sub-centimeter mean path error at high operating speeds. arxiv cs.sy 液压机器人控制 在线强化学习 样本效率 实机学习 路径跟踪误差 probabilistic dynamics ensemble" style="--heat:rgb(249 115 22);--domain-dot:rgb(249 115 22)">
+  <span class="story-number" aria-hidden="true">05</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="780d78458cd59c09" aria-expanded="false" aria-controls="v2-details-780d78458cd59c09">
+      <h2 id="v2-title-780d78458cd59c09" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31025" target="_blank" rel="noopener noreferrer" title="原标题：Precision at Speed: Sample-Efficient Online Model-Based Reinforcement Learning for Hydraulic Excavator Control">液压挖掘机在线模型预测控制：20分钟实机学习达亚厘米级轨迹精度</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="can a robot read braille? - learning to adapt contact via imitation learning for tactile braille recognition 自适应触觉框架实现机器人高精度盲文识别 该框架通过多头策略学习专家示范的触觉接触调整动作，在20块物理盲文板上实现94.0%触觉质量与88.6%盲文重建准确率，解决接触建立不足问题。 触觉感知 盲文识别 机器人操作 模仿学习 接触质量 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30676" target="_blank" rel="noopener noreferrer" title="自适应触觉框架实现机器人高精度盲文识别 ｜ 原标题：Can a Robot Read Braille? - Learning to Adapt Contact via Imitation Learning for Tactile Braille Recognition">自适应触觉框架实现机器人高精度盲文识别</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该框架通过<mark class="hl-con">多头策略学习</mark>专家示范的触觉接触调整动作，在20块物理盲文板上实现94.0%触觉质量与88.6%盲文重建准确率，解决接触建立不足问题。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30676" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SY</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="780d78458cd59c09" aria-expanded="false" aria-controls="v2-details-780d78458cd59c09"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-780d78458cd59c09" class="v2-details" aria-labelledby="v2-title-780d78458cd59c09" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">提出一种在线模型基强化学习框架，在11.5吨Menzi Muck M445液压挖掘机上仅用20分钟真实交互即达到亚厘米级路径跟踪精度，无需仿真预训练或专家示范，显著优于同类方法所需100–150分钟训练时长。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>大幅压缩重型工程机械AI控制器部署周期，降低实机试错成本</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>After 20 minutes of interaction, the controller reaches tracking accuracy comparable to prior learned controllers trained on 100-150 minutes of data. After 40 minutes, it sustains sub-centimeter mean path error at high operating speeds.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.60</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31025" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="780d78458cd59c09" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="2155603ba62012e1" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="can a robot read braille? - learning to adapt contact via imitation learning for tactile braille recognition 自适应触觉框架实现机器人高精度盲文识别 该框架通过多头策略学习专家示范的触觉接触调整动作，在20块物理盲文板上实现94.0%触觉质量与88.6%盲文重建准确率，解决接触建立不足问题。 使机器人具备主动建立可读触觉接触的能力，替代人工辅助盲文读取环节 uation, the proposed approach achieves 94.0% tactile quality and 88.6% tactile reconstruction on the ten online-evaluation plates. arxiv cs.ro 触觉感知 盲文识别 机器人操作 模仿学习 接触质量 未指明" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">06</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="2155603ba62012e1" aria-expanded="false" aria-controls="v2-details-2155603ba62012e1">
+      <h2 id="v2-title-2155603ba62012e1" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30676" target="_blank" rel="noopener noreferrer" title="原标题：Can a Robot Read Braille? - Learning to Adapt Contact via Imitation Learning for Tactile Braille Recognition">自适应触觉框架实现机器人高精度盲文识别</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="grasptwin: zero-shot task-oriented grasp optimization via a digital twin grasptwin实现零样本任务导向抓取优化 grasptwin通过rgb-d构建环境数字孪生，结合大模型语义先验与贝叶斯优化物理仿真，在真实机器人上实现零样本任务导向抓取（如握持杯柄），相较sota提升成功率最高达33%，全流程仅需数分钟。 任务导向抓取 数字孪生 零样本迁移 贝叶斯优化 物理仿真 grasptwin">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30543" target="_blank" rel="noopener noreferrer" title="GraspTwin实现零样本任务导向抓取优化 ｜ 原标题：GraspTwin: Zero-Shot Task-Oriented Grasp Optimization via a Digital Twin"><mark class="hl-con">GraspTwin</mark>实现零样本任务导向抓取优化</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">GraspTwin</mark>通过RGB-D构建环境数字孪生，结合大模型语义先验与贝叶斯优化物理仿真，在真实机器人上实现零样本任务导向抓取（如握持杯柄），相较SOTA提升成功率最高达33%，全流程仅需数分钟。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30543" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="2155603ba62012e1" aria-expanded="false" aria-controls="v2-details-2155603ba62012e1"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-2155603ba62012e1" class="v2-details" aria-labelledby="v2-title-2155603ba62012e1" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该框架通过<mark class="hl-con">多头策略学习</mark>专家示范的触觉接触调整动作，在20块物理盲文板上实现94.0%触觉质量与88.6%盲文重建准确率，解决接触建立不足问题。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>使机器人具备主动建立可读触觉接触的能力，替代人工辅助盲文读取环节</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>uation, the proposed approach achieves 94.0% tactile quality and 88.6% tactile reconstruction on the ten online-evaluation plates.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30676" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="2155603ba62012e1" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="21eb73d64ffeb2b8" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="grasptwin: zero-shot task-oriented grasp optimization via a digital twin grasptwin实现零样本任务导向抓取优化 grasptwin通过rgb-d构建环境数字孪生，结合大模型语义先验与贝叶斯优化物理仿真，在真实机器人上实现零样本任务导向抓取（如握持杯柄），相较sota提升成功率最高达33%，全流程仅需数分钟。 替代人工设计抓取策略，使机器人自主完成家庭场景复杂交互任务 our full zero-shot real-world transfer only takes a few minutes and improves task-oriented grasping success by up to 33% as compared to other state-of-the-art pipelines. arxiv cs.ro 任务导向抓取 数字孪生 零样本迁移 贝叶斯优化 物理仿真 grasptwin" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">07</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="21eb73d64ffeb2b8" aria-expanded="false" aria-controls="v2-details-21eb73d64ffeb2b8">
+      <h2 id="v2-title-21eb73d64ffeb2b8" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30543" target="_blank" rel="noopener noreferrer" title="原标题：GraspTwin: Zero-Shot Task-Oriented Grasp Optimization via a Digital Twin"><mark class="hl-con">GraspTwin</mark>实现零样本任务导向抓取优化</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="gracidit: graph-circuit digital twin for configuration-induced routing delay prediction in zynq ultrascale+ fpgas gracidit数字孪生模型预测fpga布线延迟退化 gracidit基于zynq ultrascale+ fpga路由资源图与降阶电路模型，预测配置诱导的布线延迟变化，实测平均绝对误差7.8 ps，对时序违规扰动召回率达87.4%。 fpga可靠性 布线延迟预测 数字孪生 硬件验证 预印本 gracidit">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30534" target="_blank" rel="noopener noreferrer" title="GRACIDIT数字孪生模型预测FPGA布线延迟退化 ｜ 原标题：GRACIDIT: Graph-Circuit Digital Twin for Configuration-Induced Routing Delay Prediction in Zynq UltraScale+ FPGAs"><mark class="hl-con">GRACIDIT</mark><mark class="hl-con">数字孪生</mark>模型预测<mark class="hl-con">FPGA</mark>布线延迟退化</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">GRACIDIT</mark>基于Zynq UltraScale+ <mark class="hl-con">FPGA</mark>路由资源图与降阶电路模型，预测配置诱导的布线延迟变化，实测平均绝对误差7.8 ps，对时序违规扰动召回率达87.4%。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30534" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="21eb73d64ffeb2b8" aria-expanded="false" aria-controls="v2-details-21eb73d64ffeb2b8"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-21eb73d64ffeb2b8" class="v2-details" aria-labelledby="v2-title-21eb73d64ffeb2b8" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">GraspTwin</mark>通过RGB-D构建环境数字孪生，结合大模型语义先验与贝叶斯优化物理仿真，在真实机器人上实现零样本任务导向抓取（如握持杯柄），相较SOTA提升成功率最高达33%，全流程仅需数分钟。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>替代人工设计抓取策略，使机器人自主完成家庭场景复杂交互任务</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Our full zero-shot real-world transfer only takes a few minutes and improves task-oriented grasping success by up to 33% as compared to other state-of-the-art pipelines.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30543" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="21eb73d64ffeb2b8" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="2a605cf30394ef48" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="gracidit: graph-circuit digital twin for configuration-induced routing delay prediction in zynq ultrascale+ fpgas gracidit数字孪生模型预测fpga布线延迟退化 gracidit基于zynq ultrascale+ fpga路由资源图与降阶电路模型，预测配置诱导的布线延迟变化，实测平均绝对误差7.8 ps，对时序违规扰动召回率达87.4%。 实现可部署的fpga配置风险量化，替代人工经验评估布线脆弱性 experimental evaluation demonstrates a mean absolute prediction error of 7.8 ps, achieves 87.4 percent recall for slack-violating perturbations, and attains a recall at 10 value of 0 arxiv cs.sy fpga可靠性 布线延迟预测 数字孪生 硬件验证 预印本 gracidit" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">08</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="2a605cf30394ef48" aria-expanded="false" aria-controls="v2-details-2a605cf30394ef48">
+      <h2 id="v2-title-2a605cf30394ef48" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30534" target="_blank" rel="noopener noreferrer" title="原标题：GRACIDIT: Graph-Circuit Digital Twin for Configuration-Induced Routing Delay Prediction in Zynq UltraScale+ FPGAs"><mark class="hl-con">GRACIDIT</mark><mark class="hl-con">数字孪生</mark>模型预测<mark class="hl-con">FPGA</mark>布线延迟退化</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="ac power flow contingency analysis using a single deep neural network 单神经网络实现任意单线故障后电网状态快速预测 该研究提出一种仅用基础工况ac潮流数据训练的单一深度神经网络框架，通过固定点迭代预测任意单线路故障后的电网运行状态，在ieee 118节点系统上数次迭代即得高精度结果，并用半定规划验证了模型收敛性。 电力系统安全分析 深度神经网络 故障后状态估计 固定点迭代 半定规划 dnn">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30859" target="_blank" rel="noopener noreferrer" title="单神经网络实现任意单线故障后电网状态快速预测 ｜ 原标题：AC Power Flow Contingency Analysis Using a Single Deep Neural Network">单神经网络实现任意单线故障后电网状态快速预测</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该研究提出一种仅用基础工况AC潮流数据训练的单一深度神经网络框架，通过固定点迭代预测任意单线路故障后的电网运行状态，在IEEE 118节点系统上数次迭代即得高精度结果，并用半定规划验证了模型收敛性。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30859" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SY</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="2a605cf30394ef48" aria-expanded="false" aria-controls="v2-details-2a605cf30394ef48"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-2a605cf30394ef48" class="v2-details" aria-labelledby="v2-title-2a605cf30394ef48" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">GRACIDIT</mark>基于Zynq UltraScale+ <mark class="hl-con">FPGA</mark>路由资源图与降阶电路模型，预测配置诱导的布线延迟变化，实测平均绝对误差7.8 ps，对时序违规扰动召回率达87.4%。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>实现可部署的<mark class="hl-con">FPGA</mark>配置风险量化，替代人工经验评估布线脆弱性</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>experimental evaluation demonstrates a mean absolute prediction error of 7.8 ps, achieves 87.4 percent recall for slack-violating perturbations, and attains a recall at 10 value of 0</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30534" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="2a605cf30394ef48" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="31a016daa19244cb" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="ac power flow contingency analysis using a single deep neural network 单神经网络实现任意单线故障后电网状态快速预测 该研究提出一种仅用基础工况ac潮流数据训练的单一深度神经网络框架，通过固定点迭代预测任意单线路故障后的电网运行状态，在ieee 118节点系统上数次迭代即得高精度结果，并用半定规划验证了模型收敛性。 替代传统高耗时全网潮流重算，降低离线训练成本 this work proposes a framework that reuses a single ml model trained solely on basecase ac-pf data to estimate post-contingency operating states under arbitrary single-line outages. arxiv cs.sy 电力系统安全分析 深度神经网络 故障后状态估计 固定点迭代 半定规划 dnn" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">09</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="31a016daa19244cb" aria-expanded="false" aria-controls="v2-details-31a016daa19244cb">
+      <h2 id="v2-title-31a016daa19244cb" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30859" target="_blank" rel="noopener noreferrer" title="原标题：AC Power Flow Contingency Analysis Using a Single Deep Neural Network">单神经网络实现任意单线故障后电网状态快速预测</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="poil: point-based one-shot imitation learning with stable dynamical systems poil实现单次示范下跨物体类别的鲁棒机器人操作 poil框架利用物体功能部位的3d点集作为共享表征，支持单次示范在不同物体类别、抓取姿态和场景扰动下的轨迹迁移与闭环执行，在仿真和真实机器人实验中验证了跨类别泛化与扰动恢复能力。 模仿学习 点云控制 稳定动力学系统 单次示范 功能部位 poil">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30404" target="_blank" rel="noopener noreferrer" title="POIL实现单次示范下跨物体类别的鲁棒机器人操作 ｜ 原标题：POIL: Point-based One-Shot Imitation Learning with Stable Dynamical Systems"><mark class="hl-con">POIL</mark>实现单次示范下跨物体类别的鲁棒机器人操作</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">POIL</mark>框架利用物体功能部位的3D点集作为共享表征，支持单次示范在不同物体类别、抓取姿态和场景扰动下的轨迹迁移与闭环执行，在仿真和真实机器人实验中验证了跨类别泛化与扰动恢复能力。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30404" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SY</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="31a016daa19244cb" aria-expanded="false" aria-controls="v2-details-31a016daa19244cb"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-31a016daa19244cb" class="v2-details" aria-labelledby="v2-title-31a016daa19244cb" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该研究提出一种仅用基础工况AC潮流数据训练的单一深度神经网络框架，通过固定点迭代预测任意单线路故障后的电网运行状态，在IEEE 118节点系统上数次迭代即得高精度结果，并用半定规划验证了模型收敛性。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>替代传统高耗时全网潮流重算，降低离线训练成本</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>This work proposes a framework that reuses a single ML model trained solely on basecase <mark class="hl-con">AC-PF</mark> data to estimate post-contingency operating states under arbitrary single-line outages.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30859" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="31a016daa19244cb" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="41df72fe68bb9147" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="poil: point-based one-shot imitation learning with stable dynamical systems poil实现单次示范下跨物体类别的鲁棒机器人操作 poil框架利用物体功能部位的3d点集作为共享表征，支持单次示范在不同物体类别、抓取姿态和场景扰动下的轨迹迁移与闭环执行，在仿真和真实机器人实验中验证了跨类别泛化与扰动恢复能力。 减少人类示范需求，使机器人能从单次演示中自主完成新任务 across simulation and real-robot experiments, poil transfers a single demonstration across object category, grasp pose, and goal geometry, while recovering from external disturbances during execution. arxiv cs.ro 模仿学习 点云控制 稳定动力学系统 单次示范 功能部位 poil" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">10</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="41df72fe68bb9147" aria-expanded="false" aria-controls="v2-details-41df72fe68bb9147">
+      <h2 id="v2-title-41df72fe68bb9147" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30404" target="_blank" rel="noopener noreferrer" title="原标题：POIL: Point-based One-Shot Imitation Learning with Stable Dynamical Systems"><mark class="hl-con">POIL</mark>实现单次示范下跨物体类别的鲁棒机器人操作</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="actively resolving contextual uncertainty for underspecified tasks in natural language clue框架让机器人在未知环境中主动解决语义模糊任务 clue框架部署于波士顿动力spot机器人，在三类真实室内外环境共15项任务中达成接近oracle策略的成功率，显著优于无闭环反馈的llm规划器（4倍优势）。 机器人导航 自然语言任务 闭环推理 上下文不确定性 spot机器人 clue">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30428" target="_blank" rel="noopener noreferrer" title="CLUE框架让机器人在未知环境中主动解决语义模糊任务 ｜ 原标题：Actively Resolving Contextual Uncertainty for Underspecified Tasks in Natural Language"><mark class="hl-con">CLUE</mark>框架让机器人在未知环境中主动解决语义模糊任务</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">CLUE</mark>框架部署于波士顿动力Spot机器人，在三类真实室内外环境共15项任务中达成接近Oracle策略的成功率，显著优于无闭环反馈的LLM规划器（4倍优势）。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30428" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="41df72fe68bb9147" aria-expanded="false" aria-controls="v2-details-41df72fe68bb9147"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-41df72fe68bb9147" class="v2-details" aria-labelledby="v2-title-41df72fe68bb9147" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">POIL</mark>框架利用物体功能部位的3D点集作为共享表征，支持单次示范在不同物体类别、抓取姿态和场景扰动下的轨迹迁移与闭环执行，在仿真和真实机器人实验中验证了跨类别泛化与扰动恢复能力。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>减少人类示范需求，使机器人能从单次演示中自主完成新任务</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Across simulation and real-robot experiments, <mark class="hl-con">POIL</mark> transfers a single demonstration across object category, grasp pose, and goal geometry, while recovering from external disturbances during execution.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30404" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="41df72fe68bb9147" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="46372016ce3c16eb" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="actively resolving contextual uncertainty for underspecified tasks in natural language clue框架让机器人在未知环境中主动解决语义模糊任务 clue框架部署于波士顿动力spot机器人，在三类真实室内外环境共15项任务中达成接近oracle策略的成功率，显著优于无闭环反馈的llm规划器（4倍优势）。 使机器人能在目标未明时自主推断任务定义、信息需求与获取方式，替代人类现场引导 we deploy clue on a boston dynamics spot across three real indoor and outdoor environments spanning 15 tasks that require object disambiguation, functional inference, and occlusion reasoning. arxiv cs.ro 机器人导航 自然语言任务 闭环推理 上下文不确定性 spot机器人 clue" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">11</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="46372016ce3c16eb" aria-expanded="false" aria-controls="v2-details-46372016ce3c16eb">
+      <h2 id="v2-title-46372016ce3c16eb" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30428" target="_blank" rel="noopener noreferrer" title="原标题：Actively Resolving Contextual Uncertainty for Underspecified Tasks in Natural Language"><mark class="hl-con">CLUE</mark>框架让机器人在未知环境中主动解决语义模糊任务</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="sea-rvins: semantic-aware tightly coupled rtk-visual-inertial system with correlation-preserving robust estimation for urban navigation 语义感知rtk-视觉惯性系统实现城市高精度定位 sea-rvins系统融合语义前端与动态协方差缩放机制，在tex-cup公开数据集20公里城区路线上达到96.16% epoch误差低于1.0米，开源实现已发布。 slam rtk 城市导航 因子图 预印本 sea-rvins">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30814" target="_blank" rel="noopener noreferrer" title="语义感知RTK-视觉惯性系统实现城市高精度定位 ｜ 原标题：SeA-RVINS: Semantic-Aware Tightly Coupled RTK-Visual-Inertial System with Correlation-Preserving Robust Estimation for Urban Navigation">语义感知RTK-视觉惯性系统实现城市高精度定位</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">SeA-RVINS</mark>系统融合语义前端与动态协方差缩放机制，在<mark class="hl-con">TEX-CUP</mark>公开数据集20公里城区路线上达到96.16% epoch误差低于1.0米，开源实现已发布。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30814" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="46372016ce3c16eb" aria-expanded="false" aria-controls="v2-details-46372016ce3c16eb"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-46372016ce3c16eb" class="v2-details" aria-labelledby="v2-title-46372016ce3c16eb" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">CLUE</mark>框架部署于波士顿动力Spot机器人，在三类真实室内外环境共15项任务中达成接近Oracle策略的成功率，显著优于无闭环反馈的LLM规划器（4倍优势）。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>使机器人能在目标未明时自主推断任务定义、信息需求与获取方式，替代人类现场引导</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We deploy <mark class="hl-con">CLUE</mark> on a Boston Dynamics Spot across three real indoor and outdoor environments spanning 15 tasks that require object disambiguation, functional inference, and occlusion reasoning.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30428" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="46372016ce3c16eb" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="4702639fde27de6f" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="sea-rvins: semantic-aware tightly coupled rtk-visual-inertial system with correlation-preserving robust estimation for urban navigation 语义感知rtk-视觉惯性系统实现城市高精度定位 sea-rvins系统融合语义前端与动态协方差缩放机制，在tex-cup公开数据集20公里城区路线上达到96.16% epoch误差低于1.0米，开源实现已发布。 提升gnss/视觉融合定位在复杂城区的鲁棒性与精度，减少人类校准干预 on an approximately 20-km route from the public tex-cup dataset, including about 50\% deep-urban driving, the latent-pivot configuration achieves 100\% availability and a 1.6-m maximum horizontal error, with 96.16\% and 99.90\% of epochs below 1.0 and 1.5 m, respectively. arxiv cs.ro slam rtk 城市导航 因子图 预印本 sea-rvins" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">12</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="4702639fde27de6f" aria-expanded="false" aria-controls="v2-details-4702639fde27de6f">
+      <h2 id="v2-title-4702639fde27de6f" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30814" target="_blank" rel="noopener noreferrer" title="原标题：SeA-RVINS: Semantic-Aware Tightly Coupled RTK-Visual-Inertial System with Correlation-Preserving Robust Estimation for Urban Navigation">语义感知RTK-视觉惯性系统实现城市高精度定位</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="mocha: multi-objective co-design using hypernetwork architectures mocha用超网络实现机器人多目标协同设计 mocha是首个基于强化学习的机器人多目标协同设计方法，利用超网络生成面向不同设计参数与优化目标的专用策略，支持进化搜索构建设计-策略帕累托集。 机器人设计 多目标优化 超网络 协同设计 预印本 mocha">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30570" target="_blank" rel="noopener noreferrer" title="MOCHA用超网络实现机器人多目标协同设计 ｜ 原标题：MOCHA: Multi-Objective Co-Design using Hypernetwork Architectures"><mark class="hl-con">MOCHA</mark>用<mark class="hl-con">超网络</mark>实现机器人多目标协同设计</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span><span class="tag tag-first" title="标题或摘要明确称首次/首个">首次</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">MOCHA</mark>是首个基于强化学习的机器人多目标协同设计方法，利用<mark class="hl-con">超网络</mark>生成面向不同设计参数与优化目标的专用策略，支持进化搜索构建设计-策略帕累托集。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30570" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="4702639fde27de6f" aria-expanded="false" aria-controls="v2-details-4702639fde27de6f"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-4702639fde27de6f" class="v2-details" aria-labelledby="v2-title-4702639fde27de6f" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">SeA-RVINS</mark>系统融合语义前端与动态协方差缩放机制，在<mark class="hl-con">TEX-CUP</mark>公开数据集20公里城区路线上达到96.16% epoch误差低于1.0米，开源实现已发布。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>提升GNSS/视觉融合定位在复杂城区的鲁棒性与精度，减少人类校准干预</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>On an approximately 20-km route from the public <mark class="hl-con">TEX-CUP</mark> dataset, including about 50\% deep-urban driving, the latent-pivot configuration achieves 100\% availability and a 1.6-m maximum horizontal error, with 96.16\% and 99.90\% of epochs below 1.0 and 1.5 m, respectively.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30814" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="4702639fde27de6f" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="4dd95209f329232a" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="mocha: multi-objective co-design using hypernetwork architectures mocha用超网络实现机器人多目标协同设计 mocha是首个基于强化学习的机器人多目标协同设计方法，利用超网络生成面向不同设计参数与优化目标的专用策略，支持进化搜索构建设计-策略帕累托集。 自动化探索机器人形态与控制策略联合优化空间，替代传统试错式设计流程 in this work, we present mocha, the first, to our knowledge, reinforcement learning based approach to computing a family of pareto-optimal policies across the design space of a robot using a single network. arxiv cs.ro 机器人设计 多目标优化 超网络 协同设计 预印本 mocha" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">13</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="4dd95209f329232a" aria-expanded="false" aria-controls="v2-details-4dd95209f329232a">
+      <h2 id="v2-title-4dd95209f329232a" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30570" target="_blank" rel="noopener noreferrer" title="原标题：MOCHA: Multi-Objective Co-Design using Hypernetwork Architectures"><mark class="hl-con">MOCHA</mark>用<mark class="hl-con">超网络</mark>实现机器人多目标协同设计</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="containing behavioral cascades from manipulated claims in llm-powered multi-robot systems 多机器人系统中llm语义操纵的主动验证与级联抑制 研究针对llm驱动多机器人系统易受虚假世界状态声明触发行为级联的问题，提出verify-adapt-hold主动验证框架，在注入虚假障碍物声明的运输环境中验证其可有效限制级联物理后果，提升sum-of-costs、makespan等指标鲁棒性。 多机器人系统 llm安全 行为级联 虚假声明 主动验证 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30523" target="_blank" rel="noopener noreferrer" title="多机器人系统中LLM语义操纵的主动验证与级联抑制 ｜ 原标题：Containing Behavioral Cascades from Manipulated Claims in LLM-Powered Multi-Robot Systems">多机器人系统中LLM<mark class="hl-con">语义操纵</mark>的主动验证与<mark class="hl-con">级联抑制</mark></a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">研究针对LLM驱动多机器人系统易受虚假世界状态声明触发行为级联的问题，提出<mark class="hl-con">Verify-Adapt-Hold</mark>主动验证框架，在注入虚假障碍物声明的运输环境中验证其可有效限制级联物理后果，提升Sum-of-Costs、makespan等指标鲁棒性。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30523" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="4dd95209f329232a" aria-expanded="false" aria-controls="v2-details-4dd95209f329232a"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-4dd95209f329232a" class="v2-details" aria-labelledby="v2-title-4dd95209f329232a" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">MOCHA</mark>是首个基于强化学习的机器人多目标协同设计方法，利用<mark class="hl-con">超网络</mark>生成面向不同设计参数与优化目标的专用策略，支持进化搜索构建设计-策略帕累托集。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>自动化探索机器人形态与控制策略联合优化空间，替代传统试错式设计流程</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>In this work, we present <mark class="hl-con">MOCHA</mark>, the first, to our knowledge, reinforcement learning based approach to computing a family of Pareto-optimal policies across the design space of a robot using a single network.</blockquote></div>
+      <div class="v2-detail-tags"><span class="tag tag-first" title="标题或摘要明确称首次/首个">首次</span></div>
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30570" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="4dd95209f329232a" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="68c1900340a9579f" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="containing behavioral cascades from manipulated claims in llm-powered multi-robot systems 多机器人系统中llm语义操纵的主动验证与级联抑制 研究针对llm驱动多机器人系统易受虚假世界状态声明触发行为级联的问题，提出verify-adapt-hold主动验证框架，在注入虚假障碍物声明的运输环境中验证其可有效限制级联物理后果，提升sum-of-costs、makespan等指标鲁棒性。 为llm控制的物理系统提供抗干扰保障机制，防止错误信念引发全局任务失效 we evaluate the framework in a multi-robot transportation environment using injected false obstacle claims across different impacts and team sizes. evaluation measures cascade containment, sum-of-costs, makespan, and coverage ratio. results show that treating post-compromise verification as a team-level planning problem, rather than a binary trust decision, effectively limits the cascading physical consequences of semantic manipulation. arxiv cs.ro 多机器人系统 llm安全 行为级联 虚假声明 主动验证 未指明" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">14</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="68c1900340a9579f" aria-expanded="false" aria-controls="v2-details-68c1900340a9579f">
+      <h2 id="v2-title-68c1900340a9579f" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30523" target="_blank" rel="noopener noreferrer" title="原标题：Containing Behavioral Cascades from Manipulated Claims in LLM-Powered Multi-Robot Systems">多机器人系统中LLM<mark class="hl-con">语义操纵</mark>的主动验证与<mark class="hl-con">级联抑制</mark></a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="walt: learning world-model-aligned latent trajectories for autonomous driving walt方法提升自动驾驶轨迹规划效率与精度 walt通过冻结视觉世界模型向轨迹潜在空间迁移语义信息，在navsim基准上将pdms从89.4提升至89.8，epdms从87.3升至87.9，并降低30.5%规划器flops。 autonomous driving world model trajectory planning latent space jepa walt">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30436" target="_blank" rel="noopener noreferrer" title="WALT方法提升自动驾驶轨迹规划效率与精度 ｜ 原标题：WALT: Learning World-Model-Aligned Latent Trajectories for Autonomous Driving"><mark class="hl-con">WALT</mark>方法提升自动驾驶轨迹规划效率与精度</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">WALT</mark>通过冻结视觉世界模型向轨迹潜在空间迁移语义信息，在<mark class="hl-con">NAVSIM</mark>基准上将PDMS从89.4提升至89.8，EPDMS从87.3升至87.9，并降低30.5%规划器FLOPs。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30436" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="68c1900340a9579f" aria-expanded="false" aria-controls="v2-details-68c1900340a9579f"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-68c1900340a9579f" class="v2-details" aria-labelledby="v2-title-68c1900340a9579f" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">研究针对LLM驱动多机器人系统易受虚假世界状态声明触发行为级联的问题，提出<mark class="hl-con">Verify-Adapt-Hold</mark>主动验证框架，在注入虚假障碍物声明的运输环境中验证其可有效限制级联物理后果，提升Sum-of-Costs、makespan等指标鲁棒性。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>为LLM控制的物理系统提供抗干扰保障机制，防止错误信念引发全局任务失效</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We evaluate the framework in a multi-robot transportation environment using injected false obstacle claims across different impacts and team sizes. Evaluation measures cascade containment, Sum-of-Costs, makespan, and coverage ratio. Results show that treating post-compromise verification as a team-level planning problem, rather than a binary trust decision, effectively limits the cascading physical consequences of semantic manipulation.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30523" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="68c1900340a9579f" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="6fdfe088ebc6f50a" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="walt: learning world-model-aligned latent trajectories for autonomous driving walt方法提升自动驾驶轨迹规划效率与精度 walt通过冻结视觉世界模型向轨迹潜在空间迁移语义信息，在navsim基准上将pdms从89.4提升至89.8，epdms从87.3升至87.9，并降低30.5%规划器flops。 提升端到端驾驶规划模块效率与指标，减少对高算力实时推理的依赖 relative to the raw-waypoint baseline, walt improves pdms from 89.4 to 89.8 on navsimv1 and epdms from 87.3 to 87.9 on navsimv2 while reducing trajectory planner flops by 30.5%. arxiv cs.ro autonomous driving world model trajectory planning latent space jepa walt" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">15</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="6fdfe088ebc6f50a" aria-expanded="false" aria-controls="v2-details-6fdfe088ebc6f50a">
+      <h2 id="v2-title-6fdfe088ebc6f50a" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30436" target="_blank" rel="noopener noreferrer" title="原标题：WALT: Learning World-Model-Aligned Latent Trajectories for Autonomous Driving"><mark class="hl-con">WALT</mark>方法提升自动驾驶轨迹规划效率与精度</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="learning vision-based agile gap traversal: differentiable simulation with a warm-started critic 新框架提升四旋翼视觉窄缝穿越训练效率 该研究提出两阶段强化学习框架，利用准解析策略梯度与预热批评器，在不同iable仿真中避免对视觉渲染的反向传播，降低计算开销并提升样本效率；在真实场景中验证了鲁棒窄缝穿越能力。 四旋翼 视觉导航 强化学习 窄缝穿越 预印本 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30696" target="_blank" rel="noopener noreferrer" title="新框架提升四旋翼视觉窄缝穿越训练效率 ｜ 原标题：Learning Vision-Based Agile Gap Traversal: Differentiable Simulation with a Warm-Started Critic">新框架提升四旋翼视觉窄缝穿越训练效率</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该研究提出两阶段强化学习框架，利用准解析策略梯度与预热批评器，在不同iable仿真中避免对视觉渲染的反向传播，降低计算开销并提升样本效率；在真实场景中验证了鲁棒窄缝穿越能力。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30696" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="6fdfe088ebc6f50a" aria-expanded="false" aria-controls="v2-details-6fdfe088ebc6f50a"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-6fdfe088ebc6f50a" class="v2-details" aria-labelledby="v2-title-6fdfe088ebc6f50a" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">WALT</mark>通过冻结视觉世界模型向轨迹潜在空间迁移语义信息，在<mark class="hl-con">NAVSIM</mark>基准上将PDMS从89.4提升至89.8，EPDMS从87.3升至87.9，并降低30.5%规划器FLOPs。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>提升端到端驾驶规划模块效率与指标，减少对高算力实时推理的依赖</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Relative to the raw-waypoint baseline, <mark class="hl-con">WALT</mark> improves PDMS from 89.4 to 89.8 on NAVSIMv1 and EPDMS from 87.3 to 87.9 on NAVSIMv2 while reducing trajectory planner FLOPs by 30.5%.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30436" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="6fdfe088ebc6f50a" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="8d8acaaf92304e43" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="learning vision-based agile gap traversal: differentiable simulation with a warm-started critic 新框架提升四旋翼视觉窄缝穿越训练效率 该研究提出两阶段强化学习框架，利用准解析策略梯度与预热批评器，在不同iable仿真中避免对视觉渲染的反向传播，降低计算开销并提升样本效率；在真实场景中验证了鲁棒窄缝穿越能力。 使无人机无需人工标注动作即可自主学习高难度视觉导航任务 extensive real-world experiments further demonstrate robust gap traversal using binary masks rendered onl arxiv cs.ro 四旋翼 视觉导航 强化学习 窄缝穿越 预印本 未指明" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">16</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="8d8acaaf92304e43" aria-expanded="false" aria-controls="v2-details-8d8acaaf92304e43">
+      <h2 id="v2-title-8d8acaaf92304e43" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30696" target="_blank" rel="noopener noreferrer" title="原标题：Learning Vision-Based Agile Gap Traversal: Differentiable Simulation with a Warm-Started Critic">新框架提升四旋翼视觉窄缝穿越训练效率</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="sogudiff: socially guided diffusion for steerable, norm-grounded robot navigation sogudiff支持运行时可调的社会化机器人导航 sogudiff是一种扩散式导航框架，允许在部署时通过连续风格轴（如避让距离、让行侧、群体优先级）动态调节机器人社会行为，在仿真与真实世界演示中展现出对固定策略基线的严格优势。 社会化导航 扩散模型 行为可调 社会规范 风格控制 sogudiff">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30560" target="_blank" rel="noopener noreferrer" title="SoGuDiff支持运行时可调的社会化机器人导航 ｜ 原标题：SoGuDiff: Socially Guided Diffusion for Steerable, Norm-Grounded Robot Navigation"><mark class="hl-con">SoGuDiff</mark>支持运行时可调的社会化机器人导航</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">SoGuDiff</mark>是一种扩散式导航框架，允许在部署时通过连续风格轴（如避让距离、让行侧、群体优先级）动态调节机器人社会行为，在仿真与真实世界演示中展现出对固定策略基线的严格优势。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30560" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="8d8acaaf92304e43" aria-expanded="false" aria-controls="v2-details-8d8acaaf92304e43"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-8d8acaaf92304e43" class="v2-details" aria-labelledby="v2-title-8d8acaaf92304e43" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该研究提出两阶段强化学习框架，利用准解析策略梯度与预热批评器，在不同iable仿真中避免对视觉渲染的反向传播，降低计算开销并提升样本效率；在真实场景中验证了鲁棒窄缝穿越能力。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>使无人机无需人工标注动作即可自主学习高难度视觉导航任务</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>extensive real-world experiments further demonstrate robust gap traversal using binary masks rendered onl</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30696" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="8d8acaaf92304e43" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="92152e0cc5685111" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="sogudiff: socially guided diffusion for steerable, norm-grounded robot navigation sogudiff支持运行时可调的社会化机器人导航 sogudiff是一种扩散式导航框架，允许在部署时通过连续风格轴（如避让距离、让行侧、群体优先级）动态调节机器人社会行为，在仿真与真实世界演示中展现出对固定策略基线的严格优势。 替代人工规则配置，使机器人适应多文化、多场景社会交互需求 a single-axis sweep illustrates a tradeoff curve that strictly dominates the evaluated fixed-behavior baseline configurations, and stylistic differences are replicated in real-world demonstrations. arxiv cs.ro 社会化导航 扩散模型 行为可调 社会规范 风格控制 sogudiff" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">17</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="92152e0cc5685111" aria-expanded="false" aria-controls="v2-details-92152e0cc5685111">
+      <h2 id="v2-title-92152e0cc5685111" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30560" target="_blank" rel="noopener noreferrer" title="原标题：SoGuDiff: Socially Guided Diffusion for Steerable, Norm-Grounded Robot Navigation"><mark class="hl-con">SoGuDiff</mark>支持运行时可调的社会化机器人导航</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="hugo: llms as whole-body policy code designers for humanoid loco-manipulation hugo：用大模型自动生成人形机器人全身控制代码 hugo利用大语言模型根据任务描述生成可执行的高层策略代码，无需任务特定奖励设计或示范数据，在五种仿真任务中性能接近示范学习基线，并实现零样本迁移至真实硬件。 人形机器人 llm for code generation loco-manipulation policy generation zero-shot transfer hugo">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30594" target="_blank" rel="noopener noreferrer" title="HuGo：用大模型自动生成人形机器人全身控制代码 ｜ 原标题：HuGo: LLMs as Whole-Body Policy Code Designers for Humanoid Loco-Manipulation"><mark class="hl-con">HuGo</mark>：用大模型自动生成人形机器人全身控制代码</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">HuGo</mark>利用大语言模型根据任务描述生成可执行的高层策略代码，无需任务特定奖励设计或示范数据，在五种仿真任务中性能接近示范学习基线，并实现零样本迁移至真实硬件。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30594" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="92152e0cc5685111" aria-expanded="false" aria-controls="v2-details-92152e0cc5685111"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-92152e0cc5685111" class="v2-details" aria-labelledby="v2-title-92152e0cc5685111" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">SoGuDiff</mark>是一种扩散式导航框架，允许在部署时通过连续风格轴（如避让距离、让行侧、群体优先级）动态调节机器人社会行为，在仿真与真实世界演示中展现出对固定策略基线的严格优势。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>替代人工规则配置，使机器人适应多文化、多场景社会交互需求</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>A single-axis sweep illustrates a tradeoff curve that strictly dominates the evaluated fixed-behavior baseline configurations, and stylistic differences are replicated in real-world demonstrations.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30560" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="92152e0cc5685111" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="b18e9ac9651f2045" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="hugo: llms as whole-body policy code designers for humanoid loco-manipulation hugo：用大模型自动生成人形机器人全身控制代码 hugo利用大语言模型根据任务描述生成可执行的高层策略代码，无需任务特定奖励设计或示范数据，在五种仿真任务中性能接近示范学习基线，并实现零样本迁移至真实硬件。 替代人工编写/调优每项任务的控制逻辑，降低人形机器人部署门槛 hugo, humanoid policy code generation, uses a large language model (llm) to generate executable, closed-loop high-level policy code from a task description on top of a frozen low-level whole-body policy. arxiv cs.ro 人形机器人 llm for code generation loco-manipulation policy generation zero-shot transfer hugo" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">18</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="b18e9ac9651f2045" aria-expanded="false" aria-controls="v2-details-b18e9ac9651f2045">
+      <h2 id="v2-title-b18e9ac9651f2045" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30594" target="_blank" rel="noopener noreferrer" title="原标题：HuGo: LLMs as Whole-Body Policy Code Designers for Humanoid Loco-Manipulation"><mark class="hl-con">HuGo</mark>：用大模型自动生成人形机器人全身控制代码</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="robomonitor: label-efficient runtime monitoring of robot task execution via predictive representation learning robomonitor实现机器人执行监控，52个标注样本达93.1%相位准确率 robomonitor是一种标签高效型视觉-语言机器人执行监控模型，在四任务基准上仅用52个标注片段即达到93.1%平均相位准确率，优于qwen3-vl和robometer（后者使用100片段），并在仿真与真实场景中完成39/40和35/40次闭环任务。 机器人监控 标签高效学习 相位识别 闭环部署 预印本 robomonitor">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30715" target="_blank" rel="noopener noreferrer" title="RoboMonitor实现机器人执行监控，52个标注样本达93.1%相位准确率 ｜ 原标题：RoboMonitor: Label-Efficient Runtime Monitoring of Robot Task Execution via Predictive Representation Learning"><mark class="hl-con">RoboMonitor</mark>实现机器人执行监控，52个标注样本达93.1%相位准确率</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-con">RoboMonitor</mark>是一种标签高效型视觉-语言机器人执行监控模型，在四任务基准上仅用52个标注片段即达到93.1%平均相位准确率，优于Qwen3-VL和Robometer（后者使用100片段），并在仿真与真实场景中完成39/40和35/40次闭环任务。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30715" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="b18e9ac9651f2045" aria-expanded="false" aria-controls="v2-details-b18e9ac9651f2045"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-b18e9ac9651f2045" class="v2-details" aria-labelledby="v2-title-b18e9ac9651f2045" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">HuGo</mark>利用大语言模型根据任务描述生成可执行的高层策略代码，无需任务特定奖励设计或示范数据，在五种仿真任务中性能接近示范学习基线，并实现零样本迁移至真实硬件。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>替代人工编写/调优每项任务的控制逻辑，降低人形机器人部署门槛</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote><mark class="hl-con">HuGo</mark>, Humanoid policy code Generation, uses a Large Language Model (LLM) to generate executable, closed-loop high-level policy code from a task description on top of a frozen low-level whole-body policy.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30594" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="b18e9ac9651f2045" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="b475d768a56e5cf0" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="robomonitor: label-efficient runtime monitoring of robot task execution via predictive representation learning robomonitor实现机器人执行监控，52个标注样本达93.1%相位准确率 robomonitor是一种标签高效型视觉-语言机器人执行监控模型，在四任务基准上仅用52个标注片段即达到93.1%平均相位准确率，优于qwen3-vl和robometer（后者使用100片段），并在仿真与真实场景中完成39/40和35/40次闭环任务。 在少量标注下实现高精度执行阶段识别与失败检测，支持端到端闭环控制 on a four-task monitoring benchmark, robomonitor trained with 52 labeled episodes achieves 93.1% mean phase accuracy and 85.9% macro recall over two fine-tuning seeds, exceeding qwen3-vl and robometer trained with the same monitoring supervision. arxiv cs.ro 机器人监控 标签高效学习 相位识别 闭环部署 预印本 robomonitor" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">19</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="b475d768a56e5cf0" aria-expanded="false" aria-controls="v2-details-b475d768a56e5cf0">
+      <h2 id="v2-title-b475d768a56e5cf0" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30715" target="_blank" rel="noopener noreferrer" title="原标题：RoboMonitor: Label-Efficient Runtime Monitoring of Robot Task Execution via Predictive Representation Learning"><mark class="hl-con">RoboMonitor</mark>实现机器人执行监控，52个标注样本达93.1%相位准确率</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="job class thermal intent aware liquid cooling allocation for ai data centers ai数据中心作业热意图感知液冷调度系统jcti 研究提出job-class thermal intent（jcti）机制，将作业类型与到达模式信息提前输入冷却控制器，使液冷系统在gpu负载升温前预调流量，在蒙特卡洛试验中减少56.4%热违规并降低60.2%累计超调。 ai数据中心 液冷控制 热感知调度 gpu功耗建模 闭环冷却优化 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30785" target="_blank" rel="noopener noreferrer" title="AI数据中心作业热意图感知液冷调度系统JCTI ｜ 原标题：Job Class Thermal Intent Aware Liquid Cooling Allocation for AI Data Centers">AI数据中心作业热意图感知液冷调度系统<mark class="hl-con">JCTI</mark></a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">研究提出Job-Class Thermal Intent（<mark class="hl-con">JCTI</mark>）机制，将作业类型与到达模式信息提前输入冷却控制器，使液冷系统在GPU负载升温前预调流量，在蒙特卡洛试验中减少56.4%热违规并降低60.2%累计超调。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30785" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="b475d768a56e5cf0" aria-expanded="false" aria-controls="v2-details-b475d768a56e5cf0"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-b475d768a56e5cf0" class="v2-details" aria-labelledby="v2-title-b475d768a56e5cf0" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-con">RoboMonitor</mark>是一种标签高效型视觉-语言机器人执行监控模型，在四任务基准上仅用52个标注片段即达到93.1%平均相位准确率，优于Qwen3-VL和Robometer（后者使用100片段），并在仿真与真实场景中完成39/40和35/40次闭环任务。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>在少量标注下实现高精度执行阶段识别与失败检测，支持端到端闭环控制</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>On a four-task monitoring benchmark, <mark class="hl-con">RoboMonitor</mark> trained with 52 labeled episodes achieves 93.1% mean phase accuracy and 85.9% macro recall over two fine-tuning seeds, exceeding Qwen3-VL and Robometer trained with the same monitoring supervision.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30715" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="b475d768a56e5cf0" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="cf9b338e95e18e07" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="job class thermal intent aware liquid cooling allocation for ai data centers ai数据中心作业热意图感知液冷调度系统jcti 研究提出job-class thermal intent（jcti）机制，将作业类型与到达模式信息提前输入冷却控制器，使液冷系统在gpu负载升温前预调流量，在蒙特卡洛试验中减少56.4%热违规并降低60.2%累计超调。 使冷却系统从被动响应转为主动适配，提升能效与电网侧负荷可预测性 we built job-class thermal intent (jcti) to close that window. the scheduler already knows a job is coming and what class it belongs to; jcti feeds that information straight to the cooling controller so it can stage coolant before the heat shows up. arxiv cs.sy ai数据中心 液冷控制 热感知调度 gpu功耗建模 闭环冷却优化 未指明" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">20</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="cf9b338e95e18e07" aria-expanded="false" aria-controls="v2-details-cf9b338e95e18e07">
+      <h2 id="v2-title-cf9b338e95e18e07" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30785" target="_blank" rel="noopener noreferrer" title="原标题：Job Class Thermal Intent Aware Liquid Cooling Allocation for AI Data Centers">AI数据中心作业热意图感知液冷调度系统<mark class="hl-con">JCTI</mark></a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="realizability is not enough: encoding, liveness, and auditing of synthesized robot supervisors ros2中可部署机器人监督器的合成与审计流水线 该工作构建开源流水线，支持将能力驱动的gr(1)规范自动合成为ros2 flexbe可执行状态机，并提供编码选择分析、假设审计与状态约简，已在两个四旋翼硬件平台完成实机验证。 形式化合成 机器人监督器 ros2 可部署性 审计工具 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30460" target="_blank" rel="noopener noreferrer" title="ROS2中可部署机器人监督器的合成与审计流水线 ｜ 原标题：Realizability Is Not Enough: Encoding, Liveness, and Auditing of Synthesized Robot Supervisors">ROS2中可部署机器人监督器的合成与审计流水线</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该工作构建开源流水线，支持将能力驱动的GR(1)规范自动合成为ROS2 <mark class="hl-con">FlexBE</mark>可执行状态机，并提供编码选择分析、假设审计与状态约简，已在两个四旋翼硬件平台完成实机验证。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30460" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SY</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="cf9b338e95e18e07" aria-expanded="false" aria-controls="v2-details-cf9b338e95e18e07"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-cf9b338e95e18e07" class="v2-details" aria-labelledby="v2-title-cf9b338e95e18e07" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">研究提出Job-Class Thermal Intent（<mark class="hl-con">JCTI</mark>）机制，将作业类型与到达模式信息提前输入冷却控制器，使液冷系统在GPU负载升温前预调流量，在蒙特卡洛试验中减少56.4%热违规并降低60.2%累计超调。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>使冷却系统从被动响应转为主动适配，提升能效与电网侧负荷可预测性</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We built Job-Class Thermal Intent (<mark class="hl-con">JCTI</mark>) to close that window. The scheduler already knows a job is coming and what class it belongs to; <mark class="hl-con">JCTI</mark> feeds that information straight to the cooling controller so it can stage coolant before the heat shows up.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30785" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="cf9b338e95e18e07" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="d1660cf824d43f9c" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="realizability is not enough: encoding, liveness, and auditing of synthesized robot supervisors ros2中可部署机器人监督器的合成与审计流水线 该工作构建开源流水线，支持将能力驱动的gr(1)规范自动合成为ros2 flexbe可执行状态机，并提供编码选择分析、假设审计与状态约简，已在两个四旋翼硬件平台完成实机验证。 提升机器人高层控制器的可验证性与工程落地可靠性 across four case studies (six comparisons), including hardware on two quadcopter platforms, we compare enumerated and one-hot encodings and two liveness formulations. arxiv cs.ro 形式化合成 机器人监督器 ros2 可部署性 审计工具 未指明" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">21</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="d1660cf824d43f9c" aria-expanded="false" aria-controls="v2-details-d1660cf824d43f9c">
+      <h2 id="v2-title-d1660cf824d43f9c" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30460" target="_blank" rel="noopener noreferrer" title="原标题：Realizability Is Not Enough: Encoding, Liveness, and Auditing of Synthesized Robot Supervisors">ROS2中可部署机器人监督器的合成与审计流水线</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="policy-calibrated dagger: offline calibrated noise injection for imitation learning policy-calibrated dagger提升机器人模仿学习鲁棒性 该研究提出policy-calibrated dagger方法，利用扩散策略自身预测动作分布离线校准噪声注入，在3d仿真与2d平面环境中实现不依赖噪声调优的模仿学习性能，匹配最优噪声水平下的效果。 imitation learning covariate shift robotics diffusion model offline calibration policy-calibrated dagger">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30462" target="_blank" rel="noopener noreferrer" title="Policy-Calibrated DAgger提升机器人模仿学习鲁棒性 ｜ 原标题：Policy-Calibrated DAgger: Offline Calibrated Noise Injection for Imitation Learning">Policy-Calibrated <mark class="hl-con">DAgger</mark>提升机器人模仿学习鲁棒性</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该研究提出Policy-Calibrated <mark class="hl-con">DAgger</mark>方法，利用扩散策略自身预测动作分布离线校准噪声注入，在3D仿真与2D平面环境中实现不依赖噪声调优的模仿学习性能，匹配最优噪声水平下的效果。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30462" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="d1660cf824d43f9c" aria-expanded="false" aria-controls="v2-details-d1660cf824d43f9c"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-d1660cf824d43f9c" class="v2-details" aria-labelledby="v2-title-d1660cf824d43f9c" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该工作构建开源流水线，支持将能力驱动的GR(1)规范自动合成为ROS2 <mark class="hl-con">FlexBE</mark>可执行状态机，并提供编码选择分析、假设审计与状态约简，已在两个四旋翼硬件平台完成实机验证。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>提升机器人高层控制器的可验证性与工程落地可靠性</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Across four case studies (six comparisons), including hardware on two quadcopter platforms, we compare enumerated and one-hot encodings and two liveness formulations.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30460" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="d1660cf824d43f9c" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="dc03832e4b0df110" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="policy-calibrated dagger: offline calibrated noise injection for imitation learning policy-calibrated dagger提升机器人模仿学习鲁棒性 该研究提出policy-calibrated dagger方法，利用扩散策略自身预测动作分布离线校准噪声注入，在3d仿真与2d平面环境中实现不依赖噪声调优的模仿学习性能，匹配最优噪声水平下的效果。 缓解模仿学习中策略漂移问题，减少对人工干预和噪声调参的依赖 we propose policy-calibrated dagger, a method that makes use of the properties of recent generative policies to estimate the policy&#39;s noise offline by using its own predicted action distribution. arxiv cs.ro imitation learning covariate shift robotics diffusion model offline calibration policy-calibrated dagger" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">22</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="dc03832e4b0df110" aria-expanded="false" aria-controls="v2-details-dc03832e4b0df110">
+      <h2 id="v2-title-dc03832e4b0df110" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30462" target="_blank" rel="noopener noreferrer" title="原标题：Policy-Calibrated DAgger: Offline Calibrated Noise Injection for Imitation Learning">Policy-Calibrated <mark class="hl-con">DAgger</mark>提升机器人模仿学习鲁棒性</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 140 27)" data-domain="robotics" data-text="learning-based pressure predictive control of a vertebraic soft robotic tail lstm压力预测控制提升软体尾部实时运动精度 该研究提出lstm-based压力预测控制（ppc）方法，融合逆/正向运动学与压力补偿模型，在仿真中将轨迹rmse降低69.8%，在软体尾部-四足机器人协同中缩短60.9%计算时间，提升非静态运动实时响应能力。 软体机器人 压力控制 lstm 运动预测 实时控制 ppc">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30479" target="_blank" rel="noopener noreferrer" title="LSTM压力预测控制提升软体尾部实时运动精度 ｜ 原标题：Learning-Based Pressure Predictive Control of a Vertebraic Soft Robotic Tail"><mark class="hl-con">LSTM</mark>压力预测控制提升软体尾部实时运动精度</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.55 · 扎实进展">0.55</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该研究提出<mark class="hl-con">LSTM</mark>-based压力预测控制（<mark class="hl-con">PPC</mark>）方法，融合逆/正向运动学与压力补偿模型，在仿真中将轨迹RMSE降低69.8%，在软体尾部-四足机器人协同中缩短60.9%计算时间，提升非静态运动实时响应能力。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30479" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="dc03832e4b0df110" aria-expanded="false" aria-controls="v2-details-dc03832e4b0df110"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-dc03832e4b0df110" class="v2-details" aria-labelledby="v2-title-dc03832e4b0df110" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该研究提出Policy-Calibrated <mark class="hl-con">DAgger</mark>方法，利用扩散策略自身预测动作分布离线校准噪声注入，在3D仿真与2D平面环境中实现不依赖噪声调优的模仿学习性能，匹配最优噪声水平下的效果。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>缓解模仿学习中策略漂移问题，减少对人工干预和噪声调参的依赖</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>We propose Policy-Calibrated <mark class="hl-con">DAgger</mark>, a method that makes use of the properties of recent generative policies to estimate the policy&#39;s noise offline by using its own predicted action distribution.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30462" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="dc03832e4b0df110" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="f064a070057480fe" data-domain="robotics" data-date="2026-09-28" data-value="0.55" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="learning-based pressure predictive control of a vertebraic soft robotic tail lstm压力预测控制提升软体尾部实时运动精度 该研究提出lstm-based压力预测控制（ppc）方法，融合逆/正向运动学与压力补偿模型，在仿真中将轨迹rmse降低69.8%，在软体尾部-四足机器人协同中缩短60.9%计算时间，提升非静态运动实时响应能力。 替代传统试错式调参，实现软体结构高精度低延迟闭环控制 compared with the ik-only model, the average rmse of the ppc&#39;s simulation trajectories reduces by 69.8%, when executing target trajectories. arxiv cs.ro 软体机器人 压力控制 lstm 运动预测 实时控制 ppc" style="--heat:rgb(250 140 27);--domain-dot:rgb(250 140 27)">
+  <span class="story-number" aria-hidden="true">23</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="f064a070057480fe" aria-expanded="false" aria-controls="v2-details-f064a070057480fe">
+      <h2 id="v2-title-f064a070057480fe" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30479" target="_blank" rel="noopener noreferrer" title="原标题：Learning-Based Pressure Predictive Control of a Vertebraic Soft Robotic Tail"><mark class="hl-con">LSTM</mark>压力预测控制提升软体尾部实时运动精度</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 156 29)" data-domain="robotics" data-text="resilience enhancement of distribution grids through a three-stage framework for scheduling mobile energy storage systems 三阶段调度框架优化移动储能系统电网韧性 提出覆盖常态运行、预警预置、灾后动态重定位的三阶段mess调度框架，结合图神经网络提升计算效率，仿真显示可降低缺供电量并加快恢复速度。 移动储能系统 电网韧性 三阶段调度 图神经网络 极端天气 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30606" target="_blank" rel="noopener noreferrer" title="三阶段调度框架优化移动储能系统电网韧性 ｜ 原标题：Resilience Enhancement of Distribution Grids Through a Three-Stage Framework for Scheduling Mobile Energy Storage Systems">三阶段调度框架优化移动储能系统<mark class="hl-con">电网韧性</mark></a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.52 · 扎实进展">0.52</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">提出覆盖常态运行、预警预置、灾后动态重定位的三阶段<mark class="hl-con">MESS</mark>调度框架，结合图神经网络提升计算效率，仿真显示可降低缺供电量并加快恢复速度。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30606" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="f064a070057480fe" aria-expanded="false" aria-controls="v2-details-f064a070057480fe"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-f064a070057480fe" class="v2-details" aria-labelledby="v2-title-f064a070057480fe" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该研究提出<mark class="hl-con">LSTM</mark>-based压力预测控制（<mark class="hl-con">PPC</mark>）方法，融合逆/正向运动学与压力补偿模型，在仿真中将轨迹RMSE降低69.8%，在软体尾部-四足机器人协同中缩短60.9%计算时间，提升非静态运动实时响应能力。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>替代传统试错式调参，实现软体结构高精度低延迟闭环控制</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Compared with the IK-only model, the average RMSE of the <mark class="hl-con">PPC</mark>&#39;s simulation trajectories reduces by 69.8%, when executing target trajectories.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.55</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30479" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="f064a070057480fe" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="1965ba20974e3a23" data-domain="robotics" data-date="2026-09-28" data-value="0.52" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="resilience enhancement of distribution grids through a three-stage framework for scheduling mobile energy storage systems 三阶段调度框架优化移动储能系统电网韧性 提出覆盖常态运行、预警预置、灾后动态重定位的三阶段mess调度框架，结合图神经网络提升计算效率，仿真显示可降低缺供电量并加快恢复速度。 用ai替代人工经验决策移动储能布点与重调度，提升灾害响应时效性 the simulation results demonstrate that the proposed framework reduces expected energy not served and improves the restoration speed. arxiv cs.sy 移动储能系统 电网韧性 三阶段调度 图神经网络 极端天气 未指明" style="--heat:rgb(250 156 29);--domain-dot:rgb(250 156 29)">
+  <span class="story-number" aria-hidden="true">24</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="1965ba20974e3a23" aria-expanded="false" aria-controls="v2-details-1965ba20974e3a23">
+      <h2 id="v2-title-1965ba20974e3a23" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30606" target="_blank" rel="noopener noreferrer" title="原标题：Resilience Enhancement of Distribution Grids Through a Three-Stage Framework for Scheduling Mobile Energy Storage Systems">三阶段调度框架优化移动储能系统<mark class="hl-con">电网韧性</mark></a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 166 31)" data-domain="robotics" data-text="resource-aware rolling-horizon controller for renewable-based virtual power plants providing automatic frequency restoration reserves 滚动时域控制器实现虚拟电厂实时频率恢复服务分配 该控制器在matlab/simulink中对含风电/光伏与储能的虚拟电厂建模，每分钟执行滚动优化，动态分配调频备用资源，在双区域互联电网仿真中验证了其在预测不确定性下的频率支撑能力。 虚拟电厂 自动频率恢复储备 滚动优化 可再生能源调度 预印本 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.31017" target="_blank" rel="noopener noreferrer" title="滚动时域控制器实现虚拟电厂实时频率恢复服务分配 ｜ 原标题：Resource-Aware Rolling-Horizon Controller for Renewable-Based Virtual Power Plants Providing Automatic Frequency Restoration Reserves">滚动时域控制器实现虚拟电厂实时频率恢复服务分配</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.50 · 扎实进展">0.50</span>
-      <span class="conf conf-mid" title="证据可信度 0.55（中：预印本 / 新闻报道）">可信 0.55</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">该控制器在MATLAB/Simulink中对含风电/光伏与储能的虚拟电厂建模，每分钟执行滚动优化，动态分配调频备用资源，在双区域互联电网仿真中验证了其在预测不确定性下的频率支撑能力。</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.31017" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SY</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="1965ba20974e3a23" aria-expanded="false" aria-controls="v2-details-1965ba20974e3a23"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-1965ba20974e3a23" class="v2-details" aria-labelledby="v2-title-1965ba20974e3a23" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">提出覆盖常态运行、预警预置、灾后动态重定位的三阶段<mark class="hl-con">MESS</mark>调度框架，结合图神经网络提升计算效率，仿真显示可降低缺供电量并加快恢复速度。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>用AI替代人工经验决策移动储能布点与重调度，提升灾害响应时效性</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>The simulation results demonstrate that the proposed framework reduces expected energy not served and improves the restoration speed.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.52</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30606" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="1965ba20974e3a23" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="942bd5b7ba636756" data-domain="robotics" data-date="2026-09-28" data-value="0.5" data-confidence="0.55" data-relation="direct" data-verified="true" data-text="resource-aware rolling-horizon controller for renewable-based virtual power plants providing automatic frequency restoration reserves 滚动时域控制器实现虚拟电厂实时频率恢复服务分配 该控制器在matlab/simulink中对含风电/光伏与储能的虚拟电厂建模，每分钟执行滚动优化，动态分配调频备用资源，在双区域互联电网仿真中验证了其在预测不确定性下的频率支撑能力。 填补vpp从日前调度到实时运行的控制空白，支持高比例新能源电网稳定 the effectiveness of the controller is tested using a two-area interconnected power system under different res generation and demand profiles. the simulations are performed in matlab/simulink and include detailed dynamic models of the vpp elements, demonstrating the applicability of the algorithm to real systems. arxiv cs.sy 虚拟电厂 自动频率恢复储备 滚动优化 可再生能源调度 预印本 未指明" style="--heat:rgb(250 166 31);--domain-dot:rgb(250 166 31)">
+  <span class="story-number" aria-hidden="true">25</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="942bd5b7ba636756" aria-expanded="false" aria-controls="v2-details-942bd5b7ba636756">
+      <h2 id="v2-title-942bd5b7ba636756" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.31017" target="_blank" rel="noopener noreferrer" title="原标题：Resource-Aware Rolling-Horizon Controller for Renewable-Based Virtual Power Plants Providing Automatic Frequency Restoration Reserves">滚动时域控制器实现虚拟电厂实时频率恢复服务分配</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(250 166 31)" data-domain="robotics" data-text="st-prrtc: parallel space-time rrt-c with adaptive goal-time forests st-prrtc: parallel space-time rrt-c with adaptive goal-time forests st-prrtc: parallel space-time rrt-c with adaptive goal-time forests ai 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://arxiv.org/abs/2609.30533" target="_blank" rel="noopener noreferrer">ST-pRRTC: Parallel Space-Time RRT-C with Adaptive Goal-Time Forests</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.50 · 扎实进展">0.50</span>
-      <span class="conf conf-low" title="证据可信度 0.15（低：社区转述 / 厂商自述）">低可信 0.15</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">ST-pRRTC: Parallel Space-Time RRT-C with Adaptive Goal-Time Forests</p>
-      <a class="srclink" href="https://arxiv.org/abs/2609.30533" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.SY</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="942bd5b7ba636756" aria-expanded="false" aria-controls="v2-details-942bd5b7ba636756"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-942bd5b7ba636756" class="v2-details" aria-labelledby="v2-title-942bd5b7ba636756" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">该控制器在MATLAB/Simulink中对含风电/光伏与储能的虚拟电厂建模，每分钟执行滚动优化，动态分配调频备用资源，在双区域互联电网仿真中验证了其在预测不确定性下的频率支撑能力。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>填补<mark class="hl-con">VPP</mark>从日前调度到实时运行的控制空白，支持高比例新能源电网稳定</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>The effectiveness of the controller is tested using a two-area interconnected power system under different RES generation and demand profiles. The simulations are performed in MATLAB/Simulink and include detailed dynamic models of the <mark class="hl-con">VPP</mark> elements, demonstrating the applicability of the algorithm to real systems.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.50</dd></div><div><dt>证据可信度</dt><dd>0.55</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.31017" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="942bd5b7ba636756" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="dd8efc1cdbe67419" data-domain="robotics" data-date="2026-09-28" data-value="0.5" data-confidence="0.15" data-relation="direct" data-verified="false" data-text="st-prrtc: parallel space-time rrt-c with adaptive goal-time forests st-prrtc: parallel space-time rrt-c with adaptive goal-time forests st-prrtc: parallel space-time rrt-c with adaptive goal-time forests 动态路径规划算法提升效率  arxiv cs.ro ai 未指明" style="--heat:rgb(250 166 31);--domain-dot:rgb(250 166 31)">
+  <span class="story-number" aria-hidden="true">26</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="dd8efc1cdbe67419" aria-expanded="false" aria-controls="v2-details-dd8efc1cdbe67419">
+      <h2 id="v2-title-dd8efc1cdbe67419" class="story-title"><a class="v2-title-link" href="https://arxiv.org/abs/2609.30533" target="_blank" rel="noopener noreferrer">ST-pRRTC: Parallel Space-Time RRT-C with Adaptive Goal-Time Forests</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(251 191 36)" data-domain="robotics" data-text="aurora cfo says 30,000 driverless trucks by 2030 isn’t as far-fetched as it sounds aurora cfo称2030年部署3万辆无人卡车目标并非空想 自动驾驶卡车公司aurora首席财务官在媒体采访中表示，公司计划到2030年部署3万辆无人卡车的目标具备现实可行性，但未提供技术验证或运营数据支撑。 无人卡车 自动驾驶货运 商业路线图 新闻稿 press_release 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://techcrunch.com/2026/09/28/aurora-cfo-says-30000-driverless-trucks-by-2030-isnt-as-far-fetched-as-it-sounds/" target="_blank" rel="noopener noreferrer" title="Aurora CFO称2030年部署3万辆无人卡车目标并非空想 ｜ 原标题：Aurora CFO says 30,000 driverless trucks by 2030 isn’t as far-fetched as it sounds"><mark class="hl-ent">Aurora</mark> CFO称2030年部署3万辆无人卡车目标并非空想</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.45 · 增量改进">0.45</span>
-      <span class="conf conf-mid" title="证据可信度 0.70（中：预印本 / 新闻报道）">可信 0.70</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">自动驾驶卡车公司<mark class="hl-ent">Aurora</mark>首席财务官在媒体采访中表示，公司计划到2030年部署3万辆无人卡车的目标具备现实可行性，但未提供技术验证或运营数据支撑。</p>
-      <a class="srclink" href="https://techcrunch.com/2026/09/28/aurora-cfo-says-30000-driverless-trucks-by-2030-isnt-as-far-fetched-as-it-sounds/" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>arXiv cs.RO</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="dd8efc1cdbe67419" aria-expanded="false" aria-controls="v2-details-dd8efc1cdbe67419"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-dd8efc1cdbe67419" class="v2-details" aria-labelledby="v2-title-dd8efc1cdbe67419" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">ST-pRRTC: Parallel Space-Time RRT-C with Adaptive Goal-Time Forests</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>动态路径规划算法提升效率</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M7 12h10m-7 7h4"/><circle cx="8" cy="5" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="10" cy="19" r="1.3"/></svg>引文待核对</span></div><blockquote>暂无可核对的原文引文。</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.50</dd></div><div><dt>证据可信度</dt><dd>0.15</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">预印本</dd></div></dl><a class="v2-original" href="https://arxiv.org/abs/2609.30533" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="dd8efc1cdbe67419" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="468440954a3b522e" data-domain="robotics" data-date="2026-09-28" data-value="0.45" data-confidence="0.7" data-relation="direct" data-verified="true" data-text="aurora cfo says 30,000 driverless trucks by 2030 isn’t as far-fetched as it sounds aurora cfo称2030年部署3万辆无人卡车目标并非空想 自动驾驶卡车公司aurora首席财务官在媒体采访中表示，公司计划到2030年部署3万辆无人卡车的目标具备现实可行性，但未提供技术验证或运营数据支撑。 释放规模化替代长途货运司机的长期意图，但尚无实际部署证据 self-driving truck company aurora laid out an audacious plan for 2030. its cfo says its targets aren&#39;t aspirational. techcrunch 无人卡车 自动驾驶货运 商业路线图 新闻稿 press_release 未指明" style="--heat:rgb(251 191 36);--domain-dot:rgb(251 191 36)">
+  <span class="story-number" aria-hidden="true">27</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="468440954a3b522e" aria-expanded="false" aria-controls="v2-details-468440954a3b522e">
+      <h2 id="v2-title-468440954a3b522e" class="story-title"><a class="v2-title-link" href="https://techcrunch.com/2026/09/28/aurora-cfo-says-30000-driverless-trucks-by-2030-isnt-as-far-fetched-as-it-sounds/" target="_blank" rel="noopener noreferrer" title="原标题：Aurora CFO says 30,000 driverless trucks by 2030 isn’t as far-fetched as it sounds"><mark class="hl-ent">Aurora</mark> CFO称2030年部署3万辆无人卡车目标并非空想</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(251 191 36)" data-domain="robotics" data-text="valuations for most robotics startups will fall by 2030, says vinod khosla khosla预警：超半数机器人初创公司估值将在2030年前下跌 风险投资人vinod khosla指出，因过度投资和过高估值，超过一半的热门机器人初创公司在2030年前估值将低于当前水平；中国监管机构亦警告 humanoid 机器人领域存在泡沫，并收紧上市审批。 机器人创业 估值泡沫 人形机器人 监管干预 未指明">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://www.theinformation.com/articles/valuations-robotics-startups-will-fall-2030-says-vinod-khosla" target="_blank" rel="noopener noreferrer" title="Khosla预警：超半数机器人初创公司估值将在2030年前下跌 ｜ 原标题：Valuations for Most Robotics Startups Will Fall By 2030, Says Vinod Khosla">Khosla预警：超半数机器人初创公司估值将在2030年前下跌</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.45 · 增量改进">0.45</span>
-      <span class="conf conf-mid" title="证据可信度 0.60（中：预印本 / 新闻报道）">可信 0.60</span>
-      <span class="note"><span class="date" title="发布于 2026-09-28">09-28</span><span class="tag tag-pot" title="只是具备替代潜力，属推断而非观测；不参与指数计算">潜力</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">风险投资人Vinod Khosla指出，因过度投资和过高估值，超过一半的热门机器人初创公司在2030年前估值将低于当前水平；中国监管机构亦警告 humanoid 机器人领域存在泡沫，并收紧上市审批。</p>
-      <a class="srclink" href="https://www.theinformation.com/articles/valuations-robotics-startups-will-fall-2030-says-vinod-khosla" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>TechCrunch</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="468440954a3b522e" aria-expanded="false" aria-controls="v2-details-468440954a3b522e"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-468440954a3b522e" class="v2-details" aria-labelledby="v2-title-468440954a3b522e" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">自动驾驶卡车公司<mark class="hl-ent">Aurora</mark>首席财务官在媒体采访中表示，公司计划到2030年部署3万辆无人卡车的目标具备现实可行性，但未提供技术验证或运营数据支撑。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>释放规模化替代长途货运司机的长期意图，但尚无实际部署证据</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>Self-driving truck company <mark class="hl-ent">Aurora</mark> laid out an audacious plan for 2030. Its CFO says its targets aren&#39;t aspirational.</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.45</dd></div><div><dt>证据可信度</dt><dd>0.70</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">官方新闻稿</dd></div></dl><a class="v2-original" href="https://techcrunch.com/2026/09/28/aurora-cfo-says-30000-driverless-trucks-by-2030-isnt-as-far-fetched-as-it-sounds/" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="468440954a3b522e" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="d2129050a91f38fd" data-domain="robotics" data-date="2026-09-28" data-value="0.45" data-confidence="0.6" data-relation="indirect" data-verified="true" data-text="valuations for most robotics startups will fall by 2030, says vinod khosla khosla预警：超半数机器人初创公司估值将在2030年前下跌 风险投资人vinod khosla指出，因过度投资和过高估值，超过一半的热门机器人初创公司在2030年前估值将低于当前水平；中国监管机构亦警告 humanoid 机器人领域存在泡沫，并收紧上市审批。 反映资本过热与实际落地能力脱节，预示行业洗牌而非技术替代进展 “i would say more than half will be below their current valuations by 2030,” he said in an interview, while adding that the ones that are not “will have huge multiples.” the information 机器人创业 估值泡沫 人形机器人 监管干预 未指明" style="--heat:rgb(251 191 36);--domain-dot:rgb(251 191 36)">
+  <span class="story-number" aria-hidden="true">28</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-28">2026-09-28</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="d2129050a91f38fd" aria-expanded="false" aria-controls="v2-details-d2129050a91f38fd">
+      <h2 id="v2-title-d2129050a91f38fd" class="story-title"><a class="v2-title-link" href="https://www.theinformation.com/articles/valuations-robotics-startups-will-fall-2030-says-vinod-khosla" target="_blank" rel="noopener noreferrer" title="原标题：Valuations for Most Robotics Startups Will Fall By 2030, Says Vinod Khosla">Khosla预警：超半数机器人初创公司估值将在2030年前下跌</a></h2>
     </div>
-  </details>
-</li>
-<li class="item" style="--heat:rgb(249 115 22)" data-domain="robotics" data-text="waymo says its self-driving cars reduced injury-causing accidents by 82% waymo称其无人驾驶车辆使致伤事故减少82% waymo官方新闻稿称，在2.71亿无人里程中，其自动驾驶系统相较人类司机使致伤事故减少82%、严重致伤事故减少95%，数据覆盖5城，但未披露对照方法与独立第三方验证细节。 waymo autonomous driving crash reduction driverless miles safety metrics waymo driver">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="https://tech.slashdot.org/story/26/09/27/0134224/waymo-says-its-self-driving-cars-reduced-injury-causing-accidents-by-82?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" rel="noopener noreferrer" title="Waymo称其无人驾驶车辆使致伤事故减少82% ｜ 原标题：Waymo Says Its Self-Driving Cars Reduced Injury-Causing Accidents by 82%"><mark class="hl-ent">Waymo</mark>称其无人驾驶车辆使致伤事故减少82%</a>
-      <span class="dom" title="具身智能、自动驾驶、制造、物流与家务劳动。">🤖 机器人与物理世界</span>
-      <span class="val" title="推进强度 0.60 · 扎实进展 · 未给出具体基准或部署依据，已压到上限">0.60<sup>*</sup></span>
-      <span class="conf conf-mid" title="证据可信度 0.70（中：预印本 / 新闻报道）">可信 0.70</span>
-      <span class="note"><span class="date" title="发布于 2026-09-27">09-27</span></span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary"><mark class="hl-ent">Waymo</mark>官方新闻稿称，在2.71亿无人里程中，其自动驾驶系统相较人类司机使致伤事故减少82%、严重致伤事故减少95%，数据覆盖5城，但未披露对照方法与独立第三方验证细节。</p>
-      <a class="srclink" href="https://tech.slashdot.org/story/26/09/27/0134224/waymo-says-its-self-driving-cars-reduced-injury-causing-accidents-by-82?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>The Information</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>潜力观察</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="d2129050a91f38fd" aria-expanded="false" aria-controls="v2-details-d2129050a91f38fd"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-d2129050a91f38fd" class="v2-details" aria-labelledby="v2-title-d2129050a91f38fd" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">风险投资人Vinod Khosla指出，因过度投资和过高估值，超过一半的热门机器人初创公司在2030年前估值将低于当前水平；中国监管机构亦警告 humanoid 机器人领域存在泡沫，并收紧上市审批。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>反映资本过热与实际落地能力脱节，预示行业洗牌而非技术替代进展</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote>“I would say more than half will be below their current valuations by 2030,” he said in an interview, while adding that the ones that are not “will have huge multiples.”</blockquote></div>
+      <div class="v2-detail-tags"><span class="tag tag-pot" title="只是具备替代潜力，属推断而非观测；不参与指数计算">潜力</span></div>
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.45</dd></div><div><dt>证据可信度</dt><dd>0.60</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">媒体报道</dd></div></dl><a class="v2-original" href="https://www.theinformation.com/articles/valuations-robotics-startups-will-fall-2030-says-vinod-khosla" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。本条属于潜力观察，不计入进程指数。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="d2129050a91f38fd" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article>
+<article class="story" data-v2-record data-id="3cb36ca1e1b2357a" data-domain="robotics" data-date="2026-09-27" data-value="0.6" data-confidence="0.7" data-relation="direct" data-verified="true" data-text="waymo says its self-driving cars reduced injury-causing accidents by 82% waymo称其无人驾驶车辆使致伤事故减少82% waymo官方新闻稿称，在2.71亿无人里程中，其自动驾驶系统相较人类司机使致伤事故减少82%、严重致伤事故减少95%，数据覆盖5城，但未披露对照方法与独立第三方验证细节。 宣称ai系统在真实交通场景中显著替代人类驾驶并改善安全结果 waymo&#39;s self-driving car technology &#39;continues to outperform human benchmarks,&#39; the company claimed this week. &#39;it was involved in 841 fewer injury-causing crashes — an 82% reduction compared to human drivers.&#39; slashdot waymo autonomous driving crash reduction driverless miles safety metrics waymo driver" style="--heat:rgb(249 115 22);--domain-dot:rgb(249 115 22)">
+  <span class="story-number" aria-hidden="true">29</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>机器人与物理世界</span><time datetime="2026-09-27">2026-09-27</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="3cb36ca1e1b2357a" aria-expanded="false" aria-controls="v2-details-3cb36ca1e1b2357a">
+      <h2 id="v2-title-3cb36ca1e1b2357a" class="story-title"><a class="v2-title-link" href="https://tech.slashdot.org/story/26/09/27/0134224/waymo-says-its-self-driving-cars-reduced-injury-causing-accidents-by-82?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" rel="noopener noreferrer" title="原标题：Waymo Says Its Self-Driving Cars Reduced Injury-Causing Accidents by 82%"><mark class="hl-ent">Waymo</mark>称其无人驾驶车辆使致伤事故减少82%</a></h2>
     </div>
-  </details>
-</li>
-</ul>
-<p class="pagenote">指数 = 100 × (1 − e^(−累计贡献 / 270))，衡量自基准日起的累计进程，非绝对真值。口径见<a href="../method.html">方法页</a>。</p>
-<footer class="foot">
-  <span>数据每日由流水线自动生成</span>
-  <span>·</span>
-  <a href="../method.html">评分口径与局限</a>
-  <span>·</span>
-  <a href="../data/index.json">原始数据</a>
-</footer>
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>Slashdot</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>直接任务进展</span></p><button class="v2-read-toggle" type="button" data-action="expand" data-id="3cb36ca1e1b2357a" aria-expanded="false" aria-controls="v2-details-3cb36ca1e1b2357a"><span data-toggle-label>阅读摘要</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    <section id="v2-details-3cb36ca1e1b2357a" class="v2-details" aria-labelledby="v2-title-3cb36ca1e1b2357a" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary"><mark class="hl-ent">Waymo</mark>官方新闻稿称，在2.71亿无人里程中，其自动驾驶系统相较人类司机使致伤事故减少82%、严重致伤事故减少95%，数据覆盖5城，但未披露对照方法与独立第三方验证细节。</p></div>
+      <div class="v2-why"><h3>为什么值得关注</h3><p>宣称AI系统在真实交通场景中显著替代人类驾驶并改善安全结果</p></div>
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification verified"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>引文已核对</span></div><blockquote><mark class="hl-ent">Waymo</mark>&#39;s self-driving car technology &quot;continues to outperform human benchmarks,&quot; the company claimed this week. &quot;It was involved in 841 fewer <mark class="hl-con">injury-causing crashes</mark> — an 82% reduction compared to human drivers.&quot;</blockquote></div>
+
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>0.60*</dd></div><div><dt>证据可信度</dt><dd>0.70</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">官方新闻稿</dd></div></dl><a class="v2-original" href="https://tech.slashdot.org/story/26/09/27/0134224/waymo-says-its-self-driving-cars-reduced-injury-causing-accidents-by-82?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" rel="noopener noreferrer">阅读原文 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。 推进强度已受证据上限约束：缺少具体基准或部署依据。</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="3cb36ca1e1b2357a" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/></svg></button></div>
+</article></div>
+  <p id="empty-results" class="empty-state" hidden>这个筛选范围内没有记录。请调整搜索或筛选条件。</p>
 </main>
+<p class="pagenote">指数 = 100 × (1 − e^(−累计贡献 / 270))，衡量自基准日起的累计进程，非绝对真值。口径见<a href="../method.html">方法页</a>。</p><aside class="edition-aside"><section class="edition-note"><div class="eyebrow">本期观察</div><h2>AI 承担人类任务的进展</h2><p>按领域整理互联网与学术界的相关事件。展开记录可查看摘要、原文证据、推进强度和证据可信度。</p><div class="issue-stat"><strong>29</strong><span>条记录<br>09-25 — 09-29</span></div></section>
+  <div class="section-heading small"><h2>沿着领域阅读</h2><span>INDEX</span></div><nav class="domain-list" aria-label="领域筛选"><div class="domain-row"><button class="domain-button" type="button" data-domain-filter="robotics" title="筛选当前列表中的机器人与物理世界记录"><span><i class="domain-dot" aria-hidden="true"></i>机器人与物理世界</span><span class="domain-count">29</span></button><a class="domain-page-link" href="../domain/robotics.html" aria-label="打开机器人与物理世界领域页">↗</a></div></nav>
+  <section class="coverage"><div class="section-label">当前内容分布</div><div class="coverage-row"><span>机器人与物理世界</span><span>29</span><i><b style="width:100%"></b></i></div></section>
+  <section class="date-index"><div class="section-label">按日期浏览</div><a href="../day/2026-09-29.html"><time datetime="2026-09-29">2026-09-29</time></a><a href="../day/2026-09-28.html"><time datetime="2026-09-28">2026-09-28</time></a><a href="../day/2026-09-27.html"><time datetime="2026-09-27">2026-09-27</time></a><a href="../day/2026-09-26.html"><time datetime="2026-09-26">2026-09-26</time></a><a href="../day/2026-09-25.html"><time datetime="2026-09-25">2026-09-25</time></a></section>
+  <section class="edition-method"><span class="method-mark" aria-hidden="true">i</span><p>高分不等于事实已被证实。<br>每条内容都值得回到来源核对。</p><a href="../method.html">我们如何评估进展 ↗</a></section></aside></div>
+  <footer class="edition-footer"><a href="../index.html">AI 降临观测站</a><span>看见进展，也看见它的边界。</span><a class="mobile-method-link" href="../method.html">评分口径 ↗</a><a href="../archive.html">浏览历史归档 ↗</a><a href="../data/index.json">原始数据</a></footer>
+</div>
+
+<div id="sort-menu" class="v2-sort-menu" popover role="menu" aria-labelledby="sort-caption">
+  <div class="v2-sort-menu-label" aria-hidden="true">排序方式</div>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="true" tabindex="0" data-action="sort" data-sort="value"><span><strong>推进强度</strong><small>优先查看推进强度更高的记录</small></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="false" tabindex="-1" data-action="sort" data-sort="date"><span><strong>最新发布</strong><small>优先查看最近发布的内容</small></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="false" tabindex="-1" data-action="sort" data-sort="confidence"><span><strong>证据可信度</strong><small>优先查看证据可信度更高的记录</small></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+</div>
+<div id="filter-popover" class="filter-popover" popover aria-labelledby="filter-heading">
+  <div class="popover-heading"><strong id="filter-heading">筛选记录</strong><button class="icon-button" type="button" data-action="close-filter" aria-label="关闭筛选">×</button></div>
+  <label class="check-row"><input type="checkbox" data-filter="direct"><span>仅看直接任务进展<small>能够指出已发生的具体任务或流程变化</small></span></label>
+  <label class="check-row"><input type="checkbox" data-filter="verified"><span>仅看已核对引文<small>引文文字能在采集到的来源文本中找到</small></span></label>
+  <label class="range-label" for="min-filter"><span>最低推进强度</span><output id="min-output">0.00</output></label>
+  <input id="min-filter" type="range" min="0" max="0.9" step="0.05" value="0">
+  <div class="popover-footer"><button class="text-link" type="button" data-action="clear-filters">清除条件</button><button class="action-button primary" type="button" data-action="close-filter">完成</button></div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="../assets/app.js" defer></script>
 </body>
 </html>

@@ -1,8 +1,9 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
+const ROOT = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const SITE = path.join(ROOT, "site");
 const PORT = Number(process.env.PORT ?? 4180);
 

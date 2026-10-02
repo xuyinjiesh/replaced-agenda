@@ -18,17 +18,21 @@ export function paths(root) {
 }
 
 export function listEventDates(root) {
-  const dir = paths(root).eventsDir;
-  if (!exists(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
-    .map((f) => f.replace(/\.json$/, ""))
-    .sort();
+  const dirs = [paths(root).eventsDir, path.join(root, "site", "data")];
+  const dates = new Set();
+  for (const dir of dirs) {
+    if (!exists(dir)) continue;
+    for (const f of fs.readdirSync(dir)) {
+      if (/^\d{4}-\d{2}-\d{2}\.json$/.test(f)) dates.add(f.replace(/\.json$/, ""));
+    }
+  }
+  return [...dates].sort();
 }
 
 export function loadDay(root, date) {
-  return readJSON(paths(root).dayFile(date), null);
+  const local = paths(root).dayFile(date);
+  const published = path.join(root, "site", "data", `${date}.json`);
+  return readJSON(exists(local) ? local : published, null);
 }
 
 export function loadAllEvents(root) {
@@ -74,11 +78,15 @@ export function saveIndex(root, index) {
 }
 
 export function loadIndex(root) {
-  return readJSON(paths(root).indexFile, null);
+  const local = paths(root).indexFile;
+  const published = path.join(root, "site", "data", "index.json");
+  return readJSON(exists(local) ? local : published, null);
 }
 
 export function loadSeen(root) {
-  const data = readJSON(paths(root).seenFile, null);
+  const local = paths(root).seenFile;
+  const published = path.join(root, "site", "data", "seen.json");
+  const data = readJSON(exists(local) ? local : published, null);
   return data?.ids ?? {};
 }
 

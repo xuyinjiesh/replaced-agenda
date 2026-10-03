@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">AI 降临观测站标识</title>
+  <circle cx="48" cy="48" r="43" fill="#faf8f2" stroke="#d9d2c6" stroke-width="1.5"/>
+  <path d="M17 58h62" fill="none" stroke="#332f29" stroke-width="1.8"/>
+  <path d="M25 58a23 23 0 0 1 46 0" fill="none" stroke="#a34c35" stroke-width="2"/>
+  <path d="M33 58a15 15 0 0 1 30 0" fill="none" stroke="#c89a84" stroke-width="1.5"/>
+  <circle cx="48" cy="42" r="5.5" fill="#a34c35"/>
+  <path d="M48 15v11M48 71v10M20 42l7 3M76 42l-7 3" fill="none" stroke="#a79e90" stroke-linecap="round" stroke-width="1.6"/>
+</svg>

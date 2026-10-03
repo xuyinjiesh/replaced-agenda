@@ -8,42 +8,71 @@ const link = (depth, p) => `${dirs(depth)}${p}`;
 
 const HOME_LABEL = "首页";
 
-function layout({ title, depth, active, body, subtitle = "", context = "" }) {
+function icon(name) {
+  const paths = {
+    bookmark: '<path d="M6 3.75h12a1 1 0 0 1 1 1V21l-7-4-7 4V4.75a1 1 0 0 1 1-1Z"/>',
+    chevron: '<path d="m9 6 6 6-6 6"/>',
+    external: '<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/>',
+    search: '<circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 4.2 4.2"/>',
+    filter: '<path d="M4 5h16M7 12h10m-7 7h4"/><circle cx="8" cy="5" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="10" cy="19" r="1.3"/>',
+    check: '<path d="m5 12 4 4L19 6"/>',
+  };
+  return `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] ?? ""}</svg>`;
+}
+
+function layout({ title, depth, active, body, subtitle = "", context = "", latest = "", dateRange = "", sidebar = "", showTools = true }) {
   const nav = [
     ["index.html", "互联网"],
     ["academia.html", "学术界"],
     ["archive.html", "归档"],
     ["method.html", "方法"],
   ];
+  const latestDate = latest ? new Date(`${latest}T00:00:00Z`) : null;
+  const month = latestDate && !Number.isNaN(latestDate.getTime())
+    ? latestDate.toLocaleString("en", { month: "long", timeZone: "UTC" }).toUpperCase()
+    : "DAILY";
+  const day = latestDate && !Number.isNaN(latestDate.getTime()) ? String(latestDate.getUTCDate()).padStart(2, "0") : "—";
+  const tools = showTools ? `
+<div id="sort-menu" class="v2-sort-menu" popover role="menu" aria-labelledby="sort-caption">
+  <div class="v2-sort-menu-label" aria-hidden="true">排序方式</div>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="true" tabindex="0" data-action="sort" data-sort="value"><span><strong>推进强度</strong><small>优先查看推进强度更高的记录</small></span>${icon("check")}</button>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="false" tabindex="-1" data-action="sort" data-sort="date"><span><strong>最新发布</strong><small>优先查看最近发布的内容</small></span>${icon("check")}</button>
+  <button class="v2-sort-option" role="menuitemradio" aria-checked="false" tabindex="-1" data-action="sort" data-sort="confidence"><span><strong>证据可信度</strong><small>优先查看证据可信度更高的记录</small></span>${icon("check")}</button>
+</div>
+<div id="filter-popover" class="filter-popover" popover aria-labelledby="filter-heading">
+  <div class="popover-heading"><strong id="filter-heading">筛选记录</strong><button class="icon-button" type="button" data-action="close-filter" aria-label="关闭筛选">×</button></div>
+  <label class="check-row"><input type="checkbox" data-filter="direct"><span>仅看直接任务进展<small>能够指出已发生的具体任务或流程变化</small></span></label>
+  <label class="check-row"><input type="checkbox" data-filter="verified"><span>仅看已核对引文<small>引文文字能在采集到的来源文本中找到</small></span></label>
+  <label class="range-label" for="min-filter"><span>最低推进强度</span><output id="min-output">0.00</output></label>
+  <input id="min-filter" type="range" min="0" max="0.9" step="0.05" value="0">
+  <div class="popover-footer"><button class="text-link" type="button" data-action="clear-filters">清除条件</button><button class="action-button primary" type="button" data-action="close-filter">完成</button></div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>` : "";
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
-<meta name="description" content="${escapeHtml(subtitle || "每日观察 AI 取代人类各方面生活进程的进展记录")}">
+<meta name="description" content="${escapeHtml(subtitle || "按领域整理互联网与学术界的 AI 人类任务进展记录")}">
 <link rel="stylesheet" href="${link(depth, "assets/style.css")}">
 <link rel="alternate" type="application/json" href="${link(depth, "data/index.json")}" title="index.json">
 </head>
-<body>
-<header class="top"><div class="top-in">
-  <div class="brand"><a href="${link(depth, "index.html")}">AI 降临观测站</a>${
-    context ? ` <span class="brand-ctx">/ ${escapeHtml(context)}</span>` : ""
-  }</div>
-  <nav class="nav">
-    ${nav.map(([h, label]) => `<a href="${link(depth, h)}"${active === h ? ' class="active"' : ""}>${label}</a>`).join("\n    ")}
+<body class="editorial-theme editorial-v2">
+<a class="skip-link" href="#main-content">跳到内容</a>
+<div class="edition-wrap">
+  <header class="edition-header">
+    <div class="edition-top"><span>独立观察 · 审慎判断</span><a href="${link(depth, "index.html")}">REPLACED AGENDA</a><button class="edition-saved" data-action="saved-list" aria-pressed="false">${icon("bookmark")}我的稍后读 <b data-saved-count>0</b></button></div>
+    <div class="masthead"><span class="issue-date">${month}<strong>${day}</strong><span>${escapeHtml(latest || "每日更新")}${dateRange ? ` · ${escapeHtml(dateRange)}` : ""}</span></span><div><h1><a href="${link(depth, "index.html")}">AI 降临观测站<span class="masthead-dot">.</span></a></h1><p>观察智能，如何改变人的工作。</p></div><span class="edition-seal">DAILY<br>OBSERVATION<span>每日一读</span></span></div>
+  </header>
+  <nav class="edition-nav" aria-label="频道与工具">
+    <div class="channel-tabs">${nav.slice(0, 3).map(([href, label]) => `<a href="${link(depth, href)}"${active === href ? ' class="active" aria-current="page"' : ""}>${label}</a>`).join("")}</div>
+${showTools ? `    <div class="edition-nav-right"><label class="search-box">${icon("search")}<input id="search" type="search" placeholder="寻找一条线索" aria-label="搜索标题、来源或关键词"><kbd>/</kbd></label><button id="filter-trigger" class="action-button" data-action="filter" popovertarget="filter-popover" aria-controls="filter-popover">${icon("filter")}筛选</button></div>` : ""}
   </nav>
-</div></header>
-<main class="wrap">
-${body}
-<footer class="foot">
-  <span>数据每日由流水线自动生成</span>
-  <span>·</span>
-  <a href="${link(depth, "method.html")}">评分口径与局限</a>
-  <span>·</span>
-  <a href="${link(depth, "data/index.json")}">原始数据</a>
-</footer>
-</main>
+  <div class="edition-content${sidebar ? "" : " no-sidebar"}">${body}${sidebar}</div>
+  <footer class="edition-footer"><a href="${link(depth, "index.html")}">AI 降临观测站</a><span>看见进展，也看见它的边界。</span><a class="mobile-method-link" href="${link(depth, "method.html")}">评分口径 ↗</a><a href="${link(depth, "archive.html")}">浏览历史归档 ↗</a><a href="${link(depth, "data/index.json")}">原始数据</a></footer>
+</div>
+${tools}
 <script src="${link(depth, "assets/app.js")}" defer></script>
 </body>
 </html>
@@ -285,100 +314,75 @@ function highlightTerms(text, companies = [], concepts = []) {
   return out + escapeHtml(text.slice(last));
 }
 
-function eventItem(e, { domains, scoring, audit, showDate = true }) {
+function eventItem(e, { domains, scoring, audit, number = 1 }) {
   const dm = domainMeta(domains, e.domain);
-  const text = [e.title, e.title_zh, e.summary_zh, (e.keywords ?? []).join(" "), e.model]
-    .join(" ")
-    .toLowerCase()
-    .replace(/"/g, "'");
-  const a = audit?.get(e.id);
-  const heat = heatColor(e.value);
-  const capNote = e.value_capped
-    ? e.value_capped.includes("no_basis")
-      ? "未给出具体基准或部署依据，已压到上限"
-      : "证据类型不足以支撑更高分值"
+  const text = [e.title, e.title_zh, e.summary_zh, e.why_zh, e.evidence_quote, e.source_name, (e.keywords ?? []).join(" "), e.model]
+    .join(" ").toLowerCase().replace(/"/g, "'");
+  const review = audit?.get(e.id);
+  const titleId = `v2-title-${String(e.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+  const detailsId = `v2-details-${String(e.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+  const evidence = scoring.evidenceTypes?.[e.evidence_type]?.label ?? "待核实";
+  const tags = tagsOf(e).map(([type, label, tip]) => `<span class="tag tag-${type}" title="${escapeHtml(tip)}">${escapeHtml(label)}</span>`).join("");
+  const reviewNote = review && review.verdict !== "agree"
+    ? `<span class="flag" title="独立复核：${escapeHtml(review.reason ?? "")}">${escapeHtml(flagLabel(review.verdict))}${review.audited_value != null ? ` ${Number(e.value).toFixed(2)}→${Number(review.audited_value).toFixed(2)}` : ""}</span>`
     : "";
-  const tier = confTier(e.confidence);
-  const zhTitle = e.title_zh || e.title;
-  const srcTitle = e.title_zh && e.title_zh !== e.title ? `${zhTitle} ｜ 原标题：${e.title}` : "";
-
-  // 备注栏：日期 + 标签 + 复核分歧
-  const notes = [
-    // 多天列表里每行都显示日期。
-    // 之前是「等于窗口最后一天就不显示」，想让「没有标记 = 今天发布的」——
-    // 但读者分不清「因为是今天所以不显示」和「日期丢了」，空白看起来就像 bug。
-    showDate ? `<span class="date" title="发布于 ${escapeHtml(e.date)}">${escapeHtml(e.date.slice(5))}</span>` : "",
-    ...tagsOf(e).map(([cls, label, tip]) => `<span class="tag tag-${cls}" title="${escapeHtml(tip)}">${label}</span>`),
-    a && a.verdict !== "agree"
-      ? `<span class="flag" title="独立复核（${escapeHtml(a.auditor_model ?? "另一模型")}）：${escapeHtml(a.reason ?? "")}">⚑ ${escapeHtml(
-          flagLabel(a.verdict),
-        )}${a.audited_value != null ? ` ${e.value.toFixed(2)}→${Number(a.audited_value).toFixed(2)}` : ""}</span>`
-      : "",
-  ]
-    .filter(Boolean)
-    .join("");
-
-  return `<li class="item" style="--heat:${heat}" data-domain="${escapeHtml(e.domain)}" data-text="${escapeHtml(text)}">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer"${
-        srcTitle ? ` title="${escapeHtml(srcTitle)}"` : ""
-      }>${highlightTerms(e.title_zh || e.title, e.companies, e.concepts)}</a>
-      <span class="dom" title="${escapeHtml(dm.blurb ?? "")}">${escapeHtml(dm.emoji)} ${escapeHtml(dm.label)}</span>
-      <span class="val" title="推进强度 ${e.value.toFixed(2)} · ${tierLabel(e.value)}${capNote ? ` · ${capNote}` : ""}">${e.value.toFixed(2)}${
-        e.value_capped ? "<sup>*</sup>" : ""
-      }</span>
-      <span class="conf conf-${tier}" title="证据可信度 ${e.confidence.toFixed(2)}（${
-        tier === "high" ? "高：同行评议 / 第三方复现 / 政府文件" : tier === "low" ? "低：社区转述 / 厂商自述" : "中：预印本 / 新闻报道"
-      }）">${tier === "mid" ? "可信" : tier === "high" ? "高可信" : "低可信"} ${e.confidence.toFixed(2)}</span>
-      <span class="note">${notes}</span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">${highlightTerms(e.summary_zh ?? "", e.companies, e.concepts)}</p>
-      <a class="srclink" href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
+  const value = Number(e.value ?? 0);
+  const confidence = Number(e.confidence ?? 0);
+  const quoteStatus = e.evidence_verified ? "引文已核对" : "引文待核对";
+  return `<article class="story${number === 1 ? " is-featured" : ""}" data-v2-record data-id="${escapeHtml(e.id)}" data-domain="${escapeHtml(e.domain)}" data-date="${escapeHtml(e.date)}" data-value="${value}" data-confidence="${confidence}" data-relation="${e.relation === "indirect" ? "indirect" : "direct"}" data-verified="${Boolean(e.evidence_verified)}" data-text="${escapeHtml(text)}" style="--heat:${heatColor(value)};--domain-dot:${heatColor(value)}">
+  <span class="story-number" aria-hidden="true">${String(number).padStart(2, "0")}</span>
+  <div class="story-body">
+    <span class="story-kicker">本期重点</span>
+    <div class="story-meta"><span class="domain-text"><i aria-hidden="true"></i>${escapeHtml(dm.label)}</span><time datetime="${escapeHtml(e.date)}">${escapeHtml(e.date)}</time></div>
+    <div class="v2-entry-header" data-action="expand" data-id="${escapeHtml(e.id)}" aria-expanded="false" aria-controls="${detailsId}">
+      <h2 id="${titleId}" class="story-title"><a class="v2-title-link" href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer"${e.title_zh && e.title_zh !== e.title ? ` title="原标题：${escapeHtml(e.title)}"` : ""}>${highlightTerms(e.title_zh || e.title, e.companies, e.concepts)}</a></h2>
     </div>
-  </details>
-</li>`;
+    <div class="v2-story-baseline"><p class="v2-source-line"><span>${escapeHtml(e.source_name || "原始来源")}</span><span class="v2-meta-dot" aria-hidden="true">·</span><span>${e.relation === "indirect" ? "潜力观察" : "直接任务进展"}</span>${reviewNote}</p><button class="v2-read-toggle" type="button" data-action="expand" data-id="${escapeHtml(e.id)}" aria-expanded="false" aria-controls="${detailsId}"><span data-toggle-label>阅读摘要</span>${icon("chevron")}</button></div>
+    <section id="${detailsId}" class="v2-details" aria-labelledby="${titleId}" hidden>
+      <div class="v2-summary-section"><h3>事件摘要</h3><p class="v2-summary">${highlightTerms(e.summary_zh || "暂无摘要，可直接阅读原文。", e.companies, e.concepts)}</p></div>
+${e.why_zh ? `      <div class="v2-why"><h3>为什么值得关注</h3><p>${highlightTerms(e.why_zh, e.companies, e.concepts)}</p></div>` : ""}
+      <div class="v2-evidence"><div class="v2-evidence-heading"><h3>原文证据</h3><span class="v2-verification${e.evidence_verified ? " verified" : ""}">${icon(e.evidence_verified ? "check" : "filter")}${quoteStatus}</span></div><blockquote>${highlightTerms(e.evidence_quote || "暂无可核对的原文引文。", e.companies, e.concepts)}</blockquote></div>
+${tags || reviewNote ? `      <div class="v2-detail-tags">${tags}${reviewNote}</div>` : ""}
+      <div class="v2-detail-footer"><dl class="v2-score-list"><div><dt>推进强度</dt><dd>${value.toFixed(2)}${e.value_capped ? "*" : ""}</dd></div><div><dt>证据可信度</dt><dd>${confidence.toFixed(2)}</dd></div><div><dt>证据类型</dt><dd class="v2-evidence-type">${escapeHtml(evidence)}</dd></div></dl><a class="v2-original" href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer">阅读原文 ${icon("external")}</a></div>
+      <p class="v2-reading-note">评分由模型辅助评估；引文核对仅确认文字出处。${e.relation === "indirect" ? "本条属于潜力观察，不计入进程指数。" : ""}${e.value_capped ? ` 推进强度已受证据上限约束：${escapeHtml(e.value_capped.includes("no_basis") ? "缺少具体基准或部署依据。" : "当前证据类型不足以支撑更高分值。")}` : ""}</p>
+    </section>
+  </div>
+  <div class="story-save"><button class="save-button" type="button" data-action="save" data-id="${escapeHtml(e.id)}" aria-pressed="false" aria-label="加入稍后读" title="加入稍后读">${icon("bookmark")}</button></div>
+</article>`;
 }
 
-/** 筛选行。整页只剩这一行工具，原来的小标题栏（频道名 + 一行数字 + 跳转 + 搜索）已撤掉：
-    频道名进了顶栏（不占行），跳转在顶栏导航里本来就有，统计数字删掉。 */
-function stripSearch() {
-  return `<div class="strip strip-solo"><label class="strip-search"><input id="q" type="search" placeholder="筛选 /" aria-label="按关键词筛选"></label></div>`;
+function listSection(events, { domains, scoring, title, audit, depth = 0, extra = "" }) {
+  return `<main class="editorial-main" id="main-content">
+  <div class="edition-context"><div class="context-copy"><span id="view-title">${escapeHtml(title)}</span><span id="result-count" aria-live="polite">${events.length} 条记录</span><span id="applied-filters"></span></div><div class="v2-sort"><span id="sort-caption">排序</span><button id="sort-trigger" class="v2-sort-trigger" type="button" popovertarget="sort-menu" aria-haspopup="menu" aria-expanded="false" aria-labelledby="sort-caption sort-label"><span id="sort-label">推进强度</span>${icon("chevron")}</button></div></div>
+${extra ? `  ${extra}` : ""}
+  <div class="story-list" id="story-list">${events.map((e, i) => eventItem(e, { domains, scoring, audit, number: i + 1 })).join("\n")}</div>
+  <p id="empty-results" class="empty-state" hidden>这个筛选范围内没有记录。请调整搜索或筛选条件。</p>
+</main>`;
 }
 
-function chipStrip(indexData, domains, depth, todayCount, overall = null, linkDepth = null) {
-  const byDomain = overall?.byDomain ?? null;
-  const cells = indexData.domains
-    .map((d) => {
-      const dm = domainMeta(domains, d.domain);
-      // 显示条数而不是增量：增量 9 个里有 6 个是 ±0.000，扫过去全是噪声，
-      // 而且要先理解指数口径才有意义。条数一眼就知道这个领域有多少内容。
-      const n = byDomain ? (byDomain.get(d.domain)?.events ?? 0) : (d.events ?? 0);
-      return `  <span class="chip" data-domain="${escapeHtml(d.domain)}" title="${escapeHtml(dm.blurb ?? "")}">${escapeHtml(
-        dm.label,
-      )} <b>${n}</b></span>`;
-    })
-    .join("\n");
-  return `<div class="strip">
-  <span class="chip on" data-domain="" title="点击切换筛选">全部 <b>${todayCount ?? indexData.eventCount}</b></span>
-${cells}
-  <label class="strip-search"><input id="q" type="search" placeholder="筛选 /" aria-label="按关键词筛选"></label>
-</div>`;
-}
-
-function listSection(events, { domains, scoring, title, count, audit, showDate = true, hideHead = false }) {
-  if (!events.length) {
-    return `<div class="empty">这个窗口内没有通过筛选的记录。</div>`;
+function editorialSidebar(events, domains, { depth = 0, dates = [], dateRange = "" } = {}) {
+  const grouped = new Map(domains.map((d) => [d.key, { ...d, count: 0 }]));
+  for (const e of events) {
+    const row = grouped.get(e.domain);
+    if (row) row.count += 1;
   }
-  const head = hideHead
-    ? ""
-    : `<div class="sechead">${title ? `<h2>${escapeHtml(title)}</h2>` : ""}<span class="count" id="count">${count ?? `${events.length} / ${events.length}`}</span></div>`;
-  return `${head}
-<ul class="list" id="events">
-${events.map((e) => eventItem(e, { domains, scoring, audit, showDate })).join("\n")}
-</ul>`;
+  const rows = [...grouped.values()].filter((d) => d.count > 0).sort((a, b) => b.count - a.count);
+  const max = Math.max(1, ...rows.map((d) => d.count));
+  const domainNav = rows.map((d) => `<div class="domain-row"><button class="domain-button" type="button" data-domain-filter="${escapeHtml(d.key)}" title="筛选当前列表中的${escapeHtml(d.label)}记录"><span><i class="domain-dot" aria-hidden="true"></i>${escapeHtml(d.label)}</span><span class="domain-count">${d.count}</span></button><a class="domain-page-link" href="${link(depth, `domain/${d.key}.html`)}" aria-label="打开${escapeHtml(d.label)}领域页">↗</a></div>`).join("");
+  const distribution = rows.map((d) => `<div class="coverage-row"><span>${escapeHtml(d.label)}</span><span>${d.count}</span><i><b style="width:${Math.round((d.count / max) * 100)}%"></b></i></div>`).join("");
+  const dayLinks = dates.slice(-10).reverse().map((d) => `<a href="${link(depth, `day/${d}.html`)}"><time datetime="${escapeHtml(d)}">${escapeHtml(d)}</time>${dateRange === d ? " · 当前" : ""}</a>`).join("");
+  return `<aside class="edition-aside"><section class="edition-note"><div class="eyebrow">本期观察</div><h2>AI 承担人类任务的进展</h2><p>按领域整理互联网与学术界的相关事件。展开记录可查看摘要、原文证据、推进强度和证据可信度。</p><div class="issue-stat"><strong>${events.length}</strong><span>条记录<br>${escapeHtml(dateRange || "持续更新")}</span></div></section>
+  <div class="section-heading small"><h2>沿着领域阅读</h2><span>INDEX</span></div><nav class="domain-list" aria-label="领域筛选">${domainNav || '<p class="muted">当前没有领域记录</p>'}</nav>
+  <section class="coverage"><div class="section-label">当前内容分布</div>${distribution || '<p class="muted">暂无统计</p>'}</section>
+  ${dayLinks ? `<section class="date-index"><div class="section-label">按日期浏览</div>${dayLinks}</section>` : ""}
+  <section class="edition-method"><span class="method-mark" aria-hidden="true">i</span><p>高分不等于事实已被证实。<br>每条内容都值得回到来源核对。</p><a href="${link(depth, "method.html")}">我们如何评估进展 ↗</a></section></aside>`;
+}
+
+function dateNavigation(current, dates, depth) {
+  const index = dates.indexOf(current);
+  const previous = index > 0 ? dates[index - 1] : null;
+  const next = index >= 0 && index < dates.length - 1 ? dates[index + 1] : null;
+  return `<nav class="date-navigation" aria-label="日期导航">${previous ? `<a href="${link(depth, `day/${previous}.html`)}">← 前一天 <time datetime="${previous}">${previous}</time></a>` : '<span class="date-nav-empty"></span>'}<a class="date-index-link" href="${link(depth, "archive.html")}">返回归档</a>${next ? `<a href="${link(depth, `day/${next}.html`)}"><time datetime="${next}">${next}</time> 后一天 →</a>` : '<span class="date-nav-empty"></span>'}</nav>`;
 }
 
 function allEventsForDomain(root, domain, dates, dayLoader) {
@@ -419,6 +423,7 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
   const latestAudit = latest ? auditFor(latest) : null;
   const latestDay = latest ? dayLoader(latest) : null;
   const latestEvents = latestDay?.events ?? [];
+  const dateRange = dates.length ? `${dates[0].slice(5)} — ${dates.at(-1).slice(5)}` : "";
 
   // ---------- 两个频道页 ----------
   const sectorOf = (e) => (e.sector === "internet" ? "internet" : "academia");
@@ -432,12 +437,7 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
     const byDomain = new Map(stats.domains.map((d) => [d.domain, d]));
     const spread = `${escapeHtml(win.from.slice(5))}–${escapeHtml(latest.slice(5))}`;
 
-    // 页面只剩两样东西：顶栏（站名 + 页面身份 + 频道导航）和一行领域筛选 + 事件列表。
-    // 小标题栏、领域网格、图例、口径说明都撤掉了——需要时去方法页看。
-    const body = latest
-      ? `${chipStrip(indexData, domains, 0, stats.count, { byDomain })}
-${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDate: true, hideHead: true })}`
-      : `<div class="empty">还没有任何记录，请先运行 <code>npm run pipeline</code>。</div>`;
+    const body = listSection(events, { domains, scoring, title: meta.label, audit: latestAudit });
 
     writeText(
       path.join(site, meta.page),
@@ -448,6 +448,9 @@ ${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDat
         body,
         subtitle: `AI 在${meta.label}的${meta.sub}：近 ${WINDOW} 天按推进强度排序的记录`,
         context: `${meta.emoji} ${meta.label}`,
+        latest,
+        dateRange: `${dateRange} · 近 ${win.days} 日`,
+        sidebar: editorialSidebar(events, domains, { depth: 0, dates, dateRange }),
       }),
     );
   }
@@ -465,11 +468,10 @@ ${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDat
         })
         .filter(([, v]) => v.events > 0),
     );
-    const body = `${chipStrip(indexData, domains, 1, events.length, { byDomain }, 1)}
-${listSection(events, { domains, scoring, title: "", audit: auditFor(d), showDate: false, hideHead: true })}`;
+    const body = listSection(events, { domains, scoring, title: d, audit: auditFor(d), depth: 1, extra: dateNavigation(d, dates, 1) });
     writeText(
       path.join(site, "day", `${d}.html`),
-      layout({ title: `AI 替代进程 ${d}`, depth: 1, active: "archive.html", body, context: `📅 ${d}` }),
+      layout({ title: `AI 替代进程 ${d}`, depth: 1, active: "archive.html", body, context: `📅 ${d}`, latest, dateRange: d, sidebar: editorialSidebar(events, domains, { depth: 1, dates, dateRange: d }) }),
     );
   }
 
@@ -477,8 +479,7 @@ ${listSection(events, { domains, scoring, title: "", audit: auditFor(d), showDat
   for (const dm of indexData.domains) {
     const meta = domainMeta(domains, dm.domain);
     const events = allEventsForDomain(root, dm.domain, dates, dayLoader);
-    const body = `${stripSearch()}
-${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDate: true, hideHead: true })}
+    const body = `${listSection(events, { domains, scoring, title: meta.label, audit: latestAudit, depth: 1 })}
 <p class="pagenote">指数 = 100 × (1 − e^(−累计贡献 / ${meta.scale ?? 50}))，衡量自基准日起的累计进程，非绝对真值。口径见<a href="${link(1, "method.html")}">方法页</a>。</p>`;
     writeText(
       path.join(site, "domain", `${dm.domain}.html`),
@@ -488,6 +489,9 @@ ${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDat
         active: "",
         body,
         context: `${meta.emoji} ${meta.label}`,
+        latest,
+        dateRange,
+        sidebar: editorialSidebar(events, domains, { depth: 1, dates, dateRange }),
       }),
     );
   }
@@ -496,48 +500,16 @@ ${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDat
   // 不做「每天一堆条目」的流水账，只挑每天最值得看的那几条，
   // 让归档页回答一个问题：这段时间里最要紧的事是什么。
   const TOP_PER_DAY = 5;
+  const archiveEvents = dates.flatMap((d) => dayLoader(d)?.events ?? []);
   const timeline = [...dates].reverse().map((d) => {
     const day = dayLoader(d);
     const events = [...(day?.events ?? [])].sort((a, b) => b.value - a.value || b.delta - a.delta);
     const top = events.slice(0, TOP_PER_DAY);
     const delta = indexData.domains.reduce((s, dm) => s + ((dm.series ?? []).find((x) => x.date === d)?.delta ?? 0), 0);
-    const items = top
-      .map((e) => {
-        const dm = domainMeta(domains, e.domain);
-        const tier = confTier(e.confidence);
-        return `<li class="tl-item" style="--heat:${heatColor(e.value)}" data-domain="${escapeHtml(e.domain)}" data-text="${escapeHtml(
-          `${e.title_zh ?? e.title} ${e.summary_zh ?? ""}`.toLowerCase().replace(/"/g, "'"),
-        )}">
-  <details class="disc">
-    <summary class="row" title="展开摘要">
-      <a class="title" href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer"${
-        e.title_zh && e.title_zh !== e.title ? ` title="原标题：${escapeHtml(e.title)}"` : ""
-      }>${highlightTerms(e.title_zh || e.title, e.companies, e.concepts)}</a>
-      <span class="dom">${escapeHtml(dm.emoji)} ${escapeHtml(dm.label)}</span>
-      <span class="val">${e.value.toFixed(2)}</span>
-      <span class="conf conf-${tier}">${tier === "high" ? "高可信" : tier === "low" ? "低可信" : "可信"} ${e.confidence.toFixed(2)}</span>
-      <span class="note">${tagsOf(e)
-        .map(([cls, label, tip]) => `<span class="tag tag-${cls}" title="${escapeHtml(tip)}">${label}</span>`)
-        .join("")}</span>
-      <span class="chev" aria-hidden="true"></span>
-    </summary>
-    <div class="panel">
-      <p class="summary">${highlightTerms(e.summary_zh ?? "", e.companies, e.concepts)}</p>
-      <a class="srclink" href="${escapeHtml(e.source_url)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
-    </div>
-  </details>
-</li>`;
-      })
-      .join("\n");
-    return `<section class="tl-day">
-  <div class="tl-date">
-    <a href="${link(0, `day/${d}.html`)}">${escapeHtml(d)}</a>
-    <span class="tl-delta ${cls(delta)}">Δ ${fmtSigned(delta, 2)}</span>
-    <span class="tl-count">${events.length} 条中取前 ${top.length}</span>
-  </div>
-  <ul class="tl-list">${items}</ul>
-</section>`;
+    return `<section class="tl-day"><div class="tl-date"><a href="${link(0, `day/${d}.html`)}">${escapeHtml(d)}</a><span class="tl-delta ${cls(delta)}">Δ ${fmtSigned(delta, 2)}</span><span class="tl-count">${events.length} 条中取前 ${top.length}</span></div><div class="story-list">${top.map((e, i) => eventItem(e, { domains, scoring, audit: auditFor(d), number: i + 1 })).join("\n")}</div></section>`;
   });
+
+  const archiveBody = `<main class="editorial-main" id="main-content"><div class="edition-context"><div class="context-copy"><span id="view-title">归档</span><span id="result-count" aria-live="polite">${archiveEvents.length} 条记录</span><span id="applied-filters"></span></div><div class="v2-sort"><span id="sort-caption">排序</span><button id="sort-trigger" class="v2-sort-trigger" type="button" popovertarget="sort-menu" aria-haspopup="menu" aria-expanded="false" aria-labelledby="sort-caption sort-label"><span id="sort-label">推进强度</span>${icon("chevron")}</button></div></div><div id="story-list" class="archive-feed">${timeline.join("\n")}</div><p id="empty-results" class="empty-state" hidden>这个筛选范围内没有记录。请调整搜索或筛选条件。</p></main>`;
 
   writeText(
     path.join(site, "archive.html"),
@@ -546,8 +518,10 @@ ${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDat
       depth: 0,
       active: "archive.html",
       context: "🕓 归档",
-      body: `${stripSearch()}
-<div id="events">${timeline.join("\n")}</div>`,
+      body: archiveBody,
+      latest,
+      dateRange,
+      sidebar: editorialSidebar(archiveEvents, domains, { depth: 0, dates, dateRange }),
     }),
   );
 
@@ -594,7 +568,7 @@ ${listSection(events, { domains, scoring, title: "", audit: latestAudit, showDat
     )
     .join("\n");
 
-  const methodBody = `<section class="head">
+  const methodBody = `<main class="editorial-main method-main" id="main-content"><section class="head">
   <h1>方法与口径</h1>
   <p class="sub">这个站点如何产生每日记录、分数意味着什么、以及它在哪里不可靠。</p>
 </section>
@@ -735,9 +709,9 @@ npm run pipeline -- --offline                     # 只用本地缓存，不联�
 npm run render              # 只重算指数并重新渲染 HTML
 npm run probe               # 探测数据源可达性</pre>
 <p>所有 AI 调用按 prompt 哈希缓存在 <code>data/cache/ai/</code>，同一天重跑不会重复计费，结果可复现。</p>
-</div>`;
+</div></main>`;
 
-  writeText(path.join(site, "method.html"), layout({ title: "方法与口径 · AI 替代进程", depth: 0, active: "method.html", body: methodBody }));
+  writeText(path.join(site, "method.html"), layout({ title: "方法与口径 · AI 替代进程", depth: 0, active: "method.html", body: methodBody, latest, dateRange, showTools: false }));
 
   log("info", `渲染完成：site/（学术界 + 互联网 + ${dates.length} 个日期页 + ${indexData.domains.length} 个领域页 + 归档 + 方法页）`);
 }

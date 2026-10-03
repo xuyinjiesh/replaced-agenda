@@ -21,3 +21,6 @@ data/*.log
 
 node_modules/
 .DS_Store
+
+# 本地 UI handoff，仅供开发参考，不提交到 GitHub
+/replaced-agenda-ui-handoff-2026-09-30/

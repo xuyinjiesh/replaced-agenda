@@ -386,10 +386,7 @@ console.log("\n[9] 学术界 / 互联网频道归属");
     }
   }
 
-  // ---------- [11] 折叠只靠原生 <details> ----------
-  // 折叠一度挂在 <html class="has-js"> 上（由 <head> 内联脚本添加）。这个设计有个致命处：
-  // 脚本一旦没跑（CSP、缓存、禁用 JS），类名就不存在，摘要会直接铺出来——而且 HTML 看起来完全正常。
-  // 现在改用原生 <details>，默认就是收起的，不依赖任何开关。这里直接对渲染产物做结构断言。
+  // ---------- [11] 详情默认收起，控制行留在详情外 ----------
   {
     const { readFileSync, readdirSync, existsSync } = await import("node:fs");
     const siteDir = new URL("../site/", import.meta.url);
@@ -397,19 +394,18 @@ console.log("\n[9] 学术界 / 互联网频道归属");
       const pages = readdirSync(siteDir, { recursive: true })
         .map((f) => String(f).replace(/\\/g, "/"))
         .filter((f) => f.endsWith(".html"));
-      let details = 0, opened = 0, panelMismatch = 0, stray = 0;
+      let records = 0, hidden = 0, controls = 0, stray = 0;
       for (const f of pages) {
         const html = readFileSync(new URL(f, siteDir), "utf8");
-        const d = (html.match(/<details class="disc"/g) ?? []).length;
-        const pnl = (html.match(/<div class="panel">/g) ?? []).length;
-        details += d;
-        opened += (html.match(/<details class="disc"[^>]*\sopen/g) ?? []).length;
+        const rows = (html.match(/<article class="story[^>]*data-v2-record/g) ?? []).length;
+        const panels = (html.match(/<section id="v2-details-[^"]+" class="v2-details"[^>]*>/g) ?? []);
+        records += rows;
+        hidden += panels.filter((x) => /\shidden(?:\s|>)/.test(x)).length;
+        controls += (html.match(/class="v2-read-toggle"/g) ?? []).length;
         stray += (html.match(/has-js/g) ?? []).length;
-        if (d !== pnl) panelMismatch += Math.abs(d - pnl);
       }
-      check("页面用 <details> 承载折叠", details > 0, `共 ${details} 个`);
-      check("默认全部收起（无 open 属性）", opened === 0, `实得 ${opened} 个 open`);
-      check("每个折叠块都有摘要面板", panelMismatch === 0, `不匹配 ${panelMismatch} 处`);
+      check("记录头部与摘要控制行保留在详情内容之外", records > 0 && controls === records, `记录 ${records} / 控制 ${controls}`);
+      check("详情默认收起", hidden === records, `收起 ${hidden} / 记录 ${records}`);
       check("已清除 has-js 那套开关", stray === 0, `残留 ${stray} 处`);
     }
   }
@@ -441,8 +437,8 @@ console.log("\n[9] 学术界 / 互联网频道归属");
           for (const c of m[1].split(/\s+/)) if (c) inHtml.add(c);
         }
       }
-      // 这些类只在特定数据下才渲染（复核分歧、空列表、筛选计数），当前语料里没有属正常
-      const CONDITIONAL = new Set(["flag", "flag-low", "flag-high", "flag-offtopic", "flag-irrelevant", "empty", "count", "sechead"]);
+      // 这些类由筛选交互或特定语料状态触发，静态初始 HTML 中可能不存在
+      const CONDITIONAL = new Set(["flag", "flag-low", "flag-high", "flag-offtopic", "flag-irrelevant", "empty", "empty-state", "count", "sechead", "tag-first", "tag-warn", "tag-ok", "tag-pot", "has-filter", "is-saved", "neg", "pos", "zero"]);
       const stale = [...inCss].filter((c) => !inHtml.has(c) && !CONDITIONAL.has(c)).sort();
       check("CSS 没有渲染产物中不存在的类", stale.length === 0, stale.length ? `残留：${stale.join(", ")}` : "");
 
@@ -508,102 +504,42 @@ console.log("\n[9] 学术界 / 互联网频道归属");
     check("CSS 没有未闭合的块", depth === 0, `结束时深度 ${depth}`);
   }
 
-  // ---------- [13] 筛选交互（app.js） ----------
-  // 折叠已交给原生 <details>，app.js 只剩领域筛选和关键词过滤。
-  // 仍用最小 DOM 桩跑一遍，确认搜索会展开命中的行、清空后收回去、且不动用户手动展开的。
+  // ---------- [13] 编辑式页面交互契约 ----------
   {
     const { readFileSync } = await import("node:fs");
-
-    class El {
-      constructor(tag, opts = {}) {
-        this.tagName = tag.toUpperCase();
-        this.dataset = { ...(opts.dataset ?? {}) };
-        this.hidden = false;
-        this.open = Boolean(opts.open);
-        this.attrs = {};
-        this.classes = new Set(opts.classes ?? []);
-        this.listeners = {};
-        this.children = [];
-        this.classList = {
-          add: (c) => this.classes.add(c),
-          remove: (c) => this.classes.delete(c),
-          contains: (c) => this.classes.has(c),
-          toggle: (c, force) => {
-            const on = force === undefined ? !this.classes.has(c) : Boolean(force);
-            if (on) this.classes.add(c); else this.classes.delete(c);
-            return on;
-          },
-        };
-      }
-      setAttribute(k, v) { this.attrs[k] = String(v); }
-      getAttribute(k) { return this.attrs[k] ?? null; }
-      addEventListener(type, fn) { (this.listeners[type] ??= []).push(fn); }
-      descendants() { return this.children.flatMap((c) => [c, ...c.descendants()]); }
-      querySelector(sel) {
-        const last = sel.trim().split(/\s+/).pop();
-        return this.descendants().find((d) => matches(d, last)) ?? null;
-      }
-      querySelectorAll(sel) {
-        if (sel.includes(",")) {
-          const out = new Set();
-          for (const part of sel.split(",")) for (const el of this.querySelectorAll(part.trim())) out.add(el);
-          return [...out];
-        }
-        const last = sel.trim().split(/\s+/).pop();
-        return this.descendants().filter((d) => matches(d, last));
-      }
-      fire(type, target = this) {
-        for (const fn of this.listeners[type] ?? []) fn({ target, preventDefault() {}, stopPropagation() {} });
-      }
-    }
-    function matches(el, part) {
-      const m = part.match(/^([a-z]+)?(?:\.([\w-]+))?$/i);
-      if (!m || (!m[1] && !m[2])) return false;
-      if (m[1] && el.tagName !== m[1].toUpperCase()) return false;
-      if (m[2] && !el.classes.has(m[2])) return false;
-      return true;
-    }
-
-    const mkRow = (domain, text) => {
-      const row = new El("li", { classes: ["item"], dataset: { domain, text } });
-      const disc = new El("details", { classes: ["disc"] });
-      const link = new El("a", { classes: ["title"] });
-      disc.children = [link];
-      row.children = [disc];
-      row.disc = disc; row.link = link;
-      return row;
-    };
-    const rows = [mkRow("math", "alpha"), mkRow("software", "beta")];
-    const search = new El("input");
-    const countEl = new El("span");
-    const list = new El("ul");
-    list.children = rows;
-    const doc = {
-      documentElement: new El("html"),
-      getElementById: (id) => (id === "events" ? list : id === "q" ? search : id === "count" ? countEl : null),
-      querySelectorAll: (sel) => (sel.includes(".chip") ? [] : rows),
-      addEventListener() {},
-    };
-    new Function("document", readFileSync(new URL("../theme/app.js", import.meta.url), "utf8"))(doc);
-
-    check("初始全部收起", rows.every((r) => !r.disc.open));
-    search.value = "alpha";
-    search.fire("input", search);
-    check("搜索命中的行自动展开", rows[0].disc.open, "命中的词常常只在摘要里");
-    check("搜索未命中的行隐藏", rows[1].hidden);
-    check("计数同步", countEl.textContent === "1 / 2", countEl.textContent);
-    search.value = "";
-    search.fire("input", search);
-    check("清空搜索后自动展开的行收起", !rows[0].disc.open);
-    check("清空搜索后所有行重新显示", rows.every((r) => !r.hidden));
-
-    rows[1].disc.open = true;
-    search.value = "beta";
-    search.fire("input", search);
-    search.value = "";
-    search.fire("input", search);
-    check("用户手动展开的行不会被搜索清空连带收起", rows[1].disc.open);
+    const app = readFileSync(new URL("../theme/app.js", import.meta.url), "utf8");
+    check("搜索、领域、证据和强度条件都会重新筛选", app.includes("state.query =") && app.includes("state.domain =") && app.includes("state.verified =") && app.includes("state.min ="));
+    check("排序支持强度、日期和可信度", app.includes("localeCompare(a.dataset.date)") && app.includes("state.sort") && app.includes("confidence"));
+    check("展开只切换详情区并保持控制按钮", app.includes("panel.hidden = !open") && app.includes("data-toggle-label") && !app.includes("innerHTML"));
+    check("标题和原文链接不被记录展开事件接管", app.includes('target.closest("a")'));
+    check("稍后读保存在浏览器本地", app.includes("localStorage.getItem(savedKey)") && app.includes("localStorage.setItem(savedKey"));
   }
+
+console.log("\n[14] 正式编辑式 UI 与站内路由");
+{
+  const { readFileSync, readdirSync, existsSync } = await import("node:fs");
+  const readSite = (relative) => readFileSync(new URL(`../site/${relative}`, import.meta.url), "utf8");
+  const home = readSite("index.html");
+  const academic = readSite("academia.html");
+  const archive = readSite("archive.html");
+  const dayName = readdirSync(new URL("../site/day/", import.meta.url)).find((name) => name.endsWith(".html"));
+  const day = readSite(`day/${dayName}`);
+  const domain = readSite("domain/software.html");
+  const style = readSite("assets/style.css");
+  const app = readSite("assets/app.js");
+
+  check("频道页采用已确认的编辑式页面骨架", /class="editorial-theme editorial-v2"/.test(home) && /class="edition-content"/.test(home));
+  check("右栏使用已确认的说明文案", home.includes("AI 承担人类任务的进展") && home.includes("按领域整理互联网与学术界的相关事件。展开记录可查看摘要、原文证据、推进强度和证据可信度。"));
+  check("折叠记录保留标题外链与固定摘要控制行", /class="v2-title-link"[^>]+target="_blank"/.test(home) && /class="v2-story-baseline"/.test(home) && /data-action="expand"/.test(home));
+  check("详情默认折叠且包含摘要、关注理由和原文证据", /class="v2-details"[^>]*hidden/.test(home) && home.includes("事件摘要") && home.includes("为什么值得关注") && home.includes("原文证据"));
+  check("详情提供原文入口和评分字段", home.includes("阅读原文") && home.includes("证据可信度") && home.includes("证据类型"));
+  check("编辑式排序、搜索、领域筛选与稍后读控件已生成", home.includes("sort-menu") && home.includes("id=\"search\"") && home.includes("data-domain-filter") && home.includes("data-action=\"saved-list\""));
+  check("互联网和学术界导航保持正式静态路由", home.includes('href="index.html"') && home.includes('href="academia.html"') && academic.includes('href="index.html"') && academic.includes('href="academia.html"'));
+  check("日期归档继续链接到正式日期页", dayName && archive.includes(`href="day/${dayName.replace(".html", ".html")}"`) && existsSync(new URL(`../site/day/${dayName}`, import.meta.url)));
+  check("日期页保留归档与相邻日期导航", /href="\.\.\/archive\.html"/.test(day) && /class="date-navigation"/.test(day));
+  check("领域页保留正式路由且具备相同阅读布局", domain.includes('href="../index.html"') && domain.includes('href="../academia.html"') && domain.includes("editorial-v2"));
+  check("暖纸色样式与交互脚本已复制到正式站点资源", /--bg:\s*#f7f4ed/i.test(style) && app.includes("data-action") && app.includes("localStorage"));
+}
 
 console.log(`\n结果：${pass} 通过 / ${fail} 失败\n`);
 if (fail > 0) process.exitCode = 1;

@@ -1,30 +1,25 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
+## Project Map
 
-This is a Node.js 20+ ES module project. `scripts/pipeline.mjs` orchestrates collection, AI processing, scoring, and rendering; reusable modules live in `scripts/lib/`. `config/*.json` defines sources, domains, and scoring rules. Edit UI code in `theme/app.js` and `theme/style.css`; rendering copies these files into `site/assets/`. The tracked `site/` directory contains generated HTML and published JSON for GitHub Pages. `data/` holds local events, caches, and run reports, most of which are ignored. The test suite is `scripts/selftest.mjs`.
+This is a Node.js 20+ ES module project. `scripts/pipeline.mjs` coordinates collection, AI processing, scoring, and rendering; supporting code is in `scripts/lib/`. `config/*.json` defines sources, domains, and scoring. `theme/` holds UI source files, while tracked `site/` holds generated pages for GitHub Pages. `data/events/` is the only formal event source. Read [docs/architecture.md](docs/architecture.md) before changing the pipeline or data flow.
 
-## Build, Test, and Development Commands
+## Commands
 
-- `npm run selftest`: run offline invariant checks without AI calls.
-- `npm run render`: regenerate the index and static pages from available data.
+- `npm run selftest`: offline invariant checks; no online AI calls.
+- `npm run render`: rebuild from `data/events/` without collection or AI calls; may rewrite generated files and local reports.
 - `npm run serve`: preview `site/` at `http://127.0.0.1:4180/`.
-- `npm run pipeline -- --date 2026-09-28`: run the collection and rendering pipeline for a date; AI access may require credentials.
-- `npm run audit -- --date 2026-09-28`: independently review that day's scores.
-- `npm run deploy`: run the pipeline, stage all changes, commit, and push `main`; inspect `git status` first.
+- `npm run pipeline`: collect and process today's data; `-- --date YYYY-MM-DD` selects another date intended for publication. May access external sources and AI services.
+- `npm run audit`: independently review today's scores; `-- --date YYYY-MM-DD` selects another formal event date.
 
-## Coding Style & Naming Conventions
+## Data and Code Boundaries
 
-Follow the surrounding JavaScript style: two-space indentation, double quotes, semicolons, and `.mjs` ES modules. Use `camelCase` for functions and variables; date-based outputs use `YYYY-MM-DD` filenames. Keep page orchestration in `scripts/lib/render.mjs`, templates in `render-shell.mjs`, `render-records.mjs`, and `render-method.mjs`, and UI behavior in `theme/`. No formatter or linter is configured in `package.json`.
+Event IDs are unique across dates. A reprocessed record replaces its older version, and its `date` determines the output file. Index verification must pass before event and index files are saved; collection can write raw caches and source health earlier. The local September 25–29, 2026 archive in ignored `data/legacy-events/` is deliberately excluded; do not republish it without an explicit request. Edit `theme/` or `scripts/lib/render*.mjs`, then regenerate `site/` rather than editing generated pages.
 
-## Testing Guidelines
+Follow nearby JavaScript style: two spaces, double quotes, semicolons, `.mjs` ES modules, and `camelCase`. Date files use `YYYY-MM-DD`. No formatter, linter, or coverage threshold is configured. Add focused assertions to `scripts/selftest.mjs` for pipeline, schema, or rendering changes. For UI changes, inspect the affected pages with `npm run serve`.
 
-Add focused, descriptively named assertions to `scripts/selftest.mjs` when changing pipeline rules, schemas, or rendering. Run `npm run selftest` before proposing those changes. There is no separate test framework or coverage threshold. For UI changes, regenerate pages and inspect the home, academic, archive, and affected day or domain pages with `npm run serve`.
+## Git and Publishing
 
-## Commit & Pull Request Guidelines
+Use short Chinese Conventional Commit subjects, for example `fix(render): 修复页面链接`. PRs should explain the change and checks performed; add screenshots for UI changes. Include regenerated `site/` files only when their content changes. Never commit `.env`, caches, or `replaced-agenda-ui-handoff-2026-09-30/`. Do not commit or push unless requested.
 
-Recent commits include `feat(ui): 应用编辑式阅读界面` and date-stamped `data:`/`site:` updates. For hand-written changes, use a short Chinese Conventional Commit subject such as `fix(render): 修复页面链接`. In pull requests, describe the user-facing change and verification performed; include screenshots for visual changes and link an issue when applicable. Commit regenerated `site/` files when their source changes.
-
-## Security & Publishing
-
-Never commit `.env`, local caches, or `replaced-agenda-ui-handoff-2026-09-30/`. Do not commit or push unless requested. The workflow in `.github/workflows/pages.yml` publishes tracked `site/` files after relevant pushes to `main`; it does not run the data pipeline or need AI credentials.
+`npm run deploy` runs the pipeline, stages **all** changes, commits on the current branch, then pushes local `main` by default; it does not switch branches. Use it only on `main` when publication is explicitly requested, after checking `git status`. `.github/workflows/pages.yml` publishes tracked `site/` changes on `main`; CI does not run the pipeline or need AI credentials.

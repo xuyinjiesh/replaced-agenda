@@ -7,11 +7,12 @@
  *   node scripts/probe-sources.mjs --json     # 额外输出机器可读结果
  */
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { fetchText } from "./lib/http.mjs";
 import { looksLikeFeed } from "./lib/xml.mjs";
 import { log, parseArgs, readJSON } from "./lib/util.mjs";
 
-const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
+const ROOT = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 
 const args = parseArgs();
 const config = readJSON(path.join(ROOT, "config", "sources.json"));

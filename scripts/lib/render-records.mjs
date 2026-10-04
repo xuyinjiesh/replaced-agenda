@@ -169,7 +169,7 @@ export function eventItem(e, { domains, scoring, audit, number = 1 }) {
   const dm = domainMeta(domains, e.domain);
   const text = [e.title, e.title_zh, e.summary_zh, e.why_zh, e.evidence_quote, e.source_name, (e.keywords ?? []).join(" "), e.model]
     .join(" ").toLowerCase().replace(/"/g, "'");
-  const review = audit?.get(e.id);
+  const review = audit?.(e);
   const titleId = `v2-title-${String(e.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
   const detailsId = `v2-details-${String(e.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
   const evidence = scoring.evidenceTypes?.[e.evidence_type]?.label ?? "待核实";

@@ -42,7 +42,7 @@ function windowEvents(sector, dates, dayLoader, windowDays, latest) {
   return { events: out, from: from[0] ?? latest, days: from.length };
 }
 
-function allEventsForDomain(root, domain, dates, dayLoader) {
+function allEventsForDomain(domain, dates, dayLoader) {
   const out = [];
   for (const d of [...dates].reverse()) {
     const day = dayLoader(d);
@@ -71,22 +71,26 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
   // `_` 前缀资源被静默吞掉。用 Actions 发布时它无害，用分支发布时它必需。
   writeText(path.join(site, ".nojekyll"), "");
 
-  const auditFor = (d) => {
-    const a = auditLoader?.(d);
-    if (!a?.rows?.length) return null;
-    return new Map(a.rows.map((r) => [r.id, { ...r, auditor_model: a.auditor_model }]));
-  };
+  const renderDays = new Map(dates.map((d) => {
+    const day = dayLoader(d);
+    return [d, day ? { ...day, events: (day.events ?? []).map((e) => ({ ...e, auditDay: d })) } : null];
+  }));
+  const loadRenderDay = (d) => renderDays.get(d);
+  const audits = new Map(dates.map((d) => {
+    const audit = auditLoader?.(d);
+    return [d, new Map((audit?.rows ?? []).map((row) => [row.id, row]))];
+  }));
+  const reviewFor = (event) => audits.get(event.auditDay)?.get(event.id);
   const latest = dates.at(-1);
-  const latestAudit = latest ? auditFor(latest) : null;
   const dateRange = dates.length ? `${dates[0].slice(5)} — ${dates.at(-1).slice(5)}` : "";
 
   // ---------- 两个频道页 ----------
   const WINDOW = 7; // 频道页的滚动窗口天数
   for (const key of SECTOR_ORDER) {
     const meta = SECTOR_META[key];
-    const win = windowEvents(key, dates, dayLoader, WINDOW, latest);
+    const win = windowEvents(key, dates, loadRenderDay, WINDOW, latest);
     const events = win.events;
-    const body = listSection(events, { domains, scoring, title: meta.label, audit: latestAudit });
+    const body = listSection(events, { domains, scoring, title: meta.label, audit: reviewFor });
 
     writeText(
       path.join(site, meta.page),
@@ -106,9 +110,9 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
 
   // ---------- 各日期页 ----------
   for (const d of dates) {
-    const day = dayLoader(d);
+    const day = loadRenderDay(d);
     const events = day?.events ?? [];
-    const body = listSection(events, { domains, scoring, title: d, audit: auditFor(d), depth: 1, extra: dateNavigation(d, dates, 1) });
+    const body = listSection(events, { domains, scoring, title: d, audit: reviewFor, depth: 1, extra: dateNavigation(d, dates, 1) });
     writeText(
       path.join(site, "day", `${d}.html`),
       layout({ title: `AI 替代进程 ${d}`, depth: 1, active: "archive.html", body, context: `📅 ${d}`, latest, dateRange: d, sidebar: editorialSidebar(events, domains, { depth: 1, dates, dateRange: d }) }),
@@ -118,8 +122,8 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
   // ---------- 领域页 ----------
   for (const dm of indexData.domains) {
     const meta = domainMeta(domains, dm.domain);
-    const events = allEventsForDomain(root, dm.domain, dates, dayLoader);
-    const body = `${listSection(events, { domains, scoring, title: meta.label, audit: latestAudit, depth: 1 })}
+    const events = allEventsForDomain(dm.domain, dates, loadRenderDay);
+    const body = `${listSection(events, { domains, scoring, title: meta.label, audit: reviewFor, depth: 1 })}
 <p class="pagenote">指数 = 100 × (1 − e^(−累计贡献 / ${meta.scale ?? 50}))，衡量自基准日起的累计进程，非绝对真值。口径见<a href="${link(1, "method.html")}">方法页</a>。</p>`;
     writeText(
       path.join(site, "domain", `${dm.domain}.html`),
@@ -140,13 +144,13 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
   // 不做「每天一堆条目」的流水账，只挑每天最值得看的那几条，
   // 让归档页回答一个问题：这段时间里最要紧的事是什么。
   const TOP_PER_DAY = 5;
-  const archiveEvents = dates.flatMap((d) => dayLoader(d)?.events ?? []);
+  const archiveEvents = dates.flatMap((d) => loadRenderDay(d)?.events ?? []);
   const timeline = [...dates].reverse().map((d) => {
-    const day = dayLoader(d);
+    const day = loadRenderDay(d);
     const events = [...(day?.events ?? [])].sort((a, b) => b.value - a.value || b.delta - a.delta);
     const top = events.slice(0, TOP_PER_DAY);
     const delta = indexData.domains.reduce((s, dm) => s + ((dm.series ?? []).find((x) => x.date === d)?.delta ?? 0), 0);
-    return `<section class="tl-day"><div class="tl-date"><a href="${link(0, `day/${d}.html`)}">${escapeHtml(d)}</a><span class="tl-delta ${cls(delta)}">Δ ${fmtSigned(delta, 2)}</span><span class="tl-count">${events.length} 条中取前 ${top.length}</span></div><div class="story-list">${top.map((e, i) => eventItem(e, { domains, scoring, audit: auditFor(d), number: i + 1 })).join("\n")}</div></section>`;
+    return `<section class="tl-day"><div class="tl-date"><a href="${link(0, `day/${d}.html`)}">${escapeHtml(d)}</a><span class="tl-delta ${cls(delta)}">Δ ${fmtSigned(delta, 2)}</span><span class="tl-count">${events.length} 条中取前 ${top.length}</span></div><div class="story-list">${top.map((e, i) => eventItem(e, { domains, scoring, audit: reviewFor, number: i + 1 })).join("\n")}</div></section>`;
   });
 
   const archiveBody = `<main class="editorial-main" id="main-content"><div class="edition-context"><div class="context-copy"><span id="view-title">归档</span><span id="result-count" aria-live="polite">${archiveEvents.length} 条记录</span><span id="applied-filters"></span></div><div class="v2-sort"><span id="sort-caption">排序</span><button id="sort-trigger" class="v2-sort-trigger" type="button" popovertarget="sort-menu" aria-haspopup="menu" aria-expanded="false" aria-labelledby="sort-caption sort-label"><span id="sort-label">推进强度</span>${icon("chevron")}</button></div></div><div id="story-list" class="archive-feed">${timeline.join("\n")}</div><p id="empty-results" class="empty-state" hidden>这个筛选范围内没有记录。请调整搜索或筛选条件。</p></main>`;
@@ -168,6 +172,15 @@ export function renderSite({ root, domains, scoring, indexData, dates, dayLoader
   const methodBody = renderMethodBody({ latest, runReports, auditLoader, scoring, domains, healthRows, sourcesConfig });
 
   writeText(path.join(site, "method.html"), layout({ title: "方法与口径 · AI 替代进程", depth: 0, active: "method.html", body: methodBody, latest, dateRange, showTools: false }));
+
+  const expectedDays = new Set(dates.map((d) => `${d}.html`));
+  for (const file of fs.readdirSync(path.join(site, "day"))) {
+    if (/^\d{4}-\d{2}-\d{2}\.html$/.test(file) && !expectedDays.has(file)) fs.rmSync(path.join(site, "day", file));
+  }
+  const expectedDomains = new Set(indexData.domains.map((d) => `${d.domain}.html`));
+  for (const file of fs.readdirSync(path.join(site, "domain"))) {
+    if (file.endsWith(".html") && !expectedDomains.has(file)) fs.rmSync(path.join(site, "domain", file));
+  }
 
   log("info", `渲染完成：site/（学术界 + 互联网 + ${dates.length} 个日期页 + ${indexData.domains.length} 个领域页 + 归档 + 方法页）`);
 }

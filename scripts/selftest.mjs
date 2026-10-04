@@ -10,9 +10,14 @@ import { canonicalUrl, extractJSON, jaccard, normalizeTitle, shingles, simhash, 
 import { aiEnrich } from "./lib/enrich.mjs";
 import { toEvent } from "./lib/score.mjs";
 import { aiScreen } from "./lib/screen.mjs";
-import { readJSON, resolveSector, takeWithFloor } from "./lib/util.mjs";
+import { ROOT as UTIL_ROOT, readJSON, resolveSector, takeWithFloor } from "./lib/util.mjs";
 import { checkCalibration, valueDistribution } from "./lib/pipeline-report.mjs";
 import { compareAudit } from "./lib/audit-compare.mjs";
+import { recomputeIndex } from "./lib/pipeline-index.mjs";
+import { renderSite } from "./lib/render.mjs";
+import { listEventDates, loadDay, mergeDay, publishData, saveSeen } from "./lib/store.mjs";
+import { AIClient } from "./lib/ai.mjs";
+import { resolveDomains } from "./lib/score.mjs";
 
 let pass = 0;
 let fail = 0;
@@ -657,6 +662,115 @@ console.log("\n[18] 模型名可由环境变量覆盖");
       if (v === undefined) delete process.env[k];
       else process.env[k] = v;
     }
+  }
+}
+
+console.log("\n[19] 正式数据与生成产物一致性");
+{
+  const fs = await import("node:fs");
+  const os = await import("node:os");
+  const path = await import("node:path");
+  const { fileURLToPath } = await import("node:url");
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "replaced-agenda-selftest-"));
+  try {
+    const dataDir = path.join(root, "data", "events");
+    const siteDir = path.join(root, "site");
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.mkdirSync(path.join(root, "data", "legacy-events"), { recursive: true });
+    fs.mkdirSync(path.join(siteDir, "data"), { recursive: true });
+    fs.mkdirSync(path.join(siteDir, "day"), { recursive: true });
+    fs.mkdirSync(path.join(siteDir, "domain"), { recursive: true });
+    fs.mkdirSync(path.join(root, "theme"), { recursive: true });
+    fs.copyFileSync(new URL("../theme/style.css", import.meta.url), path.join(root, "theme", "style.css"));
+    fs.copyFileSync(new URL("../theme/app.js", import.meta.url), path.join(root, "theme", "app.js"));
+
+    const makeEvent = (id, date) => ({ id, date, domain: "software", sector: "internet", relation: "direct", direction: "advance", value: 0.7, confidence: 0.6, title: id, title_zh: id, summary_zh: id, source_url: `https://example.test/${id}`, source_name: "Fixture", evidence_type: "official" });
+    const older = makeEvent("older", "2026-10-01");
+    const newer = makeEvent("newer", "2026-10-02");
+    for (const [date, event] of [["2026-10-01", older], ["2026-10-02", newer]]) {
+      fs.writeFileSync(path.join(dataDir, `${date}.json`), JSON.stringify({ date, events: [event] }));
+    }
+    fs.writeFileSync(path.join(root, "data", "legacy-events", "2026-09-29.json"), "{}");
+    fs.writeFileSync(path.join(siteDir, "data", "2026-09-29.json"), "{}");
+    fs.writeFileSync(path.join(siteDir, "data", "index.json"), "{}");
+    fs.writeFileSync(path.join(siteDir, "data", "seen.json"), JSON.stringify({ updated_at: "stable", ids: { older: "2026-10-01" } }));
+    const dates = listEventDates(root);
+    check("仅正式事件目录决定日期", dates.join(",") === "2026-10-01,2026-10-02" && loadDay(root, "2026-09-29") === null);
+    publishData(root, dates);
+    check("发布时清理旧日期且保留其他 JSON", !fs.existsSync(path.join(siteDir, "data", "2026-09-29.json")) && fs.existsSync(path.join(siteDir, "data", "index.json")) && fs.existsSync(path.join(siteDir, "data", "seen.json")));
+    saveSeen(root, { older: "2026-10-01" });
+    check("已见记录未变化时不改写时间戳", !fs.existsSync(path.join(root, "data", "seen.json")) && fs.readFileSync(path.join(siteDir, "data", "seen.json"), "utf8").includes("stable"));
+
+    const scoring = readJSON(new URL("../config/scoring.json", import.meta.url));
+    const domains = resolveDomains(readJSON(new URL("../config/domains.json", import.meta.url)).domains, scoring);
+    const beforeDay = fs.readFileSync(path.join(dataDir, "2026-10-01.json"), "utf8");
+    let rejected = false;
+    try {
+      recomputeIndex({ root, date: "2026-10-02", dayEvents: [newer], domains, scoring, verify: () => ({ ok: false, failures: [{ kind: "fixture" }] }) });
+    } catch {
+      rejected = true;
+    }
+    check("指数校验失败先于任何指数写入", rejected && fs.readFileSync(path.join(dataDir, "2026-10-01.json"), "utf8") === beforeDay && !fs.existsSync(path.join(root, "data", "index.json")));
+    const { indexData } = recomputeIndex({ root, date: "2026-10-02", dayEvents: [newer], domains, scoring });
+    check("指数来源统计覆盖所有正式日期", indexData.source_stats.find((row) => row.source === "Fixture")?.count === 2);
+    const once = dates.map((d) => fs.readFileSync(path.join(dataDir, `${d}.json`), "utf8")).join("\n") + fs.readFileSync(path.join(root, "data", "index.json"), "utf8");
+    recomputeIndex({ root, date: "2026-10-02", dayEvents: loadDay(root, "2026-10-02").events, domains, scoring });
+    const twice = dates.map((d) => fs.readFileSync(path.join(dataDir, `${d}.json`), "utf8")).join("\n") + fs.readFileSync(path.join(root, "data", "index.json"), "utf8");
+    check("无数据变化的重算不改写时间戳", once === twice);
+
+    fs.writeFileSync(path.join(siteDir, "day", "2026-09-29.html"), "stale");
+    fs.writeFileSync(path.join(siteDir, "domain", "obsolete.html"), "stale");
+    renderSite({ root, domains, scoring, indexData, dates, dayLoader: (d) => loadDay(root, d), runReports: {}, healthRows: [], sourcesConfig: { settings: {} }, auditLoader: (d) => d === "2026-10-01" ? { rows: [{ id: "older", verdict: "over_scored", reason: "旧日复核", audited_value: 0.4 }] } : null });
+    const home = fs.readFileSync(path.join(siteDir, "index.html"), "utf8");
+    const domain = fs.readFileSync(path.join(siteDir, "domain", "software.html"), "utf8");
+    const oldDay = fs.readFileSync(path.join(siteDir, "day", "2026-10-01.html"), "utf8");
+    const newDay = fs.readFileSync(path.join(siteDir, "day", "2026-10-02.html"), "utf8");
+    check("跨日期页面显示旧日复核", home.includes("旧日复核") && domain.includes("旧日复核") && oldDay.includes("旧日复核") && !newDay.includes("旧日复核"));
+    check("渲染清理过期日期和领域页", !fs.existsSync(path.join(siteDir, "day", "2026-09-29.html")) && !fs.existsSync(path.join(siteDir, "domain", "obsolete.html")));
+    const expectedRoot = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
+    const entryPaths = ["audit.mjs", "deploy.mjs", "probe-sources.mjs"];
+    check("入口统一按文件 URL 定位仓库", UTIL_ROOT === expectedRoot && entryPaths.every((name) => fs.readFileSync(new URL(name, import.meta.url), "utf8").includes('fileURLToPath(new URL("..", import.meta.url))')));
+
+    const cacheDir = path.join(root, "data", "cache", "ai");
+    const credentialKeys = ["AI_API_KEY", "OPENAI_API_KEY", "DASHSCOPE_API_KEY", "api_key", "OPENAI_KEY", "LLM_API_KEY", "AI_BASE_URL", "OPENAI_BASE_URL", "base_url", "OPENAI_API_BASE", "LLM_BASE_URL"];
+    const saved = new Map(credentialKeys.map((key) => [key, process.env[key]]));
+    try {
+      for (const key of credentialKeys) delete process.env[key];
+      process.env.AI_API_KEY = "selftest-only";
+      let calls = 0;
+      const chat = async () => ({ ok: true, content: `answer-${++calls}`, usage: {}, model: "same-name" });
+      process.env.AI_BASE_URL = "https://first.example/v1";
+      const first = new AIClient({ cacheDir, root, retries: 0 });
+      first.transport.chat = chat;
+      const a = await first.chat({ model: "same-name", user: "same prompt" });
+      process.env.AI_BASE_URL = "https://second.example/v1";
+      const second = new AIClient({ cacheDir, root, retries: 0 });
+      second.transport.chat = chat;
+      const b = await second.chat({ model: "same-name", user: "same prompt" });
+      check("不同端点的同名模型不共用缓存", calls === 2 && a.content !== b.content && !b.cached);
+    } finally {
+      for (const [key, value] of saved) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+
+    const crossRoot = path.join(root, "cross-date");
+    const crossEvents = path.join(crossRoot, "data", "events");
+    fs.mkdirSync(crossEvents, { recursive: true });
+    const prior = makeEvent("same-id", "2026-10-01");
+    fs.writeFileSync(path.join(crossEvents, "2026-10-01.json"), JSON.stringify({ date: "2026-10-01", events: [prior] }));
+    const revised = { ...prior, value: 0.8 };
+    const rerun = mergeDay(null, [revised], { date: "2026-10-02" });
+    const cross = recomputeIndex({ root: crossRoot, date: "2026-10-02", dayEvents: rerun.events, domains, scoring });
+    const retained = loadDay(crossRoot, "2026-10-01")?.events ?? [];
+    check("跨日期重处理不重复计分或归档", cross.indexData.eventCount === 1 && retained.length === 1 && retained[0].value === 0.8);
+    const moved = { ...revised, date: "2026-10-02", value: 0.9 };
+    const movedDay = mergeDay(null, [moved], { date: "2026-10-02" });
+    const movedIndex = recomputeIndex({ root: crossRoot, date: "2026-10-02", dayEvents: movedDay.events, domains, scoring });
+    check("记录改期后清理空旧日期文件", movedIndex.indexData.eventCount === 1 && listEventDates(crossRoot).join() === "2026-10-02" && loadDay(crossRoot, "2026-10-02")?.events[0]?.value === 0.9);
+  } finally {
+    if (root.startsWith(os.tmpdir() + path.sep)) fs.rmSync(root, { recursive: true, force: true });
   }
 }
 

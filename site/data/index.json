@@ -1,6 +1,6 @@
 {
   "epoch": "2026-09-28",
-  "computedAt": "2026-10-04T06:18:57.402Z",
+  "computedAt": "2026-10-04T08:20:19.158Z",
   "dates": [
     "2026-10-01",
     "2026-10-02",
@@ -345,11 +345,15 @@
       "count": 6
     },
     {
+      "source": "medRxiv",
+      "count": 5
+    },
+    {
       "source": "GitHub Trending",
       "count": 4
     },
     {
-      "source": "Techmeme",
+      "source": "OpenAI News",
       "count": 3
     },
     {
@@ -357,27 +361,35 @@
       "count": 3
     },
     {
+      "source": "AWS Machine Learning",
+      "count": 3
+    },
+    {
+      "source": "量子位",
+      "count": 3
+    },
+    {
+      "source": "Techmeme",
+      "count": 3
+    },
+    {
       "source": "Latent Space",
       "count": 2
     },
     {
-      "source": "量子位",
-      "count": 2
+      "source": "Anthropic News",
+      "count": 1
     },
     {
       "source": "Apple Machine Learning",
       "count": 1
     },
     {
-      "source": "medRxiv",
+      "source": "MIT News · AI",
       "count": 1
     },
     {
       "source": "Amazon Science",
-      "count": 1
-    },
-    {
-      "source": "OpenAI News",
       "count": 1
     },
     {

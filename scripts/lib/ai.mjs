@@ -46,9 +46,9 @@ export class AIClient {
    * @returns {Promise<{content:string, usage:object, cached:boolean, ok:boolean, error?:string, model:string}>}
    */
   async chat({ model, system, user, temperature = 0.2, maxTokens = 4096, cache = true, extraBody }) {
-    // provider 与 extraBody 参与缓存键：不同端点/参数的结果不应互相污染
+    // 端点与参数参与缓存键，避免同名模型在不同服务间串用回答。
     const key = sha256(
-      [this.info.provider, model, temperature, maxTokens, JSON.stringify(extraBody ?? {}), system ?? "", user].join("\u0000"),
+      [this.info.provider, this.transport.endpoint ?? this.info.baseUrl, model, temperature, maxTokens, JSON.stringify(extraBody ?? {}), system ?? "", user].join("\u0000"),
     );
     const file = cache ? this.cachePath(key) : null;
     if (file && exists(file)) {

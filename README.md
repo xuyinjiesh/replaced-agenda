@@ -44,7 +44,9 @@ AI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 | 路径 | 用途 |
 | --- | --- |
 | `config/` | 数据源、领域和评分规则 |
-| `scripts/pipeline.mjs`、`scripts/lib/` | 流水线及采集、筛选、去重、评分、存储和渲染模块 |
+| `scripts/pipeline.mjs`、`scripts/lib/pipeline-*.mjs` | 流水线编排、指数重算与运行报告 |
+| `scripts/lib/render*.mjs`、`scripts/audit.mjs`、`scripts/lib/audit-*.mjs` | 页面生成与独立复核 |
+| `scripts/lib/` 其余模块 | 采集、筛选、去重、评分和存储 |
 | `theme/` | 前端样式与交互的源文件 |
 | `data/` | 本地事件、缓存和运行报告；多数文件不提交 |
 | `site/` | 已生成并提交的 HTML 与 JSON，供 GitHub Pages 发布 |

@@ -11,6 +11,8 @@ import { aiEnrich } from "./lib/enrich.mjs";
 import { toEvent } from "./lib/score.mjs";
 import { aiScreen } from "./lib/screen.mjs";
 import { readJSON, resolveSector, takeWithFloor } from "./lib/util.mjs";
+import { checkCalibration, valueDistribution } from "./lib/pipeline-report.mjs";
+import { compareAudit } from "./lib/audit-compare.mjs";
 
 let pass = 0;
 let fail = 0;
@@ -539,6 +541,24 @@ console.log("\n[14] 正式编辑式 UI 与站内路由");
   check("日期页保留归档与相邻日期导航", /href="\.\.\/archive\.html"/.test(day) && /class="date-navigation"/.test(day));
   check("领域页保留正式路由且具备相同阅读布局", domain.includes('href="../index.html"') && domain.includes('href="../academia.html"') && domain.includes("editorial-v2"));
   check("暖纸色样式与交互脚本已复制到正式站点资源", /--bg:\s*#f7f4ed/i.test(style) && app.includes("data-action") && app.includes("localStorage"));
+}
+
+console.log("\n[15] 报告与复核计算");
+{
+  const events = [
+    { id: "a", title: "A", value: 0.8, confidence: 0.7, evidence_type: "official", evidence_verified: true, domain: "software" },
+    { id: "b", title: "B", value: 0.4, confidence: 0.5, evidence_type: "preprint", evidence_verified: false, domain: "math" },
+  ];
+  const distribution = valueDistribution(events);
+  check("评分分布字段和顺序保持一致", distribution.count === 2 && distribution.medianValue === 0.4 && distribution.highValueShare === 0.5 && distribution.evidenceTypes.official === 1 && distribution.unverifiedQuotes === 1);
+  check("分布告警阈值保持一致", !checkCalibration(distribution, { expectedHighValueShare: 0.2 }).ok);
+
+  const audit = compareAudit(events, [
+    { id: "a", value: 0.5, domain: "software", verdict: "over_scored", reason: "评分偏高" },
+    { id: "b", value: 0.4, domain: "physics", verdict: "agree", reason: "领域不同" },
+  ], { calibration: { expectedMedianValue: [0.3, 0.55] } });
+  check("复核差值及领域判定保持一致", audit.rows[0].diff === -0.3 && audit.rows[1].verdict === "misclassified");
+  check("复核汇总字段保持一致", audit.summary.compared === 2 && audit.summary.overScored === 1 && audit.summary.domainMismatch === 1 && audit.summary.agreeRate === 0);
 }
 
 console.log(`\n结果：${pass} 通过 / ${fail} 失败\n`);

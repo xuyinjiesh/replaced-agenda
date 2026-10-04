@@ -15,7 +15,7 @@ This is a Node.js 20+ ES module project. `scripts/pipeline.mjs` orchestrates col
 
 ## Coding Style & Naming Conventions
 
-Follow the surrounding JavaScript style: two-space indentation, double quotes, semicolons, and `.mjs` ES modules. Use `camelCase` for functions and variables; date-based outputs use `YYYY-MM-DD` filenames. Keep rendering changes in `scripts/lib/render.mjs` and UI behavior in `theme/`. No formatter or linter is configured in `package.json`.
+Follow the surrounding JavaScript style: two-space indentation, double quotes, semicolons, and `.mjs` ES modules. Use `camelCase` for functions and variables; date-based outputs use `YYYY-MM-DD` filenames. Keep page orchestration in `scripts/lib/render.mjs`, templates in `render-shell.mjs`, `render-records.mjs`, and `render-method.mjs`, and UI behavior in `theme/`. No formatter or linter is configured in `package.json`.
 
 ## Testing Guidelines
 

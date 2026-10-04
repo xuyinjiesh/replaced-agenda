@@ -2,9 +2,25 @@
   "date": "2026-10-02",
   "generated_at": "2026-10-04T05:33:43.267Z",
   "schema_version": 1,
-  "recomputed_at": "2026-10-04T05:33:43.267Z",
-  "previous_event_count": 0,
+  "recomputed_at": "2026-10-04T06:18:57.403Z",
+  "previous_event_count": 6,
   "domains": [
+    {
+      "domain": "math",
+      "date": "2026-10-02",
+      "delta": 0,
+      "index": 0,
+      "events": 1,
+      "value_sum": 0.16
+    },
+    {
+      "domain": "software",
+      "date": "2026-10-02",
+      "delta": 0,
+      "index": 0.14,
+      "events": 5,
+      "value_sum": 0.554
+    },
     {
       "domain": "healthcare",
       "date": "2026-10-02",
@@ -16,14 +32,14 @@
     {
       "domain": "knowledge_work",
       "date": "2026-10-02",
-      "delta": 0.1017,
-      "index": 0.19,
-      "events": 2,
-      "value_sum": 0.435
+      "delta": 0.1828,
+      "index": 0.39,
+      "events": 4,
+      "value_sum": 0.875
     }
   ],
   "stats": null,
-  "event_count": 6,
+  "event_count": 14,
   "events": [
     {
       "date": "2026-10-02",
@@ -91,7 +107,7 @@
       "date": "2026-10-02",
       "domain": "knowledge_work",
       "value": 0.55,
-      "delta": 0.1017,
+      "delta": 0.1016,
       "model": "Codex、GPT-5.6",
       "source_url": "https://openai.com/index/chatham-financial",
       "evidence_quote": "Chatham Financial uses Codex and GPT-5.6 to build technology and redesign workflows, cutting trade validation from 30 minutes to under 4.",
@@ -140,8 +156,8 @@
       "screened_by": "deepseek-flash",
       "scored_by": "deepseek-flash",
       "index_contribution": 0.275,
-      "domain_cumulative_after": 0.5,
-      "domain_index": 0.19
+      "domain_cumulative_after": 0.83,
+      "domain_index": 0.31
     },
     {
       "date": "2026-10-02",
@@ -261,6 +277,218 @@
     },
     {
       "date": "2026-10-02",
+      "domain": "software",
+      "value": 0.42,
+      "delta": 0,
+      "model": "Llama",
+      "source_url": "https://www.latent.space/p/airbnb",
+      "evidence_quote": "After leading Meta’s Llama models, Ahmad Al-Dahle is now transforming Airbnb with AI — from how its teams develop products to how it serves guests.",
+      "evidence_type": "news_report",
+      "confidence": 0.45,
+      "id": "6b48bd9fa4eafe14",
+      "title": "Inside-Out AI: Rebuilding Airbnb Behind the Scenes and Across the Guest Experience",
+      "title_zh": "Airbnb 请前 Meta Llama 负责人主导 AI 转型",
+      "title_zh_missing": false,
+      "companies": [
+        "Airbnb",
+        "Meta"
+      ],
+      "concepts": [
+        "Llama",
+        "AI 转型"
+      ],
+      "summary_zh": "据报道，曾主导 Meta Llama 模型的 Ahmad Al-Dahle 加入 Airbnb，正从团队的产品开发方式和面向房客的服务两方面推动 AI 应用，原文未给出具体模型、落地范围或业务指标。",
+      "keywords": [
+        "Airbnb",
+        "Llama",
+        "AI 转型",
+        "企业落地"
+      ],
+      "why_zh": "互联网巨头在真实业务中铺开 AI，但缺少可核验的替代指标。",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Llama"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Latent Space",
+      "source_group": "practitioner",
+      "source_id": "latent-space",
+      "published_at": "2026-10-02T14:04:49.000Z",
+      "authors": [
+        "Richard MacManus"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "knowledge_work",
+      "value": 0.4,
+      "delta": 0.0812,
+      "model": "未指明",
+      "source_url": "https://www.cnbc.com/2026/10/02/ai-redefining-wall-street-jobs.html",
+      "evidence_quote": "Banks are fueling a hiring surge for AI engineers who are good at \"agent orchestration\" — the ability to coordinate teams of specialized agents.",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "209766ecbddeede2",
+      "title": "How AI is redefining Wall Street jobs — and boosting demand for this new 'hottest skill' by 1,721%",
+      "title_zh": "银行抢招「智能体编排」AI工程师，需求涨1721%",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "智能体编排",
+        "AI工程师招聘"
+      ],
+      "summary_zh": "CNBC报道称，银行正在推动招聘擅长「智能体编排」的AI工程师，即协调多个专用智能体协同工作的能力，该技能需求增长1721%，华尔街岗位结构随之变化。",
+      "keywords": [
+        "智能体编排",
+        "华尔街",
+        "AI岗位",
+        "技能需求"
+      ],
+      "why_zh": "记录华尔街为智能体编排岗位增聘，显示岗位结构正被AI重塑。",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-10-02T18:49:03.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.22,
+      "domain_cumulative_after": 1.05,
+      "domain_index": 0.39
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "knowledge_work",
+      "value": 0.4,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.cnbc.com/2026/10/02/ai-skills-most-in-demand-at-jpmorgan-chase-citigroup-capital-one.html",
+      "evidence_quote": "Banks are fueling a hiring surge for AI engineers who are good at \"agent orchestration\" — the ability to coordinate teams of specialized agents.",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "3c38ce4a18389e01",
+      "title": "'The hottest skill on Wall Street’: Demand for this AI ability jumped 1,721% as banks embrace agents",
+      "title_zh": "华尔街银行抢招懂“智能体编排”的 AI 工程师",
+      "title_zh_missing": false,
+      "companies": [
+        "JPMorgan Chase",
+        "Citigroup",
+        "Capital One"
+      ],
+      "concepts": [
+        "agent orchestration",
+        "智能体"
+      ],
+      "summary_zh": "CNBC 报道称，随着银行引入 AI 智能体，擅长“智能体编排”——即协调多个专用智能体协作——的 AI 工程师需求上升 1721%，报道未披露该统计口径的具体计算方法与各家银行的部署规模。",
+      "keywords": [
+        "智能体编排",
+        "银行",
+        "招聘需求",
+        "AI 工程师"
+      ],
+      "why_zh": "反映金融机构新增岗位围绕智能体协作，而非直接替代既有岗位。",
+      "displacement": 0.25,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-10-02T11:03:31.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.05,
+      "domain_index": 0.39
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "math",
+      "value": 0.4,
+      "delta": 0,
+      "model": "GPT、Claude",
+      "source_url": "https://www.qbitai.com/2026/10/499991.html",
+      "evidence_quote": "44年前被亲自列入问题清单",
+      "evidence_type": "news_report",
+      "confidence": 0.4,
+      "id": "95182f0d1e684a0e",
+      "title": "丘成桐新论文致谢了GPT和Claude",
+      "title_zh": "丘成桐新论文致谢 GPT 与 Claude",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "GPT",
+        "Claude"
+      ],
+      "summary_zh": "量子位报道称，数学家丘成桐在新论文中致谢 GPT 和 Claude，该研究涉及 44 年前被他本人列入问题清单的课题，显示大模型被用于数学证明过程中的辅助工作。",
+      "keywords": [
+        "GPT",
+        "Claude",
+        "数学研究",
+        "论文致谢"
+      ],
+      "why_zh": "大模型仅作为数学研究的辅助工具，人类主导且无替代证据",
+      "displacement": 0.25,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "GPT",
+        "Claude"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "量子位",
+      "source_group": "media",
+      "source_id": "qbitai",
+      "published_at": "2026-10-02T07:27:03.000Z",
+      "authors": [
+        "梦晨"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-10-02",
       "domain": "knowledge_work",
       "value": 0.4,
       "delta": 0,
@@ -313,8 +541,8 @@
       "screened_by": "deepseek-flash",
       "scored_by": "deepseek-flash",
       "index_contribution": 0,
-      "domain_cumulative_after": 0.5,
-      "domain_index": 0.19
+      "domain_cumulative_after": 1.05,
+      "domain_index": 0.39
     },
     {
       "date": "2026-10-02",
@@ -372,6 +600,219 @@
       "index_contribution": 0.171,
       "domain_cumulative_after": 1.05,
       "domain_index": 0.39
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "software",
+      "value": 0.3,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/",
+      "evidence_quote": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow.",
+      "evidence_type": "press_release",
+      "confidence": 0.45,
+      "id": "3adf82e6716a48e9",
+      "title": "AI is changing developer work. Here are three skills to strengthen.",
+      "title_zh": "GitHub 博客：开发者应练就三项与 AI 协作的技能",
+      "title_zh_missing": false,
+      "companies": [
+        "GitHub"
+      ],
+      "concepts": [
+        "AI 智能体",
+        "Code Review",
+        "开发者技能"
+      ],
+      "summary_zh": "GitHub 博客发文称 AI 正在改变开发者工作方式，建议开发者学会指挥 AI 智能体、批判性审阅其输出，并把技术判断力保留在工作流中心，文章未给出任何量化数据或客户案例。",
+      "keywords": [
+        "AI 智能体",
+        "开发者技能",
+        "代码审阅",
+        "人机协作"
+      ],
+      "why_zh": "描述人类需转向指挥与验收 AI 输出，属观点性讨论而非替代证据",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "GitHub Blog",
+      "source_group": "engineering",
+      "source_id": "github-blog",
+      "published_at": "2026-10-02T15:00:00.000Z",
+      "authors": [
+        "Gwen Davis"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "software",
+      "value": 0.25,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://epochai.substack.com/p/hundreds-of-millions-of-ai-agents",
+      "evidence_quote": "The AI compute buildout could support more AI agents than the US has workers",
+      "evidence_type": "news_report",
+      "confidence": 0.45,
+      "id": "51ba4061df54bc4b",
+      "title": "Hundreds of millions of AI agents are coming. Is there work for them?",
+      "title_zh": "Epoch AI：算力扩建可支撑的AI智能体数量超美国劳动力",
+      "title_zh_missing": false,
+      "companies": [
+        "Epoch AI"
+      ],
+      "concepts": [
+        "AI 智能体",
+        "算力扩建"
+      ],
+      "summary_zh": "Epoch AI 发文指出，按当前的 AI 算力建设规模，可运行的 AI 智能体数量将超过美国劳动者总数，并据此讨论这些智能体是否有足够的工作可做。",
+      "keywords": [
+        "AI智能体",
+        "算力",
+        "劳动力替代"
+      ],
+      "why_zh": "仅估算算力可支撑的智能体规模，未验证任何实际岗位替代",
+      "displacement": 0.15,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Epoch AI",
+      "source_group": "benchmark",
+      "source_id": "epoch-ai",
+      "published_at": "2026-10-02T19:11:16.000Z",
+      "authors": [
+        "Jason Li"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "software",
+      "value": 0.2,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://distantprovince.substack.com/p/the-four-horsemen-of-agentic-coding",
+      "evidence_quote": "",
+      "evidence_type": "community_report",
+      "confidence": 0.298,
+      "id": "d1baa948a9e2b03e",
+      "title": "The Four Horsemen of Agentic Coding",
+      "title_zh": "《Agentic 编程的四骑士》一文在 Lobsters 引发讨论",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "agentic coding"
+      ],
+      "summary_zh": "一篇题为《Agentic 编程的四骑士》的 Substack 文章在 Lobsters 社区被转发并引发讨论，页面正文未被抓取，仅有评论入口，文中没有实验数据或实际部署案例。",
+      "keywords": [
+        "Agentic 编程",
+        "AI 智能体",
+        "开发者工作流"
+      ],
+      "why_zh": "仅讨论 agentic 编程趋势，无能力验证或岗位替代证据",
+      "displacement": 0.15,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "neutral",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "agentic coding"
+      ],
+      "evidence_verified": false,
+      "evidence_match_ratio": 0,
+      "source_name": "Lobsters",
+      "source_group": "community",
+      "source_id": "lobsters",
+      "published_at": "2026-10-02T16:48:36.000Z",
+      "authors": [
+        "distantprovince.substack.com via guillego"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-02",
+      "domain": "software",
+      "value": 0.15,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.infoq.cn/article/eRbEA3dMd58RNPqp5D8S?utm_source=rss&utm_medium=article",
+      "evidence_quote": "",
+      "evidence_type": "news_report",
+      "confidence": 0.383,
+      "id": "50dd975c4d959cb9",
+      "title": "Andrew Kelley 专访：他为何创建 Zig、禁止 AI 贡献以及将 Zig 从 GitHub 移出",
+      "title_zh": "Zig 创始人：禁止 AI 代码贡献并迁出 GitHub",
+      "title_zh_missing": false,
+      "companies": [
+        "GitHub"
+      ],
+      "concepts": [
+        "Zig",
+        "AI 生成代码",
+        "开源治理"
+      ],
+      "summary_zh": "InfoQ 中文刊出对 Zig 语言创始人 Andrew Kelley 的专访，他讲述创建 Zig 的原因、禁止 AI 生成内容进入代码贡献，以及将项目从 GitHub 迁出的决定。",
+      "keywords": [
+        "Zig",
+        "开源贡献",
+        "AI生成代码",
+        "GitHub"
+      ],
+      "why_zh": "开源项目主动拒绝 AI 生成贡献，反映编程环节对 AI 替代的抵制",
+      "displacement": 0.05,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "setback",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "AI 代码贡献者"
+      ],
+      "evidence_verified": false,
+      "evidence_match_ratio": 0,
+      "source_name": "InfoQ 中文",
+      "source_group": "engineering",
+      "source_id": "infoq-cn",
+      "published_at": "2026-10-02T13:00:00.000Z",
+      "authors": [
+        "作者： Bruno Couriol"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
     }
   ]
 }

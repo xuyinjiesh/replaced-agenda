@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createLimiter, ensureDir, exists, log, readJSON, sha256, sleep, writeJSON } from "./util.mjs";
 import { extractJSON } from "./text.mjs";
-import { resolveProvider } from "./providers.mjs";
+import { resolveModelName, resolveProvider } from "./providers.mjs";
 
 /**
  * AI 调用层：负责缓存、并发限流、失败重试与 JSON 修复；
@@ -109,7 +109,17 @@ export class AIClient {
   }
 }
 
-export async function probeAI(model = "qwen-flash", opts = {}) {
-  const client = new AIClient({ cacheDir: null, concurrency: 1, retries: 1, timeoutMs: 90000, ...opts });
-  return client.ping(model);
+/**
+ * 连通性自检：向当前端点发一次最小请求，确认凭据与模型名都可用了。
+ * 模型名同样走环境变量解析（AI_MODEL_NAME / 阶段变量），不在这里写死任何厂商的名字
+ * ——写死哪个都会在另一家端点上直接失败。
+ * @param {string} model 显式指定模型；留空则按 enrichment 阶段的变量解析
+ * @param {object} opts  传给 AIClient 的选项；另支持 fallbackModel 作为解析不到时的兜底
+ */
+export async function probeAI(model = "", opts = {}) {
+  const { fallbackModel = "", ...clientOpts } = opts;
+  const resolved = model || resolveModelName("enrichment", { root: clientOpts.root, fallback: fallbackModel });
+  if (!resolved) return false;
+  const client = new AIClient({ cacheDir: null, concurrency: 1, retries: 1, timeoutMs: 90000, ...clientOpts });
+  return client.ping(resolved);
 }

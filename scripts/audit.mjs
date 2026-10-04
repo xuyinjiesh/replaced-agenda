@@ -4,10 +4,10 @@
  * 为什么需要它：评分通胀是这类系统最主要的失效模式，而同一个模型无法发现自己的偏差
  * （自查会与打分时高度相关）。跨模型复核是能自动化、且成本可接受的独立信号。
  *
- *   node scripts/audit.mjs --date 2026-09-28                 # 用 .env 里配置的模型复核（默认 deepseek 系）
- *   node scripts/audit.mjs --date 2026-09-28 --sample 30     # 只抽查价值最高的 30 条
- *   node scripts/audit.mjs --date 2026-09-28 --engine codex  # 交给 codex agent 做深度复核
- *   node scripts/audit.mjs --date 2026-09-28 --model qwen-plus
+ *   node scripts/audit.mjs --date 2026-09-28                          # 复核模型取 AI_MODEL_AUDIT，未设置则回落到打分模型
+ *   node scripts/audit.mjs --date 2026-09-28 --sample 30              # 只抽查价值最高的 30 条
+ *   node scripts/audit.mjs --date 2026-09-28 --engine codex           # 交给 codex agent 做深度复核
+ *   node scripts/audit.mjs --date 2026-09-28 --model deepseek-v4-pro  # 显式指定复核模型（宜与打分模型不同族）
  *
  * 产物：data/audits/<日期>.json
  */

@@ -2,37 +2,91 @@
   "date": "2026-10-01",
   "generated_at": "2026-10-04T05:33:43.267Z",
   "schema_version": 1,
-  "recomputed_at": "2026-10-04T05:33:43.267Z",
-  "previous_event_count": 0,
+  "recomputed_at": "2026-10-04T06:18:57.402Z",
+  "previous_event_count": 6,
   "domains": [
     {
       "domain": "software",
       "date": "2026-10-01",
-      "delta": 0.0915,
-      "index": 0.09,
-      "events": 4,
-      "value_sum": 0.86
+      "delta": 0.1432,
+      "index": 0.14,
+      "events": 8,
+      "value_sum": 1.646
     },
     {
       "domain": "knowledge_work",
       "date": "2026-10-01",
-      "delta": 0.0833,
-      "index": 0.08,
-      "events": 1,
-      "value_sum": 0.225
+      "delta": 0.2053,
+      "index": 0.21,
+      "events": 4,
+      "value_sum": 0.938
     },
     {
       "domain": "creative",
       "date": "2026-10-01",
       "delta": 0,
       "index": 0,
-      "events": 1,
-      "value_sum": 0.22
+      "events": 2,
+      "value_sum": 0.297
     }
   ],
   "stats": null,
-  "event_count": 6,
+  "event_count": 14,
   "events": [
+    {
+      "date": "2026-10-01",
+      "domain": "knowledge_work",
+      "value": 0.6,
+      "delta": 0.1221,
+      "model": "未指明",
+      "source_url": "https://www.cnbc.com/2026/10/01/health-care-costs-insurance-claims-billing-ai.html",
+      "evidence_quote": "As AI codes billing inside hospitals, insurers say costs are added to a bloated health care system.",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "ba992479724b8751",
+      "title": "Health insurer points finger at AI as nearly $1 billion in questionable hospital charges appear",
+      "title_zh": "保险公司称 AI 编码账单致近 10 亿美元可疑医院收费",
+      "title_zh_missing": false,
+      "companies": [
+        "Blue Cross Blue Shield",
+        "CNBC"
+      ],
+      "concepts": [
+        "AI 账单编码",
+        "医疗计费"
+      ],
+      "summary_zh": "CNBC 报道，随着医院内部使用 AI 进行账单编码，保险公司称由此产生大量可疑收费，Blue Cross Blue Shield 估算相关金额最高达 10 亿美元，并认为这推高了本已臃肿的医疗体系成本。",
+      "keywords": [
+        "AI 编码",
+        "医疗账单",
+        "保险理赔",
+        "Blue Cross Blue Shield"
+      ],
+      "why_zh": "AI 已实际承担医院计费编码环节并产生十亿美元级财务影响",
+      "displacement": 0.62,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "医疗计费AI编码系统"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-10-01T15:07:07.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.33,
+      "domain_cumulative_after": 0.33,
+      "domain_index": 0.12
+    },
     {
       "date": "2026-10-01",
       "domain": "software",
@@ -95,7 +149,7 @@
       "date": "2026-10-01",
       "domain": "knowledge_work",
       "value": 0.5,
-      "delta": 0.0833,
+      "delta": 0.0832,
       "model": "ChatGPT Work",
       "source_url": "https://openai.com/index/the-den-family-social",
       "evidence_quote": "the social club prepares grant applications in 2 hours instead of 3 days and liquor-license materials in 3 hours instead of 4 days",
@@ -140,8 +194,119 @@
       "screened_by": "deepseek-flash",
       "scored_by": "deepseek-flash",
       "index_contribution": 0.225,
-      "domain_cumulative_after": 0.225,
-      "domain_index": 0.08
+      "domain_cumulative_after": 0.555,
+      "domain_index": 0.21
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.5,
+      "delta": 0.0195,
+      "model": "Gemini 4 Argon、GPT-6 Astra",
+      "source_url": "https://www.infoq.cn/article/vVrSzjhEvkmpevS7wZzU?utm_source=rss&utm_medium=article",
+      "evidence_quote": "",
+      "evidence_type": "news_report",
+      "confidence": 0.298,
+      "id": "e3cf9d8d7d8b7887",
+      "title": "刚刚，Gemini 4 Argon 发布：多项基测碾压 GPT-6 Astra，已参与谷歌 80 万行内核代码迁移",
+      "title_zh": "谷歌发布 Gemini 4 Argon，称已迁移 80 万行内核代码",
+      "title_zh_missing": false,
+      "companies": [
+        "Google",
+        "InfoQ"
+      ],
+      "concepts": [
+        "Gemini 4 Argon",
+        "GPT-6 Astra",
+        "代码迁移"
+      ],
+      "summary_zh": "InfoQ 报道称谷歌发布 Gemini 4 Argon 模型，在多项基准测试中超过 GPT-6 Astra，并已参与谷歌 80 万行内核代码迁移；但原文正文仅为跳转链接，未给出任何可核验的评测数据或细节。",
+      "keywords": [
+        "Gemini 4 Argon",
+        "GPT-6 Astra",
+        "基准测试",
+        "代码迁移",
+        "内核"
+      ],
+      "why_zh": "若属实则AI已进入大规模代码迁移生产环节，但仅有标题、无可核验证据",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Gemini 4 Argon",
+        "GPT-6 Astra"
+      ],
+      "evidence_verified": false,
+      "evidence_match_ratio": 0,
+      "source_name": "InfoQ 中文",
+      "source_group": "engineering",
+      "source_id": "infoq-cn",
+      "published_at": "2026-10-01T11:00:00.000Z",
+      "authors": [
+        "李冬梅"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.149,
+      "domain_cumulative_after": 0.435,
+      "domain_index": 0.06
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.45,
+      "delta": 0.0323,
+      "model": "未指明",
+      "source_url": "https://machinelearning.apple.com/research/harness-autonomous-ml-engineering",
+      "evidence_quote": "Recent autonomous machine learning engineering (MLE) agents have made significant progress on public leaderboards.",
+      "evidence_type": "preprint",
+      "confidence": 0.55,
+      "id": "d64d271c1ab9f5d8",
+      "title": "How Much of a Harness Does a Strong Agent Need for Autonomous ML Engineering?",
+      "title_zh": "苹果研究：自主ML工程智能体需要多少脚手架",
+      "title_zh_missing": false,
+      "companies": [
+        "Apple"
+      ],
+      "concepts": [
+        "MLE Agent",
+        "Agent Harness",
+        "bash primitives"
+      ],
+      "summary_zh": "苹果机器学习团队发布研究，探讨自主机器学习工程（MLE）智能体需要多少外部脚手架构件，并指出让LLM通过读写与bash原语直接接触执行环境的极简编码智能体路线此前少被关注。",
+      "keywords": [
+        "自主ML工程",
+        "MLE智能体",
+        "编码智能体",
+        "脚手架设计"
+      ],
+      "why_zh": "探索极简智能体自主完成ML工程，若成立将替代ML工程师部分环节。",
+      "displacement": 0.35,
+      "sector": "academia",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Apple Machine Learning",
+      "source_group": "ai-lab",
+      "source_id": "apple-ml",
+      "published_at": "2026-10-01T00:00:00.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.2475,
+      "domain_cumulative_after": 0.683,
+      "domain_index": 0.09
     },
     {
       "date": "2026-10-01",
@@ -201,8 +366,8 @@
       "screened_by": "deepseek-flash",
       "scored_by": "deepseek-flash",
       "index_contribution": 0.225,
-      "domain_cumulative_after": 0.511,
-      "domain_index": 0.07
+      "domain_cumulative_after": 0.908,
+      "domain_index": 0.12
     },
     {
       "date": "2026-10-01",
@@ -259,8 +424,8 @@
       "screened_by": "deepseek-flash",
       "scored_by": "deepseek-flash",
       "index_contribution": 0.189,
-      "domain_cumulative_after": 0.7,
-      "domain_index": 0.09
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
     },
     {
       "date": "2026-10-01",
@@ -323,6 +488,58 @@
       "domain": "software",
       "value": 0.4,
       "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.amazon.science/blog/graph-centric-agentic-intelligence",
+      "evidence_quote": "Augmenting a network graph with agentic AI produces a “digital twin” that can help isolate network failures.",
+      "evidence_type": "vendor_claim",
+      "confidence": 0.45,
+      "id": "12a8e44cddb9e536",
+      "title": "Graph-centric agentic intelligence",
+      "title_zh": "亚马逊提出图结构智能体，构建网络故障数字孪生",
+      "title_zh_missing": false,
+      "companies": [
+        "Amazon"
+      ],
+      "concepts": [
+        "数字孪生",
+        "网络图",
+        "智能体"
+      ],
+      "summary_zh": "亚马逊科学博客介绍一种图结构智能体方法：在网络图上叠加智能体 AI 形成“数字孪生”，用于定位网络故障，原文属厂商自述，未给出评测基准、对比结果或实际部署数据。",
+      "keywords": [
+        "智能体",
+        "数字孪生",
+        "网络运维",
+        "图结构"
+      ],
+      "why_zh": "面向网络运维故障定位的方法设想，尚无规模化替代运维人员的证据。",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Amazon Science",
+      "source_group": "ai-lab",
+      "source_id": "amazon-science",
+      "published_at": "2026-10-01T12:54:31.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.4,
+      "delta": 0,
       "model": "Gemini 4",
       "source_url": "https://www.qbitai.com/2026/10/499663.html",
       "evidence_quote": "价格只有Astra一半",
@@ -370,8 +587,225 @@
       "screened_by": "deepseek-flash",
       "scored_by": "deepseek-flash",
       "index_contribution": 0,
-      "domain_cumulative_after": 0.7,
-      "domain_index": 0.09
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "knowledge_work",
+      "value": 0.38,
+      "delta": 0,
+      "model": "ChatGPT Enterprise",
+      "source_url": "https://openai.com/index/albertsons-reimagining-retail",
+      "evidence_quote": "Albertsons Cos. is using ChatGPT Enterprise and the OpenAI API to help teams work faster and make grocery shopping easier for millions of customers.",
+      "evidence_type": "press_release",
+      "confidence": 0.5,
+      "id": "637d3dfa247fa816",
+      "title": "How Albertsons Companies is reimagining retail from the inside out",
+      "title_zh": "Albertsons 用 ChatGPT Enterprise 改造零售业务",
+      "title_zh_missing": false,
+      "companies": [
+        "OpenAI",
+        "Albertsons"
+      ],
+      "concepts": [
+        "ChatGPT Enterprise",
+        "OpenAI API"
+      ],
+      "summary_zh": "OpenAI 发布案例称美国零售商 Albertsons 正在使用 ChatGPT Enterprise 与 OpenAI API，帮助内部团队加快工作并让数百万顾客的购物更便捷，但未披露部署规模、岗位变化或可核验的业务指标。",
+      "keywords": [
+        "ChatGPT Enterprise",
+        "零售",
+        "企业部署",
+        "OpenAI API"
+      ],
+      "why_zh": "企业级落地但只有厂商自述，无指标证明替代了具体人类环节",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "ChatGPT Enterprise",
+        "OpenAI API"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "OpenAI News",
+      "source_group": "ai-lab",
+      "source_id": "openai-news",
+      "published_at": "2026-10-01T16:00:00.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.555,
+      "domain_index": 0.21
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.38,
+      "delta": 0,
+      "model": "Gemini 4 Argon",
+      "source_url": "https://www.latent.space/p/ainews-gemini-4-argon-gdms-answer",
+      "evidence_quote": "... but you can’t try it yet unless you are “government users and trusted cyber defenders in the Fairwind Program”",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "74b933210769a72c",
+      "title": "[AINews] Gemini 4 Argon: GDM’s answer to Astra/Fable, with 1M output",
+      "title_zh": "Gemini 4 Argon发布：100万输出，仅限政府用户",
+      "title_zh_missing": false,
+      "companies": [
+        "Google DeepMind"
+      ],
+      "concepts": [
+        "Gemini 4 Argon",
+        "Fairwind Program",
+        "长输出"
+      ],
+      "summary_zh": "Latent Space报道谷歌发布Gemini 4 Argon，支持100万token输出，但目前只面向Fairwind计划中的政府用户与可信网络安全防御者开放试用。",
+      "keywords": [
+        "Gemini 4 Argon",
+        "长上下文输出",
+        "政府用户",
+        "受限发布"
+      ],
+      "why_zh": "前沿模型仅向政府与安全防御方开放，能力与替代影响尚未公开验证。",
+      "displacement": 0.2,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Gemini 4 Argon"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Latent Space",
+      "source_group": "practitioner",
+      "source_id": "latent-space",
+      "published_at": "2026-10-01T06:45:05.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "knowledge_work",
+      "value": 0.35,
+      "delta": 0,
+      "model": "Gemini 4",
+      "source_url": "https://www.cnbc.com/2026/10/01/google-gemini-4-arrives-as-wall-street-shifts-to-personal-agents.html",
+      "evidence_quote": "Google is promising major advances in coding and cybersecurity, but the company is quickly falling behind in personal agents.",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "1d0698733e2e9a7e",
+      "title": "Google unveils latest AI model, but Wall Street wants a breakout personal agent",
+      "title_zh": "谷歌发布 Gemini 4，个人智能体落后引华尔街不满",
+      "title_zh_missing": false,
+      "companies": [
+        "Google"
+      ],
+      "concepts": [
+        "Gemini 4",
+        "personal agent"
+      ],
+      "summary_zh": "谷歌发布新一代 AI 模型，宣称在编程和网络安全能力上有重大提升，但报道称该公司在个人智能体方向正快速落后，原文未给出具体基准分数或独立评测结果。",
+      "keywords": [
+        "Gemini 4",
+        "个人智能体",
+        "谷歌",
+        "编程能力",
+        "网络安全"
+      ],
+      "why_zh": "模型能力宣称未附基准数字，与劳动替代无直接可验证关联。",
+      "displacement": 0.2,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Google Gemini"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-10-01T19:43:04.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.555,
+      "domain_index": 0.21
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "creative",
+      "value": 0.3,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.infoq.cn/article/TLjNcyBg9Z72HV5kJ2kp?utm_source=rss&utm_medium=article",
+      "evidence_quote": "",
+      "evidence_type": "unknown",
+      "confidence": 0.255,
+      "id": "1821b244a04751a5",
+      "title": "生成即合规：Agentic AIGC 驱动的广告素材修复实践｜QCon上海",
+      "title_zh": "QCon 上海分享用 Agentic AIGC 修复广告素材",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "Agentic AIGC",
+        "广告素材合规",
+        "AIGC"
+      ],
+      "summary_zh": "InfoQ 中文收录的 QCon 上海演讲介绍以 Agentic AIGC 自动修复广告素材、实现生成即合规的实践，但原文页面仅有跳转链接，未披露具体方法、素材规模与合规效果数据。",
+      "keywords": [
+        "Agentic AIGC",
+        "广告素材",
+        "合规审核",
+        "内容生成"
+      ],
+      "why_zh": "用智能体承担广告素材合规修复环节，尚无可核验效果",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Agentic AIGC"
+      ],
+      "evidence_verified": false,
+      "evidence_match_ratio": 0,
+      "source_name": "InfoQ 中文",
+      "source_group": "engineering",
+      "source_id": "infoq-cn",
+      "published_at": "2026-10-01T10:00:00.000Z",
+      "authors": [
+        "QCon全球软件开发大会"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
     }
   ]
 }

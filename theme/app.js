@@ -71,15 +71,17 @@
     }
   }
 
+  function compareStories(a, b) {
+    if (state.sort === "date") return b.dataset.date.localeCompare(a.dataset.date) || a.dataset.id.localeCompare(b.dataset.id);
+    const aValue = Number(a.dataset[state.sort] || 0);
+    const bValue = Number(b.dataset[state.sort] || 0);
+    return bValue - aValue || a.dataset.id.localeCompare(b.dataset.id);
+  }
+
   function applySort() {
     for (const group of filterGroups()) {
       const order = [...group.querySelectorAll(":scope > article[data-v2-record]")];
-      order.sort((a, b) => {
-        if (state.sort === "date") return b.dataset.date.localeCompare(a.dataset.date) || a.dataset.id.localeCompare(b.dataset.id);
-        const aValue = Number(a.dataset[state.sort] || 0);
-        const bValue = Number(b.dataset[state.sort] || 0);
-        return bValue - aValue || a.dataset.id.localeCompare(b.dataset.id);
-      });
+      order.sort(compareStories);
       for (const [index, row] of order.entries()) {
         group.append(row);
         row.classList.toggle("is-featured", index === 0);
@@ -89,15 +91,19 @@
     }
   }
 
+  function matchesFilters(row) {
+    return (!state.domain || row.dataset.domain === state.domain)
+      && (!state.query || (row.dataset.text || "").includes(state.query))
+      && (!state.savedOnly || saved.has(row.dataset.id))
+      && (!state.direct || row.dataset.relation === "direct")
+      && (!state.verified || row.dataset.verified === "true")
+      && Number(row.dataset.value || 0) >= state.min;
+  }
+
   function apply() {
     let shown = 0;
     for (const row of stories) {
-      const matches = (!state.domain || row.dataset.domain === state.domain)
-        && (!state.query || (row.dataset.text || "").includes(state.query))
-        && (!state.savedOnly || saved.has(row.dataset.id))
-        && (!state.direct || row.dataset.relation === "direct")
-        && (!state.verified || row.dataset.verified === "true")
-        && Number(row.dataset.value || 0) >= state.min;
+      const matches = matchesFilters(row);
       row.hidden = !matches;
       if (matches) shown += 1;
       if (matches && state.query) {
@@ -145,6 +151,19 @@
   function setMenuFocus(index) {
     sortOptions.forEach((option, i) => { option.tabIndex = i === index ? 0 : -1; });
     sortOptions[index]?.focus({ preventScroll: true });
+  }
+
+  function clearFilters() {
+    state.domain = null;
+    state.direct = false;
+    state.verified = false;
+    state.min = 0;
+    document.querySelectorAll('[data-filter="direct"], [data-filter="verified"]').forEach((input) => { input.checked = false; });
+    if (minFilter) minFilter.value = "0";
+    if (minOutput) minOutput.textContent = "0.00";
+    if (search) search.value = "";
+    state.query = "";
+    apply();
   }
 
   document.addEventListener("click", (event) => {
@@ -196,16 +215,7 @@
         return;
       }
       if (kind === "clear-filters") {
-        state.domain = null;
-        state.direct = false;
-        state.verified = false;
-        state.min = 0;
-        document.querySelectorAll('[data-filter="direct"], [data-filter="verified"]').forEach((input) => { input.checked = false; });
-        if (minFilter) minFilter.value = "0";
-        if (minOutput) minOutput.textContent = "0.00";
-        if (search) search.value = "";
-        state.query = "";
-        apply();
+        clearFilters();
         return;
       }
     }

@@ -6,20 +6,18 @@ import { collect } from "./lib/collect.mjs";
 import { dedupe, applyMergeDecisions, sourceStats } from "./lib/dedupe.mjs";
 import { aiEnrich } from "./lib/enrich.mjs";
 import { describeHealth } from "./lib/http.mjs";
+import { checkCalibration, valueDistribution } from "./lib/pipeline-report.mjs";
+import { recomputeIndex } from "./lib/pipeline-index.mjs";
 import { renderSite } from "./lib/render.mjs";
 import { aiMergeGray, aiScreen, rulePrefilter } from "./lib/screen.mjs";
-import { computeIndex, resolveDomains, toEvent, verifyIndex } from "./lib/score.mjs";
+import { resolveDomains, toEvent } from "./lib/score.mjs";
 import {
   listEventDates,
-  loadAllEvents,
   loadDay,
-  loadIndex,
   loadSeen,
   mergeDay,
   paths,
   publishData,
-  saveDay,
-  saveIndex,
   saveRun,
   saveSeen,
 } from "./lib/store.mjs";
@@ -177,43 +175,7 @@ async function main() {
   const { events: dayEvents, added, updated, total } = mergeDay(existingDay, newEvents, { date });
   log("info", `当日记录：新增 ${added} 条，更新 ${updated} 条，共 ${total} 条`);
 
-  // ---------- 8. 全量重算指数 ----------
-  const previousDays = listEventDates(ROOT)
-    .filter((d) => d !== date)
-    .map((d) => loadDay(ROOT, d))
-    .filter(Boolean);
-  const allEvents = [...previousDays.flatMap((d) => d.events ?? []), ...dayEvents];
-  const indexData = computeIndex(allEvents, { domains, epoch: scoring.indexModel.epoch });
-  const verification = verifyIndex(allEvents, { domains });
-
-  // 把重算后的 delta / 指数写回每一天的文件，保证整份语料自洽
-  const byDate = new Map();
-  for (const e of allEvents) {
-    if (!byDate.has(e.date)) byDate.set(e.date, []);
-    byDate.get(e.date).push(e);
-  }
-  for (const [d, evs] of byDate) {
-    const prev = loadDay(ROOT, d);
-    const sorted = [...evs].sort((a, b) => b.value - a.value || b.delta - a.delta || a.id.localeCompare(b.id));
-    const domSummary = indexData.domains
-      .map((dm) => {
-        const row = (dm.series ?? []).find((s) => s.date === d);
-        return row && (row.events > 0 || row.delta !== 0) ? { domain: dm.domain, ...row } : null;
-      })
-      .filter(Boolean);
-    saveDay(ROOT, d, sorted, {
-      generated_at: prev?.generated_at ?? new Date().toISOString(),
-      recomputed_at: new Date().toISOString(),
-      previous_event_count: prev?.event_count ?? 0,
-      domains: domSummary,
-      stats: prev?.stats ?? null,
-    });
-  }
-  saveIndex(ROOT, {
-    ...indexData,
-    source_stats: sourceStats(dayEvents),
-    verification,
-  });
+  const { indexData, verification } = recomputeIndex({ root: ROOT, date, dayEvents, domains, scoring });
 
   // ---------- 9. 记录已见，避免明天重复收录 ----------
   const seenNext = { ...seen };
@@ -300,51 +262,6 @@ async function main() {
 
 function loadRunReport(date) {
   return readJSON(paths(ROOT).runFile(date), null);
-}
-
-function quantile(sorted, p) {
-  if (!sorted.length) return 0;
-  return sorted[Math.min(sorted.length - 1, Math.floor(p * (sorted.length - 1)))];
-}
-
-/** 当日评分分布，用于监控 AI 打分是否整体漂移。 */
-function valueDistribution(events) {
-  const vals = events.map((e) => e.value).sort((a, b) => a - b);
-  const confs = events.map((e) => e.confidence).sort((a, b) => a - b);
-  const high = vals.filter((v) => v >= 0.7).length;
-  const byType = {};
-  for (const e of events) byType[e.evidence_type] = (byType[e.evidence_type] ?? 0) + 1;
-  return {
-    count: events.length,
-    medianValue: Number(quantile(vals, 0.5).toFixed(3)),
-    p25Value: Number(quantile(vals, 0.25).toFixed(3)),
-    p75Value: Number(quantile(vals, 0.75).toFixed(3)),
-    maxValue: vals.at(-1) ?? 0,
-    medianConfidence: Number(quantile(confs, 0.5).toFixed(3)),
-    highValueShare: vals.length ? Number((high / vals.length).toFixed(3)) : 0,
-    cappedByBasis: events.filter((e) => (e.value_capped ?? "").includes("no_basis")).length,
-    cappedByEvidenceType: events.filter((e) => (e.value_capped ?? "").includes("evidence_type")).length,
-    unverifiedQuotes: events.filter((e) => !e.evidence_verified).length,
-    evidenceTypes: byType,
-  };
-}
-
-/** 分布健康度自检：AI 打分整体过宽/过严时给出告警（不阻断流程）。 */
-function checkCalibration(dist, cfg) {
-  const warnings = [];
-  if (!cfg || !dist.count) return { ok: true, warnings };
-  const [lo, hi] = cfg.expectedMedianValue ?? [0.3, 0.55];
-  if (dist.medianValue < lo || dist.medianValue > hi) {
-    warnings.push(`value 中位数 ${dist.medianValue} 超出预期区间 [${lo}, ${hi}]`);
-  }
-  if (dist.highValueShare > (cfg.expectedHighValueShare ?? 0.15) * 1.6) {
-    warnings.push(`高价值(≥0.7)占比 ${(dist.highValueShare * 100).toFixed(0)}% 明显偏高，评分可能过宽`);
-  }
-  const [clo, chi] = cfg.expectedMedianConfidence ?? [0.4, 0.75];
-  if (dist.medianConfidence < clo || dist.medianConfidence > chi) {
-    warnings.push(`confidence 中位数 ${dist.medianConfidence} 超出预期区间 [${clo}, ${chi}]`);
-  }
-  return { ok: warnings.length === 0, warnings };
 }
 
 main().catch((err) => {

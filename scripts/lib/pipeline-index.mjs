@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import path from "node:path";
 import { sourceStats } from "./dedupe.mjs";
 import { computeIndex, verifyIndex } from "./score.mjs";
 import { listEventDates, loadDay, loadIndex, paths, saveDay, saveIndex } from "./store.mjs";
@@ -46,7 +47,10 @@ export function recomputeIndex({ root: ROOT, date, dayEvents, domains, scoring, 
     }
   }
   for (const d of existingDates) {
-    if (!byDate.has(d)) fs.rmSync(paths(ROOT).dayFile(d));
+    if (!byDate.has(d)) {
+      fs.rmSync(paths(ROOT).dayFile(d), { force: true });
+      fs.rmSync(path.join(ROOT, "site", "data", `${d}.json`), { force: true });
+    }
   }
   const nextIndex = {
     ...indexData,

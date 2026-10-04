@@ -18,16 +18,21 @@ export function paths(root) {
 }
 
 export function listEventDates(root) {
-  const dir = paths(root).eventsDir;
-  if (!exists(dir)) return [];
-  return fs.readdirSync(dir)
-    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
-    .map((f) => f.replace(/\.json$/, ""))
-    .sort();
+  const dirs = [paths(root).eventsDir, path.join(root, "site", "data")];
+  const dates = new Set();
+  for (const dir of dirs) {
+    if (!exists(dir)) continue;
+    for (const file of fs.readdirSync(dir)) {
+      if (/^\d{4}-\d{2}-\d{2}\.json$/.test(file)) dates.add(file.replace(/\.json$/, ""));
+    }
+  }
+  return [...dates].sort();
 }
 
 export function loadDay(root, date) {
-  return readJSON(paths(root).dayFile(date), null);
+  const local = paths(root).dayFile(date);
+  const published = path.join(root, "site", "data", `${date}.json`);
+  return readJSON(exists(local) ? local : published, null);
 }
 
 export function loadAllEvents(root) {
@@ -100,25 +105,18 @@ export function seedEventsFromCache(root, date) {
   return day?.events ?? [];
 }
 
-/** 把机器可读数据同步到站点目录，供前端直接 fetch。 */
+/** 把本机事件和索引同步到可发布的站点目录。 */
 export function publishData(root, dates) {
   const site = paths(root).siteDir;
   const dataDir = path.join(site, "data");
   ensureDir(dataDir);
   for (const d of dates) {
     const src = paths(root).dayFile(d);
-    if (!exists(src)) throw new Error(`缺少正式事件数据：${src}`);
-    fs.copyFileSync(src, path.join(dataDir, `${d}.json`));
+    if (exists(src)) fs.copyFileSync(src, path.join(dataDir, `${d}.json`));
   }
   const idx = paths(root).indexFile;
   if (exists(idx)) fs.copyFileSync(idx, path.join(dataDir, "index.json"));
   const seen = paths(root).seenFile;
   if (exists(seen)) fs.copyFileSync(seen, path.join(dataDir, "seen.json"));
-  const expected = new Set(dates.map((d) => `${d}.json`));
-  for (const file of fs.readdirSync(dataDir)) {
-    if (/^\d{4}-\d{2}-\d{2}\.json$/.test(file) && !expected.has(file)) {
-      fs.rmSync(path.join(dataDir, file));
-    }
-  }
   log("info", `已同步 ${dates.length} 天的数据到 site/data/`);
 }

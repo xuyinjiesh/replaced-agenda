@@ -665,7 +665,7 @@ console.log("\n[18] 模型名可由环境变量覆盖");
   }
 }
 
-console.log("\n[19] 正式数据与生成产物一致性");
+console.log("\n[19] 本机与已发布事件数据一致性");
 {
   const fs = await import("node:fs");
   const os = await import("node:os");
@@ -694,10 +694,12 @@ console.log("\n[19] 正式数据与生成产物一致性");
     fs.writeFileSync(path.join(siteDir, "data", "2026-09-29.json"), "{}");
     fs.writeFileSync(path.join(siteDir, "data", "index.json"), "{}");
     fs.writeFileSync(path.join(siteDir, "data", "seen.json"), JSON.stringify({ updated_at: "stable", ids: { older: "2026-10-01" } }));
+    const publishedDates = listEventDates(root);
+    check("本机与已发布文件共同决定日期", publishedDates.join(",") === "2026-09-29,2026-10-01,2026-10-02" && loadDay(root, "2026-09-29") !== null);
+    publishData(root, publishedDates);
+    check("发布时保留已有日期及其他 JSON", fs.existsSync(path.join(siteDir, "data", "2026-09-29.json")) && fs.existsSync(path.join(siteDir, "data", "index.json")) && fs.existsSync(path.join(siteDir, "data", "seen.json")));
+    fs.rmSync(path.join(siteDir, "data", "2026-09-29.json"));
     const dates = listEventDates(root);
-    check("仅正式事件目录决定日期", dates.join(",") === "2026-10-01,2026-10-02" && loadDay(root, "2026-09-29") === null);
-    publishData(root, dates);
-    check("发布时清理旧日期且保留其他 JSON", !fs.existsSync(path.join(siteDir, "data", "2026-09-29.json")) && fs.existsSync(path.join(siteDir, "data", "index.json")) && fs.existsSync(path.join(siteDir, "data", "seen.json")));
     saveSeen(root, { older: "2026-10-01" });
     check("已见记录未变化时不改写时间戳", !fs.existsSync(path.join(root, "data", "seen.json")) && fs.readFileSync(path.join(siteDir, "data", "seen.json"), "utf8").includes("stable"));
 

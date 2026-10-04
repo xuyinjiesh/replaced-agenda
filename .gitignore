@@ -1,6 +1,7 @@
 # 运行时产物：可随时由流水线重建
 data/raw/
 data/cache/
+data/events/
 data/runs/
 data/audits/
 data/seen.json
@@ -12,8 +13,7 @@ data/*.log
 data/legacy-events/
 
 # site/ 需要提交：GitHub Pages 直接发布这份产物。
-# 正式事件保存在 data/events/，site/ 是与之同步的可发布快照。
-# 体积约 1.5 MB/次，每天一次提交，一年约 550 MB（可接受；真要瘦身可改用 --no-site 只推 gh-pages 分支）。
+# 每日事件发布在 site/data/；data/events/ 是不提交的本机副本。
 
 # 密钥等本地配置：绝不提交
 .env

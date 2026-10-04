@@ -2,6 +2,7 @@ import path from "node:path";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import { AIClient } from "./lib/ai.mjs";
+import { applyModelOverrides } from "./lib/providers.mjs";
 import { collect } from "./lib/collect.mjs";
 import { dedupe, applyMergeDecisions, sourceStats } from "./lib/dedupe.mjs";
 import { aiEnrich } from "./lib/enrich.mjs";
@@ -51,6 +52,8 @@ async function main() {
   const windowDays = Number(args["window-days"] ?? 3);
 
   const effectiveScoring = structuredClone(scoring);
+  // 模型名允许被环境变量覆盖（AI_MODEL_NAME 或阶段专属变量），避免把厂商模型名写死在 config 里
+  effectiveScoring.models = applyModelOverrides(effectiveScoring.models, { root: ROOT });
   if (args["max-candidates"]) effectiveScoring.screening.candidatesCap = Number(args["max-candidates"]);
   if (args["max-enrich"]) effectiveScoring.screening.enrichCap = Number(args["max-enrich"]);
 
@@ -95,7 +98,6 @@ async function main() {
     concurrency: Number(args.concurrency ?? 3),
     offline,
     root: ROOT,
-    provider: String(args.provider ?? scoring.ai?.provider ?? "auto"),
     timeoutMs: Number(args["ai-timeout"] ?? scoring.ai?.timeoutMs ?? 180000),
   });
 
@@ -272,7 +274,9 @@ async function main() {
   renderSite({
     root: ROOT,
     domains,
-    scoring,
+    // 方法页要写明「实际送入的是哪个模型」，所以这里同步环境变量的覆盖结果，
+    // 保证与事件里的 scored_by 一致
+    scoring: { ...scoring, models: effectiveScoring.models },
     indexData: { ...indexData, source_stats: report.sourceStats },
     dates,
     dayLoader: (d) => loadDay(ROOT, d),

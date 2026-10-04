@@ -279,7 +279,12 @@
     "minSharedTokens": 3
   },
   "models": {
-    "$comment": "流水线各阶段使用的模型。scored_by 字段会记录实际使用的模型名。",
+    "$comment": [
+      "流水线各阶段使用的模型，是「没有环境变量覆盖时」的默认值。scored_by 字段会记录实际使用的模型名。",
+      "模型名决定了能对接哪个厂商的端点：DeepSeek 只认 deepseek-flash / deepseek-v4-pro，DashScope 才认 qwen-flash / qwen-plus。",
+      "因此推荐用环境变量或 .env 覆盖，而不是改这里：AI_MODEL_NAME 覆盖全部阶段，",
+      "AI_MODEL_SCREENING / AI_MODEL_MERGER / AI_MODEL_ENRICHMENT / AI_MODEL_SUMMARIZER / AI_MODEL_AUDIT 覆盖单个阶段（优先级更高）。"
+    ],
     "screening": "qwen-flash",
     "enrichment": "qwen-plus",
     "merger": "qwen-flash"
@@ -323,11 +328,11 @@
   },
   "ai": {
     "$comment": [
-      "AI 传输层配置。provider: auto = 有可用 key 就直连 OpenAI 兼容端点，否则回退 bl CLI。",
-      "端点凭据按优先级从环境变量或仓库根的 .env 读取（支持 AI_API_KEY/OPENAI_API_KEY/DASHSCOPE_API_KEY 与 AI_BASE_URL/OPENAI_BASE_URL）。",
-      "本机 .env 指向 DashScope compatible-mode，同时也能服务 qwen-flash / qwen-plus。"
+      "AI 传输层配置。只有一种传输：OpenAI 兼容端点（直连 HTTP），没有可用凭据时真正调用会明确报错。",
+      "端点凭据按优先级从环境变量或仓库根的 .env 读取（支持 AI_API_KEY/OPENAI_API_KEY/DASHSCOPE_API_KEY 与 AI_BASE_URL/OPENAI_BASE_URL），两者必须同时存在。",
+      "本机 .env 的端点决定该填哪个模型名：指向 DashScope 用 qwen-flash/qwen-plus，指向 DeepSeek 用 deepseek-flash/deepseek-v4-pro。",
+      "模型名不要写死在这里，用 AI_MODEL_NAME（或阶段专属变量）覆盖更省事，见上方 models 的说明。"
     ],
-    "provider": "auto",
     "timeoutMs": 180000,
     "envFile": ".env"
   },

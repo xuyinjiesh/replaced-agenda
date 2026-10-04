@@ -1,15 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import { spawn } from "node:child_process";
-import { log, sleep } from "./util.mjs";
+import { sleep } from "./util.mjs";
 
 /**
  * LLM 传输层。AIClient 负责缓存、并发、JSON 修复；provider 只负责「把 messages 送出去、把文本拿回来」。
  *
- * 支持三种：
- *   - openai : 任意 OpenAI 兼容端点（DashScope compatible-mode / OpenAI / vLLM ...），直连 HTTP
- *   - bl     : 阿里云百炼 CLI（子进程），在没有可用 key 时作为兜底
- *   - auto   : 有可用 key 就用 openai，否则用 bl
+ * 只有一种传输：任意 OpenAI 兼容端点（DashScope compatible-mode / OpenAI / vLLM ...），直连 HTTP。
+ * 没有可用凭据时不做兜底，交给 MissingCredentialsProvider 在真正调用时报错。
  */
 
 /** 解析 .env：同时支持 YAML 风格 `key: value` 与 shell 风格 `KEY=value`。 */
@@ -72,6 +69,44 @@ export function resolveCredentials({ root, envFile = ".env" } = {}) {
 function normalizeBase(baseUrl) {
   const b = baseUrl.replace(/\/+$/, "");
   return /\/chat\/completions$/.test(b) ? b : `${b}/chat/completions`;
+}
+
+/** 全局模型变量，作用于所有阶段。 */
+const GLOBAL_MODEL_KEYS = ["AI_MODEL_NAME", "AI_MODEL", "model_name"];
+/** 阶段专属模型变量，只覆盖对应阶段。 */
+const STAGE_MODEL_KEYS = {
+  screening: ["AI_MODEL_SCREENING", "model_screening"],
+  merger: ["AI_MODEL_MERGER", "model_merger"],
+  enrichment: ["AI_MODEL_ENRICHMENT", "model_enrichment"],
+  summarizer: ["AI_MODEL_SUMMARIZER", "model_summarizer"],
+  audit: ["AI_MODEL_AUDIT", "model_audit"],
+};
+
+/**
+ * 解析某阶段使用的模型名。
+ * 优先级：阶段专属变量 > 全局变量（AI_MODEL_NAME / AI_MODEL / model_name）> 传入的兜底值。
+ * 之所以走环境变量而不是在 config 里写死，是为了让同一份代码能对接不同厂商的端点
+ * （DeepSeek 只认 deepseek-flash，DashScope 才认 qwen-flash，写死哪个都会在另一端点上失败）。
+ */
+export function resolveModelName(stage, { root, fallback = "", envFile = ".env" } = {}) {
+  const fileEnv = loadEnvFile(path.join(root, envFile));
+  const pick = (names) => {
+    for (const n of names) if (process.env[n]) return process.env[n];
+    for (const n of names) if (fileEnv[n]) return fileEnv[n];
+    return "";
+  };
+  const hit = pick(STAGE_MODEL_KEYS[stage] ?? []) || pick(GLOBAL_MODEL_KEYS);
+  return String(hit || fallback || "").trim();
+}
+
+/** 按环境变量覆盖各阶段模型名；未设置的阶段保留 config/scoring.json 的原值。 */
+export function applyModelOverrides(models = {}, { root, envFile = ".env" } = {}) {
+  const out = { ...models };
+  for (const stage of Object.keys(models)) {
+    if (stage.startsWith("$")) continue;
+    out[stage] = resolveModelName(stage, { root, envFile, fallback: models[stage] });
+  }
+  return out;
 }
 
 function providerError(status, body) {
@@ -170,127 +205,52 @@ class OpenAIProvider {
   }
 }
 
-/** 百炼 CLI 兜底：无 key 环境下使用（子进程开销较大）。 */
-class BlProvider {
-  constructor({ bin = process.env.BL_BIN || "bl", tmpDir, timeoutMs = 300000, retries = 2 }) {
-    this.name = "bl";
-    this.bin = bin;
-    this.tmpDir = tmpDir;
-    this.timeoutMs = timeoutMs;
-    this.retries = retries;
+export const MISSING_CREDS_HINT =
+  "未找到 AI 凭据：请在仓库根目录的 .env 或环境变量中同时设置 AI_API_KEY 与 AI_BASE_URL";
+
+/**
+ * 无凭据时的占位传输。
+ * 刻意不在构造阶段抛错：`npm run render` 这类不真正调用 AI 的路径，
+ * 在没有 .env 的机器上也应当照常可用；只有真的发起调用时才报出可操作的错误。
+ */
+class MissingCredentialsProvider {
+  constructor() {
+    this.name = "none";
   }
 
-  async chat({ model, system, user, temperature = 0.2, maxTokens = 4096 }) {
-    return this.#once({ model, system, user, temperature, maxTokens });
+  async chat({ model } = {}) {
+    return { ok: false, content: "", usage: {}, error: MISSING_CREDS_HINT, model };
   }
 
-  #once({ model, system, user, temperature, maxTokens }) {
-    return new Promise((resolve) => {
-      const msgFile = path.join(this.tmpDir, `msg-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`);
-      fs.writeFileSync(msgFile, JSON.stringify([{ role: "user", content: user }]), "utf8");
-      const cleanup = () => {
-        try {
-          fs.unlinkSync(msgFile);
-        } catch {
-          /* ignore */
-        }
-      };
-      const args = [
-        "text", "chat",
-        "--model", model,
-        "--messages-file", msgFile,
-        "--output", "json",
-        "--temperature", String(temperature),
-        "--max-tokens", String(maxTokens),
-      ];
-      if (system) args.push("--system", system);
-
-      const child = spawn(this.bin, args, {
-        stdio: ["ignore", "pipe", "pipe"],
-        env: { ...process.env, NO_COLOR: "1", CI: "1" },
-      });
-      let out = "";
-      let err = "";
-      let settled = false;
-      const timer = setTimeout(() => {
-        if (settled) return;
-        settled = true;
-        child.kill("SIGKILL");
-        cleanup();
-        resolve({ ok: false, content: "", usage: {}, error: `AI 超时 ${this.timeoutMs}ms`, model });
-      }, this.timeoutMs);
-
-      child.stdout.on("data", (d) => {
-        out += d.toString();
-      });
-      child.stderr.on("data", (d) => {
-        err += d.toString();
-      });
-      child.on("error", (e) => {
-        if (settled) return;
-        settled = true;
-        clearTimeout(timer);
-        cleanup();
-        resolve({ ok: false, content: "", usage: {}, error: `无法启动 ${this.bin}: ${e.message}`, model });
-      });
-      child.on("close", (code) => {
-        if (settled) return;
-        settled = true;
-        clearTimeout(timer);
-        cleanup();
-        if (code !== 0) {
-          resolve({ ok: false, content: "", usage: {}, error: `bl 退出码 ${code}: ${err.slice(0, 200)}`, model });
-          return;
-        }
-        let env = null;
-        try {
-          env = JSON.parse(out);
-        } catch {
-          /* 非 JSON 输出，退回按纯文本处理 */
-        }
-        const content = (env?.choices?.[0]?.message?.content ?? out).trim();
-        if (!content) {
-          resolve({ ok: false, content: "", usage: {}, error: `响应为空: ${out.slice(0, 160)}`, model });
-          return;
-        }
-        resolve({ ok: true, content, usage: env?.usage ?? {}, error: "", model: env?.model ?? model });
-      });
-    });
-  }
-
-  async ping(model) {
-    const r = await this.chat({ model, system: "reply tersely", user: "Reply with exactly: PONG", maxTokens: 16 });
-    return r.ok && /PONG/i.test(r.content);
+  async ping() {
+    return false;
   }
 }
 
 /**
- * 选择传输方式。
+ * 选择传输方式：有凭据就直连 OpenAI 兼容端点，没有则返回会明确报错的占位实现。
  * @returns {{provider: object, info: object}}
  */
-export function resolveProvider({ root, mode = "auto", timeoutMs, retries, tmpDir }) {
-  const creds = mode === "bl" ? null : resolveCredentials({ root });
-  if (mode !== "bl" && creds) {
+export function resolveProvider({ root, timeoutMs, retries }) {
+  const creds = resolveCredentials({ root });
+  if (!creds) {
     return {
-      provider: new OpenAIProvider({ apiKey: creds.apiKey, baseUrl: creds.baseUrl, timeoutMs, retries }),
-      info: {
-        provider: "openai",
-        baseUrl: creds.baseUrl,
-        keyFrom: creds.keyFrom,
-        baseFrom: creds.baseFrom,
-        defaultModel: creds.defaultModel,
-        /** 脱敏后的端点指纹，便于在运行报告里核对用的是哪套凭据 */
-        keyFingerprint: `${creds.apiKey.slice(0, 6)}…${creds.apiKey.slice(-4)}`,
-      },
+      provider: new MissingCredentialsProvider(),
+      info: { provider: "none", baseUrl: "-", keyFrom: "-", baseFrom: "-", defaultModel: "", keyFingerprint: "-" },
     };
   }
-  if (mode === "openai") {
-    log("warn", "指定了 --provider openai 但没找到可用的 API key，回退到 bl CLI");
-  }
   return {
-    provider: new BlProvider({ tmpDir, timeoutMs: timeoutMs ? timeoutMs * 1.5 : undefined, retries }),
-    info: { provider: "bl", baseUrl: "bailian-cli", keyFrom: "-", defaultModel: "qwen3.7-max" },
+    provider: new OpenAIProvider({ apiKey: creds.apiKey, baseUrl: creds.baseUrl, timeoutMs, retries }),
+    info: {
+      provider: "openai",
+      baseUrl: creds.baseUrl,
+      keyFrom: creds.keyFrom,
+      baseFrom: creds.baseFrom,
+      defaultModel: creds.defaultModel,
+      /** 脱敏后的端点指纹，便于在运行报告里核对用的是哪套凭据 */
+      keyFingerprint: `${creds.apiKey.slice(0, 6)}…${creds.apiKey.slice(-4)}`,
+    },
   };
 }
 
-export { OpenAIProvider, BlProvider };
+export { OpenAIProvider };

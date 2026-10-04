@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+<head><title>AI 信息源（已实测修正版）</title></head>
+<body>
+  <outline text="国外 AI 公司/实验室">
+    <outline type="rss" text="OpenAI News" xmlUrl="https://openai.com/news/rss.xml"/>
+    <outline type="rss" text="Google Blog AI" xmlUrl="https://blog.google/technology/ai/rss/"/>
+    <outline type="rss" text="Google DeepMind" xmlUrl="https://deepmind.google/blog/rss.xml"/>
+    <outline type="rss" text="Google Research" xmlUrl="https://research.google/blog/rss/"/>
+    <outline type="rss" text="Microsoft Research" xmlUrl="https://www.microsoft.com/en-us/research/feed/"/>
+    <outline type="rss" text="Amazon Science" xmlUrl="https://www.amazon.science/index.rss"/>
+    <outline type="rss" text="AWS Machine Learning" xmlUrl="https://aws.amazon.com/blogs/amazon-ai/feed"/>
+    <outline type="rss" text="NVIDIA Blog" xmlUrl="https://blogs.nvidia.com/feed/"/>
+    <outline type="rss" text="Hugging Face Blog" xmlUrl="https://huggingface.co/blog/feed.xml"/>
+    <outline type="rss" text="Mistral News" xmlUrl="https://mistral.ai/news/rss"/>
+    <outline type="rss" text="Apple ML" xmlUrl="https://machinelearning.apple.com/rss.xml"/>
+    <outline type="rss" text="BAIR Berkeley" xmlUrl="https://bair.berkeley.edu/blog/feed.xml"/>
+    <outline type="rss" text="MIT AI News" xmlUrl="https://news.mit.edu/rss/topic/artificial-intelligence2"/>
+    <outline type="rss" text="Meta AI Blog (Open RSS)" xmlUrl="https://openrss.org/feed/ai.meta.com/blog/"/>
+    <outline type="rss" text="Anthropic News (Open RSS)" xmlUrl="https://openrss.org/feed/www.anthropic.com/news"/>
+    <outline type="rss" text="xAI News (Open RSS)" xmlUrl="https://openrss.org/feed/x.ai/news"/>
+  </outline>
+  <outline text="国内 AI 公司/实验室">
+    <outline type="rss" text="DeepSeek" xmlUrl="https://wechat2rss.bestblogs.dev/feed/1709da4f538d4ce4fb6d7a8ba1a5a1c297919601.xml"/>
+    <outline type="rss" text="月之暗面" xmlUrl="https://wechat2rss.bestblogs.dev/feed/c5c43d4bc17bae656763859ed0903bb6314ec6fe.xml"/>
+    <outline type="rss" text="智谱" xmlUrl="https://wechat2rss.bestblogs.dev/feed/433d2134dca54d80804daf32e8be546155be3300.xml"/>
+    <outline type="rss" text="腾讯混元" xmlUrl="https://wechat2rss.bestblogs.dev/feed/306ce19a1ca590c9c2df781789e828d1acfa1356.xml"/>
+    <outline type="rss" text="通义" xmlUrl="https://wechat2rss.bestblogs.dev/feed/4ebee6222ae08705b8aabc9116f0defbcb6b17c6.xml"/>
+    <outline type="rss" text="阶跃" xmlUrl="https://wechat2rss.bestblogs.dev/feed/3e2714d06aa36142e8ed6b3f4e5cf9090a069dd2.xml"/>
+    <outline type="rss" text="字节跳动" xmlUrl="https://wechat2rss.xlab.app/feed/4025ea55575daf8bfd8227e68b28d9638b073267.xml"/>
+    <outline type="rss" text="美团" xmlUrl="https://wechat2rss.xlab.app/feed/eb4d04149424a874693a51c6fdda0dba8673f5e4.xml"/>
+    <outline type="rss" text="小米" xmlUrl="https://wechat2rss.xlab.app/feed/20bc9c3251b3c4f73d3b53aa1f1ab853d05d4cbc.xml"/>
+    <outline type="rss" text="盘古" xmlUrl="https://wechat2rss.xlab.app/feed/88d970d199a87a8a8655e5aa0af7bcea07ac07e6.xml"/>
+    <outline type="rss" text="哔哩哔哩技术" xmlUrl="https://wechat2rss.xlab.app/feed/434235d4815fdb8447ff3127fc053ceb8b3aada6.xml"/>
+    <outline type="rss" text="阿里开发者" xmlUrl="https://wechat2rss.xlab.app/feed/c74ed6db00cfbf16f2a048a165b4453f982681f0.xml"/>
+    <outline type="rss" text="阿里中间件" xmlUrl="https://wechat2rss.xlab.app/feed/ede34e7a9aff5e93ad159ebfd27075710a963f54.xml"/>
+    <outline type="rss" text="阿里技术" xmlUrl="https://wechat2rss.xlab.app/feed/6e1f9b775f7a5841ac1a94310f0478b45a02ec01.xml"/>
+    <outline type="rss" text="爱奇艺" xmlUrl="https://wechat2rss.xlab.app/feed/16a4ec12a83a52e1f6e941bce030a4d64ee26c47.xml"/>
+    <outline type="rss" text="得物" xmlUrl="https://wechat2rss.xlab.app/feed/f3a42bd249ec6e8834ae761d8d0f85a949950944.xml"/>
+    <outline type="rss" text="vivo千镜" xmlUrl="https://wechat2rss.xlab.app/feed/6f07fe5af57e7a13c75b12bd0718840bdf4dc3f2.xml"/>
+    <outline type="rss" text="腾讯科恩" xmlUrl="https://wechat2rss.xlab.app/feed/13584cb01e8bf3297943a0dad49e53c6faf20611.xml"/>
+    <outline type="rss" text="腾讯云鼎" xmlUrl="https://wechat2rss.xlab.app/feed/d762fbf5f8f256afb63bcfe9a362184072338819.xml"/>
+    <outline type="rss" text="奇安信" xmlUrl="https://wechat2rss.xlab.app/feed/5c7b6eec254fbb0afac7abf4eae95573fc374555.xml"/>
+  </outline>
+  <outline text="国外新闻">
+    <outline type="rss" text="TechCrunch AI" xmlUrl="https://techcrunch.com/category/artificial-intelligence/feed/"/>
+    <outline type="rss" text="VentureBeat AI" xmlUrl="https://venturebeat.com/category/ai/feed/"/>
+    <outline type="rss" text="Epoch AI" xmlUrl="https://epochai.substack.com/feed"/>
+    <outline type="rss" text="GitHub Trending" xmlUrl="https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml"/>
+  </outline>
+  <outline text="国内新闻">
+    <outline type="rss" text="机器之心" xmlUrl="https://rsshub.app/wechat/wasi/5b575dd058e5c4583338dbd3"/>
+    <outline type="rss" text="新智元" xmlUrl="https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml"/>
+    <outline type="rss" text="量子位" xmlUrl="https://www.qbitai.com/feed"/>
+    <outline type="rss" text="知乎热榜" xmlUrl="https://rsshub.app/zhihu/hot"/>
+    <outline type="rss" text="微博热搜" xmlUrl="https://rsshub.app/weibo/search/hot"/>
+    <outline type="rss" text="B站排行" xmlUrl="https://rsshub.app/bilibili/ranking/0/3/1"/>
+    <outline type="rss" text="具身智能" xmlUrl="https://news.google.com/rss/search?q=%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"/>
+  </outline>
+  <outline text="个人博客 / Newsletter">
+    <outline type="rss" text="Simon Willison" xmlUrl="https://simonwillison.net/atom/everything/"/>
+    <outline type="rss" text="Import AI (Jack Clark)" xmlUrl="https://importai.substack.com/feed"/>
+    <outline type="rss" text="Interconnects (Nathan Lambert)" xmlUrl="https://www.interconnects.ai/feed"/>
+    <outline type="rss" text="Lil'Log (Lilian Weng)" xmlUrl="https://lilianweng.github.io/index.xml"/>
+    <outline type="rss" text="Chip Huyen" xmlUrl="https://huyenchip.com/feed.xml"/>
+    <outline type="rss" text="The Gradient" xmlUrl="https://thegradient.pub/rss/"/>
+    <outline type="rss" text="Ahead of AI (Raschka)" xmlUrl="https://magazine.sebastianraschka.com/feed"/>
+  </outline>
+  <outline text="arXiv - 论文池（只当检索用，别逐条读）">
+    <outline type="rss" text="大模型基础 AI+LG+CL" xmlUrl="https://rss.arxiv.org/rss/cs.AI+cs.LG+cs.CL"/>
+    <outline type="rss" text="视觉 多模态 CV" xmlUrl="https://rss.arxiv.org/rss/cs.CV"/>
+    <outline type="rss" text="智能体 MA+RO" xmlUrl="https://rss.arxiv.org/rss/cs.MA+cs.RO"/>
+    <outline type="rss" text="系统效率 DC+AR" xmlUrl="https://rss.arxiv.org/rss/cs.DC+cs.AR"/>
+    <outline type="rss" text="理论 OC+ST" xmlUrl="https://rss.arxiv.org/rss/math.OC+math.ST"/>
+  </outline>
+  <outline text="期刊 / 综合科学">
+    <outline type="rss" text="Nature" xmlUrl="https://www.nature.com/nature.rss"/>
+    <outline type="rss" text="Science News" xmlUrl="https://www.science.org/rss/news_current.xml"/>
+    <outline type="rss" text="Quanta" xmlUrl="https://www.quantamagazine.org/feed/"/>
+    <outline type="rss" text="medRxiv" xmlUrl="https://www.medrxiv.org/rssFeed/medrxiv.xml"/>
+  </outline>
+</body>
+</opml>

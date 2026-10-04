@@ -1,5 +1,4 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import { createLimiter, ensureDir, exists, log, readJSON, sha256, sleep, writeJSON } from "./util.mjs";
 import { extractJSON } from "./text.mjs";
@@ -7,7 +6,7 @@ import { resolveProvider } from "./providers.mjs";
 
 /**
  * AI 调用层：负责缓存、并发限流、失败重试与 JSON 修复；
- * 实际传输交给 providers.mjs（OpenAI 兼容端点 / bl CLI）。
+ * 实际传输交给 providers.mjs（OpenAI 兼容端点）。
  */
 export class AIClient {
   /**
@@ -16,9 +15,8 @@ export class AIClient {
    * @param {number} opts.concurrency 并发上限
    * @param {boolean} opts.offline   只读缓存，绝不真正调用
    * @param {string} opts.root       项目根目录（用于定位 .env）
-   * @param {string} opts.provider   auto | openai | bl
    */
-  constructor({ cacheDir, concurrency = 3, offline = false, retries = 2, timeoutMs, root, provider = "auto" } = {}) {
+  constructor({ cacheDir, concurrency = 3, offline = false, retries = 2, timeoutMs, root } = {}) {
     this.cacheDir = cacheDir;
     this.limiter = createLimiter(concurrency);
     this.offline = offline;
@@ -26,14 +24,15 @@ export class AIClient {
     this.stats = { calls: 0, cacheHits: 0, failures: 0, promptTokens: 0, completionTokens: 0 };
     if (cacheDir) ensureDir(cacheDir);
 
-    this.tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "replaced-agenda-ai-"));
-    const { provider: transport, info } = resolveProvider({ root, mode: provider, timeoutMs, retries, tmpDir: this.tmpDir });
+    const { provider: transport, info } = resolveProvider({ root, timeoutMs, retries });
     this.transport = transport;
     this.info = info;
     log(
       "info",
       `AI 传输方式：${info.provider}${
-        info.provider === "openai" ? ` → ${info.baseUrl}（${info.keyFingerprint}，来自 ${info.keyFrom}）` : "（bl CLI）"
+        info.provider === "openai"
+          ? ` → ${info.baseUrl}（${info.keyFingerprint}，来自 ${info.keyFrom}）`
+          : "（缺少凭据：设置 AI_API_KEY 与 AI_BASE_URL 后才能实际调用）"
       }`,
     );
   }

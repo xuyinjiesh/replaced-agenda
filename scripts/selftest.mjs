@@ -541,5 +541,104 @@ console.log("\n[14] 正式编辑式 UI 与站内路由");
   check("暖纸色样式与交互脚本已复制到正式站点资源", /--bg:\s*#f7f4ed/i.test(style) && app.includes("data-action") && app.includes("localStorage"));
 }
 
+// ---------- [15] 数据源配置不变量 ----------
+console.log("\n[15] 数据源配置不变量");
+// config/sources.json 于 2026-10-04 按根目录 ai.opml 全量重构过一次。这里的字段直接决定
+// 采集、候选配额与互联网频道保底；写错不会抛错，只会静默少收或偏科，所以守住不变量。
+{
+  const { readFileSync } = await import("node:fs");
+  const sourcesConfig = readJSON(new URL("../config/sources.json", import.meta.url), {});
+  const domainsConfig = readJSON(new URL("../config/domains.json", import.meta.url), {});
+  const collectSource = readFileSync(new URL("./lib/collect.mjs", import.meta.url), "utf8");
+  const sources = sourcesConfig.sources ?? [];
+
+  // group 必须落在 screen.mjs 的 groupBonus 词表内，否则该源拿不到任何分组权重。
+  const GROUPS = new Set(["research", "ai-lab", "community", "media", "journal", "practitioner", "benchmark", "newsletter", "engineering", "policy", "company", "labor", "realtime"]);
+  const DOMAINS = new Set((domainsConfig.domains ?? []).map((d) => d.key));
+  const KINDS = new Set(["rss", "json"]);
+  const uniq = (list) => [...new Set(list)].join(",");
+
+  check("数据源非空", sources.length > 0, String(sources.length));
+  const ids = sources.map((s) => s.id);
+  check("数据源 id 唯一", new Set(ids).size === ids.length, uniq(ids.filter((x, i) => ids.indexOf(x) !== i)));
+  check("数据源 id 为 kebab-case", ids.every((id) => /^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)), uniq(ids.filter((id) => !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id))));
+  const urls = sources.map((s) => s.url);
+  check("数据源 URL 唯一", new Set(urls).size === urls.length, uniq(urls.filter((x, i) => urls.indexOf(x) !== i)));
+  check("数据源 URL 均为 https", urls.every((u) => u.startsWith("https://")), uniq(urls.filter((u) => !u.startsWith("https://"))));
+  check("数据源 name 非空", sources.every((s) => (s.name ?? "").trim().length > 0));
+  check("数据源 group 在权重词表内", sources.every((s) => GROUPS.has(s.group)), uniq(sources.filter((s) => !GROUPS.has(s.group)).map((s) => s.group)));
+  check("数据源 kind 合法", sources.every((s) => KINDS.has(s.kind)), uniq(sources.filter((s) => !KINDS.has(s.kind)).map((s) => s.kind)));
+  check("数据源 hintDomain 落在 domains.json", sources.every((s) => DOMAINS.has(s.hintDomain)), uniq(sources.filter((s) => !DOMAINS.has(s.hintDomain)).map((s) => s.hintDomain)));
+  // sector 决定互联网频道的保底名额：字段缺省会被当成 academia，所以必须显式声明。
+  check("数据源 sector 显式且合法", sources.every((s) => s.sector === "academia" || s.sector === "internet"), uniq(sources.filter((s) => s.sector !== "academia" && s.sector !== "internet").map((s) => s.id)));
+  check("数据源 maxItems 为正整数", sources.every((s) => Number.isInteger(s.maxItems) && s.maxItems > 0), uniq(sources.filter((s) => !(Number.isInteger(s.maxItems) && s.maxItems > 0)).map((s) => s.id)));
+  // JSON 源没有通用解析器，id 必须出现在 collect.mjs 的 JSON_SOURCE_MAPPERS 里，否则解析结果恒为空。
+  const jsonSources = sources.filter((s) => s.kind === "json");
+  check("JSON 源都有对应的解析映射", jsonSources.every((s) => collectSource.includes(`"${s.id}"`)), uniq(jsonSources.filter((s) => !collectSource.includes(`"${s.id}"`)).map((s) => s.id)));
+}
+
+console.log("\n[16] AI 传输层只依赖 OpenAI 兼容端点");
+// 移除 bl CLI 兜底后，传输层只剩「直连 OpenAI 兼容端点」。关键不变量是：
+// 没有凭据时构造 AIClient 不能抛错（否则 `npm run render` 这类不调用 AI 的路径
+// 在没有 .env 的机器上会连带失效），但真正发起调用必须给出可操作的错误。
+{
+  const providers = await import("./lib/providers.mjs");
+  const CRED_KEYS = ["AI_API_KEY", "OPENAI_API_KEY", "DASHSCOPE_API_KEY", "api_key", "OPENAI_KEY", "LLM_API_KEY", "AI_BASE_URL", "OPENAI_BASE_URL", "base_url", "OPENAI_API_BASE", "LLM_BASE_URL"];
+  const saved = new Map(CRED_KEYS.map((k) => [k, process.env[k]]));
+  for (const k of CRED_KEYS) delete process.env[k];
+  try {
+    // 指向一个不存在的目录，确保不会读到仓库根真实存在的 .env
+    const root = new URL("../__selftest_no_such_dir__", import.meta.url).pathname;
+    const resolved = providers.resolveProvider({ root });
+    check("无凭据时构造传输层不抛错", resolved.info.provider === "none", resolved.info.provider);
+    const res = await resolved.provider.chat({ model: "m" });
+    check("无凭据调用时给出可操作的错误", res.ok === false && res.error.includes("AI_API_KEY") && res.error.includes("AI_BASE_URL"), res.error);
+    check("不再导出 bl 传输", providers.BlProvider === undefined);
+  } finally {
+    for (const [k, v] of saved) {
+      if (v === undefined) delete process.env[k];
+      else process.env[k] = v;
+    }
+  }
+}
+
+console.log("\n[17] 模型名可由环境变量覆盖");
+// 模型名决定能对接哪个厂商的端点（DeepSeek 不认 qwen-flash）。这里守住覆盖优先级：
+// 阶段专属变量 > 全局变量 > config/scoring.json 的原值。
+{
+  const providers = await import("./lib/providers.mjs");
+  const KEYS = ["AI_MODEL_NAME", "AI_MODEL", "model_name", "AI_MODEL_SCREENING", "model_screening", "AI_MODEL_MERGER", "model_merger", "AI_MODEL_ENRICHMENT", "model_enrichment", "AI_MODEL_SUMMARIZER", "model_summarizer", "AI_MODEL_AUDIT", "model_audit"];
+  const saved = new Map(KEYS.map((k) => [k, process.env[k]]));
+  const clearModels = () => KEYS.forEach((k) => delete process.env[k]);
+  try {
+    // 指向不存在的目录，确保不会读到仓库根真实存在的 .env
+    const root = new URL("../__selftest_no_such_dir__", import.meta.url).pathname;
+    const base = { screening: "qwen-flash", enrichment: "qwen-plus", merger: "qwen-flash", $comment: "x" };
+
+    clearModels();
+    const untouched = providers.applyModelOverrides(base, { root });
+    check("无环境变量时保留 config 原值", untouched.screening === "qwen-flash" && untouched.enrichment === "qwen-plus" && untouched.merger === "qwen-flash", JSON.stringify(untouched));
+    check("覆盖时不改动 $comment 之类的非阶段键", untouched.$comment === "x");
+
+    process.env.AI_MODEL_NAME = "deepseek-flash";
+    const global = providers.applyModelOverrides(base, { root });
+    check("AI_MODEL_NAME 覆盖全部阶段", global.screening === "deepseek-flash" && global.merger === "deepseek-flash" && global.enrichment === "deepseek-flash", JSON.stringify(global));
+
+    process.env.AI_MODEL_ENRICHMENT = "deepseek-v4-pro";
+    const staged = providers.applyModelOverrides(base, { root });
+    check("阶段专属变量优先于全局变量", staged.enrichment === "deepseek-v4-pro" && staged.screening === "deepseek-flash", JSON.stringify(staged));
+
+    check("全局变量同样作用于 audit 阶段", providers.resolveModelName("audit", { root, fallback: "fb" }) === "deepseek-flash");
+    process.env.AI_MODEL_AUDIT = "audit-only";
+    check("AI_MODEL_AUDIT 可单独覆盖 audit", providers.resolveModelName("audit", { root, fallback: "fb" }) === "audit-only");
+    check("未配置任何变量时回落到 fallback", (clearModels(), providers.resolveModelName("screening", { root, fallback: "fb" })) === "fb");
+  } finally {
+    for (const [k, v] of saved) {
+      if (v === undefined) delete process.env[k];
+      else process.env[k] = v;
+    }
+  }
+}
+
 console.log(`\n结果：${pass} 通过 / ${fail} 失败\n`);
 if (fail > 0) process.exitCode = 1;

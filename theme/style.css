@@ -186,6 +186,9 @@ mark { color: inherit; background: transparent; }
 .coverage-row > span:nth-child(2) { text-align: right; font-variant-numeric: tabular-nums; }
 .coverage-row > i { grid-column: 1 / -1; display: block; height: 2px; background: #e9e3d8; }
 .coverage-row > i > b { display: block; height: 100%; background: #b57b5e; }
+/* render.mjs 在领域无记录时输出 <p class="muted"> 作为空状态；此前一直没有对应样式，
+   导致空领域页的自检失败。这里补上，字号与侧栏其它说明文字保持一致。 */
+.muted { margin: 4px 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
 .date-index { display: grid; gap: 5px; margin-top: 20px; padding-top: 13px; border-top: 1px solid var(--line); }
 .date-index > a { color: var(--muted); font: 10px var(--sans); }
 .date-index > a:hover { color: var(--accent); }

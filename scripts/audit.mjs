@@ -15,7 +15,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { AIClient } from "./lib/ai.mjs";
-import { NO_THINKING, resolveCredentials } from "./lib/providers.mjs";
+import { NO_THINKING, resolveModelName } from "./lib/providers.mjs";
 import { loadDay, paths } from "./lib/store.mjs";
 import { ensureDir, isDateISO, log, parseArgs, readJSON, todayISO, writeJSON } from "./lib/util.mjs";
 import { extractJSON, truncate } from "./lib/text.mjs";
@@ -39,9 +39,8 @@ const sampleSize = Number(args.sample ?? 0);
 // 默认抽查价值最高的一批：高价值条目判断错，对指数的影响最大
 const events = [...day.events].sort((a, b) => b.value - a.value).slice(0, sampleSize > 0 ? sampleSize : day.events.length);
 
-const creds = resolveCredentials({ root: ROOT });
 const engine = String(args.engine ?? "chat");
-const auditorModel = String(args.model ?? creds?.defaultModel ?? "qwen-plus");
+const auditorModel = String(args.model ?? resolveModelName("audit", { root: ROOT, fallback: scoring.models.enrichment }));
 
 /**
  * 期望输出的形状说明。
@@ -130,7 +129,6 @@ async function runChatEngine() {
     cacheDir: paths(ROOT).cacheDir,
     concurrency: Number(args.concurrency ?? 3),
     root: ROOT,
-    provider: String(args.provider ?? "auto"),
   });
   log("info", `复核模型：${auditorModel}（与打分模型 ${scoring.models.enrichment} 不同族）`);
   const results = await Promise.all(

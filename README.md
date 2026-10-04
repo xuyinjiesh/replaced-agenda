@@ -37,7 +37,7 @@ AI_API_KEY=your-key
 AI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 ```
 
-然后运行 `npm run pipeline`。它默认处理当天数据，需要访问外部来源和 AI 服务；模型名称与评分规则见 `config/scoring.json`。指定日期可用 `npm run pipeline -- --date 2026-09-29`。
+然后运行 `npm run pipeline`。它默认处理当天数据，需要访问外部来源和 AI 服务；模型默认值与评分规则见 `config/scoring.json`，模型名可由环境变量覆盖。指定日期时添加 `--date` 参数（格式 `YYYY-MM-DD`），只选择打算正式公开的日期。
 
 ## 代码地图
 
@@ -52,12 +52,14 @@ AI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 | `data/` 其余目录 | 本地缓存、运行报告与旧数据归档；多数文件不提交 |
 | `site/` | 从正式数据生成并提交的 HTML 与 JSON，供 GitHub Pages 发布 |
 
+维护项目时先读 [AGENTS.md](AGENTS.md)；数据流与写入边界见 [架构说明](docs/architecture.md)。
+
 ## 如何理解结果
 
 每条记录区分推进强度 `value` 与证据可信度 `confidence`。仅标为 `direct` 的具体任务进展计入领域指数；`indirect` 事件仍可阅读，但贡献为零。引文核对针对**采集到的标题和摘要**，不等于核验来源网页全文。领域指数是基于模型判断的趋势指标，不是岗位减少人数，也不适合跨领域直接比较。
 
 ## 发布与协作
 
-`main` 分支中的 `site/` 变化会触发 `.github/workflows/pages.yml`，将静态文件发布到 GitHub Pages；CI 不运行采集或 AI 流水线。首次部署须在仓库 **Settings → Pages** 将发布来源设为 **GitHub Actions**。
+`main` 分支中的 `site/` 或发布工作流变化会触发 `.github/workflows/pages.yml`，将静态文件发布到 GitHub Pages；CI 不运行采集或 AI 流水线。首次部署须在仓库 **Settings → Pages** 将发布来源设为 **GitHub Actions**。
 
-`npm run deploy` 会运行流水线，并执行 `git add -A`、提交和推送；使用前先检查 `git status`。修改代码或页面后运行 `npm run selftest`，并在 PR 中说明验证情况；界面变化附截图。
+`npm run deploy` 会运行流水线，并执行 `git add -A`、提交和默认推送本地 `main`。仅在 `main` 上且确实准备发布时使用，先检查 `git status`。修改代码或页面后运行 `npm run selftest`，并在 PR 中说明验证情况；界面变化附截图。

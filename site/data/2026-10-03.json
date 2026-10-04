@@ -1,0 +1,269 @@
+{
+  "date": "2026-10-03",
+  "generated_at": "2026-10-04T06:18:57.403Z",
+  "schema_version": 1,
+  "recomputed_at": "2026-10-04T06:18:57.403Z",
+  "previous_event_count": 0,
+  "domains": [
+    {
+      "domain": "healthcare",
+      "date": "2026-10-03",
+      "delta": 0.083,
+      "index": 0.47,
+      "events": 1,
+      "value_sum": 0.225
+    },
+    {
+      "domain": "knowledge_work",
+      "date": "2026-10-03",
+      "delta": 0,
+      "index": 0.39,
+      "events": 1,
+      "value_sum": 0.312
+    },
+    {
+      "domain": "creative",
+      "date": "2026-10-03",
+      "delta": 0,
+      "index": 0,
+      "events": 1,
+      "value_sum": 0.26
+    },
+    {
+      "domain": "robotics",
+      "date": "2026-10-03",
+      "delta": 0.0925,
+      "index": 0.09,
+      "events": 1,
+      "value_sum": 0.25
+    }
+  ],
+  "stats": null,
+  "event_count": 4,
+  "events": [
+    {
+      "date": "2026-10-03",
+      "domain": "creative",
+      "value": 0.52,
+      "delta": 0,
+      "model": "Coyotec",
+      "source_url": "https://www.techmeme.com/261003/p8#a261003p8",
+      "evidence_quote": "Coyotec, an AI co-host on Los Angeles' Jos&eacute; FM",
+      "evidence_type": "news_report",
+      "confidence": 0.5,
+      "id": "d84c1b5f545d8952",
+      "title": "A look at a radio show co-hosted by an AI DJ and a human that is expanding in LA and other cities, as radio workers worry synthetic hosts may soon replace them (Nilesh Christopher/Los Angeles Times)",
+      "title_zh": "洛杉矶电台用 AI 主播与人类共同主持节目",
+      "title_zh_missing": false,
+      "companies": [
+        "Los Angeles Times",
+        "José FM"
+      ],
+      "concepts": [
+        "AI 主播",
+        "Coyotec"
+      ],
+      "summary_zh": "据洛杉矶时报报道，洛杉矶 José FM 等电台推出由 AI 主播 Coyotec 与人类共同主持的节目，并正在洛杉矶及其他城市扩张，电台从业者担忧合成主播可能很快取代他们。",
+      "keywords": [
+        "AI 主播",
+        "电台",
+        "Coyotec",
+        "岗位替代"
+      ],
+      "why_zh": "AI 已实际上岗承担广播主持工作，目前与人类共同主持",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Coyotec"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Techmeme",
+      "source_group": "realtime",
+      "source_id": "techmeme",
+      "published_at": "2026-10-03T13:35:01.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-10-03",
+      "domain": "robotics",
+      "value": 0.5,
+      "delta": 0.0925,
+      "model": "Cybercab",
+      "source_url": "https://www.cnbc.com/2026/10/03/tesla-cybercab-pressure-to-expand-after-rocky-first-month-in-austin.html",
+      "evidence_quote": "Elon Musk's effort to move beyond auto sales largely relies on the success of his company's Cybercab, which launched in Austin a month ago.",
+      "evidence_type": "news_report",
+      "confidence": 0.5,
+      "id": "b8bbdaae4abfa86f",
+      "title": "Tesla’s Cybercab had a rocky first month in Austin. Now comes the hard part: expanding",
+      "title_zh": "特斯拉 Cybercab 奥斯汀首月不顺，扩张承压",
+      "title_zh_missing": false,
+      "companies": [
+        "Tesla",
+        "CNBC"
+      ],
+      "concepts": [
+        "Cybercab",
+        "无人驾驶出租车"
+      ],
+      "summary_zh": "CNBC 报道，特斯拉 Cybercab 无人驾驶出租车在奥斯汀上线一个月，首月运营表现不顺，公司后续扩张面临压力；马斯克摆脱单纯依赖汽车销售的计划在很大程度上取决于该项目能否成功。",
+      "keywords": [
+        "Tesla",
+        "Cybercab",
+        "robotaxi",
+        "自动驾驶"
+      ],
+      "why_zh": "无人驾驶出租车已进入真实城市运营，但首月表现不佳、规模有限",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Tesla Cybercab"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-10-03T20:29:07.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.25,
+      "domain_cumulative_after": 0.25,
+      "domain_index": 0.09
+    },
+    {
+      "date": "2026-10-03",
+      "domain": "knowledge_work",
+      "value": 0.48,
+      "delta": 0,
+      "model": "Meta Muse",
+      "source_url": "https://www.cnbc.com/2026/10/03/meta-muse-shopping-ai-agent.html",
+      "evidence_quote": "Meta announced a slate of Muse partnerships with Walmart, Gap, Sephora, Expedia, Wayfair, Best Buy and others.",
+      "evidence_type": "press_release",
+      "confidence": 0.65,
+      "id": "45fe50879980cf32",
+      "title": "Meta's Muse can shop and check out for you. Here's how it works",
+      "title_zh": "Meta推出Muse购物智能体，可代用户结账",
+      "title_zh_missing": false,
+      "companies": [
+        "Meta",
+        "Walmart",
+        "Gap",
+        "Sephora",
+        "Best Buy"
+      ],
+      "concepts": [
+        "Muse",
+        "购物智能体",
+        "代结账"
+      ],
+      "summary_zh": "Meta宣布Muse购物智能体可代用户完成挑选商品与结账，并与沃尔玛、Gap、丝芙兰、Expedia、Wayfair、百思买等零售商建立合作。",
+      "keywords": [
+        "Muse",
+        "购物智能体",
+        "代结账",
+        "零售合作"
+      ],
+      "why_zh": "智能体直接代用户选购与下单，触及零售导购和结账环节的人工劳动。",
+      "displacement": 0.4,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Meta Muse"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "CNBC Technology",
+      "source_group": "media",
+      "source_id": "cnbc-tech",
+      "published_at": "2026-10-03T12:00:01.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.05,
+      "domain_index": 0.39
+    },
+    {
+      "date": "2026-10-03",
+      "domain": "healthcare",
+      "value": 0.45,
+      "delta": 0.083,
+      "model": "未指明",
+      "source_url": "https://www.medrxiv.org/content/10.64898/2026.09.30.26364423v1?rss=1",
+      "evidence_quote": "the ensemble model achieved 71% accuracy compared to 60% for pressure-volume data alone and 66% for imaging alone, with no substantial disagreements with expert reviewers.",
+      "evidence_type": "preprint",
+      "confidence": 0.5,
+      "id": "fd3b79f4eb54e557",
+      "title": "Validation of Machine Learning Models for classification of bladder dysfunction and risk of hydronephrosis in patients with Spina Bifida using videourodynamic data",
+      "title_zh": "膀胱功能与肾积水 ML 模型完成独立外部队列验证",
+      "title_zh_missing": false,
+      "companies": [],
+      "concepts": [
+        "VUDS",
+        "卷积神经网络",
+        "集成模型"
+      ],
+      "summary_zh": "一项 medRxiv 预印本研究把此前开发的膀胱功能障碍分类与肾积水预测模型用于独立外部队列，纳入 70 名肾积水患者和 95 例影像尿动力学检查，集成模型 AUROC 0.75、严重程度分类准确率 71%，与儿科泌尿专家评审无重大分歧。",
+      "keywords": [
+        "机器学习",
+        "外部验证",
+        "脊柱裂",
+        "肾积水",
+        "影像尿动力学"
+      ],
+      "why_zh": "模型在独立队列上接近专家判读水平，但样本小且为预印本",
+      "displacement": 0.35,
+      "sector": "academia",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "medRxiv",
+      "source_group": "journal",
+      "source_id": "medrxiv",
+      "published_at": "2026-10-03T00:00:00.000Z",
+      "authors": [
+        "Weaver",
+        "J. K.",
+        "Logan",
+        "J.",
+        "Klock",
+        "J. A."
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.225,
+      "domain_cumulative_after": 1.275,
+      "domain_index": 0.47
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "date": "2026-10-01",
+  "generated_at": "2026-10-04T05:33:43.267Z",
+  "schema_version": 1,
+  "recomputed_at": "2026-10-04T05:33:43.267Z",
+  "previous_event_count": 0,
+  "domains": [
+    {
+      "domain": "software",
+      "date": "2026-10-01",
+      "delta": 0.0915,
+      "index": 0.09,
+      "events": 4,
+      "value_sum": 0.86
+    },
+    {
+      "domain": "knowledge_work",
+      "date": "2026-10-01",
+      "delta": 0.0833,
+      "index": 0.08,
+      "events": 1,
+      "value_sum": 0.225
+    },
+    {
+      "domain": "creative",
+      "date": "2026-10-01",
+      "delta": 0,
+      "index": 0,
+      "events": 1,
+      "value_sum": 0.22
+    }
+  ],
+  "stats": null,
+  "event_count": 6,
+  "events": [
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.52,
+      "delta": 0.0374,
+      "model": "Claude、Claude Code",
+      "source_url": "https://www.anthropic.com/news/barclays-scales-claude",
+      "evidence_quote": "Barclays expects Claude Code adoption to reach 50% of its developer population by the end of 2026, rising to a majority of software engineers in 2027.",
+      "evidence_type": "press_release",
+      "confidence": 0.55,
+      "id": "ae05aec856e89806",
+      "title": "Barclays scales Claude to upgrade operations and improve client experience",
+      "title_zh": "巴克莱将在全球业务中规模化部署 Claude Code",
+      "title_zh_missing": false,
+      "companies": [
+        "Barclays",
+        "Anthropic"
+      ],
+      "concepts": [
+        "Claude Code",
+        "Claude",
+        "企业级AI部署"
+      ],
+      "summary_zh": "巴克莱银行扩大与 Anthropic 的合作，在全球业务中部署 Claude 与 Claude Code，用于加速软件开发与改造遗留系统，并预计到 2026 年底 Claude Code 覆盖 50% 的开发人员，2027 年覆盖多数软件工程师。",
+      "keywords": [
+        "Claude Code",
+        "编码智能体",
+        "企业AI部署",
+        "遗留系统改造"
+      ],
+      "why_zh": "大型银行在受监管环境下规模化部署编码智能体，指向开发岗部分替代，但无落地结果指标。",
+      "displacement": 0.45,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Claude",
+        "Claude Code"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Anthropic News",
+      "source_group": "ai-lab",
+      "source_id": "anthropic-news",
+      "published_at": "2026-10-01T15:19:00.000Z",
+      "authors": [
+        "noreply@www.anthropic.com"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.286,
+      "domain_cumulative_after": 0.286,
+      "domain_index": 0.04
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "knowledge_work",
+      "value": 0.5,
+      "delta": 0.0833,
+      "model": "ChatGPT Work",
+      "source_url": "https://openai.com/index/the-den-family-social",
+      "evidence_quote": "the social club prepares grant applications in 2 hours instead of 3 days and liquor-license materials in 3 hours instead of 4 days",
+      "evidence_type": "vendor_claim",
+      "confidence": 0.45,
+      "id": "2167384f51e2a446",
+      "title": "The Den frees up 10-15 hours a week to grow with ChatGPT Work",
+      "title_zh": "社交俱乐部用 ChatGPT Work 把拨款申请从 3 天缩到 2 小时",
+      "title_zh_missing": false,
+      "companies": [
+        "OpenAI"
+      ],
+      "concepts": [
+        "ChatGPT Work"
+      ],
+      "summary_zh": "OpenAI 发布客户案例称，家族社交俱乐部 The Den 借助 ChatGPT Work，在 2 小时内完成原本需要 3 天的拨款申请材料，在 3 小时内完成原本需要 4 天的酒类牌照材料。",
+      "keywords": [
+        "ChatGPT Work",
+        "知识工作",
+        "文档生成",
+        "客户案例"
+      ],
+      "why_zh": "厂商案例称文档类申请由天级压缩至小时级，属真实场景提效。",
+      "displacement": 0.4,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "ChatGPT Work"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "OpenAI News",
+      "source_group": "ai-lab",
+      "source_id": "openai-news",
+      "published_at": "2026-10-01T00:00:00.000Z",
+      "authors": [],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.225,
+      "domain_cumulative_after": 0.225,
+      "domain_index": 0.08
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.45,
+      "delta": 0.0294,
+      "model": "Amazon Nova 2 Lite",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/how-uniopen-customized-amazon-nova-to-their-retail-moderation-policies-for-production-deployment/",
+      "evidence_quote": "See how uniopen, a retail platform from Taiwan's Uni-President Enterprises Group, adapted Amazon Nova 2 Lite to its content-moderation policies using supervised fine-tuning in Amazon SageMaker AI and prompt optimization.",
+      "evidence_type": "press_release",
+      "confidence": 0.5,
+      "id": "73bd9f315cf79b2a",
+      "title": "How uniopen customized Amazon Nova to their retail moderation policies for production deployment",
+      "title_zh": "uniopen 用 Amazon Nova 2 Lite 定制零售内容审核并上线",
+      "title_zh_missing": false,
+      "companies": [
+        "uniopen",
+        "Uni-President Enterprises",
+        "Amazon",
+        "AWS"
+      ],
+      "concepts": [
+        "Amazon Nova 2 Lite",
+        "监督微调",
+        "内容审核",
+        "SageMaker AI"
+      ],
+      "summary_zh": "台湾统一企业集团旗下零售平台 uniopen 使用 Amazon SageMaker AI 对 Amazon Nova 2 Lite 进行监督微调与提示优化，使其适配自身内容审核政策并部署到生产环境，同时设置了业务相关评测与发布门槛。",
+      "keywords": [
+        "Amazon Nova 2 Lite",
+        "监督微调",
+        "内容审核",
+        "生产部署"
+      ],
+      "why_zh": "内容审核判定由定制模型在生产环境承担，减少人工审核环节。",
+      "displacement": 0.5,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Amazon Nova 2 Lite"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "AWS Machine Learning",
+      "source_group": "engineering",
+      "source_id": "aws-ml-blog",
+      "published_at": "2026-10-01T15:33:01.000Z",
+      "authors": [
+        "Felix Chin",
+        "Jia-You Lin"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.225,
+      "domain_cumulative_after": 0.511,
+      "domain_index": 0.07
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.45,
+      "delta": 0.0247,
+      "model": "Amazon Bedrock AgentCore",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-agentcore/",
+      "evidence_quote": "Purpose-built AI agents handle discovery, infrastructure as code generation, portfolio governance, and post-migration operations, reducing IaC development time from weeks to minutes.",
+      "evidence_type": "vendor_claim",
+      "confidence": 0.42,
+      "id": "dcc08529cd2f3a6a",
+      "title": "Scaling cloud migrations with agentic AI on Amazon Bedrock AgentCore",
+      "title_zh": "AWS 用多智能体框架自动化企业云迁移",
+      "title_zh_missing": false,
+      "companies": [
+        "AWS",
+        "Amazon"
+      ],
+      "concepts": [
+        "Amazon Bedrock AgentCore",
+        "多智能体",
+        "基础设施即代码",
+        "云迁移"
+      ],
+      "summary_zh": "AWS 专业服务团队基于 Amazon Bedrock AgentCore 构建多智能体框架，由专门智能体承担云迁移的发现、基础设施即代码生成、组合治理与迁移后运维，并称将 IaC 开发时间从数周缩短到数分钟。",
+      "keywords": [
+        "多智能体",
+        "基础设施即代码",
+        "云迁移",
+        "AgentCore"
+      ],
+      "why_zh": "多智能体承接云迁移的 IaC 编写环节，压缩原本人力的数周工作量。",
+      "displacement": 0.5,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Amazon Bedrock AgentCore"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "AWS Machine Learning",
+      "source_group": "engineering",
+      "source_id": "aws-ml-blog",
+      "published_at": "2026-10-01T22:06:14.000Z",
+      "authors": [
+        "Nikhil Jha"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.189,
+      "domain_cumulative_after": 0.7,
+      "domain_index": 0.09
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "creative",
+      "value": 0.4,
+      "delta": 0,
+      "model": "InstructMesh",
+      "source_url": "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
+      "evidence_quote": "“InstructMesh” can generate designs for everyday objects that are easy to edit and fabricate for both experts and newcomers to 3D modeling.",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "02c744c8cb64f92f",
+      "title": "New tool lets users repair AI-generated 3D models, then fabricate them just the way they want",
+      "title_zh": "MIT 发布 InstructMesh：可修复并制造 AI 生成 3D 模型",
+      "title_zh_missing": false,
+      "companies": [
+        "MIT"
+      ],
+      "concepts": [
+        "InstructMesh",
+        "3D 建模",
+        "生成式设计"
+      ],
+      "summary_zh": "MIT 新闻介绍工具 InstructMesh，可修复 AI 生成的三维模型，并生成易于编辑和制造的日常物品设计，面向 3D 建模专家与新手两类用户。",
+      "keywords": [
+        "InstructMesh",
+        "3D 模型修复",
+        "可制造设计",
+        "MIT"
+      ],
+      "why_zh": "降低 3D 建模与可制造设计门槛，但仍以人为主导编辑。",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "InstructMesh"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "MIT News · AI",
+      "source_group": "media",
+      "source_id": "mit-ai-news",
+      "published_at": "2026-10-01T22:00:00.000Z",
+      "authors": [
+        "Alex Shipps | MIT CSAIL"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "software",
+      "value": 0.4,
+      "delta": 0,
+      "model": "Gemini 4",
+      "source_url": "https://www.qbitai.com/2026/10/499663.html",
+      "evidence_quote": "价格只有Astra一半",
+      "evidence_type": "news_report",
+      "confidence": 0.4,
+      "id": "c507dae50de84e17",
+      "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+      "title_zh": "谷歌发布 Gemini 4，报道称价格仅为 Astra 一半",
+      "title_zh_missing": false,
+      "companies": [
+        "Google"
+      ],
+      "concepts": [
+        "Gemini 4",
+        "RSI"
+      ],
+      "summary_zh": "据量子位报道，谷歌于2026年10月1日发布 Gemini 4，称其获得 RSI 相关能力加持，价格仅为 Astra 的一半，但报道未给出任何可核验的基准测试数据或评测结果。",
+      "keywords": [
+        "Gemini 4",
+        "模型发布",
+        "RSI",
+        "定价"
+      ],
+      "why_zh": "新模型发布可能扩大可自动完成的软件任务范围，但缺可核验证据。",
+      "displacement": 0.25,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Gemini 4"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "量子位",
+      "source_group": "media",
+      "source_id": "qbitai",
+      "published_at": "2026-10-01T15:02:14.000Z",
+      "authors": [
+        "鹭羽"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0.7,
+      "domain_index": 0.09
+    }
+  ]
+}

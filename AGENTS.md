@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This is a Node.js 20+ ES module project. `scripts/pipeline.mjs` orchestrates collection, AI processing, scoring, and rendering; reusable modules live in `scripts/lib/`. `config/*.json` defines sources, domains, and scoring rules. Edit UI code in `theme/app.js` and `theme/style.css`; rendering copies these files into `site/assets/`. The tracked `site/` directory contains generated HTML and published JSON for GitHub Pages. `data/` holds local events, caches, and run reports, most of which are ignored. The test suite is `scripts/selftest.mjs`.
+This is a Node.js 20+ ES module project. `scripts/pipeline.mjs` orchestrates collection, AI processing, scoring, and rendering; reusable modules live in `scripts/lib/`. `config/*.json` defines sources, domains, and scoring rules. Edit UI code in `theme/app.js` and `theme/style.css`; rendering copies these files into `site/assets/`. `data/events/` is the tracked source of truth for event dates; `site/` contains generated HTML and JSON for GitHub Pages. Other `data/` directories hold ignored caches, archives, and run reports. The test suite is `scripts/selftest.mjs`.
 
 ## Build, Test, and Development Commands
 

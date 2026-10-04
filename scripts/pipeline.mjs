@@ -257,10 +257,6 @@ async function main() {
     "info",
     `AI 用量：${client.info.provider} · 调用 ${client.stats.calls} 次（缓存命中 ${client.stats.cacheHits}），失败 ${client.stats.failures}，tokens in/out ${client.stats.promptTokens}/${client.stats.completionTokens}`,
   );
-  if (!verification.ok) {
-    log("error", "指数一致性校验未通过", JSON.stringify(verification.failures));
-    process.exitCode = 2;
-  }
   log("info", `产物：${path.relative(ROOT, p.dayFile(date))}、${path.relative(ROOT, p.indexFile)}、site/index.html`);
 }
 

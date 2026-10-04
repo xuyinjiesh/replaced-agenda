@@ -12,13 +12,14 @@
  * 产物：data/audits/<日期>.json
  */
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { resolveModelName } from "./lib/providers.mjs";
 import { loadDay } from "./lib/store.mjs";
 import { ensureDir, isDateISO, log, parseArgs, readJSON, todayISO, writeJSON } from "./lib/util.mjs";
 import { compareAudit } from "./lib/audit-compare.mjs";
 import { createAuditEngines } from "./lib/audit-engines.mjs";
 
-const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
+const ROOT = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const args = parseArgs();
 const date = String(args.date ?? todayISO());
 if (!isDateISO(date)) throw new Error(`--date 需要 YYYY-MM-DD，收到 ${date}`);

@@ -48,8 +48,9 @@ AI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 | `scripts/lib/render*.mjs`、`scripts/audit.mjs`、`scripts/lib/audit-*.mjs` | 页面生成与独立复核 |
 | `scripts/lib/` 其余模块 | 采集、筛选、去重、评分和存储 |
 | `theme/` | 前端样式与交互的源文件 |
-| `data/` | 本地事件、缓存和运行报告；多数文件不提交 |
-| `site/` | 已生成并提交的 HTML 与 JSON，供 GitHub Pages 发布 |
+| `data/events/` | 已提交的正式事件数据；增删日期以这里为准 |
+| `data/` 其余目录 | 本地缓存、运行报告与旧数据归档；多数文件不提交 |
+| `site/` | 从正式数据生成并提交的 HTML 与 JSON，供 GitHub Pages 发布 |
 
 ## 如何理解结果
 

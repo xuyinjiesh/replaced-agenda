@@ -1,11 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import { log, parseArgs, readJSON, setLogLevel, todayISO } from "./lib/util.mjs";
 
 // 一键发布：跑流水线 → 把 site/ 产物提交 → 推到 GitHub，剩下的交给 Actions 上线。
 // 设计上刻意不碰 git 凭据：push 失败就如实报错，不尝试任何认证技巧。
-const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
+const ROOT = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const SITE = path.join(ROOT, "site");
 
 function git(args, { allowFail = false, capture = false } = {}) {

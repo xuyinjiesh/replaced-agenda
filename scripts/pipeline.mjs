@@ -14,6 +14,7 @@ import { aiMergeGray, aiScreen, rulePrefilter } from "./lib/screen.mjs";
 import { resolveDomains, toEvent } from "./lib/score.mjs";
 import {
   listEventDates,
+  loadAllEvents,
   loadDay,
   loadSeen,
   mergeDay,
@@ -173,14 +174,18 @@ async function main() {
 
   // ---------- 7. 生成记录 ----------
   const newEvents = enriched.map((e) => toEvent(e, { scoring: effectiveScoring }));
+  const existingIds = new Set(loadAllEvents(ROOT).map((e) => e.id));
   const existingDay = loadDay(ROOT, date);
-  const { events: dayEvents, added, updated, total } = mergeDay(existingDay, newEvents, { date });
+  const { events: dayEvents, total } = mergeDay(existingDay, newEvents, { date });
+  const incomingIds = new Set(newEvents.map((e) => e.id));
+  const added = [...incomingIds].filter((id) => !existingIds.has(id)).length;
+  const updated = incomingIds.size - added;
   log("info", `当日记录：新增 ${added} 条，更新 ${updated} 条，共 ${total} 条`);
 
   const { indexData, verification } = recomputeIndex({ root: ROOT, date, dayEvents, domains, scoring });
 
   // ---------- 9. 记录已见，避免明天重复收录 ----------
-  const seenNext = { ...seen };
+  const seenNext = reprocess ? loadSeen(ROOT) : { ...seen };
   for (const e of dayEvents) {
     if (!seenNext[e.id]) seenNext[e.id] = e.date;
   }

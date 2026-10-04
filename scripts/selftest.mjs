@@ -15,7 +15,7 @@ import { checkCalibration, valueDistribution } from "./lib/pipeline-report.mjs";
 import { compareAudit } from "./lib/audit-compare.mjs";
 import { recomputeIndex } from "./lib/pipeline-index.mjs";
 import { renderSite } from "./lib/render.mjs";
-import { listEventDates, loadDay, publishData, saveSeen } from "./lib/store.mjs";
+import { listEventDates, loadDay, mergeDay, publishData, saveSeen } from "./lib/store.mjs";
 import { AIClient } from "./lib/ai.mjs";
 import { resolveDomains } from "./lib/score.mjs";
 
@@ -754,6 +754,21 @@ console.log("\n[19] 正式数据与生成产物一致性");
         else process.env[key] = value;
       }
     }
+
+    const crossRoot = path.join(root, "cross-date");
+    const crossEvents = path.join(crossRoot, "data", "events");
+    fs.mkdirSync(crossEvents, { recursive: true });
+    const prior = makeEvent("same-id", "2026-10-01");
+    fs.writeFileSync(path.join(crossEvents, "2026-10-01.json"), JSON.stringify({ date: "2026-10-01", events: [prior] }));
+    const revised = { ...prior, value: 0.8 };
+    const rerun = mergeDay(null, [revised], { date: "2026-10-02" });
+    const cross = recomputeIndex({ root: crossRoot, date: "2026-10-02", dayEvents: rerun.events, domains, scoring });
+    const retained = loadDay(crossRoot, "2026-10-01")?.events ?? [];
+    check("跨日期重处理不重复计分或归档", cross.indexData.eventCount === 1 && retained.length === 1 && retained[0].value === 0.8);
+    const moved = { ...revised, date: "2026-10-02", value: 0.9 };
+    const movedDay = mergeDay(null, [moved], { date: "2026-10-02" });
+    const movedIndex = recomputeIndex({ root: crossRoot, date: "2026-10-02", dayEvents: movedDay.events, domains, scoring });
+    check("记录改期后清理空旧日期文件", movedIndex.indexData.eventCount === 1 && listEventDates(crossRoot).join() === "2026-10-02" && loadDay(crossRoot, "2026-10-02")?.events[0]?.value === 0.9);
   } finally {
     if (root.startsWith(os.tmpdir() + path.sep)) fs.rmSync(root, { recursive: true, force: true });
   }

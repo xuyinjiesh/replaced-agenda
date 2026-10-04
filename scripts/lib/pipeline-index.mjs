@@ -1,14 +1,19 @@
+import fs from "node:fs";
 import { sourceStats } from "./dedupe.mjs";
 import { computeIndex, verifyIndex } from "./score.mjs";
-import { listEventDates, loadDay, loadIndex, saveDay, saveIndex } from "./store.mjs";
+import { listEventDates, loadDay, loadIndex, paths, saveDay, saveIndex } from "./store.mjs";
 
 export function recomputeIndex({ root: ROOT, date, dayEvents, domains, scoring, verify = verifyIndex }) {
   // ---------- 8. 全量重算指数 ----------
-  const previousDays = listEventDates(ROOT)
+  const existingDates = listEventDates(ROOT);
+  const previousDays = existingDates
     .filter((d) => d !== date)
     .map((d) => loadDay(ROOT, d))
     .filter(Boolean);
-  const allEvents = [...previousDays.flatMap((d) => d.events ?? []), ...dayEvents];
+  const eventsById = new Map();
+  for (const event of previousDays.flatMap((d) => d.events ?? [])) eventsById.set(event.id, event);
+  for (const event of dayEvents) eventsById.set(event.id, event);
+  const allEvents = [...eventsById.values()];
   const indexData = computeIndex(allEvents, { domains, epoch: scoring.indexModel.epoch });
   const verification = verify(allEvents, { domains });
   if (!verification.ok) {
@@ -39,6 +44,9 @@ export function recomputeIndex({ root: ROOT, date, dayEvents, domains, scoring, 
         stats: prev?.stats ?? null,
       });
     }
+  }
+  for (const d of existingDates) {
+    if (!byDate.has(d)) fs.rmSync(paths(ROOT).dayFile(d));
   }
   const nextIndex = {
     ...indexData,

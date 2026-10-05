@@ -12,6 +12,8 @@
   <a href="https://github.com/xuyinjiesh/replaced-agenda/blob/main/package.json"><img src="https://img.shields.io/badge/Node.js-20%2B-50734c" alt="Node.js 20+"></a>
 </p>
 
+<p align="center"><img src="assets/readme-preview.png" alt="AI 降临观测站首页预览：刊头、当日重点记录与领域索引" width="880"></p>
+
 记录 AI 承担具体人类任务的进展，并保留来源与不确定性。站点将事件分为「互联网」和「学术界」，提供摘要、来源链接、推进强度与证据可信度。
 
 ## 本地预览

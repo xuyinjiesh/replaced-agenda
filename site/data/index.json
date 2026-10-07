@@ -1,20 +1,23 @@
 {
   "epoch": "2026-09-28",
-  "computedAt": "2026-10-04T08:20:19.158Z",
+  "computedAt": "2026-10-07T03:52:09.870Z",
   "dates": [
     "2026-10-01",
     "2026-10-02",
     "2026-10-03",
-    "2026-10-04"
+    "2026-10-04",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07"
   ],
   "domains": [
     {
       "domain": "math",
       "label": "数学",
-      "index": 0,
+      "index": 0.84,
       "delta": 0,
-      "events": 1,
-      "cumulative": 0,
+      "events": 0,
+      "cumulative": 0.908,
       "series": [
         {
           "date": "2026-10-01",
@@ -43,18 +46,39 @@
           "index": 0,
           "events": 1,
           "value_sum": 0.135
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0,
+          "index": 0,
+          "events": 1,
+          "value_sum": 0.176
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.8368,
+          "index": 0.84,
+          "events": 3,
+          "value_sum": 0.908
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 0.84,
+          "events": 0,
+          "value_sum": 0
         }
       ],
       "index_7d_ago": 0,
-      "prev_index": 0
+      "prev_index": 0.84
     },
     {
       "domain": "physics",
       "label": "物理",
-      "index": 0,
+      "index": 0.26,
       "delta": 0,
       "events": 0,
-      "cumulative": 0,
+      "cumulative": 0.466,
       "series": [
         {
           "date": "2026-10-01",
@@ -83,18 +107,39 @@
           "index": 0,
           "events": 0,
           "value_sum": 0
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.2585,
+          "index": 0.26,
+          "events": 2,
+          "value_sum": 0.466
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 0.26,
+          "events": 0,
+          "value_sum": 0
         }
       ],
       "index_7d_ago": 0,
-      "prev_index": 0
+      "prev_index": 0.26
     },
     {
       "domain": "science",
       "label": "科学发现",
-      "index": 0,
+      "index": 0.09,
       "delta": 0,
       "events": 0,
-      "cumulative": 0,
+      "cumulative": 0.21,
       "series": [
         {
           "date": "2026-10-01",
@@ -123,18 +168,39 @@
           "index": 0,
           "events": 0,
           "value_sum": 0
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.0933,
+          "index": 0.09,
+          "events": 1,
+          "value_sum": 0.21
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 0.09,
+          "events": 0,
+          "value_sum": 0
         }
       ],
       "index_7d_ago": 0,
-      "prev_index": 0
+      "prev_index": 0.09
     },
     {
       "domain": "software",
       "label": "互联网 / 软件",
-      "index": 0.14,
+      "index": 0.22,
       "delta": 0,
-      "events": 2,
-      "cumulative": 1.097,
+      "events": 3,
+      "cumulative": 1.706,
       "series": [
         {
           "date": "2026-10-01",
@@ -163,18 +229,39 @@
           "index": 0.14,
           "events": 2,
           "value_sum": 0.263
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0,
+          "index": 0.14,
+          "events": 3,
+          "value_sum": 0.552
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.0795,
+          "index": 0.22,
+          "events": 7,
+          "value_sum": 1.298
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 0.22,
+          "events": 3,
+          "value_sum": 0.687
         }
       ],
       "index_7d_ago": 0.14,
-      "prev_index": 0.14
+      "prev_index": 0.22
     },
     {
       "domain": "healthcare",
       "label": "医疗 / 生物",
-      "index": 0.47,
+      "index": 1.48,
       "delta": 0,
       "events": 0,
-      "cumulative": 1.275,
+      "cumulative": 4.038,
       "series": [
         {
           "date": "2026-10-01",
@@ -203,18 +290,39 @@
           "index": 0.47,
           "events": 0,
           "value_sum": 0
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0.232,
+          "index": 0.7,
+          "events": 3,
+          "value_sum": 0.765
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.7814,
+          "index": 1.48,
+          "events": 11,
+          "value_sum": 2.391
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 1.48,
+          "events": 0,
+          "value_sum": 0
         }
       ],
       "index_7d_ago": 0,
-      "prev_index": 0.47
+      "prev_index": 1.48
     },
     {
       "domain": "knowledge_work",
       "label": "金融 / 法律 / 白领",
-      "index": 0.39,
-      "delta": 0,
-      "events": 2,
-      "cumulative": 1.05,
+      "index": 0.68,
+      "delta": 0.0828,
+      "events": 1,
+      "cumulative": 1.848,
       "series": [
         {
           "date": "2026-10-01",
@@ -243,18 +351,39 @@
           "index": 0.39,
           "events": 2,
           "value_sum": 0.368
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0.1283,
+          "index": 0.52,
+          "events": 1,
+          "value_sum": 0.348
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.0829,
+          "index": 0.6,
+          "events": 4,
+          "value_sum": 0.65
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0.0828,
+          "index": 0.68,
+          "events": 1,
+          "value_sum": 0.225
         }
       ],
       "index_7d_ago": 0.21,
-      "prev_index": 0.39
+      "prev_index": 0.6
     },
     {
       "domain": "creative",
       "label": "艺术 / 内容创作",
-      "index": 0,
+      "index": 0.15,
       "delta": 0,
-      "events": 2,
-      "cumulative": 0,
+      "events": 5,
+      "cumulative": 0.278,
       "series": [
         {
           "date": "2026-10-01",
@@ -283,18 +412,39 @@
           "index": 0,
           "events": 2,
           "value_sum": 0.35
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0,
+          "index": 0,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 0.1545,
+          "index": 0.15,
+          "events": 4,
+          "value_sum": 0.853
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 0.15,
+          "events": 5,
+          "value_sum": 0.799
         }
       ],
       "index_7d_ago": 0,
-      "prev_index": 0
+      "prev_index": 0.15
     },
     {
       "domain": "robotics",
       "label": "机器人与物理世界",
-      "index": 0.09,
+      "index": 1.97,
       "delta": 0,
       "events": 0,
-      "cumulative": 0.25,
+      "cumulative": 5.368,
       "series": [
         {
           "date": "2026-10-01",
@@ -323,45 +473,92 @@
           "index": 0.09,
           "events": 0,
           "value_sum": 0
+        },
+        {
+          "date": "2026-10-05",
+          "delta": 0,
+          "index": 0.09,
+          "events": 0,
+          "value_sum": 0
+        },
+        {
+          "date": "2026-10-06",
+          "delta": 1.876,
+          "index": 1.97,
+          "events": 23,
+          "value_sum": 5.358
+        },
+        {
+          "date": "2026-10-07",
+          "delta": 0,
+          "index": 1.97,
+          "events": 0,
+          "value_sum": 0
         }
       ],
       "index_7d_ago": 0,
-      "prev_index": 0.09
+      "prev_index": 1.97
     }
   ],
-  "totalDelta": 0,
-  "eventCount": 39,
+  "totalDelta": 0.0828,
+  "eventCount": 111,
   "cumulativeByDomain": {
-    "knowledge_work": 1.05,
-    "software": 1.097,
-    "creative": 0,
-    "healthcare": 1.275,
-    "math": 0,
-    "robotics": 0.25
+    "knowledge_work": 1.848,
+    "software": 1.706,
+    "creative": 0.278,
+    "healthcare": 4.038,
+    "math": 0.908,
+    "robotics": 5.368,
+    "physics": 0.466,
+    "science": 0.21
   },
   "source_stats": [
+    {
+      "source": "arXiv cs.MA + cs.RO",
+      "count": 19
+    },
+    {
+      "source": "medRxiv",
+      "count": 8
+    },
+    {
+      "source": "Techmeme",
+      "count": 8
+    },
+    {
+      "source": "GitHub Trending",
+      "count": 8
+    },
+    {
+      "source": "arXiv cs.CV",
+      "count": 8
+    },
+    {
+      "source": "arXiv AI + LG + CL",
+      "count": 8
+    },
     {
       "source": "CNBC Technology",
       "count": 6
     },
     {
-      "source": "medRxiv",
+      "source": "OpenAI News",
       "count": 5
     },
     {
-      "source": "GitHub Trending",
-      "count": 4
-    },
-    {
-      "source": "OpenAI News",
-      "count": 3
-    },
-    {
-      "source": "InfoQ 中文",
-      "count": 3
+      "source": "TechCrunch · AI",
+      "count": 5
     },
     {
       "source": "AWS Machine Learning",
+      "count": 4
+    },
+    {
+      "source": "Google News · AI",
+      "count": 4
+    },
+    {
+      "source": "InfoQ 中文",
       "count": 3
     },
     {
@@ -369,11 +566,19 @@
       "count": 3
     },
     {
-      "source": "Techmeme",
-      "count": 3
+      "source": "Latent Space",
+      "count": 2
     },
     {
-      "source": "Latent Space",
+      "source": "The Verge AI",
+      "count": 2
+    },
+    {
+      "source": "STAT News",
+      "count": 2
+    },
+    {
+      "source": "V2EX",
       "count": 2
     },
     {
@@ -403,11 +608,39 @@
     {
       "source": "Lobsters",
       "count": 1
+    },
+    {
+      "source": "arXiv cs.DC + cs.AR",
+      "count": 1
+    },
+    {
+      "source": "Simon Willison",
+      "count": 1
+    },
+    {
+      "source": "r/LocalLLaMA",
+      "count": 1
+    },
+    {
+      "source": "Salesforce Blog",
+      "count": 1
+    },
+    {
+      "source": "Quanta Magazine",
+      "count": 1
+    },
+    {
+      "source": "NVIDIA Blog",
+      "count": 1
+    },
+    {
+      "source": "Financial Times Tech",
+      "count": 1
     }
   ],
   "verification": {
     "ok": true,
     "failures": [],
-    "checkedEvents": 39
+    "checkedEvents": 111
   }
 }

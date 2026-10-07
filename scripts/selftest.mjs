@@ -776,5 +776,32 @@ console.log("\n[19] 本机与已发布事件数据一致性");
   }
 }
 
+console.log("\n[20] fetch 失败日志保留 cause 与代理提示");
+// Node 的 fetch 在传输层失败时只给一个 `fetch failed`，真正原因在 cause 链上。
+// 这里守住：cause 的 code/message 必须出现在文案里，且只有传输层失败才追加代理提示。
+{
+  const { describeFetchError } = await import("./lib/util.mjs");
+  const timeout = describeFetchError(
+    new TypeError("fetch failed", {
+      cause: Object.assign(new Error("Connect Timeout Error (attempted addresses: fdfe:dcba:9876::16:443, timeout: 10000ms)"), { code: "UND_ERR_CONNECT_TIMEOUT" }),
+    }),
+  );
+  check("文案带出 cause 的错误码与信息", timeout.includes("UND_ERR_CONNECT_TIMEOUT") && timeout.includes("Connect Timeout Error"), timeout);
+  check("传输层失败追加代理提示", timeout.includes("NODE_USE_ENV_PROXY"), timeout);
+
+  const dns = describeFetchError(new TypeError("fetch failed", { cause: Object.assign(new Error("getaddrinfo ENOTFOUND api.example.test"), { code: "ENOTFOUND" }) }));
+  check("DNS 失败同样标出原因", dns.includes("ENOTFOUND") && dns.includes("api.example.test"), dns);
+
+  const refused = describeFetchError(new TypeError("fetch failed", { cause: new Error("socket hang up") }));
+  check("无 code 的 socket 错误也判定为传输层失败", refused.includes("socket hang up") && refused.includes("NODE_USE_ENV_PROXY"), refused);
+
+  const parsed = describeFetchError(new Error("JSON 解析失败"));
+  check("非传输层错误不追加代理提示", parsed === "JSON 解析失败", parsed);
+
+  // 文案会写进日志与 source-health.json，超长 cause 必须截断
+  const long = describeFetchError(new TypeError("fetch failed", { cause: Object.assign(new Error("x".repeat(500)), { code: "UND_ERR_SOCKET" }) }));
+  check("超长 cause 被截断", long.length < 400, String(long.length));
+}
+
 console.log(`\n结果：${pass} 通过 / ${fail} 失败\n`);
 if (fail > 0) process.exitCode = 1;

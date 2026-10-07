@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { ensureDir, exists, log, sha256, sleep, writeJSON } from "./util.mjs";
+import { describeFetchError, ensureDir, exists, log, sha256, sleep, writeJSON } from "./util.mjs";
 
 const UA =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
@@ -78,7 +78,7 @@ export async function fetchText(url, opts = {}) {
         if (res.status < 500 && res.status !== 429) break;
       } catch (err) {
         clearTimeout(timer);
-        lastError = err?.name === "AbortError" ? `timeout after ${timeoutMs}ms` : String(err?.message ?? err);
+        lastError = err?.name === "AbortError" ? `timeout after ${timeoutMs}ms` : describeFetchError(err);
       }
       if (attempt < retries) await sleep(backoffBaseMs * attempt + Math.random() * 250);
     }

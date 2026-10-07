@@ -63,6 +63,33 @@ export function log(level, msg, extra) {
   process[level === "error" ? "stderr" : "stdout"].write(`[${stamp}] ${tag} ${msg}${tail}\n`);
 }
 
+/** 传输层失败时补的排查提示：Node 的 fetch 默认并不读取 http(s)_proxy。 */
+const TRANSPORT_HINT = "（若本机依赖代理：Node 的 fetch 只在 NODE_USE_ENV_PROXY=1 或 --use-env-proxy 时读取 http(s)_proxy）";
+
+/**
+ * 展开 fetch 的失败原因。
+ * Node 的 fetch 在传输层失败时只抛出 `TypeError: fetch failed`，真正的原因
+ * （连接超时、DNS 失败、代理拒绝、TLS 错误）挂在 cause 链上。只打 message 会让
+ * 整轮流水线只剩「fetch failed」，事后无法判断是本地代理挂了还是目标站不可达，
+ * 所以这里把整条 cause 链展开，并对传输层失败追加代理排查提示。
+ */
+export function describeFetchError(err) {
+  const chain = [];
+  const seen = new Set();
+  for (let cur = err; cur && typeof cur === "object" && !seen.has(cur); cur = cur.cause) {
+    seen.add(cur);
+    const code = cur.code ? String(cur.code) : "";
+    const message = String(cur.message ?? "").trim();
+    const text = message && code && !message.startsWith(`${code}:`) ? `${code}: ${message}` : message || code;
+    if (text && !chain.includes(text)) chain.push(text);
+  }
+  // 「←」表示 cause 关系：左边是外层错误，右边是它包住的真实原因
+  const joined = (chain.join(" ← ") || String(err)).replace(/\s+/g, " ");
+  const summary = joined.length > 240 ? `${joined.slice(0, 240)}…` : joined;
+  const transportFailure = /UND_ERR|ECONN|ENOTFOUND|EAI_AGAIN|ETIMEDOUT|EPROTO|TLS|CERT|socket hang up/i.test(joined);
+  return transportFailure ? `${summary}${TRANSPORT_HINT}` : summary;
+}
+
 /** 并发闸门：限制同时运行的任务数。 */
 export function createLimiter(concurrency) {
   let active = 0;

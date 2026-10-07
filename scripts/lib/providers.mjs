@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { sleep } from "./util.mjs";
+import { describeFetchError, sleep } from "./util.mjs";
 
 /**
  * LLM 传输层。AIClient 负责缓存、并发、JSON 修复；provider 只负责「把 messages 送出去、把文本拿回来」。
@@ -192,7 +192,7 @@ class OpenAIProvider {
         }
       } catch (err) {
         clearTimeout(timer);
-        last = err?.name === "AbortError" ? `超时 ${this.timeoutMs}ms` : String(err?.message ?? err);
+        last = err?.name === "AbortError" ? `超时 ${this.timeoutMs}ms` : describeFetchError(err);
       }
       if (attempt <= this.retries) await sleep(900 * attempt + Math.random() * 300);
     }

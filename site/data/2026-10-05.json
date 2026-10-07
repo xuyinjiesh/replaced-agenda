@@ -1,0 +1,487 @@
+{
+  "date": "2026-10-05",
+  "generated_at": "2026-10-07T03:52:09.871Z",
+  "schema_version": 1,
+  "recomputed_at": "2026-10-07T03:52:09.871Z",
+  "previous_event_count": 0,
+  "domains": [
+    {
+      "domain": "math",
+      "date": "2026-10-05",
+      "delta": 0,
+      "index": 0,
+      "events": 1,
+      "value_sum": 0.176
+    },
+    {
+      "domain": "software",
+      "date": "2026-10-05",
+      "delta": 0,
+      "index": 0.14,
+      "events": 3,
+      "value_sum": 0.552
+    },
+    {
+      "domain": "healthcare",
+      "date": "2026-10-05",
+      "delta": 0.232,
+      "index": 0.7,
+      "events": 3,
+      "value_sum": 0.765
+    },
+    {
+      "domain": "knowledge_work",
+      "date": "2026-10-05",
+      "delta": 0.1283,
+      "index": 0.52,
+      "events": 1,
+      "value_sum": 0.348
+    }
+  ],
+  "stats": null,
+  "event_count": 8,
+  "events": [
+    {
+      "date": "2026-10-05",
+      "domain": "knowledge_work",
+      "value": 0.58,
+      "delta": 0.1283,
+      "model": "HackerRank AI Interviewer",
+      "source_url": "https://techcrunch.com/2026/10/05/hackerranks-ai-interviewer-offers-a-glimpse-into-what-job-interviews-could-become/",
+      "evidence_quote": "HackerRank’s AI interviewer has already conducted more than 500,000 interviews, with Snowflake, Snorkel, and Capgemini among its early testers.",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "7d8dd2e5a40cdea5",
+      "title": "HackerRank’s AI interviewer offers a glimpse into what job interviews could become",
+      "title_zh": "HackerRank AI面试官已完成超50万场面试",
+      "title_zh_missing": false,
+      "companies": [
+        "HackerRank",
+        "Snowflake",
+        "Snorkel",
+        "Capgemini"
+      ],
+      "concepts": [
+        "AI面试官"
+      ],
+      "summary_zh": "TechCrunch报道，HackerRank的AI面试官已累计完成超过50万场面试，Snowflake、Snorkel和Capgemini是其早期试用方。",
+      "keywords": [
+        "AI面试",
+        "招聘自动化",
+        "人力资源",
+        "面试筛选"
+      ],
+      "why_zh": "AI已实际承担大规模初面环节，招聘筛选劳动被转移",
+      "displacement": 0.55,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "HackerRank AI Interviewer"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "TechCrunch · AI",
+      "source_group": "media",
+      "source_id": "techcrunch-ai",
+      "published_at": "2026-10-05T16:43:35.000Z",
+      "authors": [
+        "Jagmeet Singh"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.348,
+      "domain_cumulative_after": 1.398,
+      "domain_index": 0.52
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "healthcare",
+      "value": 0.55,
+      "delta": 0.1216,
+      "model": "Nolla Health AI",
+      "source_url": "https://www.theverge.com/ai-artificial-intelligence/1005075/nolla-health-acne-ai-prescriptions",
+      "evidence_quote": "healthcare startup Nolla Health announced that users in the state can scan their faces using its app, allowing its AI system to analyze acne severity and autonomously write a prescription",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "466f82657f41022c",
+      "title": "This startup is issuing AI-generated acne prescriptions",
+      "title_zh": "Nolla Health在犹他州上线AI自主开痤疮处方",
+      "title_zh_missing": false,
+      "companies": [
+        "Nolla Health"
+      ],
+      "concepts": [
+        "AI处方",
+        "面部扫描"
+      ],
+      "summary_zh": "The Verge报道，医疗创业公司Nolla Health在犹他州推出服务，用户用其App扫描面部，AI即可分析痤疮严重程度并自主开具处方。",
+      "keywords": [
+        "AI处方",
+        "痤疮诊疗",
+        "远程医疗",
+        "自主诊断"
+      ],
+      "why_zh": "AI自主完成痤疮评估与开方，替代基层问诊开药环节",
+      "displacement": 0.55,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Nolla Health AI"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "The Verge AI",
+      "source_group": "media",
+      "source_id": "verge-ai",
+      "published_at": "2026-10-05T20:14:57.000Z",
+      "authors": [
+        "Emma Roth"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.33,
+      "domain_cumulative_after": 1.605,
+      "domain_index": 0.59
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "healthcare",
+      "value": 0.5,
+      "delta": 0.1104,
+      "model": "未指明",
+      "source_url": "https://www.statnews.com/2026/10/05/utah-expands-health-ai-sandbox-picks-third-party-auditors/?utm_campaign=rss",
+      "evidence_quote": "Utah plans to allow an AI product to evaluate patients and write new drug prescriptions without prior human review.",
+      "evidence_type": "news_report",
+      "confidence": 0.6,
+      "id": "b8a163a4b833bb4c",
+      "title": "STAT+: Utah plows ahead with more health AI pilots for prescriptions, women’s health",
+      "title_zh": "犹他州拟允许AI无人工复核独立开处方",
+      "title_zh_missing": false,
+      "companies": [
+        "Utah"
+      ],
+      "concepts": [
+        "AI处方",
+        "监管沙盒"
+      ],
+      "summary_zh": "STAT News报道，美国犹他州计划扩展其医疗AI监管沙盒，允许AI产品在无人工事先复核的情况下评估患者并开具新药处方，该州同时选定第三方审计机构。",
+      "keywords": [
+        "AI开处方",
+        "医疗AI监管",
+        "监管沙盒",
+        "自主诊疗"
+      ],
+      "why_zh": "州级监管放行AI独立开处方，落地后将替代医生开药环节",
+      "displacement": 0.5,
+      "sector": "internet",
+      "relation": "direct",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "STAT News",
+      "source_group": "media",
+      "source_id": "statnews",
+      "published_at": "2026-10-05T16:00:14.000Z",
+      "authors": [
+        "Mario Aguilar"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0.3,
+      "domain_cumulative_after": 1.905,
+      "domain_index": 0.7
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "software",
+      "value": 0.45,
+      "delta": 0,
+      "model": "Claude Opus 5.5、Claude Sonnet 5.5",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/supercharge-regulated-workloads-with-claude-code-and-amazon-bedrock/",
+      "evidence_quote": "Anthropic Claude Opus 5.5 and Claude Sonnet 5.5 are available on Amazon Bedrock in the AWS GovCloud (US) Regions.",
+      "evidence_type": "vendor_claim",
+      "confidence": 0.55,
+      "id": "5765adb99a8997fc",
+      "title": "Supercharge regulated workloads with Claude Code and Amazon Bedrock",
+      "title_zh": "AWS GovCloud 上线 Claude Opus/Sonnet 5.5 支持受监管开发",
+      "title_zh_missing": false,
+      "companies": [
+        "Anthropic",
+        "AWS"
+      ],
+      "concepts": [
+        "Claude Code",
+        "Amazon Bedrock",
+        "GovCloud"
+      ],
+      "summary_zh": "AWS 宣布 Anthropic 的 Claude Opus 5.5 与 Claude Sonnet 5.5 已在 AWS GovCloud 区域的 Amazon Bedrock 上线，可配合 Claude Code 面向受监管与 ITAR 工作负载进行合规辅助开发。",
+      "keywords": [
+        "Claude Opus 5.5",
+        "Amazon Bedrock",
+        "GovCloud",
+        "合规开发"
+      ],
+      "why_zh": "AI 编码工具进入受监管政企环境，扩大可承接的开发环节",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Claude Opus 5.5",
+        "Claude Sonnet 5.5",
+        "Claude Code"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "AWS Machine Learning",
+      "source_group": "engineering",
+      "source_id": "aws-ml-blog",
+      "published_at": "2026-10-05T17:25:20.000Z",
+      "authors": [
+        "Bradley Wyman"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "software",
+      "value": 0.34,
+      "delta": 0,
+      "model": "Instinct AI agent",
+      "source_url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
+      "evidence_quote": "Instinct is launching group chats that let friends use its AI agent together for tasks like planning trips, organizing carpools, and coordinating events.",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "fe0411f88661ca91",
+      "title": "Instinct brings its AI agent to group chats, even for friends without an account",
+      "title_zh": "Instinct 把 AI 代理带入群聊，无需账号即可使用",
+      "title_zh_missing": false,
+      "companies": [
+        "Instinct"
+      ],
+      "concepts": [
+        "AI agent",
+        "group chat",
+        "permission control"
+      ],
+      "summary_zh": "Instinct 推出群聊功能，让用户在群组中共同使用其 AI 代理完成规划行程、拼车和协调活动等任务，个人账号保持独立，代理共享信息或执行操作前需获得授权。",
+      "keywords": [
+        "AI代理",
+        "群聊协作",
+        "任务协调"
+      ],
+      "why_zh": "AI 代理进入多人协作场景，承接行程与活动协调这类日常事务。",
+      "displacement": 0.2,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Instinct"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "TechCrunch · AI",
+      "source_group": "media",
+      "source_id": "techcrunch-ai",
+      "published_at": "2026-10-05T18:54:30.000Z",
+      "authors": [
+        "Sarah Perez"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "math",
+      "value": 0.32,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/",
+      "evidence_quote": "Mathematicians are facing the sudden shift with grief, anger, and a desperate search for fresh ideas",
+      "evidence_type": "news_report",
+      "confidence": 0.55,
+      "id": "68c27aec57395fb9",
+      "title": "Is AI the End of Math As We Know It?",
+      "title_zh": "Quanta：数学家担忧AI终结数学研究",
+      "title_zh_missing": false,
+      "companies": [
+        "Quanta Magazine"
+      ],
+      "concepts": [
+        "数学研究",
+        "职业焦虑"
+      ],
+      "summary_zh": "Quanta Magazine刊文讨论人工智能对数学研究的冲击，称数学家们以悲伤、愤怒和急于寻找新问题的复杂心态面对这一转变，并担忧若不适应，五十年后将不再有数学。",
+      "keywords": [
+        "数学研究",
+        "AI冲击",
+        "职业转型",
+        "Quanta"
+      ],
+      "why_zh": "记录数学家对AI介入研究工作的真实焦虑，本身不含能力证据。",
+      "displacement": 0.3,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "Quanta Magazine",
+      "source_group": "media",
+      "source_id": "quanta",
+      "published_at": "2026-10-05T13:40:07.000Z",
+      "authors": [
+        "Jordana Cepelewicz"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 0,
+      "domain_index": 0
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "healthcare",
+      "value": 0.3,
+      "delta": 0,
+      "model": "未指明",
+      "source_url": "https://blogs.nvidia.com/blog/ai-breast-cancer-startups/",
+      "evidence_quote": "A majority of women over age 40 skip the recommended annual screening.",
+      "evidence_type": "vendor_claim",
+      "confidence": 0.45,
+      "id": "2e62828caccf84a6",
+      "title": "From Scan to Treatment Plan, AI Helps Close Breast Cancer’s Deadliest Gaps",
+      "title_zh": "英伟达博客：AI瞄准乳腺癌筛查与治疗规划缺口",
+      "title_zh_missing": false,
+      "companies": [
+        "NVIDIA"
+      ],
+      "concepts": [
+        "乳腺癌筛查",
+        "医学影像",
+        "治疗规划"
+      ],
+      "summary_zh": "英伟达博客介绍AI在乳腺癌诊疗中的应用，指出美国40岁以上女性多数未做建议的年度筛查、放射科医生在人力减少下阅片量上升，并称诊断后指导治疗的检测结果往往要数周才能返回，AI有望缩短这一链条。",
+      "keywords": [
+        "乳腺癌",
+        "医学影像",
+        "筛查",
+        "治疗规划"
+      ],
+      "why_zh": "指向影像阅片与检测判读环节的自动化，但无产品验证数据",
+      "displacement": 0.22,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "NVIDIA Blog",
+      "source_group": "ai-lab",
+      "source_id": "nvidia-blog",
+      "published_at": "2026-10-05T13:00:57.000Z",
+      "authors": [
+        "Chelsea Sumner"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.905,
+      "domain_index": 0.7
+    },
+    {
+      "date": "2026-10-05",
+      "domain": "software",
+      "value": 0.26,
+      "delta": 0,
+      "model": "Gemini",
+      "source_url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
+      "evidence_quote": "Google may be expanding its \"Call for Me\" AI feature beyond business calls so you can use it to send messages to friends and family.",
+      "evidence_type": "news_report",
+      "confidence": 0.45,
+      "id": "1381a2be48dffbd0",
+      "title": "Gemini Call for Me might tell your mom you’re running late",
+      "title_zh": "谷歌 Gemini「Call for Me」或扩展到给亲友打电话",
+      "title_zh_missing": false,
+      "companies": [
+        "Google"
+      ],
+      "concepts": [
+        "Gemini",
+        "Call for Me",
+        "APK 拆包"
+      ],
+      "summary_zh": "Android Authority 在 APK 拆包中发现「Gemini Calling」引导页，示例包括「打电话告诉妈妈我会晚到 15 分钟」；The Verge 据此报道谷歌可能把 Gemini 的 Call for Me 功能从商务通话扩展到给亲友传话，该功能尚未正式发布。",
+      "keywords": [
+        "语音助手",
+        "自动通话",
+        "谷歌",
+        "功能泄露"
+      ],
+      "why_zh": "若落地，AI 可代用户完成日常通话这类人际事务，但目前仅为拆包传闻",
+      "displacement": 0.2,
+      "sector": "internet",
+      "relation": "indirect",
+      "direction": "advance",
+      "value_capped": "",
+      "value_basis": "",
+      "ai_systems": [
+        "Gemini"
+      ],
+      "evidence_verified": true,
+      "evidence_match_ratio": 1,
+      "source_name": "The Verge AI",
+      "source_group": "media",
+      "source_id": "verge-ai",
+      "published_at": "2026-10-05T23:09:55.000Z",
+      "authors": [
+        "Stevie Bonifield"
+      ],
+      "also_reported_by": [],
+      "cluster_size": 1,
+      "screened_by": "deepseek-flash",
+      "scored_by": "deepseek-flash",
+      "index_contribution": 0,
+      "domain_cumulative_after": 1.097,
+      "domain_index": 0.14
+    }
+  ]
+}
